@@ -24,11 +24,11 @@ url = 'https://smartstore.naver.com/blueindus/products/5488965225?NaPm=ct%3Dlb37
 driver.get(url)
 time.sleep(1)
 
-xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/ul'
-review_xpath = '//*[@id="content"]/div/div[3]/div[3]/ul/li[2]/a'
-next_xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/div/div/a[8]'
-filename = 'review.csv'
-pages = 10
+xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/ul' #리뷰 텍스트 xpath
+review_xpath = '//*[@id="content"]/div/div[3]/div[3]/ul/li[2]/a' #리뷰 탭
+next_xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/div/div/a[8]' #'다음' 버튼 xpath
+filename = 'review.csv' #저장할 파일명
+pages = 10 #몇 페이지 크롤링?
 driver.find_element(By.XPATH, review_xpath).click()
 time.sleep(1)
 
@@ -74,10 +74,7 @@ def get_review(xpath, next_xpath, num, filename):
           driver.find_element(By.XPATH, new_next_xpath).click()
 
     
-
+#실행
 get_review(xpath, next_xpath , pages , filename)
-
-# for i in range(5000):
-#   driver.find_element(By.XPATH, '//*[@id="REVIEW"]/div/div[3]/div[2]/div/div/a[8]').click()
 
 
