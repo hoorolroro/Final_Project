@@ -49,7 +49,7 @@ class Crawler:
     text = text.replace('\n', ' ').replace('리뷰 더보기 /접기', '').replace('평점', '\n평점')
     text = text.split('\n')
 
-    print(text)
+    # print(text)
     for i in range(0, len(text)):
       self.mask_data.append([text[i]])
 
@@ -100,16 +100,16 @@ if __name__ == '__main__' : #파이썬 파일을 직접 실행할 때만 실행�
   review_xpath = '//*[@id="content"]/div/div[3]/div[3]/ul/li[2]/a'
 
   crawler.get_mask_data(text_xpath, review_xpath)
-  for i in range(50):
+  for i in range(10):
     crawler.move_to_next_page(next_xpath)
     crawler.get_mask_data(text_xpath)
 
   #데이터 저장
-  filename = 'mask_data.csv'
+  filename = 'mask_data'
   crawler.export_data(filename)
 
 
   
-  # print(crawler.mask_data)
+  print(crawler.mask_data)
 
 
