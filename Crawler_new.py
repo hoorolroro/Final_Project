@@ -41,10 +41,11 @@ def get_review(xpath, next_xpath, num, filename):
       for i in range(num):
         review_data = []
         reviews = driver.find_element(By.XPATH, xpath).text # returns a list of webelements
-        review_data.append(reviews.replace('\n', ' '))
+        # print(reviews.replace("\n", ""))
+        review_data.append(reviews)
 
         #write to file using csvwriter
-        csvwriter = csv.writer(f)
+        csvwriter = csv.writer(f, escapechar='\\')
         csvwriter.writerow(review_data)
         # writer = csv.writer(f, escapechar='\\', quoting=csv.QUOTE_NONE)
         
@@ -69,7 +70,7 @@ def get_review(xpath, next_xpath, num, filename):
         review_data.append(reviews.replace('\n', ' '))
 
         #write to file using csvwriter
-        csvwriter = csv.writer(f)
+        csvwriter = csv.writer(f, escapechar='\\')
         csvwriter.writerow(review_data)
         # writer = csv.writer(f, escapechar='\\', quoting=csv.QUOTE_NONE)
         
