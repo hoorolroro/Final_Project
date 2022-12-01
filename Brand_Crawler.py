@@ -20,14 +20,15 @@ warnings.filterwarnings('ignore')
 driver = webdriver.Chrome('C:\\Users\\Lenovo\\Downloads\\chromedriver.exe')
 driver.implicitly_wait(3)
 
-url = 'https://brand.naver.com/welkeeps/products/4903263687?NaPm=ct%3Dlb4f0h8o%7Cci%3D2fc1bd47bfaba01ad41ed631cab5f7c57321117f%7Ctr%3Dslsl%7Csn%3D373482%7Chk%3D124e3a866ff6195b33a73056b61337f1865a23b4'
+url = 'https://brand.naver.com/cla/products/6450052240?NaPm=ct%3Dlb4gpl34%7Cci%3D23097fe7313cf89f313c0acbcfc862f2d4565f70%7Ctr%3Dslbrc%7Csn%3D410825%7Chk%3Deeef0f11d6c376ec300907bfd77cfe011c15c8b9'
 driver.get(url)
 time.sleep(1)
 
 xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/ul' #리뷰 텍스트 xpath
 num_xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/div/div/a[3]' #숫자 2번 버튼에 해당
+# //*[@id="REVIEW"]/div/div[3]/div[2]/div/div/a[4]
 review_xpath = '//*[@id="content"]/div/div[3]/div[3]/ul/li[2]/a' #리뷰 탭
-filename = 'test.csv' #저장할 파일명
+filename = '새부리형_CLA_KF94ㅇㅇ_대형.csv' #저장할 파일명
 pages = 1000 #몇 페이지 크롤링?
 driver.find_element(By.XPATH, review_xpath).click()
 time.sleep(1)
@@ -38,7 +39,7 @@ def get_review(xpath, num_xpath, num, filename):
   if not os.path.isfile(filename):
     with open(filename, 'w', encoding='utf-8') as f:
       #현제 페이지의 데이터 긁어오기
-      num_count = 3
+      num_count = 2
       for i in range(num):
         review_data = []
         reviews = driver.find_element(By.XPATH, xpath).text # returns a list of webelements
@@ -59,12 +60,12 @@ def get_review(xpath, num_xpath, num, filename):
         num_xpath = num_xpath[:46] + str(num_count) + ']'
 
         if num_count == 12 : #다음 버튼(12번)이 클릭되었을 경우, 누를 버튼번호를 초기화
-          num_count = 3        
+          num_count = 2        
 
   else :
     with open(filename, 'a', encoding='utf-8') as f:
       #현제 페이지의 데이터 긁어오기
-      num_count = 3
+      num_count = 2
       for i in range(num):
         review_data = []
         reviews = driver.find_element(By.XPATH, xpath).text # returns a list of webelements
@@ -85,7 +86,7 @@ def get_review(xpath, num_xpath, num, filename):
         num_xpath = num_xpath[:46] + str(num_count) + ']'
 
         if num_count == 12 : #다음 버튼(12번)이 클릭되었을 경우, 누를 버튼번호를 초기화
-          num_count = 3        
+          num_count = 2        
 
 
 
