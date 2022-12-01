@@ -17,17 +17,17 @@ import csv
 warnings.filterwarnings('ignore')
 
 
-driver = webdriver.Chrome('C:\\Users\\Lenovo\\Downloads\\chromedriver.exe')
+driver = webdriver.Chrome('C:\\Users\\playdata\\Downloads\\chromedriver.exe')
 driver.implicitly_wait(3)
 
-url = 'https://smartstore.naver.com/blueindus/products/5488965225?NaPm=ct%3Dlb37xlg8%7Cci%3D3f1df9bd76b80e9a7b10b33335c88cfd89747fee%7Ctr%3Dslsl%7Csn%3D2479543%7Chk%3Ddad1a5d28fccb7a8163f989bca4d37cd044aa5d6#REVIEW'
+url = 'https://smartstore.naver.com/echopear/products/4196059241'
 driver.get(url)
 time.sleep(1)
 
 xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/ul' #리뷰 텍스트 xpath
 review_xpath = '//*[@id="content"]/div/div[3]/div[3]/ul/li[2]/a' #리뷰 탭
 next_xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/div/div/a[8]' #'다음' 버튼 xpath
-filename = 'review.csv' #저장할 파일명
+filename = '입체형_뉴네퓨어_kf94_소형.csv' #저장할 파일명
 pages = 1000 #몇 페이지 크롤링?
 driver.find_element(By.XPATH, review_xpath).click()
 time.sleep(1)

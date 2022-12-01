@@ -17,7 +17,7 @@ import csv
 warnings.filterwarnings('ignore')
 
 
-driver = webdriver.Chrome('C:\\Users\\Lenovo\\Downloads\\chromedriver.exe')
+driver = webdriver.Chrome('C:\\Users\\playdata\\Downloads\\chromedriver.exe')
 driver.implicitly_wait(3)
 
 url = 'https://brand.naver.com/cla/products/6450052240?NaPm=ct%3Dlb4gpl34%7Cci%3D23097fe7313cf89f313c0acbcfc862f2d4565f70%7Ctr%3Dslbrc%7Csn%3D410825%7Chk%3Deeef0f11d6c376ec300907bfd77cfe011c15c8b9'
