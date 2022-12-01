@@ -17,18 +17,18 @@ import csv
 warnings.filterwarnings('ignore')
 
 
-driver = webdriver.Chrome('C:\\Users\\Lenovo\\Downloads\\chromedriver.exe')
+driver = webdriver.Chrome('C:\\Users\\playdata\\Downloads\\chromedriver.exe')
 driver.implicitly_wait(3)
 
-url = 'https://brand.naver.com/welkeeps/products/4903263687?NaPm=ct%3Dlb4f0h8o%7Cci%3D2fc1bd47bfaba01ad41ed631cab5f7c57321117f%7Ctr%3Dslsl%7Csn%3D373482%7Chk%3D124e3a866ff6195b33a73056b61337f1865a23b4'
+url = 'https://brand.naver.com/drpuri/products/4992520803?NaPm=ct%3Dlb4ho120%7Cci%3D4dc56c29cdecc0d83694a412b977078350231a7d%7Ctr%3Dslsl%7Csn%3D820778%7Chk%3D9205b26309aeeb293cbe41e734450edc2a4104e7'
 driver.get(url)
 time.sleep(1)
 
 xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/ul' #리뷰 텍스트 xpath
 num_xpath = '//*[@id="REVIEW"]/div/div[3]/div[2]/div/div/a[3]' #숫자 2번 버튼에 해당
-review_xpath = '//*[@id="content"]/div/div[3]/div[3]/ul/li[2]/a' #리뷰 탭
-filename = 'test.csv' #저장할 파일명
-pages = 1000 #몇 페이지 크롤링?
+review_xpath = '//*[@id="content"]/div/div[3]/div[4]/ul/li[2]/a' #리뷰 탭
+filename = '입체형_닥터퓨리_kf80_대형.csv' #저장할 파일명
+pages = 1500 #몇 페이지 크롤링?
 driver.find_element(By.XPATH, review_xpath).click()
 time.sleep(1)
 
