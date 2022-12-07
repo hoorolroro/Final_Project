@@ -117,5 +117,3 @@ if __name__ == '__main__' : #파이썬 파일을 직접 실행할 때만 실행�
   crawler.export_data(filename)
 
   print(crawler.mask_data)
-
-
