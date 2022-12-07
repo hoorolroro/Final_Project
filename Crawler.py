@@ -101,7 +101,7 @@ if __name__ == '__main__' : #파이썬 파일을 직접 실행할 때만 실행�
 
   crawler.get_mask_data(text_xpath, review_xpath)
   count = 0
-  for i in range(100):
+  for i in range(10):
     if i < 4:
       crawler.move_to_next_page(next_xpath)
       next_xpath = next_xpath[:-2] + str(int(next_xpath[-2]) + 1) + next_xpath[-1]
