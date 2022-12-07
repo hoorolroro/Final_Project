@@ -1,5 +1,10 @@
 import re
 
+# - 처음에 컬럼에 NaN만 있는 row는 원래 값이 없는 경우일듯 .. (리뷰00,000건 ~~~ 어쩌구 있던 부분)
+#     - score가 남은 것은 리뷰수 맨앞의 숫자가 들어간듯함
+# - utf-8 or cp949 확인필요 !
+# - 옵션명 마스크마다 확인필요 !
+
 def get_review_info(review_str):
 
   #1. 평점 추출 
@@ -160,5 +165,3 @@ def preprocess_reviews(filename, new_filename):
     print("done")
 
 preprocess_reviews("/content/입체형_네퓨어_Kfad_소형.csv", "/content/입체형_네퓨어_Kfad_소형_preprocessed.csv")
-
-# ⭐ df로 확인했을 때, 모든 컬럼이 NaN만 있는 row는 애초에 값이 없는 것 !!! (리뷰00,000건 ~~~ 어쩌구 있던 부분)
