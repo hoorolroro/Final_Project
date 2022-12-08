@@ -1,5 +1,7 @@
 package com.spring.masinsa.dto;
 
+import com.spring.masinsa.entity.Member;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,6 +17,17 @@ public class MemberDTO {
 	private String nickname;
 	private String sex;
 	private String age_group;
-	private String birth_date;
+	private String birth;
+	
+	// DTO -> Entity 변환
+	public Member dtoToEntity(MemberDTO memberDTO) {
+		Member member = Member.builder()
+							  .nickname(memberDTO.getNickname())
+							  .sex(memberDTO.getSex())
+							  .age_group(memberDTO.getAge_group())
+							  .birth(memberDTO.getBirth())
+							  .build();
+		return member;	  
+	}
 	
 }

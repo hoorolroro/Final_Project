@@ -9,6 +9,6 @@ import com.spring.masinsa.repository.MemberRepository;
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
-	MemberRepository MemberRepo;
+	MemberRepository memberRepo;
 	
 }
