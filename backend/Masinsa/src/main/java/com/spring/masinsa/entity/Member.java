@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.spring.masinsa.dto.MemberDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -31,6 +33,18 @@ public class Member {
 	
 	private String age_group;
 	
-	private String birth_date;
+	@Column(name = "birth_date")
+	private String birth;
+	
+	// Entity -> DTO 변환
+	public MemberDTO entityToDTO(Member member) {
+		MemberDTO memberDTO = MemberDTO.builder()
+										.nickname(member.getNickname())
+										.sex(member.getSex())
+										.age_group(member.getAge_group())
+										.birth(member.getBirth())
+										.build();
+		return memberDTO;
+	}
 	
 }
