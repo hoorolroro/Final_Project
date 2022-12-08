@@ -1,11 +1,14 @@
 package com.spring.masinsa.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.masinsa.dto.MaskDTO;
 import com.spring.masinsa.entity.Mask;
 import com.spring.masinsa.entity.SoldoutStatus;
+import com.spring.masinsa.mapper.MaskMapper;
 import com.spring.masinsa.repository.MaskRepository;
 
 @Service
@@ -14,6 +17,9 @@ public class MaskServiceImpl implements MaskService {
 	@Autowired
 	MaskRepository maskRepo;
 	
+	@Autowired
+	MaskMapper maskMapper;
+	
 	@Override
 	public MaskDTO getMask(Long maskId) {
 		Mask mask = maskRepo.findMaskById(maskId);
@@ -21,11 +27,10 @@ public class MaskServiceImpl implements MaskService {
 		return maskDTO;
 	}
 	
-//	@Override - mask&image 외래키 join 설정 적용 필요
-//	public String getMaskDetailImage(Long maskId) {
-//		Mask mask = maskRepo.findMaskById(maskId);
-//		String url = mask.get
-//	}
+	@Override 
+	public List<String> getAllImages(Long maskId) {
+		return maskMapper.getAllImages(maskId);
+	}
 	
 //	@Override - batch 적용
 //	public MaskDTO getMaskByKeyword(String keyword) {
