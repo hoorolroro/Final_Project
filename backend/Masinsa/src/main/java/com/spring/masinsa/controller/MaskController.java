@@ -1,6 +1,5 @@
 package com.spring.masinsa.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class MaskController {
 	
 	@Autowired
 	MaskServiceImpl maskService;
-	
+
 	
 	// maskID를 통해 마스크 정보 조회
 	@GetMapping("/mask")
@@ -40,11 +39,13 @@ public class MaskController {
 //		}
 	
 	// maskId를 통해 마스크 상세 이미지 조회
-	@GetMapping("/mask/detail")
-	public MaskDTO getMaskDetailImage(@RequestParam Long maskId) {
-		MaskDTO maskDTO = null;
-		maskDTO = maskService.getMask(maskId);
-		return maskDTO;
+	@GetMapping("/mask/image")
+	public List<String> getMaskDetailImage(@RequestParam Long maskId) {
+		List<String> imageUrlList = maskService.getAllImages(maskId);
+		
+		System.out.println(imageUrlList);
+
+		return imageUrlList;
 	}
 	
 	// maskId와 soldout을 통해 마스크 품절 여부 수정
