@@ -7,8 +7,6 @@ function MyPage() {
   const name = "고객";
   return (
     <div>
-      <Header />
-      <hr></hr>
       <h3>"안녕하세요"</h3>
       <h2>{name}님</h2>
       {/* 찜목록 */}

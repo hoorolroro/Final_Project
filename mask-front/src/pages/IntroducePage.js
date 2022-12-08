@@ -4,8 +4,6 @@ import Header from "../components/Header";
 function IntroducePage() {
   return (
     <div>
-      <Header />
-      <hr></hr>
       <div>
         <h2>마신사는 다릅니다 !</h2>
         <li>1. 어쩌구</li>

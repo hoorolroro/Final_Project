@@ -1,9 +1,10 @@
 import React from "react";
+import IconCheckboxes from "../styles/WishBtnStyle";
 
 function WishBtn() {
   return (
     <div>
-      <button>♥찜하기</button>
+      <IconCheckboxes />
     </div>
   );
 }

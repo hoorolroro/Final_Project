@@ -12,8 +12,6 @@ function AboutPage() {
   const { maskId } = useParams();
   return (
     <div>
-      <Header />
-      <hr></hr>
       {/* 마스크기본정보 */}
       <MaskInfo maskId={maskId} />
       {/* 리뷰통계 */}

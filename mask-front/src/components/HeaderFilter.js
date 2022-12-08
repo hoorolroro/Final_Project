@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 function HeaderFilter() {
   return (
@@ -10,8 +11,8 @@ function HeaderFilter() {
       <a href="/MaskList/Masinsa/KF80">
         <li>KF80</li>
       </a>
-      <a href="/MaskList/Masinsa/KF-AD">
-        <li>KF-AD</li>
+      <a href="/MaskList/Masinsa/KFAD">
+        <li>KFAD</li>
       </a>
     </div>
   );
