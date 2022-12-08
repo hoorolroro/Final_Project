@@ -37,7 +37,7 @@ public class Member {
 	private String birth;
 	
 	// Entity -> DTO 변환
-	public MemberDTO entityToDTO(Member member) {
+	public static MemberDTO entityToDTO(Member member) {
 		MemberDTO memberDTO = MemberDTO.builder()
 										.nickname(member.getNickname())
 										.sex(member.getSex())
