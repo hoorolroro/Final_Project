@@ -6,8 +6,13 @@ import Other from "../components/dashboard/Other";
 function DashBoardPage() {
   return (
     <div>
+      <h1>Masinsa DashBoard</h1>
+      <hr></hr>
+      {/* 접속자수 */}
       <Access />
+      {/* 로그인사람수 */}
       <LoginPeople />
+      {/* 다른통계 */}
       <Other />
     </div>
   );

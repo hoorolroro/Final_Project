@@ -4,13 +4,18 @@ import MemberReview from "./MemberReview";
 import ReviewLists from "./ReviewLists";
 import Pagination from "../Pagination";
 
+// 수정이 필요한 부분 !
 function Reviews() {
   return (
     <div>
-      <NaverReview />
-      <MemberReview />
-      <ReviewLists />
-      <Pagination />
+      {/* 버튼이 눌렸을때, 네이버리뷰가 true면 NaverReview false면 회원리뷰 */}
+
+      <div>
+        <NaverReview />
+      </div>
+      <div>
+        <MemberReview />
+      </div>
     </div>
   );
 }
