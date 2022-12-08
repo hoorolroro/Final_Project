@@ -28,7 +28,7 @@ public class MaskDTO {
 	private Float avg_score;
 	
 	// DTO -> Entity 변환
-	public Mask dtoToEntity(MaskDTO maskDTO) {
+	public static Mask dtoToEntity(MaskDTO maskDTO) {
 		Mask mask = Mask.builder()
 						 .name(maskDTO.getName())
 						 .size(maskDTO.getSize())

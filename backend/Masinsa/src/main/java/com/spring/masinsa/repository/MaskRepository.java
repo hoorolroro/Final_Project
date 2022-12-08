@@ -7,5 +7,7 @@ import com.spring.masinsa.entity.Mask;
 
 @Repository
 public interface MaskRepository extends JpaRepository<Mask, Long> {
-
+	public Mask findMaskById(Long maskId);
+	
+	
 }
