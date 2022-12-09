@@ -42,18 +42,14 @@ public class AnalysisInfo {
 	@OneToOne
 	@JoinColumn(name="mask_id")
 	private Mask mask;
-	
-	// Entity -> DTO 변환
-	public static AnalysisInfoDTO entityToDTO(AnalysisInfo analysisInfo) {
-		AnalysisInfoDTO analysisInfoDTO = AnalysisInfoDTO.builder()
-														 .id(analysisInfo.getId())
-														 .relatvieSize(analysisInfo.getRelatvieSize())
-														 .fit(analysisInfo.getFit())
-														 .breathAbility(analysisInfo.getBreathAbility())
-														 .delivery(analysisInfo.getDelivery())
-														 .maskId(analysisInfo.getMask().getId())
-														 .build();
-		return analysisInfoDTO;
+
+	public static AnalysisInfoDTO entityToDTO (AnalysisInfo analysisInfo) {
+		return AnalysisInfoDTO.builder()
+				.id(analysisInfo.getId())
+				.relatvieSize(analysisInfo.getRelatvieSize())
+				.fit(analysisInfo.getFit())
+				.breathAbility(analysisInfo.getBreathAbility())
+				.delivery(analysisInfo.getDelivery())
+				.build();
 	}
-	
 }

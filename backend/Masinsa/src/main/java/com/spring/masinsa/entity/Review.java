@@ -50,18 +50,17 @@ public class Review {
 	@Column(name = "review_type")
 	private ReviewType reviewType;
 	
-	// Entity -> DTO 변환
 	public static ReviewDTO entityToDTO(Review review) {
 		ReviewDTO reviewDTO = ReviewDTO.builder()
-										.id(review.getId())
-										.maskId(review.getMask().getId())
-										.memberId(review.getMember().getId())
-										.score(review.getScore())
-										.option(review.getOption())
-										.content(review.getContent())
-										.reviewType(review.getReviewType())
-										.build();
+				.id(review.getId())
+				.memberId(review.getMember().getId())
+				.memberNickname(review.getMember().getNickname())
+				.maskId(review.getMask().getId())
+				.score(review.getScore())
+				.option(review.getOption())
+				.content(review.getContent())
+				.reviewType(review.getReviewType())
+				.build();
 		return reviewDTO;
 	}
-	
 }
