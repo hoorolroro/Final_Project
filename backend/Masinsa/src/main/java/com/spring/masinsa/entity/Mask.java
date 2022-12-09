@@ -62,10 +62,17 @@ public class Mask {
 	@Column(name = "soldout_status")
 	private SoldoutStatus soldout; 
 	
-	private Float avg_score;
+	@Column(name = "avg_score")
+	private Float avgScore;
 	
 	@OneToMany(mappedBy = "mask")
 	private List<Image> images = new ArrayList<Image>();
+	
+	@OneToMany(mappedBy = "mask")
+	private List<WishList> wishlist = new ArrayList<WishList>();
+	
+	@OneToMany(mappedBy = "mask")
+	private List<Review> reviews = new ArrayList<Review>();
 	
 	// Entity -> DTO 변환
 	public static MaskDTO entityToDTO(Mask mask) {
@@ -81,7 +88,7 @@ public class Mask {
 								 .thumbnail(mask.getThumbnail())
 								 .click(mask.getClick())
 								 .soldout(mask.getSoldout())
-								 .avg_score(mask.getAvg_score())
+								 .avgScore(mask.getAvgScore())
 								 .build();
 		return maskDTO;
 	}
