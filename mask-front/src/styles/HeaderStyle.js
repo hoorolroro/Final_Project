@@ -2,20 +2,22 @@ import React from "react";
 import styled from "styled-components";
 
 // 로고 + 로그인, 마이페이지 + 차단지수가 담긴 header div
-export const HeaderDiv = styled.div`
-  width: 100%;
+export const HeaderDiv = styled.section`
+  width: auto;
   height: 130px;
-  //   border: 1px solid red;
+  // border: 1px solid red;
+  // margin: 5px;
+  background: #05735f;
 `;
 
 // header에서 차단지수를 제외한 윗부분 div
 export const TopDiv = styled.div`
-  width: 100%;
+  width: auto;
   height: 75px;
   padding-top: 2px;
   padding-bottom: 3px;
   // border: 1px solid green;
-  background: #05735f;
+  // background: #05735f;
 `;
 
 // 로고 Img 스타일
@@ -24,7 +26,7 @@ export const LogoImg = styled.img`
   height: 100%;
   float: left;
   //   border: 1px solid skyblue;
-  padding-left: 10px;
+  // padding-left: 10px;
 `;
 
 // 마이페이지, 네이버버튼을 담은 div
@@ -61,10 +63,10 @@ export const LoginBtnStyle = styled.button`
 
 // 차단지수를 담은 div
 export const BockingIndexDiv = styled.div`
-  width: 100%;
+  width: auto;
   height: 45px;
   //   border: 1px solid blue;
-  //   padding-top: 1px;
+  padding-top: 5px;
 `;
 
 // 차단지수Btn
