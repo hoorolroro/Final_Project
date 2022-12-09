@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class AnalysisInfoDTO {
 	
 	private Long id;
+	private Long maskId;
 	private String relatvieSize;
 	private String fit;
 	private String breathAbility;
