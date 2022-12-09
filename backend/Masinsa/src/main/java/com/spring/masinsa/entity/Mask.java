@@ -1,10 +1,20 @@
 package com.spring.masinsa.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.DynamicUpdate;
+
+import com.spring.masinsa.dto.MaskDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +22,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@DynamicUpdate
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,7 +43,8 @@ public class Mask {
 	
 	private Long price;
 	
-	private String blocking_index;
+	@Column(name = "blocking_index")
+	private String kf;
 	
 	private String shape;
 	
@@ -43,11 +55,43 @@ public class Mask {
 	@Column(name = "thumbnail_image_url")
 	private String thumbnail;
 	
-	private Long click_num;
+	@Column(name = "click_num")
+	private Long click;
 	
-	private String soldout_status; // enum으로 하려면 어찌해야 될까...
+	@Enumerated(EnumType.STRING)
+	@Column(name = "soldout_status")
+	private SoldoutStatus soldout; 
 	
 	private Float avg_score;
 	
+	@OneToMany(mappedBy = "mask")
+	private List<Image> images = new ArrayList<Image>();
+	
+	// Entity -> DTO 변환
+	public static MaskDTO entityToDTO(Mask mask) {
+		MaskDTO maskDTO = MaskDTO.builder()
+								 .id(mask.getId())
+								 .name(mask.getName())
+								 .size(mask.getSize())
+								 .price(mask.getPrice())
+								 .kf(mask.getKf())
+								 .shape(mask.getShape())
+								 .color(mask.getColor())
+								 .unit(mask.getUnit())
+								 .thumbnail(mask.getThumbnail())
+								 .click(mask.getClick())
+								 .soldout(mask.getSoldout())
+								 .avg_score(mask.getAvg_score())
+								 .build();
+		return maskDTO;
+	}
+	
+	public void updateClick() {
+		this.click = click + 1;
+	}
+	
+	public void updateSoldout(SoldoutStatus soldout) {
+		this.soldout = soldout; // @DynamicUpdate 적용으로 나머지 컬럼의 데이터는 보존되는 동시에 soldout만 변경이 가능
+	}
 	
 }
