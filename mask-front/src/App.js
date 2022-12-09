@@ -9,12 +9,8 @@ import { Route, Routes } from "react-router-dom";
 import RecentView from "./components/RecentView";
 import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
-import { useState } from "react";
 
 function App() {
-  const [bolockingIndex, setBolockingIndex] = useState("");
-  console.log(bolockingIndex);
-
   return (
     <div className="App">
       {/* mui 사용을 위한 코드 */}
@@ -28,7 +24,6 @@ function App() {
       />
       {/* 헤더부분 */}
       <Header />
-      <hr></hr>
       <Routes>
         {/* 메인페이지 :  "http://localhost:3000/" */}
         <Route path="/" element={<MainPage />} />

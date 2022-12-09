@@ -6,7 +6,7 @@ import { pink } from "@mui/material/colors";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-export default function IconCheckboxes() {
+export default function WishBtnStyle() {
   return (
     <div>
       <Checkbox

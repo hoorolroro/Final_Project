@@ -1,10 +1,10 @@
 import React from "react";
-import IconCheckboxes from "../styles/WishBtnStyle";
+import WishBtnStyle from "../styles/WishBtnStyle";
 
 function WishBtn() {
   return (
     <div>
-      <IconCheckboxes />
+      <WishBtnStyle />
     </div>
   );
 }
