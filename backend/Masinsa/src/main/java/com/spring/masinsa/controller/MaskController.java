@@ -48,7 +48,7 @@ public class MaskController {
 	
 	@GetMapping("/mask/image2")
 	public List<Image> getMaskDetailImages(@RequestParam Long maskId) {
-		List<Image> imageList = maskService.getAllImageOb(maskId);
+		List<Image> imageList = maskService.getAllImagesOb(maskId);
 		return imageList;
 	}
 	
