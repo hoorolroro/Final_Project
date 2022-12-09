@@ -9,8 +9,43 @@
     SELECT image_url FROM image WHERE mask_id = #{maskId};
   </select>
   
-  <select id="getAllImagesOb" resultType="com.spring.masinsa.entity.Image">
+  
+  <select id="getAllImagesOb" resultMap="getAllImages">
     SELECT * FROM image WHERE mask_id = #{maskId};
   </select>
+
+  <resultMap id="getAllImages" type="com.spring.masinsa.entity.Image">
+  	<id column="image_id" property="id" />
+  	<result column="image_url" property="imageUrl" />
+  	<result column="image_type" property="imageType" />
+  	<collection property="mask" ofType="com.spring.masinsa.entity.Mask">
+  		<id column="mask_id" property="id" />
+  	</collection>
+ </resultMap>
+ 
+ 
+  <select id="getAllMask" resultMap="getAllMaskInfo">
+    SELECT * FROM mask WHERE blocking_index = #{kf} OR size = #{size} OR shape = #{shape};
+  </select>
+
+  <select id="getSortedMasks" resultMap="getAllMaskInfo">
+    SELECT * FROM mask ORDER BY #{standard} ASC;
+  </select>
+  
+  <resultMap id="getAllMaskInfo" type="com.spring.masinsa.entity.Mask">
+  	<id column="mask_id" property="id" />
+  	<result column="mask_name" property="name" />
+  	<result column="size" property="size" />
+  	<result column="price" property="price" />
+  	<result column="blocking_index" property="kf" />
+  	<result column="shape" property="shape" />
+  	<result column="color" property="color" />
+  	<result column="unit" property="unit" />
+  	<result column="thumbnail_image_url" property="thumbnail" />
+  	<result column="click_num" property="click" />
+  	<result column="soldout_status" property="soldout" />
+  	<result column="avg_score" property="avgScore" />
+  </resultMap>
+  	
 
 </mapper>
