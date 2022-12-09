@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.masinsa.dto.MaskDTO;
+import com.spring.masinsa.entity.Image;
 import com.spring.masinsa.entity.Mask;
 import com.spring.masinsa.entity.SoldoutStatus;
 import com.spring.masinsa.mapper.MaskMapper;
@@ -61,6 +62,11 @@ public class MaskServiceImpl implements MaskService {
 		Mask mask = maskRepo.findMaskById(maskId);
 		mask.updateClick();
 		maskRepo.save(mask);
+	}
+	
+	public List<Image> getAllImagesOb(Long maskId) {
+		List<Image> images = maskMapper.getAllImagesOb(maskId);
+		return images;
 	}
 	
 }

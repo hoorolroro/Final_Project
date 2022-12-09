@@ -1,10 +1,14 @@
 package com.spring.masinsa.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.spring.masinsa.dto.MemberDTO;
 
@@ -35,6 +39,9 @@ public class Member {
 	
 	@Column(name = "birth_date")
 	private String birth;
+	
+	@OneToMany(mappedBy = "member")
+	private List<WishList> wishlist = new ArrayList<WishList>();
 	
 	// Entity -> DTO 변환
 	public static MemberDTO entityToDTO(Member member) {
