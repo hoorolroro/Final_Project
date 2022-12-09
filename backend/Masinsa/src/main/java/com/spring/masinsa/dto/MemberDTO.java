@@ -22,6 +22,7 @@ public class MemberDTO {
 	// DTO -> Entity 변환
 	public static Member dtoToEntity(MemberDTO memberDTO) {
 		Member member = Member.builder()
+							  .id(memberDTO.getId())
 							  .nickname(memberDTO.getNickname())
 							  .sex(memberDTO.getSex())
 							  .age_group(memberDTO.getAge_group())

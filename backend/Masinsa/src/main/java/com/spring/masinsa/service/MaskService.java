@@ -10,7 +10,6 @@ public interface MaskService  {
 	public void deleteMask(Long maskId);
 	public void updateSoldout(Long maskId, String soldout);
 	public void updateClick(Long maskId);
-//	public MaskDTO getMaskByKeyword(String keyword);
 	public List<String> getAllImages(Long maskId);
 	
 	

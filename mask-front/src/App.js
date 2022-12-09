@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import AboutPage from "./pages/AboutPage";
 import DashBoardPage from "./pages/DashBoardPage";
@@ -7,12 +6,24 @@ import ListPage from "./pages/ListPage";
 import MainPage from "./pages/MainPage";
 import MyPage from "./pages/MyPage";
 import { Route, Routes } from "react-router-dom";
+import RecentView from "./components/RecentView";
+import UpBtn from "./components/UpBtn";
+import Header from "./components/Header";
 
 function App() {
-  //  위로가기 버튼, 최근본상품은 어떻게 계속 띄워놓을까 ..
-
   return (
     <div className="App">
+      {/* mui 사용을 위한 코드 */}
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      />
+      {/* 헤더부분 */}
+      <Header />
       <Routes>
         {/* 메인페이지 :  "http://localhost:3000/" */}
         <Route path="/" element={<MainPage />} />
@@ -32,6 +43,8 @@ function App() {
         {/* 대시보드페이지 : "http://localhost:3000/DashBoard/Masinsa" */}
         <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />
       </Routes>
+      <RecentView />
+      <UpBtn />
     </div>
   );
 }

@@ -44,6 +44,8 @@ public class Image {
 	// Entity -> DTO 변환
 	public static ImageDTO entityToDTO(Image image) {
 		ImageDTO imageDTO = ImageDTO.builder()
+									.id(image.getId())
+									.maskId(image.getMask().getId())
 									.imageUrl(image.getImageUrl())
 									.imageType(image.getImageType())
 									.build();

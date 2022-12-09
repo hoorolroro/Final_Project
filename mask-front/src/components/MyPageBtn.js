@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { MyPageBtnStyle } from "../styles/HeaderStyle";
 
 function MyPageBtn() {
   return (
     <div>
       <Link to="/:memberId/MyPage/Masinsa">
-        <button>Go MyPage</button>
+        <MyPageBtnStyle>Go MyPage</MyPageBtnStyle>
       </Link>
     </div>
   );

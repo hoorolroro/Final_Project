@@ -1,10 +1,12 @@
 package com.spring.masinsa.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.masinsa.dto.ImageDTO;
 import com.spring.masinsa.dto.MaskDTO;
 import com.spring.masinsa.entity.Image;
 import com.spring.masinsa.entity.Mask;
@@ -64,9 +66,29 @@ public class MaskServiceImpl implements MaskService {
 		maskRepo.save(mask);
 	}
 	
-	public List<Image> getAllImagesOb(Long maskId) {
-		List<Image> images = maskMapper.getAllImagesOb(maskId);
-		return images;
+	public List<ImageDTO> getAllImagesOb(Long maskId) {
+		List<Image> imageList = maskMapper.getAllImagesOb(maskId);
+		System.out.println(imageList);
+		List<ImageDTO> imageDTOList = imageList.stream()
+											.map(image -> Image.entityToDTO(image))
+											.collect(Collectors.toList());
+		return imageDTOList;
+	}
+	
+	public List<MaskDTO> getAllMask(String kf, String size, String shape) {
+		List<Mask> maskList = maskMapper.getAllMask(kf, size, shape);
+		List<MaskDTO> maskDTOList = maskList.stream()
+											.map(mask -> Mask.entityToDTO(mask))
+											.collect(Collectors.toList());
+		return maskDTOList;
+	}
+	
+	public List<MaskDTO> getSortedMasks(String standard) {
+		List<Mask> maskList = maskMapper.getSortedMasks(standard);
+		List<MaskDTO> maskDTOList = maskList.stream()
+											.map(mask -> Mask.entityToDTO(mask))
+											.collect(Collectors.toList());
+		return maskDTOList;
 	}
 	
 }

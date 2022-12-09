@@ -22,6 +22,7 @@ public class DashBoardDTO {
 	// DTO -> Entity 변환
 	public static DashBoard dtoToEntity(DashBoardDTO dashBoardDTO) {
 		DashBoard dashBoard = DashBoard.builder()
+									   .date(dashBoardDTO.getDate())
 									   .connectionCount(dashBoardDTO.getConnectionCount())
 									   .loginCount(dashBoardDTO.getLoginCount())
 									   .build();
