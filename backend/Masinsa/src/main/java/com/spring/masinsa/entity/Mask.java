@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.spring.masinsa.dto.MaskDTO;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +31,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @Builder
+@JsonInclude(content = Include.NON_NULL)
 public class Mask {
 	
 	@Id

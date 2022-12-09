@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.masinsa.dto.ImageDTO;
 import com.spring.masinsa.dto.MaskDTO;
-import com.spring.masinsa.entity.Image;
 import com.spring.masinsa.service.MaskServiceImpl;
 
 @CrossOrigin({"*"})
@@ -21,55 +21,55 @@ public class MaskController {
 	@Autowired
 	MaskServiceImpl maskService;
 
-	
-	// maskID를 통해 마스크 정보 조회
+	// 5번 - maskID를 통해 마스크 정보 조회
 	@GetMapping("/mask")
 	public MaskDTO getMask(@RequestParam Long maskId) {
-		MaskDTO maskDTO = null;
-		maskDTO = maskService.getMask(maskId);
-		return maskDTO;
+		return maskService.getMask(maskId);
 	}
 	
-//	// 상품명에 관련된 keyword를 입력받아 해당 keyword가 상품명에 있으면 출력 (Batch이용 -> 내일 해보기로..)
-//		@GetMapping("/mask/keyword")
-//		public List<MaskDTO> getMaskByKeyword(@RequestParam String keyword) {
-//			List<MaskDTO> maskList = new ArrayList<MaskDTO>();
-//			
-//			maskDTO = maskService.getMaskByKeyword(keyword);
-//			return maskDTO;
-//		}
-	
-	// maskId를 통해 마스크 상세 이미지 조회
+	// 12번 - maskId를 통해 마스크 상세 이미지 조회
 	@GetMapping("/mask/image")
 	public List<String> getMaskDetailImage(@RequestParam Long maskId) {
-		List<String> imageUrlList = maskService.getAllImages(maskId);
-		return imageUrlList;
+		return maskService.getAllImages(maskId);
 	}
 	
+	// 9번 - kf, size, shape를 이용하여 검색결과 조회 (필터링)
+	@GetMapping("/mask/filter")
+	public List<MaskDTO> getMaskByFilter(@RequestParam(required = false) String kf, 
+									  @RequestParam(required = false) String size, 
+									  @RequestParam(required = false) String shape){
+		return maskService.getAllMask(kf, size, shape);
+	}
+	
+	// maskId를 통해 해당 마스크의 모든 이미지 조회
 	@GetMapping("/mask/image2")
-	public List<Image> getMaskDetailImages(@RequestParam Long maskId) {
-		List<Image> imageList = maskService.getAllImagesOb(maskId);
-		return imageList;
+	public List<ImageDTO> getMaskDetailImages(@RequestParam Long maskId) {
+		return maskService.getAllImagesOb(maskId);
 	}
 	
-	// maskId와 soldout을 통해 마스크 품절 여부 수정
+	// 10번 - standard를 통해 마스크 해당 기준으로 정렬 (해결 필요...)
+	@GetMapping("/mask/sort")
+	public List<MaskDTO> getSortedMasks(@RequestParam String standard) {
+		return maskService.getSortedMasks(standard);
+	}
+	
+	// 6번 - maskId와 soldout을 통해 마스크 품절 여부 수정
 	@PutMapping("/mask/soldout")
 	public void updateSoldout(@RequestParam Long maskId, @RequestParam String soldout) {
 		maskService.updateSoldout(maskId, soldout);
 	}
 	
-	// maskId를 통해 해당 마스크의 클릭수 1 추가
+	// 7번 - maskId를 통해 해당 마스크의 클릭수 1 추가
 	@PutMapping("/mask/click")
 	public void updateClick(@RequestParam Long maskId) {
 		maskService.updateClick(maskId);
 	}
 	
-	// maskId를 통해 마스크 정보 삭제
+	// 8번 - maskId를 통해 마스크 정보 삭제
 	@DeleteMapping("/mask")
 	public void deleteMask(@RequestParam Long maskId) {
 		maskService.deleteMask(maskId);
 	}
-	
 	
 	
 }

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.spring.masinsa.dto.ReviewDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -47,5 +49,19 @@ public class Review {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "review_type")
 	private ReviewType reviewType;
+	
+	// Entity -> DTO 변환
+	public static ReviewDTO entityToDTO(Review review) {
+		ReviewDTO reviewDTO = ReviewDTO.builder()
+										.id(review.getId())
+										.maskId(review.getMask().getId())
+										.memberId(review.getMember().getId())
+										.score(review.getScore())
+										.option(review.getOption())
+										.content(review.getContent())
+										.reviewType(review.getReviewType())
+										.build();
+		return reviewDTO;
+	}
 	
 }
