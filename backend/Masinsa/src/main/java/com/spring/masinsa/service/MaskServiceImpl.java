@@ -64,8 +64,9 @@ public class MaskServiceImpl implements MaskService {
 		maskRepo.save(mask);
 	}
 	
-	public List<Image> getAllImageOb(Long maskId) {
-		return maskMapper.getAllImagesOb(maskId);
+	public List<Image> getAllImagesOb(Long maskId) {
+		List<Image> images = maskMapper.getAllImagesOb(maskId);
+		return images;
 	}
 	
 }

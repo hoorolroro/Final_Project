@@ -15,4 +15,5 @@ public class WishListDTO {
 	private Long id;
 	private Mask maskId;
 	private Member memberId;
+
 }
