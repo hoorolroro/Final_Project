@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.spring.masinsa.dto.AnalysisInfoDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -40,5 +42,14 @@ public class AnalysisInfo {
 	@OneToOne
 	@JoinColumn(name="mask_id")
 	private Mask mask;
-	
+
+	public static AnalysisInfoDTO entityToDTO (AnalysisInfo analysisInfo) {
+		return AnalysisInfoDTO.builder()
+				.id(analysisInfo.getId())
+				.relatvieSize(analysisInfo.getRelatvieSize())
+				.fit(analysisInfo.getFit())
+				.breathAbility(analysisInfo.getBreathAbility())
+				.delivery(analysisInfo.getDelivery())
+				.build();
+	}
 }

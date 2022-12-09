@@ -70,6 +70,4 @@ public class MaskController {
 		maskService.deleteMask(maskId);
 	}
 	
-	
-	
 }
