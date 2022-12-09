@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.masinsa.dto.MaskDTO;
+import com.spring.masinsa.entity.Image;
 import com.spring.masinsa.service.MaskServiceImpl;
 
 @CrossOrigin({"*"})
@@ -42,10 +43,13 @@ public class MaskController {
 	@GetMapping("/mask/image")
 	public List<String> getMaskDetailImage(@RequestParam Long maskId) {
 		List<String> imageUrlList = maskService.getAllImages(maskId);
-		
-		System.out.println(imageUrlList);
-
 		return imageUrlList;
+	}
+	
+	@GetMapping("/mask/image2")
+	public List<Image> getMaskDetailImages(@RequestParam Long maskId) {
+		List<Image> imageList = maskService.getAllImageOb(maskId);
+		return imageList;
 	}
 	
 	// maskId와 soldout을 통해 마스크 품절 여부 수정

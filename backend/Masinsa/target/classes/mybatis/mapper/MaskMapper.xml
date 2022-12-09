@@ -8,5 +8,9 @@
   <select id="getAllImages" resultType="string">
     SELECT image_url FROM image WHERE mask_id = #{maskId};
   </select>
+  
+  <select id="getAllImagesOb" resultType="com.spring.masinsa.entity.Image">
+    SELECT * FROM image WHERE mask_id = #{maskId};
+  </select>
 
 </mapper>

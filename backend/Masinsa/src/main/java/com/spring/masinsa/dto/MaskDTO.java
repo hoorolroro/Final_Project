@@ -25,7 +25,7 @@ public class MaskDTO {
 	private String thumbnail;
 	private Long click;
 	private SoldoutStatus soldout; 
-	private Float avg_score;
+	private Float avgScore;
 	
 	// DTO -> Entity 변환
 	public static Mask dtoToEntity(MaskDTO maskDTO) {
@@ -40,7 +40,7 @@ public class MaskDTO {
 						 .thumbnail(maskDTO.getThumbnail())
 						 .click(maskDTO.getClick())
 						 .soldout(maskDTO.getSoldout())
-						 .avg_score(maskDTO.getAvg_score())
+						 .avgScore(maskDTO.getAvgScore())
 						 .build();
 		return mask;
 	}
