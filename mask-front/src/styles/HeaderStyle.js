@@ -25,8 +25,8 @@ export const LogoImg = styled.img`
   width: 200px;
   height: 100%;
   float: left;
-  //   border: 1px solid skyblue;
-  // padding-left: 10px;
+  // border: 1px solid skyblue;
+  padding-left: 5px;
 `;
 
 // 마이페이지, 네이버버튼을 담은 div

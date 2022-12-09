@@ -3,14 +3,17 @@ import Thumbnail from "./Thumbnail";
 import BuyBtn from "./BuyBtn";
 import WishBtn from "../WishBtn";
 
-function MaskInfo({ maskId }) {
+function MaskInfo({ mask }) {
+  console.log({ mask });
+
+  // mask 값들을 빼내서 사용하기
   return (
     <div>
-      <h3> {maskId} 설명 페이지 </h3>
+      <h3> 설명 페이지 </h3>
       {/* 썸네일사진 */}
       <Thumbnail />
       <div>
-        <li>이름 : {maskId}</li>
+        <li>이름 : </li>
         <li>가격 : 5000원</li>
         <li>옵션 : 대/중/소</li>
         {/* 찜버튼 */}
