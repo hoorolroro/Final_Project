@@ -6,10 +6,12 @@ function SortChange() {
   return (
     <div>
       <div>
-        <button>정렬기준</button>
-        <li>낮은가격순</li>
-        <li>평점순</li>
-        <li>인기순</li>
+        <select>
+          <option>정렬기준선택</option>
+          <option>낮은가격순</option>
+          <option>평점순</option>
+          <option>인기순</option>
+        </select>
       </div>
     </div>
   );

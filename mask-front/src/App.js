@@ -9,6 +9,8 @@ import { Route, Routes } from "react-router-dom";
 import RecentView from "./components/RecentView";
 import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
+import { Main, Wrap } from "./styles/OtherStyles";
+import HoverMenu from "./components/HoverMenu";
 
 function App() {
   return (
@@ -23,28 +25,33 @@ function App() {
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
       />
       {/* 헤더부분 */}
-      <Header />
-      <Routes>
-        {/* 메인페이지 :  "http://localhost:3000/" */}
-        <Route path="/" element={<MainPage />} />
+      <Wrap>
+        <Header />
+        <Routes>
+          {/* 메인페이지 :  "http://localhost:3000/" */}
+          <Route path="/" element={<MainPage />} />
 
-        {/* 상품리스트페이지 : "http://localhost:3000/MaskList/Masinsa/:blockingindex" */}
-        <Route path="MaskList/Masinsa/:blockingindex" element={<ListPage />} />
+          {/* 상품리스트페이지 : "http://localhost:3000/MaskList/Masinsa/:blockingindex" */}
+          <Route
+            path="MaskList/Masinsa/:blockingindex"
+            element={<ListPage />}
+          />
 
-        {/* 상품상세페이지 : "http://localhost:3000/aboutMask/:maskId/Masinsa" */}
-        <Route path="/aboutMask/:maskId/Masinsa" element={<AboutPage />} />
+          {/* 상품상세페이지 : "http://localhost:3000/aboutMask/:maskId/Masinsa" */}
+          <Route path="/aboutMask/:maskId/Masinsa" element={<AboutPage />} />
 
-        {/* 마이페이지 : "http://localhost:3000/:memberId/MyPage/Masinsa" */}
-        <Route path="/:memberId/MyPage/Masinsa" element={<MyPage />} />
+          {/* 마이페이지 : "http://localhost:3000/:memberId/MyPage/Masinsa" */}
+          <Route path="/:memberId/MyPage/Masinsa" element={<MyPage />} />
 
-        {/* 마신사소개페이지 : "http://localhost:3000/Introduce/Masinsa" */}
-        <Route path="/Introduce/Masinsa" element={<IntroducePage />} />
+          {/* 마신사소개페이지 : "http://localhost:3000/Introduce/Masinsa" */}
+          <Route path="/Introduce/Masinsa" element={<IntroducePage />} />
 
-        {/* 대시보드페이지 : "http://localhost:3000/DashBoard/Masinsa" */}
-        <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />
-      </Routes>
-      <RecentView />
-      <UpBtn />
+          {/* 대시보드페이지 : "http://localhost:3000/DashBoard/Masinsa" */}
+          <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />
+        </Routes>
+        <RecentView />
+        <UpBtn />
+      </Wrap>
     </div>
   );
 }
