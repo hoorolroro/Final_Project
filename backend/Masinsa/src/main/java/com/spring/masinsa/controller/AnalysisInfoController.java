@@ -33,7 +33,7 @@ public class AnalysisInfoController {
   }
   //해당 마스크의 리뷰가 10000개 이상이면 분석정보를 만들어서 리턴
   AnalysisInfoDTO analysisInfo = analysisInfoService.getAnalysisInfo(maskId);
-  return new ResponseEntity<>(analysisInfo, HttpStatus.OK);
+  return new ResponseEntity<AnalysisInfoDTO>(analysisInfo, HttpStatus.OK);
   }
 
   @DeleteMapping("/analysisinfo")
