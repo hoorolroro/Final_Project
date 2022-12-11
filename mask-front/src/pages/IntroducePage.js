@@ -1,32 +1,32 @@
 import React from "react";
 import {
-  PageDiv,
-  TopQuestionDiv,
+  TopSection,
   HighLightSpan,
   BasicSpan,
   CenterIntroDiv,
   GoListBtnDiv,
   GoListLinkBox,
   IntroContentDiv,
-  IntroDiv,
+  IntroSection,
   IntroHighLightSpan,
   IntroLogoImg,
   IntroSpan,
   IntroTitleDiv,
   LeftIntroDiv,
-  Logodiv,
-  MiddleDiv,
-  MiddleHr,
+  LogoSection,
+  MiddleSection,
+  MiddleLine,
   RightIntroDiv,
   VerticalHr,
 } from "../styles/IntroducePageStyle";
+import { Main } from "../styles/OtherStyles";
 
 function IntroducePage() {
   return (
     <div>
-      <PageDiv>
+      <Main>
         {/* 상단의 내용 div */}
-        <TopQuestionDiv>
+        <TopSection>
           <p>
             <HighLightSpan>자신에게 꼭 맞는 마스크</HighLightSpan>
             <BasicSpan>를 찾기 어려우셨다구요 ? </BasicSpan>
@@ -39,22 +39,22 @@ function IntroducePage() {
             <HighLightSpan>마스크가 급하게 필요</HighLightSpan>
             <BasicSpan>한데 어떤 걸 사야할 지 막막하시다구요 ?</BasicSpan>
           </p>
-        </TopQuestionDiv>
+        </TopSection>
         {/* Masinsa이용 div */}
-        <MiddleHr></MiddleHr>
-        <MiddleDiv>
+        <MiddleLine></MiddleLine>
+        <MiddleSection>
           <IntroSpan>그렇다면,</IntroSpan>
-          <Logodiv>
+          <LogoSection>
             <IntroLogoImg
               src={`${process.env.PUBLIC_URL}/MasinsaLogo.png`}
               alt="masinsa"
             ></IntroLogoImg>
-          </Logodiv>
+          </LogoSection>
           <IntroSpan>저희를 이용해보세요!</IntroSpan>
-        </MiddleDiv>
-        <MiddleHr></MiddleHr>
+        </MiddleSection>
+        <MiddleLine></MiddleLine>
         {/* 설명div */}
-        <IntroDiv>
+        <IntroSection>
           {/* 1번설명 div */}
           <LeftIntroDiv>
             <IntroTitleDiv>
@@ -131,7 +131,7 @@ function IntroducePage() {
               </p>
             </IntroContentDiv>
           </RightIntroDiv>
-        </IntroDiv>
+        </IntroSection>
         {/* 상품목록연결링크 div */}
         <div>
           <GoListBtnDiv>
@@ -140,7 +140,7 @@ function IntroducePage() {
             </GoListLinkBox>
           </GoListBtnDiv>
         </div>
-      </PageDiv>
+      </Main>
     </div>
   );
 }
