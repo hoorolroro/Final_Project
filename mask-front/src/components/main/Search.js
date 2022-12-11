@@ -1,6 +1,6 @@
 // 검색기능
 import React from "react";
-import SearchArea from "./SearchArea";
+import SearchBox from "./SearchBox";
 import SearchMaskLists from "./SearchMaskLists";
 import Pagination from "../Pagination";
 import styled from "styled-components";
@@ -9,34 +9,31 @@ import {
   SearchBoxSection,
   SearchCenter,
   SearchLeftBlank,
-  SearchRightBlank,
+  SortSection,
+  SearchMaskListSection,
 } from "../../styles/MainPageStyle/SearchStyle";
-
-// SearchMaskList 보여주는 Section
-const SearchMaskListSection = styled.section`
-  // display: flex;
-  // flex: nowrap;
-  width: auto;
-  height: 790px;
-  padding: 2px;
-  margin: 2px;
-  border: 2px solid red;
-`;
+import SortChange from "../SortChange";
 
 function Search() {
   return (
     <div>
+      <hr></hr>
       <SearchArticle>ALL MASINSA MASK</SearchArticle>
+      <hr></hr>
+      {/* 검색창 */}
       <SearchBoxSection>
         <SearchLeftBlank></SearchLeftBlank>
-        {/* 검색창 */}
         <SearchCenter>
-          <SearchArea />
+          <SearchBox />
         </SearchCenter>
-        <SearchRightBlank></SearchRightBlank>
+        <SortSection>
+          <SortChange />
+        </SortSection>
       </SearchBoxSection>
+      {/* 정렬변경 */}
+      {/* 마스크리스트 부분*/}
       <SearchMaskListSection>
-        {/* 검색된 마스크리스트 */}
+        {/* 마스크리스트 */}
         <SearchMaskLists />
         {/* 페이지네이션 */}
         <Pagination />

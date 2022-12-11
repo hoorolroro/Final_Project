@@ -17,9 +17,7 @@ export const HeaderSection = styled.section`
 export const TopDiv = styled.div`
   display: flex;
   flex: wrap;
-  // display: grid;
-  // grid-template-columns: 2fr 6fr 1fr;
-  width: 100%;
+  // width: 100%;
   height: 80px;
   padding-top: 2px;
   padding-bottom: 3px;
@@ -38,7 +36,7 @@ export const LogoImg = styled.img`
   width: 230px;
   height: 100%;
   float: left;
-  padding-left: 5px;
+  padding-left: 40px;
   // border: 1px solid skyblue;
 `;
 
@@ -48,6 +46,7 @@ export const TopBtnDiv = styled.div`
   width: 160px;
   height: 100%;
   padding-top: 5px;
+  padding-right: 30px;
   // border: 1px solid skyblue;
 `;
 

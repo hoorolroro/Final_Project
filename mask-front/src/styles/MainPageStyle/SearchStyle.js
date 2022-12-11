@@ -1,14 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
+/* 전체 */
+
 // Search 부분
 export const SearchSection = styled.section`
   width: auto;
   height: 900px;
   padding: 5px;
   margin: 5px;
-  border: 2px solid blue;
+  // border: 2px solid blue;
 `;
+
+/* SearchBox 부분 */
 
 // ALL MASINSA MASK 부분
 export const SearchArticle = styled.section`
@@ -18,25 +22,23 @@ export const SearchArticle = styled.section`
   font-size: 20px;
   padding: 2px;
   margin: 2px;
-  border: 2px solid red;
-  overflow: auto;
+  // border: 2px solid red;
 `;
 
 // SearchBox ( 검색창 Section )
 export const SearchBoxSection = styled.section`
   display: flex;
-  flex: nowrap;
+  flex: wrap;
   width: auto;
   height: 50px;
   padding: 2px;
   margin: 2px;
-  border: 2px solid red;
+  // border: 2px solid red;
 `;
 
 // SearchBox 왼쪽 공백
 export const SearchLeftBlank = styled.div`
   width: 30%;
-  float: left;
   // border: 1px solid blue;
 `;
 
@@ -47,11 +49,13 @@ export const SearchCenter = styled.div`
   // border: 1px solid blue;
 `;
 
-// SearchBox 오른쪽 공백
-export const SearchRightBlank = styled.div`
+// 정렬기준 변경 section
+export const SortSection = styled.section`
   width: 30%;
   float: right;
-  // border: 1px solid blue;
+  margin: 2px;
+  padding-top: 20px;
+  // border: 2px solid red;
 `;
 
 // Search 기능들을 담은 곳 ( input + btn )
@@ -62,7 +66,7 @@ export const SearchFieldset = styled.fieldset`
   height: 30px;
   align-items: center;
   // align-content: center;
-  border: 2px solid #9a9a9a;
+  border: 1px solid #9a9a9a;
   border-radius: 2px;
   padding: 1px;
 `;
@@ -84,4 +88,13 @@ export const SearchBtn = styled.button`
   border: none;
   cursor: pointer;
   overflow: hidden;
+`;
+
+// 검색된 마스크 보여주는 부분 Section
+export const SearchMaskListSection = styled.section`
+  width: auto;
+  height: auto;
+  padding: 2px;
+  margin: 2px;
+  // border: 2px solid red;
 `;

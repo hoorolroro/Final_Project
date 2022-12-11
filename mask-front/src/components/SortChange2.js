@@ -8,7 +8,7 @@ const SortSelect = styled.select`
   float: right;
 `;
 
-function SortChange() {
+function SortChange2() {
   return (
     <div>
       <div>
@@ -23,4 +23,4 @@ function SortChange() {
   );
 }
 
-export default SortChange;
+export default SortChange2;

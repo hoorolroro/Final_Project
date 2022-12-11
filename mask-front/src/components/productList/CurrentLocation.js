@@ -2,10 +2,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 function CurrentLocation() {
-  const { blockingindex } = useParams();
+  const { blockingindex, shape } = useParams();
+
   return (
     <div>
-      <p>"홈 → {blockingindex} → 새부리형"</p>
+      홈 → {blockingindex} → {shape}
     </div>
   );
 }

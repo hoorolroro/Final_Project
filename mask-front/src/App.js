@@ -9,7 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import RecentView from "./components/RecentView";
 import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
-import { Main, Wrap } from "./styles/OtherStyles";
+import { Main, Wrapper } from "./styles/OtherStyles";
 import HoverMenu from "./components/HoverMenu";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
       />
       {/* 헤더부분 */}
-      <Wrap>
+      <Wrapper>
         <Header />
         <Routes>
           {/* 메인페이지 :  "http://localhost:3000/" */}
@@ -51,7 +51,7 @@ function App() {
         </Routes>
         <RecentView />
         <UpBtn />
-      </Wrap>
+      </Wrapper>
     </div>
   );
 }
