@@ -1,21 +1,22 @@
 // 맨 위: 마신사 로고, 마이페이지 버튼, 네이버 로그인 버튼, 차단지수 카테고리
 import React from "react";
-import HeaderFilter from "./HeaderFilter";
 import LoginBtn from "./LoginBtn";
 import MyPageBtn from "./MyPageBtn";
 import styled from "styled-components";
 import {
-  HeaderDiv,
+  HeaderSection,
   TopDiv,
   LogoImg,
   TopBtnDiv,
-  BockingIndexDiv,
+  BockingIndexNav,
+  BlockingBtn,
+  TopBlank,
 } from "../styles/HeaderStyle";
 
 function Header() {
   return (
     <div>
-      <HeaderDiv>
+      <HeaderSection>
         <TopDiv>
           {/* 마신사로고 : home버튼 */}
           <a href="/">
@@ -25,6 +26,7 @@ function Header() {
               alt="masinsa"
             ></LogoImg>
           </a>
+          <TopBlank></TopBlank>
           <TopBtnDiv>
             {/* 마이페이지버튼 */}
             <MyPageBtn />
@@ -32,10 +34,21 @@ function Header() {
             <LoginBtn />
           </TopBtnDiv>
         </TopDiv>
-        <BockingIndexDiv>
-          <HeaderFilter />
-        </BockingIndexDiv>
-      </HeaderDiv>
+        <BockingIndexNav>
+          <a href="/MaskList/Masinsa/KF94">
+            {/* <BlockingLeft>KF94</BlockingLeft> */}
+            <BlockingBtn>KF94</BlockingBtn>
+          </a>
+          <a href="/MaskList/Masinsa/KF80">
+            {/* <BlockingCenter>KF80</BlockingCenter> */}
+            <BlockingBtn>KF80</BlockingBtn>
+          </a>
+          <a href="/MaskList/Masinsa/KF-AD">
+            {/* <BlockingRight>KF-AD</BlockingRight> */}
+            <BlockingBtn>KF-AD</BlockingBtn>
+          </a>
+        </BockingIndexNav>
+      </HeaderSection>
     </div>
   );
 }

@@ -1,17 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-// Header 제외한 화면의 전체 Div
-export const PageDiv = styled.div`
-  width: auto;
-  height: auto;
-  padding: 5px;
-  margin: 10px;
-  // border: 2px solid blue;
-`;
-
 // "~~하셨다구요?" 부분 Div
-export const TopQuestionDiv = styled.div`
+export const TopSection = styled.section`
   width: auto;
   height: 125px;
   padding: 1px;
@@ -35,7 +26,7 @@ export const BasicSpan = styled.span`
 `;
 
 // 그렇다면, MASINSA 저희를 이용해보세요 Div
-export const MiddleDiv = styled.div`
+export const MiddleSection = styled.section`
   width: auto;
   height: 200px;
   padding-bottom: 10px;
@@ -43,7 +34,7 @@ export const MiddleDiv = styled.div`
 `;
 
 // 로고 이미지 div
-export const Logodiv = styled.div`
+export const LogoSection = styled.section`
   width: auto;
   height: 100px;
   padding: 10px;
@@ -59,33 +50,15 @@ export const IntroLogoImg = styled.img`
   // border: 1px solid red;
 `;
 
-// 중간 선 (hr태그)
-export const MiddleHr = styled.hr`
-  width: 100%;
-  color: #9a9a9a;
-  margin-bottom: 30px;
-  border: 0px;
-  border-top: 2px dashed #9a9a9a;
-`;
-
 // 설명 전체 div
-export const IntroDiv = styled.div`
+export const IntroSection = styled.section`
   display: flex;
   // overflow: auto;
   width: auto;
   height: 200px;
   flex-wrap: nowrap;
+  margin: 0px 10px;
   // border: 1px solid red;
-`;
-
-// 세로구분선 : hr 태그 width 적당히 작게 하고 height 주기
-export const VerticalHr = styled.hr`
-  width: 1px;
-  height: 220px;
-  border: 0px;
-  border-right: 2px solid #9a9a9a;
-  margin-left: 5%;
-  margin-right: 5%;
 `;
 
 // 왼쪽설명(1번째) div
@@ -93,7 +66,6 @@ export const LeftIntroDiv = styled.div`
   width: 30%;
   height: 100%;
   float: left;
-  margin-left: 5%;
   font-size: 10px;
   // border: 1px solid blue;
 `;
@@ -114,7 +86,6 @@ export const RightIntroDiv = styled.div`
   height: 100%;
   float: right;
   // margin-left: 5%;
-  margin-right: 5%;
   font-size: 10px;
   // border: 1px solid blue;
 `;
@@ -125,6 +96,7 @@ export const IntroHighLightSpan = styled.span`
   font-weight: 800;
   font-size: 15px;
   // border: 1px solid red;
+  // text-shadow: 1px 1px 1px #000;
 `;
 
 // 설명 글씨 Span
@@ -170,4 +142,23 @@ export const GoListLinkBox = styled.a`
     color: #5cec7c;
   }
   // border: 1px solid blue;
+`;
+
+// 중간 선 (hr태그)
+export const MiddleLine = styled.hr`
+  width: 100%;
+  color: #9a9a9a;
+  margin-bottom: 30px;
+  border: 0px;
+  border-top: 2px dashed #9a9a9a;
+`;
+
+// 세로구분선 : hr 태그 width 적당히 작게 하고 height 주기
+export const VerticalHr = styled.hr`
+  width: 1px;
+  height: 210px;
+  border: 0px;
+  border-right: 2px solid #9a9a9a;
+  margin-left: 5%;
+  margin-right: 5%;
 `;
