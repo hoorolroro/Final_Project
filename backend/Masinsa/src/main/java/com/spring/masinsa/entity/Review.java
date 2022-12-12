@@ -32,6 +32,7 @@ public class Review {
 	@Column(name = "review_id")
 	private Long id;
 	
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="mask_id")
 	private Mask mask;
