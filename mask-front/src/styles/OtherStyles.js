@@ -10,9 +10,9 @@ export const Wrapper = styled.div`
 export const Main = styled.section`
   width: auto;
   height: auto;
-  padding: 5px 80px;
+  padding: 5px 13%;
   margin: 8px;
-  // border: 2px solid red;
+  border: 2px solid red;
 `;
 
 // 위로가기 버튼 : 고정 fixed
@@ -27,4 +27,15 @@ export const GoUpBtn = styled.button`
   font-weight: 800;
   border: 0px;
   border-radius: 10%;
+`;
+
+// 현재 적용된 필터 Section ( 홈 > KF94 >  ...)
+export const CurrentFilterSection = styled.div`
+  width: auto;
+  height: 20px;
+  padding-left: 5px;
+  text-align: left;
+  font-size: 13px;
+  color: #868b8b;
+  // border: 2px solid red;
 `;
