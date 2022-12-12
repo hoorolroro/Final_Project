@@ -16,7 +16,7 @@ import {
   SearchMaskListSection,
 } from "../../styles/MainPageStyle";
 
-function Search() {
+function Search({ maskList, startNum, endNum }) {
   return (
     <div>
       <hr></hr>

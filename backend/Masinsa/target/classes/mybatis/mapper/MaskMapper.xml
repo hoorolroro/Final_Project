@@ -34,8 +34,6 @@
   	<result column="price" property="price" />
   	<result column="blocking_index" property="kf" />
   	<result column="shape" property="shape" />
-  	<result column="color" property="color" />
-  	<result column="unit" property="unit" />
   	<result column="thumbnail_image_url" property="thumbnail" />
   	<result column="click_num" property="click" />
   	<result column="soldout_status" property="soldout" />
