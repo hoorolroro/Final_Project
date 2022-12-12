@@ -4,7 +4,7 @@ import {
   SearchFieldset,
   SearchInput,
   SearchBtn,
-} from "../../styles/MainPageStyle/SearchStyle";
+} from "../../styles/MainPageStyle";
 
 function SearchBox() {
   return (

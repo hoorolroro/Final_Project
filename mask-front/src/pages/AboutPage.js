@@ -10,24 +10,27 @@ import CurrentLocation from "../components/productList/CurrentLocation";
 import styled from "styled-components";
 import { CurrentFilterSection } from "../styles/OtherStyles";
 import { MaskAboutWrapper } from "../styles/AboutPageStyle";
-import { getNaverReview } from "../api/review/getNaverReview";
+import { getReviews } from "../api/review/getReviews";
 
 function AboutPage() {
-  const { maskId, page, size, reviewType } = useParams();
+  // useParam에서 page, size, reviewType은 저희 URL이랑 달라서
+  // 하려면 저 아이들을 포함한 파라미터를 가진 URL로 변경해서 넘겨주는 걸로 변경이 필요합니다
+  // 근데 그러면 페이지 네이션 누를때마다 페이지 URL이 변경돼서 조금 곤란하지 않을까 싶습니다
+  // const { maskId, page, size, reviewType } = useParams();
+
+  // 파라미터를 통한 maskId 전달
+  const { maskId } = useParams();
+  // console.log("useParams", maskId);
+
+  //  마스크요청
 
   const [mask, setMask] = useState([]);
-  const [naverReview, setNaverReview] = useState([]);
 
   useEffect(() => {
     getMask({ maskId, setMask });
   }, []);
 
-  useEffect(() => {
-    getNaverReview({ maskId, page, size, reviewType, setNaverReview });
-  }, []);
-
-  console.log(mask);
-  console.log(naverReview);
+  // console.log("AboutPage - mask 불러오기 : ", mask);
 
   return (
     <div>
@@ -35,16 +38,17 @@ function AboutPage() {
         <MaskAboutWrapper>
           {/* 현재 적용된 필터 확인 */}
           <CurrentFilterSection>
-            <CurrentLocation />
+            <CurrentLocation mask={mask} />
           </CurrentFilterSection>
           {/* 마스크 정보 */}
           <MaskInfo mask={mask} />
           {/* 리뷰통계 */}
-          <Analysis />
+          <Analysis maskId={mask.id} />
+          <hr></hr>
           {/* 상세정보 */}
-          <MaskDetail mask={mask} />
+          <MaskDetail maskId={mask.id} />
           {/* 리뷰창 */}
-          <Reviews naverReview={naverReview} setNaverReview={setNaverReview} />
+          <Reviews maskId={mask.id} />
         </MaskAboutWrapper>
       </Main>
     </div>

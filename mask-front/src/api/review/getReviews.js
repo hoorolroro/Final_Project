@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
 
-export const getNaverReview = async ({
+export const getReviews = async ({
   maskId,
   page,
   size,
   reviewType,
-  setNaverReview,
+  setAllReviews,
 }) => {
   const response = await axios.get(
     // `http://localhost:8080/review?maskId=${maskId}&page=${page}&size=${size}&reviewType=${reviewType}`
@@ -14,6 +14,5 @@ export const getNaverReview = async ({
   );
 
   // return response.data;
-
-  setNaverReview(response.data);
+  setAllReviews(response.data);
 };
