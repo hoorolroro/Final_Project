@@ -12,8 +12,9 @@ import {
   MaskThumnailImg,
   MaskTitle,
 } from "../../styles/AboutPageStyle";
+import SlidePhoto from "./SlidePhoto";
 
-function MaskInfo({ mask }) {
+function MaskInfo({ mask, maskId }) {
   console.log({ mask });
 
   // mask 값들을 빼내서 사용하기

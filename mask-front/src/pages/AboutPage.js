@@ -14,8 +14,8 @@ import { getNaverReview } from "../api/review/getNaverReview";
 
 function AboutPage() {
   const { maskId, page, size, reviewType } = useParams();
-  const [mask, setMask] = useState([]);
 
+  const [mask, setMask] = useState([]);
   const [naverReview, setNaverReview] = useState([]);
 
   useEffect(() => {
