@@ -1,8 +1,12 @@
 import React from "react";
 import axios from "axios";
 
-export const getAnalysis = async ({ maskId }) => {
-  const response = axios.get("/analysis_info", {
-    maskId: { maskId },
-  });
+//http://localhost:8080/analysis_info?maskId=1
+export const getAnalysis = async ({ maskId, setAnalysisInfo }) => {
+  const response = axios.get(
+    // `http://localhost:8080/analysis_info?maskId=${maskId}`
+    "http://localhost:8080/analysis_info?maskId=1"
+  );
+
+  setAnalysisInfo(response.data);
 };

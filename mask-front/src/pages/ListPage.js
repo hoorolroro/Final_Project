@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import Pagination from "../components/Pagination";
 import FilterBox from "../components/productList/FilterBox";
 import FilterMaskList from "../components/productList/FilterMaskList";
@@ -13,6 +13,19 @@ import {
 } from "../styles/ListPageStyle";
 
 function ListPage() {
+  // 리스트페이지 마스크리스트 조회
+  // api 완성되면 수정할 필요가 있음 !!!!!!
+
+  const [maskList, setMaskList] = useState([]);
+
+  // // 한페이지에서 몇번까지 마스크 보여주나?
+  // const [startNum, setStartNum] = useState(1); // 첫 마스크 No
+  // const [endNum, setEndNum] = useState(6); // 마지막 마스크 No
+
+  // useEffect(() => {
+  //     getMask(setMaskList, startNum, endNum);
+  //   }, []);
+
   return (
     <div>
       <Main>
@@ -27,7 +40,7 @@ function ListPage() {
         {/* 마스크 리스트공간 */}
         <FilterMaskListSection>
           {/* 필터걸린 마스크 리스트 */}
-          <FilterMaskList />
+          <FilterMaskList maskList={maskList} />
           {/* 페이지네이션 */}
           <Pagination></Pagination>
         </FilterMaskListSection>

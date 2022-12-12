@@ -13,8 +13,7 @@ import com.spring.masinsa.dto.AnalysisInfoDTO;
 import com.spring.masinsa.service.AnalysisInfoServiceImpl;
 import com.spring.masinsa.service.ReviewServiceImpl;
 
-
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"*"})
 @RestController
 public class AnalysisInfoController {
 

@@ -6,10 +6,10 @@ import styled from "styled-components";
 // 필터들이 있는 Section
 export const FilterSection = styled.section`
   width: auto;
-  height: 250px;
+  height: 235px;
   padding: 5px;
   margin: 5px;
-  border: 2px solid red;
+  // border: 2px solid red;
 `;
 
 // 마스크리스트 Section
@@ -42,9 +42,9 @@ export const ShapeListsSection = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: auto;
-  height: 130px;
+  height: 120px;
   padding: 10px;
   // border: 2px solid red;
 `;
@@ -57,22 +57,56 @@ export const SizeListsSection = styled.div`
   justify-content: center;
   width: auto;
   height: 45px;
-  margin-top: 5px;
   // border: 2px solid red;
 `;
 
-// 마스크 형태 Li
-export const ShapeLi = styled.li`
+// 마스크 형태 Btn
+export const ShapeBtn = styled.button`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
   width: 30%;
-  float: left;
-  padding: 10px;
-  // border: 1px solid blue;
+  font-size: 15px;
+  font-weight: 800;
+  background: none;
+  border: 0px;
+  cursor: pointer;
+  &:hover {
+    color: #05735f;
+  }
+  &:active {
+    color: #5cec7c;
+  }
 `;
 
-// 마스크 사이즈 Li
-export const SizeLi = styled.li`
+// 마스크형태 Img (ShapeBtn버튼)
+export const MaskShapeImg = styled.img`
+  width: 50px;
+  height: 50px;
+  background: #05735f;
+  padding: 2px;
+  border: 0px;
+  border-radius: 50px;
+`;
+
+// 마스크 형태 내용 (ShapeBtn버튼)
+export const MaskShapeName = styled.div`
+  margin-left: 10px;
+  // border: 1px solid red;
+`;
+
+// 마스크 사이즈 Btn
+export const SizeBtn = styled.button`
   width: 15%;
-  float: left;
   padding: 10px;
-  // border: 1px solid blue;
+  background: none;
+  border: 0px;
+  cursor: pointer;
+  &:hover {
+    color: #05735f;
+  }
+  &:active {
+    color: #5cec7c;
+  }
 `;

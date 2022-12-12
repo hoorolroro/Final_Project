@@ -4,34 +4,21 @@ import Search from "../components/main/Search";
 import styled from "styled-components";
 import { Main } from "../styles/OtherStyles";
 import { Top3Section, SearchSection } from "../styles/MainPageStyle";
-import { getTop3 } from "../api/mask/getTop3";
-import { getMaskList } from "../api/mask/getMaskList";
 import { useParams } from "react-router-dom";
 
 function MainPage() {
-  const { startNum, endNum } = useParams();
-
-  const [top3, setTop3] = useState([]);
-  const [maskList, setMaskList] = useState([]);
-
-  useEffect(() => {
-    getTop3({ setTop3 });
-  }, []);
-
-  useEffect(() => {
-    getMaskList({ startNum, endNum, setMaskList });
-  });
+  // api 완성되면 테스트하기 : getTop3, getMaskList
 
   return (
     <div>
       <Main>
         {/* TOP3 */}
         <Top3Section>
-          <TopThree top3={top3} setTop3={setTop3} />
+          <TopThree />
         </Top3Section>
         {/* 키워드검색결과 MakList 띄워주는 부분 */}
         <SearchSection>
-          <Search maskList={maskList} setMaskList={setMaskList} />
+          <Search />
         </SearchSection>
       </Main>
     </div>
