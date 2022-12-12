@@ -13,11 +13,6 @@ import { MaskAboutWrapper } from "../styles/AboutPageStyle";
 import { getReviews } from "../api/review/getReviews";
 
 function AboutPage() {
-  // useParam에서 page, size, reviewType은 저희 URL이랑 달라서
-  // 하려면 저 아이들을 포함한 파라미터를 가진 URL로 변경해서 넘겨주는 걸로 변경이 필요합니다
-  // 근데 그러면 페이지 네이션 누를때마다 페이지 URL이 변경돼서 조금 곤란하지 않을까 싶습니다
-  // const { maskId, page, size, reviewType } = useParams();
-
   // 파라미터를 통한 maskId 전달
   const { maskId } = useParams();
   // console.log("useParams", maskId);
