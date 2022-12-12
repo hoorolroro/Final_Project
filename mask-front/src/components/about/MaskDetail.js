@@ -15,7 +15,7 @@ const MaskDetailSection = styled.section`
   border: 2px solid red;
 `;
 
-function MaskDetail() {
+function MaskDetail({ mask }) {
   return (
     <div>
       <MaskDetailSection>

@@ -17,7 +17,7 @@ const ReviewSection = styled.section`
 `;
 
 // 수정이 필요한 부분 !
-function Reviews() {
+function Reviews({ naverReview, setNaverReview }) {
   return (
     <div>
       <hr></hr>

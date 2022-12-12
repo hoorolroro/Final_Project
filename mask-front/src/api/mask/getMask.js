@@ -3,9 +3,10 @@ import React from "react";
 import axios from "axios";
 
 export const getMask = async ({ maskId, setMask }) => {
-  const response = await axios.get("/mask", {
-    maskId: { maskId },
-  });
+  const response = await axios.get(
+    // `http://localhost:8080/mask?maskId=${maskId}`
+    "http://localhost:8080/mask?maskId=1"
+  );
 
   // const response = await axios.get(
   // `https://jsonplaceholder.typicode.com/posts/${userId}`,
@@ -15,4 +16,5 @@ export const getMask = async ({ maskId, setMask }) => {
   // );
 
   setMask(response.data);
+  // return response.data;
 };
