@@ -9,8 +9,8 @@ import { getNaverReview } from "../api/review/getNaverReview";
 
 function AboutPage() {
   const { maskId, page, size, reviewType } = useParams();
-  const [mask, setMask] = useState([]);
 
+  const [mask, setMask] = useState([]);
   const [naverReview, setNaverReview] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function AboutPage() {
   return (
     <div>
       {/* 마스크기본정보 */}
-      <MaskInfo mask={mask} />
+      <MaskInfo mask={mask} maskId={maskId} />
       {/* 리뷰통계 */}
       <Analysis />
       {/* 상세정보 */}
