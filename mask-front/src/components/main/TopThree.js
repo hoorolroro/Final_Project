@@ -18,7 +18,7 @@ const TopMaskImg = styled.img`
   border-radius: 15px;
 `;
 
-function TopThree() {
+function TopThree({ top3 }) {
   return (
     <div>
       <Top3ArticleSection>

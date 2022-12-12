@@ -14,7 +14,7 @@ import {
 } from "../../styles/MainPageStyle/SearchStyle";
 import SortChange from "../SortChange";
 
-function Search() {
+function Search({ maskList, startNum, endNum }) {
   return (
     <div>
       <hr></hr>
