@@ -27,7 +27,7 @@ function AboutPage() {
   }, []);
 
   console.log(mask);
-  console.log(naverReview);
+  // console.log(naverReview);
 
   return (
     <div>
@@ -35,7 +35,7 @@ function AboutPage() {
         <MaskAboutWrapper>
           {/* 현재 적용된 필터 확인 */}
           <CurrentFilterSection>
-            <CurrentLocation />
+            <CurrentLocation mask={mask} />
           </CurrentFilterSection>
           {/* 마스크 정보 */}
           <MaskInfo mask={mask} />
