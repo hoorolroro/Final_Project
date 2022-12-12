@@ -1,7 +1,7 @@
 import React from "react";
 import MoreBtn from "./MoreBtn";
 
-function MaskDetail() {
+function MaskDetail({ mask }) {
   return (
     <div>
       마스크상세설명
