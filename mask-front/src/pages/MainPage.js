@@ -3,8 +3,7 @@ import TopThree from "../components/main/TopThree";
 import Search from "../components/main/Search";
 import styled from "styled-components";
 import { Main } from "../styles/OtherStyles";
-import { Top3Section } from "../styles/MainPageStyle/TopThreeStyle";
-import { SearchSection } from "../styles/MainPageStyle/SearchStyle";
+import { Top3Section, SearchSection } from "../styles/MainPageStyle";
 
 function MainPage() {
   return (

@@ -10,7 +10,7 @@ import {
   FirstMaskLinkBox,
   SecondMaskLinkBox,
   ThirdMaskLinkBox,
-} from "../../styles/MainPageStyle/TopThreeStyle";
+} from "../../styles/MainPageStyle";
 
 const TopMaskImg = styled.img`
   width: 100%;

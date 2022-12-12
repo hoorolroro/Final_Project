@@ -12,7 +12,7 @@ export const Main = styled.section`
   height: auto;
   padding: 5px 13%;
   margin: 8px;
-  border: 2px solid red;
+  // border: 2px solid red;
 `;
 
 // 위로가기 버튼 : 고정 fixed

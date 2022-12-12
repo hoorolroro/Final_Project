@@ -2,8 +2,11 @@
 import React from "react";
 import SearchBox from "./SearchBox";
 import SearchMaskLists from "./SearchMaskLists";
-import Pagination from "../Pagination";
+// import Pagination from "../Pagination";
+import { Pagination } from "@mui/material";
 import styled from "styled-components";
+import SortChange from "../SortChange";
+
 import {
   SearchArticle,
   SearchBoxSection,
@@ -11,8 +14,7 @@ import {
   SearchLeftBlank,
   SortSection,
   SearchMaskListSection,
-} from "../../styles/MainPageStyle/SearchStyle";
-import SortChange from "../SortChange";
+} from "../../styles/MainPageStyle";
 
 function Search() {
   return (

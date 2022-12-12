@@ -28,6 +28,7 @@ function FilterBox() {
           <button>덴탈형</button>
         </ShapeLi>
       </ShapeListsSection>
+      <hr></hr>
       {/* 마스크 사이즈 */}
       <SizeListsSection>
         <SizeLi>
