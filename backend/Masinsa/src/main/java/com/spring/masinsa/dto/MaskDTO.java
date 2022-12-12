@@ -20,9 +20,9 @@ public class MaskDTO {
 	private Long price;
 	private String kf;
 	private String shape;
-	private String color;
-	private Long unit;
+	private String option;
 	private String thumbnail;
+	private String purchaseUrl;
 	private Long click;
 	private SoldoutStatus soldout; 
 	private Float avgScore;
@@ -35,9 +35,9 @@ public class MaskDTO {
 						 .price(maskDTO.getPrice())
 						 .kf(maskDTO.getKf())
 						 .shape(maskDTO.getShape())
-						 .color(maskDTO.getColor())
-						 .unit(maskDTO.getUnit())
+						 .option(maskDTO.getOption())
 						 .thumbnail(maskDTO.getThumbnail())
+						 .purchaseUrl(maskDTO.getPurchaseUrl())
 						 .click(maskDTO.getClick())
 						 .soldout(maskDTO.getSoldout())
 						 .avgScore(maskDTO.getAvgScore())

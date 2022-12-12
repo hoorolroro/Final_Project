@@ -24,6 +24,8 @@ public class QMember extends EntityPathBase<Member> {
 
     public final StringPath birth = createString("birth");
 
+    public final EnumPath<Deletion> deletion = createEnum("deletion", Deletion.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath nickname = createString("nickname");

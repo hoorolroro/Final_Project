@@ -24,7 +24,7 @@ public class QMask extends EntityPathBase<Mask> {
 
     public final NumberPath<Long> click = createNumber("click", Long.class);
 
-    public final StringPath color = createString("color");
+    public final EnumPath<Deletion> deletion = createEnum("deletion", Deletion.class);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -34,7 +34,11 @@ public class QMask extends EntityPathBase<Mask> {
 
     public final StringPath name = createString("name");
 
+    public final StringPath option = createString("option");
+
     public final NumberPath<Long> price = createNumber("price", Long.class);
+
+    public final StringPath purchaseUrl = createString("purchaseUrl");
 
     public final ListPath<Review, QReview> reviews = this.<Review, QReview>createList("reviews", Review.class, QReview.class, PathInits.DIRECT2);
 
@@ -45,8 +49,6 @@ public class QMask extends EntityPathBase<Mask> {
     public final EnumPath<SoldoutStatus> soldout = createEnum("soldout", SoldoutStatus.class);
 
     public final StringPath thumbnail = createString("thumbnail");
-
-    public final NumberPath<Long> unit = createNumber("unit", Long.class);
 
     public final ListPath<WishList, QWishList> wishlist = this.<WishList, QWishList>createList("wishlist", WishList.class, QWishList.class, PathInits.DIRECT2);
 
