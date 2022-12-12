@@ -1,26 +1,45 @@
 import React from "react";
-import Thumbnail from "./Thumbnail";
 import BuyBtn from "./BuyBtn";
 import WishBtn from "../WishBtn";
+import styled from "styled-components";
+import {
+  MaskInfoSection,
+  MaskInfoContent,
+  MaskBuyLink,
+  MaskInfoOption,
+  MaskInfoPrice,
+  MaskInfoTopSection,
+  MaskThumnailImg,
+  MaskTitle,
+} from "../../styles/AboutPageStyle";
+import SlidePhoto from "./SlidePhoto";
 
-function MaskInfo({ mask }) {
+function MaskInfo({ mask, maskId }) {
   console.log({ mask });
 
   // mask 값들을 빼내서 사용하기
   return (
     <div>
-      <h3> 설명 페이지 </h3>
-      {/* 썸네일사진 */}
-      <Thumbnail />
-      <div>
-        <li>이름 : </li>
-        <li>가격 : 5000원</li>
-        <li>옵션 : 대/중/소</li>
-        {/* 찜버튼 */}
-        <WishBtn />
-        {/* 구매링크버튼 */}
-        <BuyBtn />
-      </div>
+      <MaskInfoSection>
+        {/* 썸네일사진 */}
+        <MaskThumnailImg src="https://shopping-phinf.pstatic.net/main_2685867/26858677522.20211018155019.jpg?type=f300"></MaskThumnailImg>
+        <MaskInfoContent>
+          <MaskInfoTopSection>
+            <MaskTitle>어쩌구마스크fdgdagfdagdagdagsagdgsaggsgs</MaskTitle>
+            {/* 찜버튼 */}
+            <WishBtn />
+          </MaskInfoTopSection>
+          <MaskInfoPrice>5,000원</MaskInfoPrice>
+          <MaskInfoOption>
+            <li>사이즈 : 대 / 중 / 소</li>
+            <li>기타옵션 : ********* </li>
+          </MaskInfoOption>
+          {/* 구매링크버튼 */}
+          <MaskBuyLink>
+            <BuyBtn />
+          </MaskBuyLink>
+        </MaskInfoContent>
+      </MaskInfoSection>
     </div>
   );
 }
