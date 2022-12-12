@@ -3,6 +3,7 @@ package com.spring.masinsa.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -14,8 +15,6 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.DynamicUpdate;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.spring.masinsa.dto.MaskDTO;
 import com.spring.masinsa.dto.MaskListDTO;
 
@@ -32,7 +31,6 @@ import lombok.ToString;
 @Getter
 @ToString
 @Builder
-@JsonInclude(content = Include.NON_NULL)
 public class Mask {
 	
 	@Id
@@ -68,15 +66,16 @@ public class Mask {
 	
 	private Float avgScore;
 	
+	@Enumerated(EnumType.STRING)
 	private Deletion deletion;
 	
-	@OneToMany(mappedBy = "mask")
+	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
 	private List<Image> images = new ArrayList<Image>();
 	
-	@OneToMany(mappedBy = "mask")
+	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
 	private List<WishList> wishlist = new ArrayList<WishList>();
 	
-	@OneToMany(mappedBy = "mask")
+	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
 	private List<Review> reviews = new ArrayList<Review>();
 	
 	// Entity -> DTO 변환
