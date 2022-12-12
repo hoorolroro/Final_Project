@@ -40,6 +40,8 @@ public class Member {
 	@Column(name = "birth_date")
 	private String birth;
 	
+	private Deletion deletion;
+	
 	@OneToMany(mappedBy = "member")
 	private List<WishList> wishlist = new ArrayList<WishList>();
 	

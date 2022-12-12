@@ -30,26 +30,10 @@ public class MaskServiceImpl implements MaskService {
 		return maskDTO;
 	}
 	
-	@Override 
-	public List<String> getAllImages(Long maskId) {
-		return maskMapper.getAllImages(maskId);
-	}
-	
-//	@Override - batch 적용
-//	public MaskDTO getMaskByKeyword(String keyword) {
-//		Mask mask = maskRepo.findMaskById(maskId);
-//		MaskDTO maskDTO = Mask.entityToDTO(mask);
-//		return maskDTO;
-//	}
-	
 	@Override
-	public void deleteMask(Long maskId) {
-		maskRepo.deleteById(maskId);
-	}
-	
-	@Override
-	public void updateSoldout(Long maskId, String soldout) {
+	public Boolean updateSoldout(Long maskId, String soldout) {
 		Mask mask = maskRepo.findMaskById(maskId);
+		if(mask != null) {
 		if (soldout.equals("Y")) {
 			mask.updateSoldout(SoldoutStatus.Y);
 		} 
@@ -57,6 +41,9 @@ public class MaskServiceImpl implements MaskService {
 			mask.updateSoldout(SoldoutStatus.N);
 		}
 		maskRepo.save(mask);
+		return true;
+		}
+		return false;
 	}
 	
 	@Override
@@ -66,8 +53,9 @@ public class MaskServiceImpl implements MaskService {
 		maskRepo.save(mask);
 	}
 	
-	public List<ImageDTO> getAllImagesOb(Long maskId) {
-		List<Image> imageList = maskMapper.getAllImagesOb(maskId);
+	@Override
+	public List<ImageDTO> getAllImages(Long maskId) {
+		List<Image> imageList = maskMapper.getAllImages(maskId);
 		System.out.println(imageList);
 		List<ImageDTO> imageDTOList = imageList.stream()
 											.map(image -> Image.entityToDTO(image))
@@ -75,6 +63,7 @@ public class MaskServiceImpl implements MaskService {
 		return imageDTOList;
 	}
 	
+	@Override
 	public List<MaskDTO> getAllMask(String kf, String size, String shape) {
 		List<Mask> maskList = maskMapper.getAllMask(kf, size, shape);
 		List<MaskDTO> maskDTOList = maskList.stream()
@@ -83,6 +72,7 @@ public class MaskServiceImpl implements MaskService {
 		return maskDTOList;
 	}
 	
+	@Override
 	public List<MaskDTO> getSortedMasks(String standard) {
 		List<Mask> maskList = maskMapper.getSortedMasks(standard);
 		List<MaskDTO> maskDTOList = maskList.stream()

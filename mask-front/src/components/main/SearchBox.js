@@ -1,11 +1,26 @@
 import React from "react";
+import styled from "styled-components";
+import {
+  SearchFieldset,
+  SearchInput,
+  SearchBtn,
+} from "../../styles/MainPageStyle/SearchStyle";
 
 function SearchBox() {
   return (
     <div>
-      <div>
-        검색어입력 : <input type="text"></input>
-      </div>
+      <form>
+        <SearchFieldset>
+          {/* <legend>Search</legend> */}
+          <SearchInput
+            type="text"
+            id="KeyWord"
+            placeholder="ex. 중형, 대형, 웰킵스, 새부리"
+            autoFocus
+          ></SearchInput>
+          <SearchBtn>🔍</SearchBtn>
+        </SearchFieldset>
+      </form>
     </div>
   );
 }

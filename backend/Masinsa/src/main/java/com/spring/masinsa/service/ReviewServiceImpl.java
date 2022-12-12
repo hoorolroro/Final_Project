@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.spring.masinsa.dto.ReviewDTO;
 import com.spring.masinsa.entity.Review;
+import com.spring.masinsa.entity.ReviewType;
 import com.spring.masinsa.repository.ReviewRepository;
 
 @Service
@@ -25,8 +27,9 @@ public class ReviewServiceImpl implements ReviewService {
   }
 
   @Override
-  public List<ReviewDTO> findByMaskId(Long maskId) {
-    List<Review> reviewList = reviewRepository.findByMaskId(maskId);
+  public List<ReviewDTO> findByMaskIdAndReviewType(Long maskId, Pageable pageable, String reviewType) {
+    ReviewType reviewType2 = ReviewType.valueOf(reviewType); //ex) reviewType이 naver면 ReviewType.NAVER로 변환
+    List<Review> reviewList = reviewRepository.findByMaskIdAndReviewType(maskId, reviewType2, pageable);
     List<ReviewDTO> reviewDTOList = new ArrayList<>();
     for (Review review : reviewList) {
       ReviewDTO reviewDTO = Review.entityToDTO(review);
