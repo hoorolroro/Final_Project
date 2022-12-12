@@ -17,7 +17,7 @@ import com.spring.masinsa.dto.ReviewDTO;
 import com.spring.masinsa.service.ReviewServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"*"})
 public class ReviewController {
 
   @Autowired 

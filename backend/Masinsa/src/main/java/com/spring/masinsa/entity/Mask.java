@@ -17,6 +17,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.spring.masinsa.dto.MaskDTO;
+import com.spring.masinsa.dto.MaskListDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -51,12 +52,12 @@ public class Mask {
 	
 	private String shape;
 	
-	private String color;
-	
-	private Long unit;
+	private String option;
 	
 	@Column(name = "thumbnail_image_url")
 	private String thumbnail;
+	
+	private String purchaseUrl;
 	
 	@Column(name = "click_num")
 	private Long click;
@@ -65,8 +66,9 @@ public class Mask {
 	@Column(name = "soldout_status")
 	private SoldoutStatus soldout; 
 	
-	@Column(name = "avg_score")
 	private Float avgScore;
+	
+	private Deletion deletion;
 	
 	@OneToMany(mappedBy = "mask")
 	private List<Image> images = new ArrayList<Image>();
@@ -86,14 +88,27 @@ public class Mask {
 								 .price(mask.getPrice())
 								 .kf(mask.getKf())
 								 .shape(mask.getShape())
-								 .color(mask.getColor())
-								 .unit(mask.getUnit())
+								 .option(mask.getOption())
 								 .thumbnail(mask.getThumbnail())
+								 .purchaseUrl(mask.getPurchaseUrl())
 								 .click(mask.getClick())
 								 .soldout(mask.getSoldout())
 								 .avgScore(mask.getAvgScore())
 								 .build();
 		return maskDTO;
+	}
+	
+	// Entity -> DTO 변환
+	public static MaskListDTO entityToListDTO(Mask mask) {
+		MaskListDTO maskListDTO = MaskListDTO.builder()
+								 .name(mask.getName())
+								 .size(mask.getSize())
+								 .price(mask.getPrice())
+								 .kf(mask.getKf())
+								 .thumbnail(mask.getThumbnail())
+								 .avgScore(mask.getAvgScore())
+								 .build();
+		return maskListDTO;
 	}
 	
 	public void updateClick() {
