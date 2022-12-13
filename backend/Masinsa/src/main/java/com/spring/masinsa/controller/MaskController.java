@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.masinsa.dto.ImageDTO;
 import com.spring.masinsa.dto.MaskDTO;
+import com.spring.masinsa.response.Message;
+import com.spring.masinsa.response.Status;
 import com.spring.masinsa.service.MaskServiceImpl;
 
 import io.swagger.annotations.ApiOperation;
@@ -41,7 +43,7 @@ public class MaskController {
 	}
 	
 	@ApiOperation(value = "13번 - maskId를 통해 해당 마스크의 모든 이미지 조회")
-	@GetMapping("/mask/image2")
+	@GetMapping("/mask/image")
 	public ResponseEntity<List<ImageDTO>> getMaskDetailImages(@RequestParam Long maskId) {
 		List<ImageDTO> imageList = maskService.getAllImages(maskId);
 		return new ResponseEntity<List<ImageDTO>>(imageList, HttpStatus.OK);
@@ -57,10 +59,13 @@ public class MaskController {
 	@ApiOperation(value = "7번 - maskId와 soldout을 통해 마스크 품절 여부 수정")
 	@PutMapping("/mask/soldout")
 	public ResponseEntity<?> updateSoldout(@RequestParam Long maskId, @RequestParam String soldout) {
-		if (maskService.updateSoldout(maskId, soldout)) {
-		    return new ResponseEntity<>("마스크 품절여부 수정 완료", HttpStatus.OK);
+		MaskDTO maskDTO = maskService.updateSoldout(maskId, soldout);
+		if (maskDTO != null) {
+			Message msg = new Message(Status.OK, "마스크 품절여부 수정 완료", maskDTO);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
 		  }
-		  return new ResponseEntity<>("마스크 품절여부 수정 실패", HttpStatus.BAD_REQUEST);
+		  Message msg = new Message(Status.OK, "마스크 품절여부 수정 실패", maskDTO);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
 		  } 
 	
 	@ApiOperation(value = "8번 - maskId를 통해 해당 마스크의 클릭수 1 추가")

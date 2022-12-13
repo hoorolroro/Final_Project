@@ -47,6 +47,9 @@ public class Member {
 	
 	@OneToMany(mappedBy = "member")
 	private List<WishList> wishlist = new ArrayList<WishList>();
+
+	private String token;
+
 	
 	// Entity -> DTO 변환
 	public static MemberDTO entityToDTO(Member member) {
@@ -56,8 +59,15 @@ public class Member {
 										.sex(member.getSex())
 										.age_group(member.getAge_group())
 										.birth(member.getBirth())
+										.deletion(member.getDeletion())
+										.token(member.getToken())
 										.build();
 		return memberDTO;
 	}
+	
+	public void deleteMember() {
+		this.deletion = Deletion.Y;
+	}
+	
 	
 }

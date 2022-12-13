@@ -7,5 +7,5 @@ import com.spring.masinsa.entity.Member;
 
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long>{
-
+	public Member findMemberById(Long memberId);
 }
