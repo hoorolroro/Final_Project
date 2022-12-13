@@ -21,7 +21,7 @@ export const FilterMaskListSection = styled.section`
   height: auto;
   padding: 5px;
   margin: 5px;
-  // border: 2px solid red;
+  border: 2px solid red;
 `;
 
 /* Filter 부분 스타일 */

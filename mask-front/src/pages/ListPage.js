@@ -57,16 +57,18 @@ function ListPage() {
         {/* 정렬변경 */}
         <SortChange2 />
         {/* 마스크 리스트공간 */}
-        <FilterMaskListSection>
-          {maskList != null ? (
-            <>
+        {maskList != null ? (
+          <>
+            <FilterMaskListSection>
               {/* 필터걸린 마스크 리스트 */}
               <FilterMaskList maskList={maskList} />
               {/* 페이지네이션 */}
               <Pagination></Pagination>
-            </>
-          ) : (
-            <>
+            </FilterMaskListSection>
+          </>
+        ) : (
+          <>
+            <FilterMaskListSection>
               <div style={{ marginTop: "10px" }}>
                 <h4>해당 상품에 대한 MASINSA 내 검색 결과가 없습니다.</h4>
                 <h6>다른 필터를 선택하여 다시 검색해 주세요</h6>
@@ -75,13 +77,14 @@ function ListPage() {
                 </h6>
                 <h6>도움을 드리지 못해 죄송합니다.</h6>
               </div>
-            </>
-          )}
-          {/* 필터걸린 마스크 리스트
+              <Pagination></Pagination>
+            </FilterMaskListSection>
+          </>
+        )}
+        {/* 필터걸린 마스크 리스트
           <FilterMaskList maskList={maskList} />
           페이지네이션
           <Pagination></Pagination> */}
-        </FilterMaskListSection>
       </Main>
     </div>
   );

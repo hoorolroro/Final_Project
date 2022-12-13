@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   width: 100%;
   // 600px 이하로 줄어들지 않도록 설정
   min-width: 500px;
-  border: 2px solid blue;
+  // border: 2px solid blue;
 `;
 
 // Header 제외한 화면의 내용부분 : Main

@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 /* 마스크리스트 부분 */
 
-// 마스크리스트 보여주는 div * 3 = 6개 ( 한칸당 2개씩)
+// 마스크리스트 보여주는 div
 export const MaskListDiv = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  width: 100%;
+  width: auto;
   height: auto;
   padding: 10px;
   border: 2px solid red;
@@ -19,13 +19,12 @@ export const MaskSummaryBox = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  width: 50%;
-  height: 280px;
+  width: 100%;
+  height: 250px;
   padding: 10px;
   margin: 0 5px 10px 5px;
-  border: 1px solid red;
-  // border: 1px solid #d9d9d9;
-  // border-style: none none double;
+  border: 1px solid #d9d9d9;
+  border-style: none none double;
 `;
 
 // 리스트에서 각 마스크 이미지

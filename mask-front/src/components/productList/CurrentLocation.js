@@ -19,7 +19,17 @@ function CurrentLocation({ mask }) {
         </div>
       ) : (
         // list Page 에서는 파라미터( blockingindex ) 가져오기
-        <div>홈 → {blockingindex}</div>
+        <>
+          {{ blockingindex } != ":blockingindex" ? (
+            <>
+              <div>홈 → {blockingindex}</div>
+            </>
+          ) : (
+            <>
+              <div>홈 → </div>
+            </>
+          )}
+        </>
       )}
     </div>
   );
