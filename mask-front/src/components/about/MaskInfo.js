@@ -37,7 +37,9 @@ function MaskInfo({ mask, images }) {
           </MaskInfoOption>
           {/* 구매링크버튼 */}
           <MaskBuyLink>
-            <BuyLinkBox href={mask.purchaseUrl}>구매하러 가볼까요?</BuyLinkBox>
+            <BuyLinkBox href={mask.purchaseUrl} target="_blank">
+              구매하러 가볼까요?
+            </BuyLinkBox>
           </MaskBuyLink>
         </MaskInfoContent>
       </MaskInfoSection>

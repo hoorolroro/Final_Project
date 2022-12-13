@@ -3,24 +3,30 @@ import styled from "styled-components";
 
 /* 마스크리스트 부분 */
 
-// 마스크리스트 보여주는 div * 3 = 6개 ( 한칸당 2개씩)
-export const MakListDiv = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+// 마스크리스트 보여주는 div
+export const MaskListDiv = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 5px;
+  // display: flex;
+  // flex-wrap: nowrap;
+  // justify-content: center;
   width: auto;
   height: auto;
   padding: 10px;
-  // border: 1px solid red;
+  border: 2px solid red;
 `;
 
 // 리스트의 각 마스크 요약정보 칸
 export const MaskSummaryBox = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  width: 50%;
-  height: 280px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // display: flex;
+  // flex-wrap: nowrap;
+  // align-items: center;
+  width: 95%;
+  height: 250px;
   padding: 10px;
   margin: 0 5px 10px 5px;
   border: 1px solid #d9d9d9;
@@ -29,9 +35,9 @@ export const MaskSummaryBox = styled.div`
 
 // 리스트에서 각 마스크 이미지
 export const MaskSummaryImg = styled.img`
-  width: 40%;
-  height: 80%;
-  margin-right: 10px;
+  width: 70%;
+  height: 90%;
+  // margin-right: 10px;
   padding: 10px;
   border: 1px solid #d9d9d9;
 `;
@@ -42,7 +48,7 @@ export const MaskSummaryContent = styled.div`
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
-  width: 40%;
+  width: 80%;
   height: 80%;
   padding: 5px;
   // border: 2px solid blue;
