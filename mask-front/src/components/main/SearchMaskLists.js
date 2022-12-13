@@ -2,7 +2,7 @@ import React from "react";
 import WishBtn from "../WishBtn";
 import styled from "styled-components";
 import {
-  MakListDiv,
+  MaskListDiv,
   MaskSummaryBox,
   MaskSummaryImg,
   MaskSummaryContent,
@@ -18,7 +18,7 @@ function SearchMaskLists({ maskList }) {
 
   return (
     <div>
-      <MakListDiv>
+      <MaskListDiv>
         {/* "/aboutMask/:maskId/Masinsa" */}
         <MaskSummaryBox>
           {/* 마스크썸네일 */}
@@ -66,7 +66,7 @@ function SearchMaskLists({ maskList }) {
             <MaskScore>평점 : 4.5 ⭐</MaskScore>
           </MaskSummaryContent>
         </MaskSummaryBox>
-      </MakListDiv>
+      </MaskListDiv>
 
       {/* 6번까지 ! */}
     </div>

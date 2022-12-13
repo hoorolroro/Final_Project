@@ -54,7 +54,7 @@ export const ShapeBtn = styled.button`
     color: #05735f;
   }
   &:active {
-    color: #05735f;
+    color: #0ea654;
     text-decoration: underline;
   }
 `;
@@ -69,10 +69,21 @@ export const MaskShapeImg = styled.img`
   border-radius: 50px;
 `;
 
-// 마스크 형태 내용 (ShapeBtn버튼)
+// 마스크 형태 내용 (ShapeBtn버튼 안에 글 : 선택안되어 있을 경우)
 export const MaskShapeName = styled.div`
   margin-left: 10px;
   // border: 1px solid red;
+`;
+
+// 마스크 형태 내용 ( 선택 o )
+export const MaskShapeName_active = styled.div`
+  color: #0ea654;
+  text-decoration: underline;
+  margin-left: 10px;
+  // border: 1px solid red;
+  &:hover {
+    color: #5cec7c;
+  }
 `;
 
 // 마스크 사이즈 리스트 Section ( 전체 / 대형 / 중형 / 소형 / 기타)
@@ -87,7 +98,7 @@ export const SizeListsSection = styled.div`
   border-style: double none;
 `;
 
-// 마스크 사이즈 Btn
+// 마스크 사이즈 Btn (선택 x)
 export const SizeBtn = styled.button`
   width: 13%;
   padding: 10px;
@@ -95,12 +106,26 @@ export const SizeBtn = styled.button`
   border: 0px;
   cursor: pointer;
   // color: #fff;
-  / &:hover {
+  &:hover {
     color: #5cec7c;
   }
   &:active {
-    color: #5cec7c;
+    color: #0ea654;
     text-decoration: underline;
+  }
+`;
+
+// 마스크 사이즈 Btn (선택 o)
+export const SizeBtn_active = styled.button`
+  width: 13%;
+  padding: 10px;
+  background: none;
+  border: 0px;
+  cursor: pointer;
+  color: #0ea654;
+  text-decoration: underline;
+  &:hover {
+    color: #5cec7c;
   }
 `;
 

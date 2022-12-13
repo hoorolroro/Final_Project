@@ -1,5 +1,5 @@
 // 맨 위: 마신사 로고, 마이페이지 버튼, 네이버 로그인 버튼, 차단지수 카테고리
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LoginBtn from "./LoginBtn";
 import MyPageBtn from "./MyPageBtn";
 import styled from "styled-components";
@@ -38,6 +38,7 @@ function Header() {
           <a href="/MaskList/Masinsa/KF94">
             {/* <BlockingLeft>KF94</BlockingLeft> */}
             <BlockingBtn>KF94</BlockingBtn>
+            {/* <BlockingBtn>KF94</BlockingBtn> */}
           </a>
           <a href="/MaskList/Masinsa/KF80">
             {/* <BlockingCenter>KF80</BlockingCenter> */}

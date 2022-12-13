@@ -17,7 +17,13 @@ export const getFilter = async ({
     `http://localhost:8080/mask/filter?kf=${maskKF}&size=${maskSize}&shape=${maskShape}`
   );
 
-  // console.log(response.data);
+  console.log(response.data);
 
-  return setMaskList(response.data);
+  if (response.data.length == 0) {
+    setMaskList(null);
+  } else {
+    setMaskList(response.data);
+  }
+
+  // setMaskList(response.data);
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WishBtn from "../WishBtn";
 import {
-  MakListDiv,
+  MaskListDiv,
   MaskSummaryBox,
   MaskSummaryImg,
   MaskSummaryContent,
@@ -15,26 +15,9 @@ import {
 function FilterMaskList({ maskList }) {
   // console.log("FilterMaskLists : ", maskList);
 
-  // 마스크리스트 길이
-  // console.log(maskList.length);
-
-  // const leftMaskList = [];
-  // const rightMaskList = [];
-
-  // for (let i = 0; i < maskList.length; i++) {
-  //   if (i % 2 == 0) {
-  //     leftMaskList[i] = maskList[i];
-  //   } else if (i % 2 != 0) {
-  //     rightMaskList[i] = maskList[i];
-  //   }
-  // }
-
-  // console.log("leftMaskList :", leftMaskList);
-  // console.log("rightMaskList :", leftMaskList);
-
   return (
     <div>
-      <MakListDiv>
+      <MaskListDiv>
         {/* "/aboutMask/:maskId/Masinsa" */}
         <MaskSummaryBox>
           {/* 마스크썸네일 */}
@@ -82,7 +65,7 @@ function FilterMaskList({ maskList }) {
             <MaskScore>평점 : 4.5 ⭐</MaskScore>
           </MaskSummaryContent>
         </MaskSummaryBox>
-      </MakListDiv>
+      </MaskListDiv>
 
       {/* 6번까지 ! */}
     </div>

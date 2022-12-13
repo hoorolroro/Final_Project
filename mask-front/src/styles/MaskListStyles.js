@@ -4,7 +4,7 @@ import styled from "styled-components";
 /* 마스크리스트 부분 */
 
 // 마스크리스트 보여주는 div * 3 = 6개 ( 한칸당 2개씩)
-export const MakListDiv = styled.div`
+export const MaskListDiv = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
