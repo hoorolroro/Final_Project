@@ -39,6 +39,7 @@ function App() {
         // 자식창(팝업창)에서 부모창으로 접근
         window.onload = () => {
           window.opener.location.href = "http://localhost:3000"; // 메인으로 돌아옴
+          window.setTimeout(1000);
           window.self.close(); //팝업창 닫음
         };
       }
