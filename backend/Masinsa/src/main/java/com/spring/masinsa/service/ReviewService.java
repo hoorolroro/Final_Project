@@ -8,7 +8,8 @@ import com.spring.masinsa.dto.ReviewDTO;
 
 public interface ReviewService {
 
-	int countByMaskId(Long maskId);
+	//count by maskId where review_type = "naver"
+	public int countByMaskIdAndReviewType(Long maskId, String reviewType);
 
 	List<ReviewDTO> findByMaskIdAndReviewType(Long maskId, Pageable pageable, String reviewType);
 
