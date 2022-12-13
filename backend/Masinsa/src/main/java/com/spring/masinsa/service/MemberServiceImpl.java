@@ -31,4 +31,17 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return null;
 	}
+
+	@Override
+  public MemberDTO saveMember(MemberDTO memberDTO) {
+		//먼저 memberId로 조회해서 없으면 저장
+		Member m = memberRepo.findMemberById(memberDTO.getId());
+		if(m != null) {
+			return null;
+			}
+
+    Member member = MemberDTO.dtoToEntity(memberDTO);
+		memberRepo.save(member);
+		return Member.entityToDTO(member);
+  }
 }

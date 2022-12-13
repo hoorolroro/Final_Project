@@ -32,6 +32,8 @@ public class Review {
 	@Column(name = "review_id")
 	private Long id;
 	
+	@Column(name = "naver_id")
+	private String naverId;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="mask_id")
@@ -54,9 +56,10 @@ public class Review {
 	public static ReviewDTO entityToDTO(Review review) {
 		ReviewDTO reviewDTO = ReviewDTO.builder()
 				.id(review.getId())
-				.memberId(review.getMember().getId())
-				.memberNickname(review.getMember().getNickname())
-				.maskId(review.getMask().getId())
+				//memberId가 null이 아니라면 builder에 memberId를 넣어준다.
+				.memberId(review.getMember() != null ? review.getMember().getId() : null)
+				//naverId가 null이 아니라면 builder에 naverId를 넣어준다.
+				.naverId(review.getNaverId() != null ? review.getNaverId() : null)
 				.score(review.getScore())
 				.option(review.getOption())
 				.content(review.getContent())

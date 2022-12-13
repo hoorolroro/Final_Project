@@ -14,12 +14,14 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MemberDTO {
 	
+	private String token;
 	private Long id;
 	private String nickname;
 	private String sex;
 	private String age_group;
 	private String birth;
-	private Deletion deletion;
+	@Builder.Default // 기본값을 N으로 설정
+	private Deletion deletion = Deletion.N;
 	
 	// DTO -> Entity 변환
 	public static Member dtoToEntity(MemberDTO memberDTO) {
@@ -30,6 +32,7 @@ public class MemberDTO {
 							  .age_group(memberDTO.getAge_group())
 							  .birth(memberDTO.getBirth())
 							  .deletion(memberDTO.getDeletion())
+								.token(memberDTO.getToken())
 							  .build();
 		return member;	  
 	}
