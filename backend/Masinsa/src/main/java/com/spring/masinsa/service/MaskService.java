@@ -8,7 +8,7 @@ import com.spring.masinsa.dto.MaskDTO;
 public interface MaskService  {
 	
 	public MaskDTO getMask(Long maskId);
-	public Boolean updateSoldout(Long maskId, String soldout);
+	public MaskDTO updateSoldout(Long maskId, String soldout);
 	public void updateClick(Long maskId);
 	public List<ImageDTO> getAllImages(Long maskId);
 	public List<MaskDTO> getAllMask(String kf, String size, String shape);
