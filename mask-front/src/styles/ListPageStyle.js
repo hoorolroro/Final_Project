@@ -6,9 +6,7 @@ import styled from "styled-components";
 // 필터들이 있는 Section
 export const FilterSection = styled.section`
   width: auto;
-  height: 235px;
-  padding: 5px;
-  margin: 5px;
+  height: 230px;
   // border: 2px solid red;
 `;
 
@@ -26,15 +24,6 @@ export const FilterMaskListSection = styled.section`
   // border: 2px solid red;
 `;
 
-// 정렬기준2 ( 리스트페이지 )
-export const SortSection2 = styled.section`
-  width: auto;
-  height: 20px;
-  padding: 5px;
-  margin: 5px;
-  // border: 2px solid red;
-`;
-
 /* Filter 부분 스타일 */
 
 // 마스크 형태 리스트 Section ( 새부리 / 입체 / 덴탈)
@@ -42,21 +31,10 @@ export const ShapeListsSection = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-around;
-  width: auto;
-  height: 120px;
-  padding: 10px;
-  // border: 2px solid red;
-`;
-
-// 마스크 사이즈 리스트 Section ( 전체 / 대형 / 중형 / 소형 / 기타)
-export const SizeListsSection = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
   justify-content: center;
   width: auto;
-  height: 45px;
+  height: 120px;
+  margin: 10px 0px;
   // border: 2px solid red;
 `;
 
@@ -66,7 +44,7 @@ export const ShapeBtn = styled.button`
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 20%;
   font-size: 15px;
   font-weight: 800;
   background: none;
@@ -76,7 +54,8 @@ export const ShapeBtn = styled.button`
     color: #05735f;
   }
   &:active {
-    color: #5cec7c;
+    color: #05735f;
+    text-decoration: underline;
   }
 `;
 
@@ -96,17 +75,66 @@ export const MaskShapeName = styled.div`
   // border: 1px solid red;
 `;
 
+// 마스크 사이즈 리스트 Section ( 전체 / 대형 / 중형 / 소형 / 기타)
+export const SizeListsSection = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 45px;
+  border: 1px solid #9a9a9a;
+  border-style: double none;
+`;
+
 // 마스크 사이즈 Btn
 export const SizeBtn = styled.button`
-  width: 15%;
+  width: 13%;
   padding: 10px;
   background: none;
   border: 0px;
+  cursor: pointer;
+  // color: #fff;
+  / &:hover {
+    color: #5cec7c;
+  }
+  &:active {
+    color: #5cec7c;
+    text-decoration: underline;
+  }
+`;
+
+/* 정렬변경 */
+
+// 정렬기준2 ( 리스트페이지 )
+export const SortSection2 = styled.section`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 25px;
+  padding: 5px;
+  margin-top: 15px;
+  // border: 2px solid red;
+`;
+
+// 정렬기준 선택 버튼
+export const SelectBox = styled.div`
+  width: 15%;
+  height: 23px;
+  padding-top: 3px;
+  margin: 0px 10px;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid #9a9a9a;
+  overflow: hidden;
   cursor: pointer;
   &:hover {
     color: #05735f;
   }
   &:active {
-    color: #5cec7c;
+    background: #05735f;
+    color: #fff;
   }
 `;

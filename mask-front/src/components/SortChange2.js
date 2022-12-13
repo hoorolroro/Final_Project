@@ -1,24 +1,17 @@
 //정렬기준변경
 import React from "react";
 import styled from "styled-components";
-
-// 정렬기준 변경 select
-const SortSelect = styled.select`
-  width: 80px;
-  float: right;
-`;
+import { SortSection2 } from "../styles/ListPageStyle";
+import { SelectBox } from "../styles/ListPageStyle";
 
 function SortChange2() {
   return (
     <div>
-      <div>
-        <SortSelect>
-          <option>정렬기준</option>
-          <option>낮은가격순</option>
-          <option>평점순</option>
-          <option>인기순</option>
-        </SortSelect>
-      </div>
+      <SortSection2>
+        <SelectBox>낮은가격순</SelectBox>
+        <SelectBox>평점순</SelectBox>
+        <SelectBox>클릭많은순</SelectBox>
+      </SortSection2>
     </div>
   );
 }

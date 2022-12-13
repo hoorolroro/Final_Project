@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import MoreBtn from "./MoreBtn";
 import { MaskDetailSection } from "../../styles/AboutPageStyle";
 
-function MaskDetail({ maskId }) {
+function MaskDetail({ images }) {
+  // console.log("maskdetail : ", images);
+
   return (
     <div>
       <MaskDetailSection>
-        상세이미지보여주기
-        <MoreBtn />
+        {images ? (
+          images.map((image) => (
+            <div key={image.id}>
+              {/* imageType이 detail 이면 출력 */}
+              {image.imageType === "detail" ? (
+                <>
+                  <img src={image.imageUrl}></img>
+                  <MoreBtn />
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
+          ))
+        ) : (
+          <></>
+        )}
       </MaskDetailSection>
     </div>
   );
