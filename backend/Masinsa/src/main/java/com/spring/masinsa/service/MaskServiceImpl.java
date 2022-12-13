@@ -34,11 +34,11 @@ public class MaskServiceImpl implements MaskService {
 	public Boolean updateSoldout(Long maskId, String soldout) {
 		Mask mask = maskRepo.findMaskById(maskId);
 		if(mask != null) {
-		if (soldout.equals("Y")) {
-			mask.updateSoldout(SoldoutStatus.Y);
+			if (soldout.equals("Y")) {
+				mask.updateSoldout(SoldoutStatus.Y);
 		} 
-		else if (soldout.equals("N")) {
-			mask.updateSoldout(SoldoutStatus.N);
+			else if (soldout.equals("N")) {
+				mask.updateSoldout(SoldoutStatus.N);
 		}
 		maskRepo.save(mask);
 		return true;

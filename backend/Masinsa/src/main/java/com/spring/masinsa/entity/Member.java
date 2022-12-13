@@ -56,8 +56,14 @@ public class Member {
 										.sex(member.getSex())
 										.age_group(member.getAge_group())
 										.birth(member.getBirth())
+										.deletion(member.getDeletion())
 										.build();
 		return memberDTO;
 	}
+	
+	public void deleteMember() {
+		this.deletion = Deletion.Y;
+	}
+	
 	
 }

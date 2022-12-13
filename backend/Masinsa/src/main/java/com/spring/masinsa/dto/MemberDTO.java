@@ -1,5 +1,6 @@
 package com.spring.masinsa.dto;
 
+import com.spring.masinsa.entity.Deletion;
 import com.spring.masinsa.entity.Member;
 
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ public class MemberDTO {
 	private String sex;
 	private String age_group;
 	private String birth;
+	private Deletion deletion;
 	
 	// DTO -> Entity 변환
 	public static Member dtoToEntity(MemberDTO memberDTO) {
@@ -27,6 +29,7 @@ public class MemberDTO {
 							  .sex(memberDTO.getSex())
 							  .age_group(memberDTO.getAge_group())
 							  .birth(memberDTO.getBirth())
+							  .deletion(memberDTO.getDeletion())
 							  .build();
 		return member;	  
 	}
