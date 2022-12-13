@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.masinsa.dto.MemberDTO;
+import com.spring.masinsa.response.Message;
+import com.spring.masinsa.response.Status;
 import com.spring.masinsa.service.MemberServiceImpl;
 
 import io.swagger.annotations.ApiOperation;
@@ -28,13 +30,15 @@ public class MemberController {
 		return new ResponseEntity<MemberDTO>(memberDTO, HttpStatus.OK);
 	}
 	
-//	@ApiOperation(value = "2번 - memberId를 통해 회원 탈퇴")
-//	@PutMapping("/member/delete")
-//	public ResponseEntity<MemberDTO> deleteMember(@RequestParam Long memberId) {
-//		MemberDTO memberDTO = memberService.deleteMember(memberId);
-//		if (memberDTO != null) {
-//			return new ResponseEntity<MemberDTO>(memberDTO, "회원 탈퇴 완료", HttpStatus.OK);
-//		}
-//		return new ResponseEntity<MemberDTO>("회원 탈퇴 실패", HttpStatus.BAD_REQUEST);
-//		}
+	@ApiOperation(value = "2번 - memberId를 통해 회원 탈퇴")
+	@PutMapping("/member/delete")
+	public ResponseEntity<?> deleteMember(@RequestParam Long memberId) {
+		MemberDTO memberDTO = memberService.deleteMember(memberId);
+		if (memberDTO != null) {
+			Message msg = new Message(Status.OK, "회원 탈퇴 완료", memberDTO);
+			return new ResponseEntity<>(msg, HttpStatus.OK);
+		}
+		Message msg = new Message(Status.OK, "회원 탈퇴 실패", memberDTO);
+		return new ResponseEntity<>(msg, HttpStatus.OK);
+		}
 }
