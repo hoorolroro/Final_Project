@@ -3,6 +3,8 @@ package com.spring.masinsa.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -49,12 +51,12 @@ public class MaskController {
 		return new ResponseEntity<List<ImageDTO>>(imageList, HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "11번 - standard를 통해 마스크 해당 기준으로 정렬 (해결 필요...)")
-	@GetMapping("/mask/sort")
-	public ResponseEntity<List<MaskDTO>> getSortedMasks(@RequestParam String standard) {
-		List<MaskDTO> maskList = maskService.getSortedMasks(standard);
-		return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK);
-	}
+	// @ApiOperation(value = "11번 - standard를 통해 마스크 해당 기준으로 정렬 (해결 필요...)")
+	// @GetMapping("/mask/sort")
+	// public ResponseEntity<List<MaskDTO>> getSortedMasks(@RequestParam String standard) {
+	// 	List<MaskDTO> maskList = maskService.getSortedMasks(standard);
+	// 	return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK);
+	// }
 	
 	@ApiOperation(value = "7번 - maskId와 soldout을 통해 마스크 품절 여부 수정")
 	@PutMapping("/mask/soldout")
@@ -74,4 +76,18 @@ public class MaskController {
 		maskService.updateClick(maskId);
 	}
 	
+	//test
+	//api that takes column name, size, page  and returns list of masks with pagination
+	@GetMapping("/mask/sort")
+	public ResponseEntity<List<MaskDTO>> getMaskList(@RequestParam String col, @RequestParam String order,
+		@RequestParam int page, @RequestParam int size) {
+		List<MaskDTO> maskList = maskService.getSortedMasksPage(col, order, page, size);
+		return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK);
+	}
+
+
+//column name for mask table : mask_id, mask_name, size, price, blocking_index, shape, option, thumbnail_image_url, purchase_url, click_num, soldout_status, avg_score, deletion, color, unit
+//SQL query for creating a new record : mask_id는 auto increment로 설정
+//INSERT INTO mask (mask_name, size, price, blocking_index, shape, option, thumbnail_image_url, purchase_url, click_num, soldout_status, avg_score, deletion, color, unit) VALUES ('test', 'test', 1000, 100, 'test', 'test', 'test', 'test', 0, 'test', 0, 'test', 'test', 'test');
+
 }
