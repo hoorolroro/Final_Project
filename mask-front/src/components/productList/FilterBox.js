@@ -10,7 +10,13 @@ import {
 } from "../../styles/ListPageStyle";
 import CurrentLocation from "./CurrentLocation";
 
-function FilterBox() {
+function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
+  // 사이즈, 형태 설정값 모두 지우기
+  const removeAll = () => {
+    setMaskShape("");
+    setMaskSize("");
+  };
+
   return (
     <div>
       {/* 현재 필터 위치 */}
@@ -28,19 +34,31 @@ function FilterBox() {
       </div>
       {/* 마스크 형태 */}
       <ShapeListsSection>
-        <ShapeBtn>
+        <ShapeBtn
+          onClick={() => {
+            removeAll();
+          }}
+        >
+          <MaskShapeImg
+            src={`${process.env.PUBLIC_URL}/지구마스크.png`}
+          ></MaskShapeImg>
+          <MaskShapeName>전체</MaskShapeName>
+        </ShapeBtn>
+        <ShapeBtn onClick={() => setMaskShape("새부리형")}>
+          {/* 마스크 이미지 */}
           <MaskShapeImg
             src={`${process.env.PUBLIC_URL}/새부리형.png`}
           ></MaskShapeImg>
+          {/* 마스크 형태 */}
           <MaskShapeName>새부리형</MaskShapeName>
         </ShapeBtn>
-        <ShapeBtn>
+        <ShapeBtn onClick={() => setMaskShape("입체형")}>
           <MaskShapeImg
-            src={`${process.env.PUBLIC_URL}/삼단(입체)형.png`}
+            src={`${process.env.PUBLIC_URL}/입체형.png`}
           ></MaskShapeImg>
-          <MaskShapeName>삼단(입체)형</MaskShapeName>
+          <MaskShapeName>입체형</MaskShapeName>
         </ShapeBtn>
-        <ShapeBtn>
+        <ShapeBtn onClick={() => setMaskShape("덴탈형")}>
           <MaskShapeImg
             src={`${process.env.PUBLIC_URL}/덴탈형.png`}
           ></MaskShapeImg>
@@ -49,11 +67,10 @@ function FilterBox() {
       </ShapeListsSection>
       {/* 마스크 사이즈 */}
       <SizeListsSection>
-        <SizeBtn>▪ 전체</SizeBtn>
-        <SizeBtn>▪ 대형</SizeBtn>
-        <SizeBtn>▪ 중형</SizeBtn>
-        <SizeBtn>▪ 소형</SizeBtn>
-        <SizeBtn>▪ 기타</SizeBtn>
+        <SizeBtn onClick={() => setMaskSize("대형")}>▪ 대형</SizeBtn>
+        <SizeBtn onClick={() => setMaskSize("중형")}>▪ 중형</SizeBtn>
+        <SizeBtn onClick={() => setMaskSize("소형")}>▪ 소형</SizeBtn>
+        <SizeBtn onClick={() => setMaskSize("기타")}>▪ 기타</SizeBtn>
       </SizeListsSection>
     </div>
   );
