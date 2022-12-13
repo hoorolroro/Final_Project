@@ -66,6 +66,29 @@ function SearchMaskLists({ maskList }) {
             <MaskScore>평점 : 4.5 ⭐</MaskScore>
           </MaskSummaryContent>
         </MaskSummaryBox>
+        <MaskSummaryBox>
+          {/* 마스크썸네일 */}
+          <MaskSummaryImg src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FvmiXpveYs10fC%2Fgiphy.gif&type=sc960_832_gif"></MaskSummaryImg>
+          {/* 마스크내용 */}
+          <MaskSummaryContent>
+            <MaskSummaryTopDiv>
+              <MaskSummaryTitleLinkBox href="">
+                2번 마스크입니다
+              </MaskSummaryTitleLinkBox>
+              {/* 찜버튼 */}
+              <WishBtn />
+            </MaskSummaryTopDiv>
+            {/* 가격 (링크) */}
+            <MaskSummaryPriceLinkBox href="">15,000원</MaskSummaryPriceLinkBox>
+            {/* 옵션 */}
+            <MaskSummaryOption>
+              <li>
+                <i>Size : </i>
+              </li>
+            </MaskSummaryOption>
+            <MaskScore>평점 : 4.5 ⭐</MaskScore>
+          </MaskSummaryContent>
+        </MaskSummaryBox>
       </MaskListDiv>
 
       {/* 6번까지 ! */}
