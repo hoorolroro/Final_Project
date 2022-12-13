@@ -1,4 +1,4 @@
-// import { Pagination } from "@mui/material";
+import { Pagination } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ReviewLists from "../about/ReviewLists";
@@ -9,15 +9,9 @@ import {
   ReviewBtnSection,
   ReviewContent,
 } from "../../styles/AboutPageStyle";
-import Pagination from "../Pagination";
+import Pagination2 from "../Pagination2";
 
-function Reviews({
-  maskId,
-  currentPage,
-  reviewsPerPage,
-  setCurrentPage,
-  setReviewsPerPage,
-}) {
+function Reviews({ maskId }) {
   // getReview를 위한 파라미터 설정
 
   // 리뷰페이지 번호 : 처음 1 에서 버튼 누를때마다 변경됨
@@ -65,7 +59,8 @@ function Reviews({
             size={size}
           />
         </ReviewContent>
-        <Pagination allReviews={allReviews} page={page} setPage={setPage} />
+        <Pagination />
+        {/* <Pagination2 allReviews={allReviews} page={page} setPage={setPage} /> */}
       </ReviewSection>
     </div>
   );

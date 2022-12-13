@@ -45,7 +45,7 @@ const PageSpan = styled.span`
   }
 `;
 
-const Pagination = ({ allReviews, page, setPage }) => {
+const Pagination2 = ({ allReviews, page, setPage }) => {
   return (
     <div>
       <nav>
@@ -80,4 +80,4 @@ const Pagination = ({ allReviews, page, setPage }) => {
   );
 };
 
-export default Pagination;
+export default Pagination2;
