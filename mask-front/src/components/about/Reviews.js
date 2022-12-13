@@ -31,7 +31,7 @@ function Reviews({ maskId }) {
     getReviews({ maskId, page, size, reviewType, setAllReviews });
   }, []);
 
-  // console.log("AboutPage(Reviews) - review 불러오기 : ", allReviews);
+  console.log("AboutPage(Reviews) - review 불러오기 : ", allReviews);
   console.log(reviewType);
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
   ShapeListsSection,
@@ -9,15 +9,23 @@ import {
   MaskShapeName,
 } from "../../styles/ListPageStyle";
 import CurrentLocation from "./CurrentLocation";
-import { CurrentFilterSection } from "../../styles/OtherStyles";
 
 function FilterBox() {
   return (
     <div>
       {/* 현재 필터 위치 */}
-      <CurrentFilterSection>
+      <div
+        style={{
+          width: "auto",
+          padding: "10px 15px",
+          textAlign: "left",
+          fontSize: "12px",
+          color: "#9A9A9A",
+          borderStyle: "none none double",
+        }}
+      >
         <CurrentLocation />
-      </CurrentFilterSection>
+      </div>
       {/* 마스크 형태 */}
       <ShapeListsSection>
         <ShapeBtn>
@@ -39,7 +47,6 @@ function FilterBox() {
           <MaskShapeName>덴탈형</MaskShapeName>
         </ShapeBtn>
       </ShapeListsSection>
-      <hr></hr>
       {/* 마스크 사이즈 */}
       <SizeListsSection>
         <SizeBtn>▪ 전체</SizeBtn>
@@ -48,7 +55,6 @@ function FilterBox() {
         <SizeBtn>▪ 소형</SizeBtn>
         <SizeBtn>▪ 기타</SizeBtn>
       </SizeListsSection>
-      <hr></hr>
     </div>
   );
 }
