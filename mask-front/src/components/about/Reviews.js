@@ -9,6 +9,7 @@ import {
   ReviewBtnSection,
   ReviewContent,
 } from "../../styles/AboutPageStyle";
+import Pagination2 from "../Pagination2";
 
 function Reviews({ maskId }) {
   // getReview를 위한 파라미터 설정
@@ -50,9 +51,16 @@ function Reviews({ maskId }) {
           </ReviewBtn>
         </ReviewBtnSection>
         <ReviewContent>
-          <ReviewLists allReviews={allReviews} />
+          <ReviewLists
+            allReviews={allReviews}
+            // currentPage={currentPage}
+            page={page}
+            setPage={setPage}
+            size={size}
+          />
         </ReviewContent>
         <Pagination />
+        {/* <Pagination2 allReviews={allReviews} page={page} setPage={setPage} /> */}
       </ReviewSection>
     </div>
   );
