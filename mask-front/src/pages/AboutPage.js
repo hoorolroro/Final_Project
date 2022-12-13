@@ -10,24 +10,22 @@ import CurrentLocation from "../components/productList/CurrentLocation";
 import styled from "styled-components";
 import { CurrentFilterSection } from "../styles/OtherStyles";
 import { MaskAboutWrapper } from "../styles/AboutPageStyle";
-import { getNaverReview } from "../api/review/getNaverReview";
+import { getReviews } from "../api/review/getReviews";
 
 function AboutPage() {
-  const { maskId, page, size, reviewType } = useParams();
+  // 파라미터를 통한 maskId 전달
+  const { maskId } = useParams();
+  // console.log("useParams", maskId);
+
+  //  마스크요청
 
   const [mask, setMask] = useState([]);
-  const [naverReview, setNaverReview] = useState([]);
 
   useEffect(() => {
     getMask({ maskId, setMask });
   }, []);
 
-  useEffect(() => {
-    getNaverReview({ maskId, page, size, reviewType, setNaverReview });
-  }, []);
-
-  console.log(mask);
-  console.log(naverReview);
+  // console.log("AboutPage - mask 불러오기 : ", mask);
 
   return (
     <div>
@@ -35,16 +33,17 @@ function AboutPage() {
         <MaskAboutWrapper>
           {/* 현재 적용된 필터 확인 */}
           <CurrentFilterSection>
-            <CurrentLocation />
+            <CurrentLocation mask={mask} />
           </CurrentFilterSection>
           {/* 마스크 정보 */}
           <MaskInfo mask={mask} />
           {/* 리뷰통계 */}
-          <Analysis />
+          <Analysis maskId={mask.id} />
+          <hr></hr>
           {/* 상세정보 */}
-          <MaskDetail mask={mask} />
+          <MaskDetail maskId={mask.id} />
           {/* 리뷰창 */}
-          <Reviews naverReview={naverReview} setNaverReview={setNaverReview} />
+          <Reviews maskId={mask.id} />
         </MaskAboutWrapper>
       </Main>
     </div>

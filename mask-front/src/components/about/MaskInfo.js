@@ -14,29 +14,29 @@ import {
 } from "../../styles/AboutPageStyle";
 import SlidePhoto from "./SlidePhoto";
 
-function MaskInfo({ mask, maskId }) {
-  console.log({ mask });
+function MaskInfo({ mask }) {
+  // console.log("maskinfo:", { mask });
 
   // mask 값들을 빼내서 사용하기
   return (
     <div>
       <MaskInfoSection>
         {/* 썸네일사진 */}
-        <MaskThumnailImg src="https://shopping-phinf.pstatic.net/main_2685867/26858677522.20211018155019.jpg?type=f300"></MaskThumnailImg>
+        <MaskThumnailImg src={mask.thumbnail}></MaskThumnailImg>
         <MaskInfoContent>
           <MaskInfoTopSection>
-            <MaskTitle>어쩌구마스크fdgdagfdagdagdagsagdgsaggsgs</MaskTitle>
+            <MaskTitle>{mask.name}</MaskTitle>
             {/* 찜버튼 */}
             <WishBtn />
           </MaskInfoTopSection>
-          <MaskInfoPrice>5,000원</MaskInfoPrice>
+          <MaskInfoPrice>{mask.price} 원</MaskInfoPrice>
           <MaskInfoOption>
-            <li>사이즈 : 대 / 중 / 소</li>
-            <li>기타옵션 : ********* </li>
+            <li>Size : {mask.size}</li>
+            <li>Option : {mask.option}</li>
           </MaskInfoOption>
           {/* 구매링크버튼 */}
           <MaskBuyLink>
-            <BuyBtn />
+            <BuyBtn purchaseUrl={mask.purchaseUrl} />
           </MaskBuyLink>
         </MaskInfoContent>
       </MaskInfoSection>

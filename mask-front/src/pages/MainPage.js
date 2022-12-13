@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopThree from "../components/main/TopThree";
 import Search from "../components/main/Search";
 import styled from "styled-components";
 import { Main } from "../styles/OtherStyles";
-import { Top3Section } from "../styles/MainPageStyle/TopThreeStyle";
-import { SearchSection } from "../styles/MainPageStyle/SearchStyle";
+import { Top3Section, SearchSection } from "../styles/MainPageStyle";
+import { useParams } from "react-router-dom";
 
 function MainPage() {
+  // api 완성되면 테스트하기 : getTop3, getMaskList
+
   return (
     <div>
       <Main>

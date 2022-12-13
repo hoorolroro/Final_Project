@@ -18,14 +18,13 @@ export const MakListDiv = styled.div`
 export const MaskSummaryBox = styled.div`
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
   width: 50%;
   height: 280px;
   padding: 10px;
   margin: 0 5px 10px 5px;
-  // margin-bottom: 20px;
   border: 1px solid #d9d9d9;
   border-style: none none double;
-  // justify-content: center;
 `;
 
 // 리스트에서 각 마스크 이미지
@@ -44,6 +43,7 @@ export const MaskSummaryContent = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 40%;
+  height: 80%;
   padding: 5px;
   // border: 2px solid blue;
 `;
@@ -55,7 +55,8 @@ export const MaskSummaryTopDiv = styled.div`
   align-items: center;
   justify-content: space-around;
   width: auto;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  padding-left: 10px;
   // border: 2px solid red;
 `;
 
@@ -64,7 +65,7 @@ export const MaskSummaryTitleLinkBox = styled.a`
   width: 70%;
   font-weight: 700;
   text-align: left;
-  font-size: 18px;
+  font-size: 16px;
   margin-left: 1px;
   overflow: hidden;
   // border: 2px solid blue;
@@ -77,7 +78,7 @@ export const MaskSummaryPriceLinkBox = styled.a`
   margin-bottom: 10px;
   font-weight: 700;
   text-align: left;
-  font-size: 18px;
+  font-size: 15px;
   color: #ff7d04;
   overflow: hidden;
   // border: 2px solid red;
@@ -102,5 +103,6 @@ export const MaskScore = styled.div`
   text-align: left;
   font-size: 15px;
   font-weight: 600;
+  overflow: hidden;
   // border: 2px solid red;
 `;

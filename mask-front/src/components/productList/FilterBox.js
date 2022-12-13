@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import {
   ShapeListsSection,
-  ShapeLi,
-  SizeLi,
+  ShapeBtn,
+  SizeBtn,
   SizeListsSection,
+  MaskShapeImg,
+  MaskShapeName,
 } from "../../styles/ListPageStyle";
 import CurrentLocation from "./CurrentLocation";
 import { CurrentFilterSection } from "../../styles/OtherStyles";
@@ -18,34 +20,35 @@ function FilterBox() {
       </CurrentFilterSection>
       {/* 마스크 형태 */}
       <ShapeListsSection>
-        <ShapeLi>
-          <button>새부리형</button>
-        </ShapeLi>
-        <ShapeLi>
-          <button>입체(3D)형</button>
-        </ShapeLi>
-        <ShapeLi>
-          <button>덴탈형</button>
-        </ShapeLi>
+        <ShapeBtn>
+          <MaskShapeImg
+            src={`${process.env.PUBLIC_URL}/새부리형.png`}
+          ></MaskShapeImg>
+          <MaskShapeName>새부리형</MaskShapeName>
+        </ShapeBtn>
+        <ShapeBtn>
+          <MaskShapeImg
+            src={`${process.env.PUBLIC_URL}/삼단(입체)형.png`}
+          ></MaskShapeImg>
+          <MaskShapeName>삼단(입체)형</MaskShapeName>
+        </ShapeBtn>
+        <ShapeBtn>
+          <MaskShapeImg
+            src={`${process.env.PUBLIC_URL}/덴탈형.png`}
+          ></MaskShapeImg>
+          <MaskShapeName>덴탈형</MaskShapeName>
+        </ShapeBtn>
       </ShapeListsSection>
+      <hr></hr>
       {/* 마스크 사이즈 */}
       <SizeListsSection>
-        <SizeLi>
-          <button>전체</button>
-        </SizeLi>
-        <SizeLi>
-          <button>대형</button>
-        </SizeLi>
-        <SizeLi>
-          <button>중형</button>
-        </SizeLi>
-        <SizeLi>
-          <button>소형</button>
-        </SizeLi>
-        <SizeLi>
-          <button>기타</button>
-        </SizeLi>
+        <SizeBtn>▪ 전체</SizeBtn>
+        <SizeBtn>▪ 대형</SizeBtn>
+        <SizeBtn>▪ 중형</SizeBtn>
+        <SizeBtn>▪ 소형</SizeBtn>
+        <SizeBtn>▪ 기타</SizeBtn>
       </SizeListsSection>
+      <hr></hr>
     </div>
   );
 }
