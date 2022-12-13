@@ -81,9 +81,9 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
           ></MaskShapeImg>
           {/* 마스크 형태 */}
           {shapeState == "새부리형" ? (
-            <MaskShapeName_active>새부리형</MaskShapeName_active>
+            <MaskShapeName_active>새부리</MaskShapeName_active>
           ) : (
-            <MaskShapeName>새부리형</MaskShapeName>
+            <MaskShapeName>새부리</MaskShapeName>
           )}
           {/* <MaskShapeName>새부리형</MaskShapeName> */}
         </ShapeBtn>
@@ -103,9 +103,9 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
             src={`${process.env.PUBLIC_URL}/입체형.png`}
           ></MaskShapeImg>
           {shapeState == "입체형" ? (
-            <MaskShapeName_active>입체형</MaskShapeName_active>
+            <MaskShapeName_active>입체</MaskShapeName_active>
           ) : (
-            <MaskShapeName>입체형</MaskShapeName>
+            <MaskShapeName>입체</MaskShapeName>
           )}
         </ShapeBtn>
         {/* 덴탈형 */}
@@ -124,9 +124,9 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
             src={`${process.env.PUBLIC_URL}/덴탈형.png`}
           ></MaskShapeImg>
           {shapeState == "덴탈형" ? (
-            <MaskShapeName_active>덴탈형</MaskShapeName_active>
+            <MaskShapeName_active>덴탈</MaskShapeName_active>
           ) : (
-            <MaskShapeName>덴탈형</MaskShapeName>
+            <MaskShapeName>덴탈</MaskShapeName>
           )}
         </ShapeBtn>
       </ShapeListsSection>

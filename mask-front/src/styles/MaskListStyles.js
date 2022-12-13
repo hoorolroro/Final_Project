@@ -19,7 +19,7 @@ export const MaskSummaryBox = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  width: 400px;
+  width: 50%;
   height: 280px;
   padding: 10px;
   margin: 0 5px 10px 5px;

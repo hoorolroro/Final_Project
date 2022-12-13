@@ -41,13 +41,14 @@ export const ShapeListsSection = styled.div`
 // 마스크 형태 Btn
 export const ShapeBtn = styled.button`
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   width: 20%;
   font-size: 15px;
   font-weight: 800;
   background: none;
+  padding: 5px;
   border: 0px;
   cursor: pointer;
   &:hover {
@@ -55,6 +56,9 @@ export const ShapeBtn = styled.button`
   }
   &:active {
     color: #0ea654;
+    border: 3px solid #fff;
+    padding: 5px;
+    border-style: none none double none;
     text-decoration: underline;
   }
 `;
@@ -73,6 +77,7 @@ export const MaskShapeImg = styled.img`
 export const MaskShapeName = styled.div`
   margin-left: 10px;
   // border: 1px solid red;
+  overflow: hidden;
 `;
 
 // 마스크 형태 내용 ( 선택 o )
@@ -81,6 +86,7 @@ export const MaskShapeName_active = styled.div`
   text-decoration: underline;
   margin-left: 10px;
   // border: 1px solid red;
+  overflow: hidden;
   &:hover {
     color: #5cec7c;
   }
@@ -100,7 +106,7 @@ export const SizeListsSection = styled.div`
 
 // 마스크 사이즈 Btn (선택 x)
 export const SizeBtn = styled.button`
-  width: 13%;
+  width: 20%;
   padding: 10px;
   background: none;
   border: 0px;
@@ -111,13 +117,15 @@ export const SizeBtn = styled.button`
   }
   &:active {
     color: #0ea654;
+    border: 3px solid #fff;
+    border-style: none none double none;
     text-decoration: underline;
   }
 `;
 
 // 마스크 사이즈 Btn (선택 o)
 export const SizeBtn_active = styled.button`
-  width: 13%;
+  width: 20%;
   padding: 10px;
   background: none;
   border: 0px;
@@ -146,7 +154,7 @@ export const SortSection2 = styled.section`
 
 // 정렬기준 선택 버튼
 export const SelectBox = styled.div`
-  width: 15%;
+  width: 80px;
   height: 23px;
   padding-top: 3px;
   margin: 0px 10px;
