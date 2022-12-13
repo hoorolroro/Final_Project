@@ -3,6 +3,9 @@ package com.spring.masinsa.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -49,12 +52,23 @@ public class MaskController {
 		return new ResponseEntity<List<ImageDTO>>(imageList, HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "11번 - standard를 통해 마스크 해당 기준으로 정렬 (해결 필요...)")
-	@GetMapping("/mask/sort")
-	public ResponseEntity<List<MaskDTO>> getSortedMasks(@RequestParam String standard) {
-		List<MaskDTO> maskList = maskService.getSortedMasks(standard);
-		return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK);
-	}
+//	@ApiOperation(value = "11번 - standard를 통해 마스크 해당 기준으로 정렬")
+//	@GetMapping("/mask/sort")
+//	public ResponseEntity<?> getSortedMasks(@RequestParam String standard,
+//			@PageableDefault(size = 10, page = 1) Pageable pageable) {
+//		pageable = PageRequest.of(pageable.getPageNumber() - 1, pageable.getPageSize());
+//		Message message = new Message();
+//		List<MaskDTO> maskList = maskService.getSortedMasks(standard, pageable);
+//		if (maskList == null) {
+//		      message.setMessage("해당하는 마스크가 없습니다.");
+//		    }
+//	    else{
+//		      message.setMessage("필터링된 마스크 리스트입니다.");
+//		    }
+//		    message.setStatus(Status.OK);
+//		    message.setResult(maskList);
+//		    return new ResponseEntity<>(message, HttpStatus.OK);
+//	}
 	
 	@ApiOperation(value = "7번 - maskId와 soldout을 통해 마스크 품절 여부 수정")
 	@PutMapping("/mask/soldout")

@@ -44,7 +44,7 @@ public class ReviewController {
       message.setMessage(maskId + "에 해당하는 마스크는 " + reviewType + " 리뷰가 " + count + "개 있습니다.");
     }
     message.setStatus(Status.OK);
-    message.setData(count);
+    message.setResult(count);
 
     return new ResponseEntity<>(message, HttpStatus.OK);
   }
@@ -64,7 +64,7 @@ public class ReviewController {
       message.setMessage(maskId + "에 해당하는 마스크의 " + reviewType + " 리뷰를 반환합니다.");
     }
     message.setStatus(Status.OK);
-    message.setData(reviewList);
+    message.setResult(reviewList);
     return new ResponseEntity<>(message, HttpStatus.OK);
   }
 
