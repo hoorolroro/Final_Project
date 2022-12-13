@@ -31,4 +31,11 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return null;
 	}
+
+	@Override
+  public MemberDTO saveMember(MemberDTO memberDTO) {
+    Member member = MemberDTO.dtoToEntity(memberDTO);
+		memberRepo.save(member);
+		return Member.entityToDTO(member);
+  }
 }

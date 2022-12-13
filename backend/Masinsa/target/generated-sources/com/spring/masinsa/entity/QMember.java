@@ -5,7 +5,7 @@ import static com.querydsl.core.types.PathMetadataFactory.*;
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
 
@@ -31,6 +31,8 @@ public class QMember extends EntityPathBase<Member> {
     public final StringPath nickname = createString("nickname");
 
     public final StringPath sex = createString("sex");
+
+    public final StringPath token = createString("token");
 
     public final ListPath<WishList, QWishList> wishlist = this.<WishList, QWishList>createList("wishlist", WishList.class, QWishList.class, PathInits.DIRECT2);
 
