@@ -8,10 +8,10 @@ export const MaskListDiv = styled.div`
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  width: auto;
+  width: 100%;
   height: auto;
   padding: 10px;
-  // border: 1px solid red;
+  border: 2px solid red;
 `;
 
 // 리스트의 각 마스크 요약정보 칸
@@ -19,12 +19,13 @@ export const MaskSummaryBox = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  width: 50%;
+  width: 400px;
   height: 280px;
   padding: 10px;
   margin: 0 5px 10px 5px;
-  border: 1px solid #d9d9d9;
-  border-style: none none double;
+  border: 1px solid red;
+  // border: 1px solid #d9d9d9;
+  // border-style: none none double;
 `;
 
 // 리스트에서 각 마스크 이미지

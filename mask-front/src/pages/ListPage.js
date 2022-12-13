@@ -39,7 +39,7 @@ function ListPage() {
   // 값이 바뀔때마다 axios 요청
   useEffect(() => {
     getFilter({ maskKF, maskSize, maskShape, setMaskList });
-  }, [maskKF, maskSize, maskShape]);
+  }, [maskKF, maskSize, maskShape, FilterMaskList]);
 
   console.log("maskList : ", maskList);
 
