@@ -31,7 +31,7 @@ public class MaskServiceImpl implements MaskService {
 	}
 	
 	@Override
-	public Boolean updateSoldout(Long maskId, String soldout) {
+	public MaskDTO updateSoldout(Long maskId, String soldout) {
 		Mask mask = maskRepo.findMaskById(maskId);
 		if(mask != null) {
 			if (soldout.equals("Y")) {
@@ -41,9 +41,10 @@ public class MaskServiceImpl implements MaskService {
 				mask.updateSoldout(SoldoutStatus.N);
 		}
 		maskRepo.save(mask);
-		return true;
+		MaskDTO maskDTO = Mask.entityToDTO(mask);
+		return maskDTO;
 		}
-		return false;
+		return null;
 	}
 	
 	@Override
