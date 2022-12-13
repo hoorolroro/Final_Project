@@ -110,14 +110,14 @@ export const BuyLinkBox = styled.a`
   outline: none;
   text-decoration: none;
   color: white;
+  cursor: pointer;
   &:hover {
-    color: #12de1a;
-    border-bottom: 1px solid;
+    text-decoration: underline;
   }
   &:active {
-    color: red;
+    color: #5cec7c;
+    text-decoration: underline;
   }
-  // border: 1px solid red;
 `;
 
 /* 통계 부분 */
@@ -176,6 +176,32 @@ export const FitAnalysis = styled.div`
   padding: 5px;
   margin: 5px;
   border: 1px solid blue;
+`;
+
+// 리뷰보러가기 버튼 부분
+export const GoToReview = styled.div`
+  width: auto;
+  height: 30px;
+  padding: 2px 0px 5px;
+  margin-bottom: 15px;
+  border: 1px solid #9a9a9a;
+  border-style: none none double none;
+`;
+
+// 리뷰보러가기 버튼
+export const GoToReviewBtn = styled.button`
+  width: auto;
+  height: 30px;
+  background: none;
+  border: 0px;
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+    color: #05735f;
+  }
+  &:active {
+    color: #12de1a;
+  }
 `;
 
 /* 상세 이미지 부분 */
@@ -248,7 +274,7 @@ export const EachReviewSection = styled.div`
   flex-direction: column;
   align-item: center;
   width: auto;
-  height: 120px;
+  height: auto;
   margin-bottom: 10px;
   padding: 1px;
   border: 1px solid #9a9a9a;

@@ -1,5 +1,4 @@
 import React from "react";
-import BuyBtn from "./BuyBtn";
 import WishBtn from "../WishBtn";
 import styled from "styled-components";
 import {
@@ -11,11 +10,13 @@ import {
   MaskInfoTopSection,
   MaskThumnailImg,
   MaskTitle,
+  BuyLinkBox,
 } from "../../styles/AboutPageStyle";
 import SlidePhoto from "./SlidePhoto";
 
-function MaskInfo({ mask }) {
+function MaskInfo({ mask, images }) {
   // console.log("maskinfo:", { mask });
+  // console.log("maskInfo :", images);
 
   // mask 값들을 빼내서 사용하기
   return (
@@ -36,7 +37,7 @@ function MaskInfo({ mask }) {
           </MaskInfoOption>
           {/* 구매링크버튼 */}
           <MaskBuyLink>
-            <BuyBtn purchaseUrl={mask.purchaseUrl} />
+            <BuyLinkBox href={mask.purchaseUrl}>구매하러 가볼까요?</BuyLinkBox>
           </MaskBuyLink>
         </MaskInfoContent>
       </MaskInfoSection>

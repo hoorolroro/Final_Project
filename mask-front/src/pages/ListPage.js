@@ -34,9 +34,7 @@ function ListPage() {
           <FilterBox />
         </FilterSection>
         {/* 정렬변경 */}
-        <SortSection2>
-          <SortChange2 />
-        </SortSection2>
+        <SortChange2 />
         {/* 마스크 리스트공간 */}
         <FilterMaskListSection>
           {/* 필터걸린 마스크 리스트 */}

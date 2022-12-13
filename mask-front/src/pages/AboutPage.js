@@ -10,7 +10,7 @@ import CurrentLocation from "../components/productList/CurrentLocation";
 import styled from "styled-components";
 import { CurrentFilterSection } from "../styles/OtherStyles";
 import { MaskAboutWrapper } from "../styles/AboutPageStyle";
-import { getReviews } from "../api/review/getReviews";
+import { getImage } from "../api/getImage";
 
 function AboutPage() {
   // 파라미터를 통한 maskId 전달
@@ -27,6 +27,15 @@ function AboutPage() {
 
   // console.log("AboutPage - mask 불러오기 : ", mask);
 
+  //  마스크이미지 요청
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    getImage({ maskId, setImages });
+  }, []);
+
+  console.log("AboutPage - Image 불러오기 : ", images);
+
   return (
     <div>
       <Main>
@@ -36,12 +45,11 @@ function AboutPage() {
             <CurrentLocation mask={mask} />
           </CurrentFilterSection>
           {/* 마스크 정보 */}
-          <MaskInfo mask={mask} />
+          <MaskInfo mask={mask} images={images} />
           {/* 리뷰통계 */}
           <Analysis maskId={mask.id} />
-          <hr></hr>
           {/* 상세정보 */}
-          <MaskDetail maskId={mask.id} />
+          <MaskDetail images={images} />
           {/* 리뷰창 */}
           <Reviews maskId={mask.id} />
         </MaskAboutWrapper>
