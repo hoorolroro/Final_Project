@@ -2,6 +2,8 @@ package com.spring.masinsa.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -40,14 +42,26 @@ public class WishList {
 	@JoinColumn(name="member_id")
 	private Member member;
 	
-//	// Entity -> DTO 변환
-//	public static WishListDTO entityToDTO(WishList wishList) {
-//		WishListDTO wishListDTO = WishListDTO.builder()
-//											.id(wishList.getId())
-//											.maskId(wishList.getMask().)
-//											
-//		return wishListDTO;
-//	}
+	@Enumerated(EnumType.STRING)
+	private Deletion deletion;
 	
+	// Entity -> DTO 변환
+	public static WishListDTO entityToDTO(WishList wishList) {
+		WishListDTO wishListDTO = WishListDTO.builder()
+											.id(wishList.getId())
+											.maskId(wishList.getMask().getId())
+											.memberId(wishList.getMember().getId())
+											.maskName(wishList.getMask().getName())
+											.thumbnail(wishList.getMask().getThumbnail())
+											.price(wishList.getMask().getPrice())
+											.nickName(wishList.getMember().getNickname())
+											.soldout(wishList.getMask().getSoldout())
+											.build();			
+		return wishListDTO;
+	}
+	
+	public void deleteWishList() {
+		this.deletion = Deletion.Y;
+	}
 	
 }

@@ -22,6 +22,8 @@ public class QWishList extends EntityPathBase<WishList> {
 
     public static final QWishList wishList = new QWishList("wishList");
 
+    public final EnumPath<Deletion> deletion = createEnum("deletion", Deletion.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final QMask mask;
