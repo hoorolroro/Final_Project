@@ -41,7 +41,7 @@ public class MaskController {
 	}
 	
 	@ApiOperation(value = "13번 - maskId를 통해 해당 마스크의 모든 이미지 조회")
-	@GetMapping("/mask/image2")
+	@GetMapping("/mask/image")
 	public ResponseEntity<List<ImageDTO>> getMaskDetailImages(@RequestParam Long maskId) {
 		List<ImageDTO> imageList = maskService.getAllImages(maskId);
 		return new ResponseEntity<List<ImageDTO>>(imageList, HttpStatus.OK);
