@@ -32,6 +32,8 @@ public class QMember extends EntityPathBase<Member> {
 
     public final StringPath sex = createString("sex");
 
+    public final StringPath token = createString("token");
+
     public final ListPath<WishList, QWishList> wishlist = this.<WishList, QWishList>createList("wishlist", WishList.class, QWishList.class, PathInits.DIRECT2);
 
     public QMember(String variable) {

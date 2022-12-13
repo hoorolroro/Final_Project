@@ -30,6 +30,8 @@ public class QReview extends EntityPathBase<Review> {
 
     public final QMember member;
 
+    public final StringPath naverId = createString("naverId");
+
     public final StringPath option = createString("option");
 
     public final EnumPath<ReviewType> reviewType = createEnum("reviewType", ReviewType.class);
