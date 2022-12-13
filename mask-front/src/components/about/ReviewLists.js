@@ -17,15 +17,19 @@ function ReviewLists({ allReviews }) {
           return (
             <div key={review.id}>
               <EachReviewSection>
-                <ReviewTop>⭐{review.score}</ReviewTop>
+                <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
                 <ReviewCenter>
                   {review.memberId ? (
                     <div>
-                      {review.id} / {review.memberNickname} / {review.option}
+                      <div>
+                        id : {review.id} / {review.memberNickname}
+                      </div>
+                      <div>옵션명 : {review.option}</div>
                     </div>
                   ) : (
                     <div>
-                      {review.id} / {review.option}
+                      <div>id : {review.id}</div>
+                      <div>옵션명 : {review.option}</div>
                     </div>
                   )}
                 </ReviewCenter>

@@ -274,7 +274,7 @@ export const EachReviewSection = styled.div`
   flex-direction: column;
   align-item: center;
   width: auto;
-  height: 120px;
+  height: auto;
   margin-bottom: 10px;
   padding: 1px;
   border: 1px solid #9a9a9a;
