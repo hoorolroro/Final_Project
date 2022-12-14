@@ -6,8 +6,6 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.spring.masinsa.dto.ImageDTO;
@@ -81,21 +79,6 @@ public class MaskServiceImpl implements MaskService {
 											.collect(Collectors.toList());
 		return maskDTOList;
 	}
-	
-//	public Page<MaskDTO> getAllMask(Pageable pageable) {
-//		Page<Mask> maskList = maskRepo.findAll(pageable);
-//		Page<MaskDTO> maskDTOList = maskList.map(MaskDTO::from);
-//		return maskDTOList;
-//	}
-	
-	
-//	public List<MaskDTO> getSortedMasks(String standard, Pageable pageable) {
-//		List<Mask> maskList = maskMapper.getSortedMasks(standard);
-//		List<MaskDTO> maskDTOList = maskList.stream()
-//											.map(mask -> Mask.entityToDTO(mask))
-//											.collect(Collectors.toList());
-//		return maskDTOList;
-//	}
 	
 	@Override
 	@Transactional

@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.masinsa.mapper.WishListMapper">
-	<insert id="addWishList">
+	<insert id="addWishList" parameterType="com.spring.masinsa.dto.WishListDTO">
 		INSERT INTO wishlist (mask_id, member_id) VALUES (#{maskId}, #{memberId});
 	</insert>
 
