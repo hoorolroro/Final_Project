@@ -1,5 +1,7 @@
 package com.spring.masinsa.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ public class AnalysisInfoServiceImpl implements AnalysisInfoService {
   AnalysisInfoRepository analysisInfoRepository;
 
   @Override
+  @Transactional
   // search by maskId which is a foreign key. if there is no analysisInfo, return null
   public AnalysisInfoDTO getAnalysisInfo(Long maskId) {
     AnalysisInfo analysisInfo = analysisInfoRepository.findByMaskId(maskId);
@@ -25,6 +28,7 @@ public class AnalysisInfoServiceImpl implements AnalysisInfoService {
 
   //delete by maskId
   @Override
+  @Transactional
   public Boolean deleteAnalysisInfo(Long maskId) {
     // if there is analysisInfo, delete it and return true
     if (analysisInfoRepository.findByMaskId(maskId) != null) {

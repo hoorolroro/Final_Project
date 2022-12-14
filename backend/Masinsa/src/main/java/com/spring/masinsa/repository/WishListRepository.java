@@ -9,4 +9,5 @@ import com.spring.masinsa.entity.WishList;
 public interface WishListRepository extends JpaRepository<WishList, Long> {
 	public List<WishList> findWishListByMemberId(Long memberId);
 	public WishList findWishListById(Long WishListId);
+	public WishList findWishListByMaskIdAndMemberId(Long maskId, Long memberId);
 }
