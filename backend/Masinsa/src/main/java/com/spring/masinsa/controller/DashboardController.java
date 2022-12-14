@@ -19,17 +19,16 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 public class DashboardController {
 	
-	@Autowired
-	DashBoardServiceImpl DashBoardService;
-	
-	@ApiOperation(value = "23번 - date를 통해 접속 통계 조회")
-	@GetMapping("/dashboard")
-	public ResponseEntity<DashBoardDTO> getStatistics(@RequestParam LocalDateTime date) {
-		DashBoardDTO dashBoardDTO = DashBoardService.getStatistics(date);
-		return new ResponseEntity<DashBoardDTO>(dashBoardDTO, HttpStatus.OK);
-	}
-	
-	
+//	@Autowired
+//	DashBoardServiceImpl DashBoardService;
+//	
+//	@ApiOperation(value = "23번 - date를 통해 접속 통계 조회")
+//	@GetMapping("/dashboard")
+//	public ResponseEntity<DashBoardDTO> getStatistics(@RequestParam LocalDateTime date) {
+//		DashBoardDTO dashBoardDTO = DashBoardService.getStatistics(date);
+//		return new ResponseEntity<DashBoardDTO>(dashBoardDTO, HttpStatus.OK);
+//	}
+//	
 	
 	
 }

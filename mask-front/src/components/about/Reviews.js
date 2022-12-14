@@ -5,10 +5,14 @@ import ReviewLists from "../about/ReviewLists";
 import { getReviews } from "../../api/review/getReviews";
 import {
   ReviewSection,
-  ReviewBtn,
+  NaverReviewBtn,
+  MasinsaReviewBtn,
   ReviewBtnSection,
   ReviewContent,
+  NaverReviewBtn_active,
+  MasinsaReviewBtn_active,
 } from "../../styles/AboutPageStyle";
+import Pagination2 from "../Pagination2";
 
 function Reviews({ maskId }) {
   // getReview를 위한 파라미터 설정
@@ -31,7 +35,7 @@ function Reviews({ maskId }) {
     getReviews({ maskId, page, size, reviewType, setAllReviews });
   }, []);
 
-  // console.log("AboutPage(Reviews) - review 불러오기 : ", allReviews);
+  console.log("AboutPage(Reviews) - review 불러오기 : ", allReviews);
   console.log(reviewType);
 
   return (
@@ -40,19 +44,41 @@ function Reviews({ maskId }) {
       <i>상세리뷰</i>
       <hr></hr>
       <ReviewSection>
-        {/* 버튼이 눌렸을때, 네이버리뷰가 true면 NaverReview false면 회원리뷰 */}
+        {/* 버튼이 눌렸을때, 네이버리뷰면 reviewType (naver) 회원리뷰면 member */}
         <ReviewBtnSection>
-          <ReviewBtn onClick={() => setReviewType("naver")}>
-            Naver Review
-          </ReviewBtn>
-          <ReviewBtn onClick={() => setReviewType("member")}>
-            Member Review
-          </ReviewBtn>
+          {/* review타입에 따른 버튼 색 활성화 */}
+          {reviewType == "naver" ? (
+            <>
+              <NaverReviewBtn_active onClick={() => setReviewType("naver")}>
+                Naver Review
+              </NaverReviewBtn_active>
+              <MasinsaReviewBtn onClick={() => setReviewType("member")}>
+                Member Review
+              </MasinsaReviewBtn>
+            </>
+          ) : (
+            <>
+              <NaverReviewBtn onClick={() => setReviewType("naver")}>
+                Naver Review
+              </NaverReviewBtn>
+              <MasinsaReviewBtn_active onClick={() => setReviewType("member")}>
+                Member Review
+              </MasinsaReviewBtn_active>
+            </>
+          )}
         </ReviewBtnSection>
+        {/* 리뷰 내용 */}
         <ReviewContent>
-          <ReviewLists allReviews={allReviews} />
+          <ReviewLists
+            allReviews={allReviews}
+            // currentPage={currentPage}
+            page={page}
+            setPage={setPage}
+            size={size}
+          />
         </ReviewContent>
         <Pagination />
+        {/* <Pagination2 allReviews={allReviews} page={page} setPage={setPage} /> */}
       </ReviewSection>
     </div>
   );

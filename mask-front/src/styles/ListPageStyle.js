@@ -6,9 +6,7 @@ import styled from "styled-components";
 // 필터들이 있는 Section
 export const FilterSection = styled.section`
   width: auto;
-  height: 235px;
-  padding: 5px;
-  margin: 5px;
+  height: 230px;
   // border: 2px solid red;
 `;
 
@@ -23,16 +21,7 @@ export const FilterMaskListSection = styled.section`
   height: auto;
   padding: 5px;
   margin: 5px;
-  // border: 2px solid red;
-`;
-
-// 정렬기준2 ( 리스트페이지 )
-export const SortSection2 = styled.section`
-  width: auto;
-  height: 20px;
-  padding: 5px;
-  margin: 5px;
-  // border: 2px solid red;
+  border: 2px solid red;
 `;
 
 /* Filter 부분 스타일 */
@@ -42,41 +31,35 @@ export const ShapeListsSection = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-around;
-  width: auto;
-  height: 120px;
-  padding: 10px;
-  // border: 2px solid red;
-`;
-
-// 마스크 사이즈 리스트 Section ( 전체 / 대형 / 중형 / 소형 / 기타)
-export const SizeListsSection = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
   justify-content: center;
   width: auto;
-  height: 45px;
+  height: 120px;
+  margin: 10px 0px;
   // border: 2px solid red;
 `;
 
 // 마스크 형태 Btn
 export const ShapeBtn = styled.button`
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 20%;
   font-size: 15px;
   font-weight: 800;
   background: none;
+  padding: 5px;
   border: 0px;
   cursor: pointer;
   &:hover {
     color: #05735f;
   }
   &:active {
-    color: #5cec7c;
+    color: #0ea654;
+    border: 3px solid #fff;
+    padding: 5px;
+    border-style: none none double none;
+    text-decoration: underline;
   }
 `;
 
@@ -90,23 +73,101 @@ export const MaskShapeImg = styled.img`
   border-radius: 50px;
 `;
 
-// 마스크 형태 내용 (ShapeBtn버튼)
+// 마스크 형태 내용 (ShapeBtn버튼 안에 글 : 선택안되어 있을 경우)
 export const MaskShapeName = styled.div`
   margin-left: 10px;
   // border: 1px solid red;
+  overflow: hidden;
 `;
 
-// 마스크 사이즈 Btn
+// 마스크 형태 내용 ( 선택 o )
+export const MaskShapeName_active = styled.div`
+  color: #0ea654;
+  text-decoration: underline;
+  margin-left: 10px;
+  // border: 1px solid red;
+  overflow: hidden;
+  &:hover {
+    color: #5cec7c;
+  }
+`;
+
+// 마스크 사이즈 리스트 Section ( 전체 / 대형 / 중형 / 소형 / 기타)
+export const SizeListsSection = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 45px;
+  border: 1px solid #9a9a9a;
+  border-style: double none;
+`;
+
+// 마스크 사이즈 Btn (선택 x)
 export const SizeBtn = styled.button`
-  width: 15%;
+  width: 20%;
   padding: 10px;
   background: none;
   border: 0px;
+  cursor: pointer;
+  // color: #fff;
+  &:hover {
+    color: #5cec7c;
+  }
+  &:active {
+    color: #0ea654;
+    border: 3px solid #fff;
+    border-style: none none double none;
+    text-decoration: underline;
+  }
+`;
+
+// 마스크 사이즈 Btn (선택 o)
+export const SizeBtn_active = styled.button`
+  width: 20%;
+  padding: 10px;
+  background: none;
+  border: 0px;
+  cursor: pointer;
+  color: #0ea654;
+  text-decoration: underline;
+  &:hover {
+    color: #5cec7c;
+  }
+`;
+
+/* 정렬변경 */
+
+// 정렬기준2 ( 리스트페이지 )
+export const SortSection2 = styled.section`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 25px;
+  padding: 5px;
+  margin-top: 15px;
+  // border: 2px solid red;
+`;
+
+// 정렬기준 선택 버튼
+export const SelectBox = styled.div`
+  width: 80px;
+  height: 23px;
+  padding-top: 3px;
+  margin: 0px 10px;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid #9a9a9a;
+  overflow: hidden;
   cursor: pointer;
   &:hover {
     color: #05735f;
   }
   &:active {
-    color: #5cec7c;
+    background: #05735f;
+    color: #fff;
   }
 `;

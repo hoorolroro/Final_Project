@@ -5,7 +5,7 @@ import static com.querydsl.core.types.PathMetadataFactory.*;
 import com.querydsl.core.types.dsl.*;
 
 import com.querydsl.core.types.PathMetadata;
-import javax.annotation.processing.Generated;
+import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
 
@@ -21,6 +21,8 @@ public class QWishList extends EntityPathBase<WishList> {
     private static final PathInits INITS = PathInits.DIRECT2;
 
     public static final QWishList wishList = new QWishList("wishList");
+
+    public final EnumPath<Deletion> deletion = createEnum("deletion", Deletion.class);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 

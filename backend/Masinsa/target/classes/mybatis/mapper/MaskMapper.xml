@@ -20,7 +20,16 @@
  
  
   <select id="getAllMask" resultMap="getAllMaskInfo">
-    SELECT * FROM mask WHERE blocking_index = #{kf} OR size = #{size} OR shape = #{shape};
+    SELECT * FROM mask WHERE 1=1
+   	<if test="kf != null">
+   		AND blocking_index = #{kf}
+   	</if>
+   	<if test="size != null">
+   		AND size = #{size}
+   	</if>
+   	<if test="shape != null">
+   		 AND shape = #{shape}
+   	</if>
   </select>
 
   <select id="getSortedMasks" resultMap="getAllMaskInfo">

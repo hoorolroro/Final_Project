@@ -44,16 +44,13 @@ export const IntroLinkBox = styled.a`
   float: right;
   font-size: 13px;
   text-align: right;
-  outline: none;
-  text-decoration: none;
   padding: 12px 2px 0 0;
   // border: 2px solid blue;
   &:hover {
     color: #05735f;
-    border-bottom: 1px solid;
   }
   &:active {
-    color: #5cec7c;
+    color: #ff7d04;
   }
 `;
 

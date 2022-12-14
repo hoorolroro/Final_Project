@@ -79,7 +79,6 @@ export const MaskInfoPrice = styled.div`
   font-size: 20px;
   font-weight: 600;
   color: #ff7d04;
-  overflow: hidden;
   // border: 2px solid blue;
 `;
 
@@ -97,8 +96,8 @@ export const MaskInfoOption = styled.div`
 // 마스크 구매링크 Section
 export const MaskBuyLink = styled.div`
   width: auto;
-  height: 10%;
-  padding: 5px;
+  height: 13%;
+  padding: 10px 5px 0px;
   overflow: hidden;
   background: #2d2d2d;
   border-radius: 15px;
@@ -109,15 +108,17 @@ export const MaskBuyLink = styled.div`
 export const BuyLinkBox = styled.a`
   outline: none;
   text-decoration: none;
+  font-size: 14px;
+  padding: 1px;
   color: white;
+  cursor: pointer;
   &:hover {
-    color: #12de1a;
-    border-bottom: 1px solid;
+    color: #5cec7c;
   }
   &:active {
-    color: red;
+    color: #5cec7c;
+    text-decoration: underline;
   }
-  // border: 1px solid red;
 `;
 
 /* 통계 부분 */
@@ -178,6 +179,32 @@ export const FitAnalysis = styled.div`
   border: 1px solid blue;
 `;
 
+// 리뷰보러가기 버튼 부분
+export const GoToReview = styled.div`
+  width: auto;
+  height: 30px;
+  padding: 2px 0px 5px;
+  margin-bottom: 15px;
+  border: 1px solid #9a9a9a;
+  border-style: none none double none;
+`;
+
+// 리뷰보러가기 버튼
+export const GoToReviewBtn = styled.button`
+  width: auto;
+  height: 30px;
+  background: none;
+  border: 0px;
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+    color: #05735f;
+  }
+  &:active {
+    color: #12de1a;
+  }
+`;
+
 /* 상세 이미지 부분 */
 
 // 상세 이미지 Section
@@ -222,13 +249,76 @@ export const ReviewBtnSection = styled.div`
   // border: 2px solid blue;
 `;
 
-// 리뷰버튼 ( Naver, Member )
-export const ReviewBtn = styled.button`
-  width: 25%;
-  height: 80%;
+// 네이버리뷰버튼 ( Naver)
+export const NaverReviewBtn = styled.button`
+  width: 250px;
+  height: 90%;
   margin: 5px;
   overflow: hidden;
-  // border: 2px solid blue;
+  background: none;
+  border: 2px solid grey;
+  border-style: none none double;
+  cursor: pointer;
+  &:hover {
+    color: #12de1a;
+  }
+  &:active {
+    color: #12de1a;
+    text-decoration: underline;
+  }
+`;
+
+// 네이버리뷰 선택o
+export const NaverReviewBtn_active = styled.button`
+  width: 250px;
+  height: 90%;
+  margin: 5px;
+  overflow: hidden;
+  background: none;
+  color: #12de1a;
+  border: 2px solid #12de1a;
+  border-style: none none double;
+  cursor: pointer;
+  &:hover {
+    color: #12de1a;
+    text-decoration: underline;
+  }
+`;
+
+// 마신사리뷰버튼 (선택x)
+export const MasinsaReviewBtn = styled.button`
+  width: 250px;
+  height: 90%;
+  margin: 5px;
+  overflow: hidden;
+  background: none;
+  border: 2px solid grey;
+  border-style: none none double;
+  cursor: pointer;
+  &:hover {
+    color: #0ea654;
+  }
+  &:active {
+    color: #0ea654;
+    text-decoration: underline;
+  }
+`;
+
+// 마신사리뷰 선택o
+export const MasinsaReviewBtn_active = styled.button`
+  width: 250px;
+  height: 90%;
+  margin: 5px;
+  overflow: hidden;
+  background: none;
+  border: 2px solid #0ea654;
+  color: #0ea654;
+  border-style: none none double;
+  cursor: pointer;
+  &:hover {
+    color: #0ea654;
+    text-decoration: underline;
+  }
 `;
 
 // 리뷰내용 Section
@@ -241,6 +331,7 @@ export const ReviewContent = styled.section`
 `;
 
 /* Reviews */
+
 // 각각의 리뷰칸 Section
 export const EachReviewSection = styled.div`
   display: flex;
@@ -248,7 +339,7 @@ export const EachReviewSection = styled.div`
   flex-direction: column;
   align-item: center;
   width: auto;
-  height: 120px;
+  height: auto;
   margin-bottom: 10px;
   padding: 1px;
   border: 1px solid #9a9a9a;

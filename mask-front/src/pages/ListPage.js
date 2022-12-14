@@ -11,39 +11,80 @@ import {
   FilterMaskListSection,
   SortSection2,
 } from "../styles/ListPageStyle";
+import { useParams } from "react-router-dom";
+import { getFilter } from "../api/mask/getFilter";
+import Header from "../components/Header";
+import { MaskListDiv, MaskSummaryBox } from "../styles/MaskListStyles";
 
 function ListPage() {
   // 리스트페이지 마스크리스트 조회
-  // api 완성되면 수정할 필요가 있음 !!!!!!
 
-  const [maskList, setMaskList] = useState([]);
+  const [maskKF, setMaskKF] = useState("");
+  const [maskSize, setMaskSize] = useState("");
+  const [maskShape, setMaskShape] = useState("");
+  const [maskList, setMaskList] = useState(0);
 
-  // // 한페이지에서 몇번까지 마스크 보여주나?
-  // const [startNum, setStartNum] = useState(1); // 첫 마스크 No
-  // const [endNum, setEndNum] = useState(6); // 마지막 마스크 No
+  // kf 파라미터 설정
+  const { blockingindex } = useParams();
+  // KF94 면 94 slice / KF-AD면 AD
+  // console.log("ListPage : ", blockingindex.slice(-2, blockingindex.length));
+  useEffect(() => {
+    setMaskKF(blockingindex.slice(-2, blockingindex.length));
+    // console.log(maskKF);
+  });
 
-  // useEffect(() => {
-  //     getMask(setMaskList, startNum, endNum);
-  //   }, []);
+  // console.log(maskShape);
+  // console.log(maskSize);
+
+  // 값이 바뀔때마다 axios 요청
+  useEffect(() => {
+    getFilter({ maskKF, maskSize, maskShape, setMaskList });
+  }, [maskKF, maskSize, maskShape, FilterMaskList]);
+
+  console.log("maskList : ", maskList);
 
   return (
     <div>
       <Main>
         {/* 필터가 들어있는 공간 */}
         <FilterSection>
-          <FilterBox />
+          <FilterBox
+            blockingindex={blockingindex}
+            setMaskSize={setMaskSize}
+            setMaskShape={setMaskShape}
+          />
         </FilterSection>
         {/* 정렬변경 */}
-        <SortSection2>
-          <SortChange2 />
-        </SortSection2>
+        <SortChange2 />
         {/* 마스크 리스트공간 */}
-        <FilterMaskListSection>
-          {/* 필터걸린 마스크 리스트 */}
+        {maskList != null ? (
+          <>
+            <FilterMaskListSection>
+              {/* 필터걸린 마스크 리스트 */}
+              <FilterMaskList maskList={maskList} />
+              {/* 페이지네이션 */}
+              <Pagination></Pagination>
+            </FilterMaskListSection>
+          </>
+        ) : (
+          <>
+            <FilterMaskListSection>
+              <div style={{ marginTop: "10px" }}>
+                <h4>해당 상품에 대한 MASINSA 내 검색 결과가 없습니다.</h4>
+                <h6>다른 필터를 선택하여 다시 검색해 주세요</h6>
+                <h6 style={{ color: "#0ea654" }}>
+                  * 더 많은 마스크가 MASINSA에 모일 수 있도록 노력하겠습니다. *
+                </h6>
+                <h6>도움을 드리지 못해 죄송합니다.</h6>
+              </div>
+              <Pagination></Pagination>
+            </FilterMaskListSection>
+          </>
+        )}
+        {/* 필터걸린 마스크 리스트
           <FilterMaskList maskList={maskList} />
-          {/* 페이지네이션 */}
-          <Pagination></Pagination>
-        </FilterMaskListSection>
+          페이지네이션
+          <Pagination></Pagination> */}
       </Main>
     </div>
   );

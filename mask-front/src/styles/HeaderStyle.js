@@ -59,7 +59,15 @@ export const MyPageBtnStyle = styled.button`
   border-radius: 3px;
   margin: 5px;
   background: #091f22;
+  cursor: pointer;
   color: #fff;
+  &:hover {
+    color: #5cec7c;
+  }
+  &:active {
+    color: #5cec7c;
+    text-decoration: underline;
+  }
 `;
 
 // 네이버Btn
@@ -71,7 +79,15 @@ export const LoginBtnStyle = styled.button`
   border-radius: 3px;
   margin: 5px;
   background: #12de1a;
+  cursor: pointer;
   color: #fff;
+  &:hover {
+    color: yellow;
+  }
+  &:active {
+    color: yellow;
+    text-decoration: underline;
+  }
 `;
 
 // 차단지수를 담은 nav
@@ -93,5 +109,17 @@ export const BlockingBtn = styled.button`
   margin-top: 1px;
   border: 1px solid #091f22;
   background: #2d2d2d;
+  cursor: pointer;
   color: #fff;
+  &:hover {
+    color: #5cec7c;
+  }
+  &:active {
+    color: #5cec7c;
+    text-decoration: underline;
+  }
+  &:focus {
+    color: #5cec7c;
+    text-decoration: underline;
+  }
 `;
