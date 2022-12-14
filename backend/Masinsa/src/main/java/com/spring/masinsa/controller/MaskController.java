@@ -49,25 +49,7 @@ public class MaskController {
 		List<ImageDTO> imageList = maskService.getAllImages(maskId);
 		return new ResponseEntity<List<ImageDTO>>(imageList, HttpStatus.OK);
 	}
-	
-//	@ApiOperation(value = "11번 - standard를 통해 마스크 해당 기준으로 정렬")
-//	@GetMapping("/mask/sort")
-//	public ResponseEntity<?> getSortedMasks(@RequestParam String standard,
-//			@PageableDefault(size = 10, page = 1) Pageable pageable) {
-//		pageable = PageRequest.of(pageable.getPageNumber() - 1, pageable.getPageSize());
-//		Message message = new Message();
-//		List<MaskDTO> maskList = maskService.getSortedMasks(standard, pageable);
-//		if (maskList == null) {
-//		      message.setMessage("해당하는 마스크가 없습니다.");
-//		    }
-//	    else{
-//		      message.setMessage("필터링된 마스크 리스트입니다.");
-//		    }
-//		    message.setStatus(Status.OK);
-//		    message.setResult(maskList);
-//		    return new ResponseEntity<>(message, HttpStatus.OK);
-//	}
-	
+		
 	@ApiOperation(value = "7번 - maskId와 soldout을 통해 마스크 품절 여부 수정")
 	@PutMapping("/mask/soldout")
 	public ResponseEntity<?> updateSoldout(@RequestParam Long maskId, @RequestParam String soldout) {
@@ -86,20 +68,6 @@ public class MaskController {
 		maskService.updateClick(maskId);
 	}
 	
-	//test
-	//api that takes column name, size, page  and returns list of masks with pagination
-	// @GetMapping("/mask/sort")
-	// public ResponseEntity<?> getMaskList(@RequestParam String col, @RequestParam String order,
-	// 	@RequestParam int page, @RequestParam int size) {
-	// 	List<MaskDTO> maskList = maskService.getSortedMasksPage(col, order, page, size);
-	// 	if (maskList != null) {
-	// 		Message msg = new Message(Status.OK, "마스크 리스트 조회 완료", maskList);
-	// 	    return new ResponseEntity<>(msg, HttpStatus.OK);
-	// 	  }
-	// 	  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패 : 존재하지 않는 maskId", maskList);
-	// 	  return new ResponseEntity<>(msg, HttpStatus.OK);
-	// }
-
 	//api that first filters and then sorts
 	//api that takes column name, column filter , size, page  and returns list of masks with pagination
 	//col, order, filterCol, filter are all optional
@@ -115,18 +83,6 @@ public class MaskController {
 		@RequestParam(required = false) String filter2,
 		@RequestParam(required = false) String filterCol3,
 		@RequestParam(required = false) String filter3) {
-			//테스트용
-			// System.out.println("sortCol : " + sortCol);
-			// System.out.println("order : " + order);
-			// System.out.println("page : " + page);
-			// System.out.println("size : " + size);
-			// System.out.println("filterCol1 : " + filterCol1);
-			// System.out.println("filter1 : " + filter1);
-			// System.out.println("filterCol2 : " + filterCol2);
-			// System.out.println("filter2 : " + filter2);
-			// System.out.println("filterCol3 : " + filterCol3);
-			// System.out.println("filter3 : " + filter3);
-			// System.out.println(" ------------------------------------ ");
 
 		List<MaskDTO> maskList = maskService.FilterSortMaskByPage(sortCol, order, page, size, filterCol1, filter1
 			, filterCol2, filter2, filterCol3, filter3);
