@@ -12,7 +12,7 @@ import {
 } from "../../styles/ListPageStyle";
 import CurrentLocation from "./CurrentLocation";
 
-function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
+function FilterBox({ blockingindex, setMaskSize, maskShape, setMaskShape }) {
   // 형태 버튼 눌린 상태 확인
   const [shapeState, setShapeState] = useState("shape-no-active");
   // console.log(shapeState);
@@ -20,6 +20,8 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
   // 사이즈 버튼 눌린 상태 확인
   const [sizeState, setSizeState] = useState("size-no-active");
   // console.log(sizeState);
+
+  console.log(maskShape);
 
   return (
     <div>
@@ -69,6 +71,10 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
             // 만약, 새부리형이면 눌러진 maskSize 초기화 > 새부리형 마스크를 전체 검색하는 것이 됨
             if (shapeState != "새부리형") {
               setShapeState("새부리형");
+              if (sizeState != "size-no-active") {
+                setSizeState("size-no-active");
+                setMaskSize("");
+              }
             } else {
               setSizeState("size-no-active");
               setMaskSize("");
@@ -93,6 +99,10 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
             setMaskShape("입체형");
             if (shapeState != "입체형") {
               setShapeState("입체형");
+              if (sizeState != "size-no-active") {
+                setSizeState("size-no-active");
+                setMaskSize("");
+              }
             } else {
               setSizeState("size-no-active");
               setMaskSize("");
@@ -114,6 +124,10 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
             setMaskShape("덴탈형");
             if (shapeState != "덴탈형") {
               setShapeState("덴탈형");
+              if (sizeState != "size-no-active") {
+                setSizeState("size-no-active");
+                setMaskSize("");
+              }
             } else {
               setSizeState("size-no-active");
               setMaskSize("");

@@ -3,9 +3,6 @@ package com.spring.masinsa.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -38,10 +35,11 @@ public class MaskController {
 	 
 	@ApiOperation(value = "10번 - kf, size, shape를 이용하여 검색결과 조회 (필터링)")
 	@GetMapping("/mask/filter")
-	public ResponseEntity<List<MaskDTO>> getMaskByFilter(@RequestParam(required = false) String kf, 
+	public ResponseEntity<List<MaskDTO>> getMaskByFilter(@RequestParam(required = false) String blockingIndex, 
 									  @RequestParam(required = false) String size, 
-									  @RequestParam(required = false) String shape){
-		List<MaskDTO> maskList = maskService.getAllMask(kf, size, shape);
+									  @RequestParam(required = false, value="shape") String shape){
+		System.out.println(shape + "안나옴");
+		List<MaskDTO> maskList = maskService.getAllMask(blockingIndex, size, shape);
 		return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK); 
 	}
 	

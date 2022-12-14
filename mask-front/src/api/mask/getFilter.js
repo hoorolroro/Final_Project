@@ -7,23 +7,49 @@ export const getFilter = async ({
   maskShape,
   setMaskList,
 }) => {
-  const response = await axios.get(
-    `http://localhost:8080/mask/filter?kf=${maskKF}&size=${maskSize}&shape=${maskShape}`
-  );
+  console.log("getFilter", maskKF);
+  console.log("getFilter", maskSize);
+  console.log("getFilter", maskShape);
 
-  // URL 확인용
-  console.log(
-    "URL 확인",
-    `http://localhost:8080/mask/filter?kf=${maskKF}&size=${maskSize}&shape=${maskShape}`
-  );
-
-  console.log(response.data);
-
-  if (response.data.length == 0) {
-    setMaskList(null);
-  } else {
-    setMaskList(response.data);
+  if (maskKF != "") {
+    if (maskSize != "") {
+      if (maskShape != "") {
+        // KF, Size, Shape 모두 존재
+        const response = await axios.get(
+          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&size=${maskSize}&shape=${maskShape}`
+        );
+        setMaskList(response.data);
+      } else {
+        //KF, Size 존재 (Shape 없음)
+        const response = await axios.get(
+          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&size=${maskSize}`
+        );
+        setMaskList(response.data);
+      }
+    } else {
+      if (maskShape != "") {
+        // KF, Shape 존재 ( Size 없음 )
+        const response = await axios.get(
+          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&shape=${maskShape}`
+        );
+        setMaskList(response.data);
+      } else {
+        // KF만 존재 ( Size, Shape 없음)
+        const response = await axios.get(
+          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}`
+        );
+        console.log(
+          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}`
+        );
+        setMaskList(response.data);
+      }
+    }
   }
 
+  // const response = await axios.get(
+  //   `http://localhost:8080/mask/filter?blockingindex=${maskKF}&size=${maskSize}&shape=${maskShape}`
+  // );
+
+  // console.log(response);
   // setMaskList(response.data);
 };

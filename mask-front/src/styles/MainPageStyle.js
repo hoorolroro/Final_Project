@@ -96,7 +96,7 @@ export const ThirdMaskLinkBox = styled.a`
 
 // Search 부분
 export const SearchSection = styled.section`
-  width: auto;
+  width: 100%;
   height: 900px;
   padding: 5px;
   margin: 5px;

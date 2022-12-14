@@ -7,35 +7,31 @@ import styled from "styled-components";
 export const MaskListDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 10px;
-  column-gap: 5px;
-  // display: flex;
-  // flex-wrap: nowrap;
-  // justify-content: center;
+  row-gap: 20px;
+  column-gap: 30px;
+  justify-items: stretch;
   width: auto;
+  min-width: 95%;
   height: auto;
   padding: 10px;
-  border: 2px solid red;
+  // border: 2px solid red;
 `;
 
 // 리스트의 각 마스크 요약정보 칸
 export const MaskSummaryBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  // display: flex;
-  // flex-wrap: nowrap;
-  // align-items: center;
-  width: 95%;
-  height: 250px;
+  height: 230px;
   padding: 10px;
   margin: 0 5px 10px 5px;
   border: 1px solid #d9d9d9;
-  border-style: none none double;
+  overflow: hidden;
+  // border-style: none none double;
 `;
 
 // 리스트에서 각 마스크 이미지
 export const MaskSummaryImg = styled.img`
-  width: 70%;
+  width: 80%;
   height: 90%;
   // margin-right: 10px;
   padding: 10px;
@@ -48,7 +44,7 @@ export const MaskSummaryContent = styled.div`
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
-  width: 80%;
+  width: 90%;
   height: 80%;
   padding: 5px;
   // border: 2px solid blue;
@@ -68,12 +64,12 @@ export const MaskSummaryTopDiv = styled.div`
 
 // 마스크 Title 링크박스 (링크이동)
 export const MaskSummaryTitleLinkBox = styled.a`
-  width: 70%;
+  width: 80%;
   font-weight: 700;
   text-align: left;
   font-size: 16px;
   margin-left: 1px;
-  overflow: hidden;
+  // overflow: hidden;
   // border: 2px solid blue;
 `;
 
@@ -86,7 +82,7 @@ export const MaskSummaryPriceLinkBox = styled.a`
   text-align: left;
   font-size: 15px;
   color: #ff7d04;
-  overflow: hidden;
+  // overflow: hidden;
   // border: 2px solid red;
 `;
 
@@ -96,7 +92,7 @@ export const MaskSummaryOption = styled.div`
   padding-left: 15px;
   margin-bottom: 15px;
   text-align: left;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 5px;
   overflow: hidden;
   // border: 2px solid red;
@@ -105,9 +101,10 @@ export const MaskSummaryOption = styled.div`
 // 마스크 평점부분
 export const MaskScore = styled.div`
   width: auto;
+  margin-top: 5px;
   padding-left: 15px;
   text-align: left;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   overflow: hidden;
   // border: 2px solid red;

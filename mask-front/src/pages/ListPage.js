@@ -22,7 +22,7 @@ function ListPage() {
   const [maskKF, setMaskKF] = useState("");
   const [maskSize, setMaskSize] = useState("");
   const [maskShape, setMaskShape] = useState("");
-  const [maskList, setMaskList] = useState(0);
+  const [maskList, setMaskList] = useState([]);
 
   // kf 파라미터 설정
   const { blockingindex } = useParams();
@@ -30,7 +30,7 @@ function ListPage() {
   // console.log("ListPage : ", blockingindex.slice(-2, blockingindex.length));
   useEffect(() => {
     setMaskKF(blockingindex.slice(-2, blockingindex.length));
-    // console.log(maskKF);
+    console.log(maskKF);
   });
 
   // console.log(maskShape);
@@ -41,7 +41,7 @@ function ListPage() {
     getFilter({ maskKF, maskSize, maskShape, setMaskList });
   }, [maskKF, maskSize, maskShape, FilterMaskList]);
 
-  console.log("maskList : ", maskList);
+  // console.log("maskList : ", maskList);
 
   return (
     <div>
@@ -52,12 +52,13 @@ function ListPage() {
             blockingindex={blockingindex}
             setMaskSize={setMaskSize}
             setMaskShape={setMaskShape}
+            maskShape={maskShape}
           />
         </FilterSection>
         {/* 정렬변경 */}
         <SortChange2 />
         {/* 마스크 리스트공간 */}
-        {maskList != null ? (
+        {maskList.length >= 1 ? (
           <>
             <FilterMaskListSection>
               {/* 필터걸린 마스크 리스트 */}
@@ -77,7 +78,7 @@ function ListPage() {
                 </h6>
                 <h6>도움을 드리지 못해 죄송합니다.</h6>
               </div>
-              <Pagination></Pagination>
+              {/* <Pagination></Pagination> */}
             </FilterMaskListSection>
           </>
         )}

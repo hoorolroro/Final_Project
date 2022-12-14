@@ -3,9 +3,9 @@ package com.spring.masinsa.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.spring.masinsa.dto.ImageDTO;
@@ -26,6 +26,7 @@ public class MaskServiceImpl implements MaskService {
 	MaskMapper maskMapper;
 	
 	@Override
+	@Transactional
 	public MaskDTO getMask(Long maskId) {
 		Mask mask = maskRepo.findMaskById(maskId);
 		MaskDTO maskDTO = Mask.entityToDTO(mask);
@@ -33,6 +34,7 @@ public class MaskServiceImpl implements MaskService {
 	}
 	
 	@Override
+	@Transactional
 	public MaskDTO updateSoldout(Long maskId, String soldout) {
 		Mask mask = maskRepo.findMaskById(maskId);
 		if(mask != null) {
@@ -50,6 +52,7 @@ public class MaskServiceImpl implements MaskService {
 	}
 	
 	@Override
+	@Transactional
 	public void updateClick(Long maskId) {
 		Mask mask = maskRepo.findMaskById(maskId);
 		mask.updateClick();
@@ -57,6 +60,7 @@ public class MaskServiceImpl implements MaskService {
 	}
 	
 	@Override
+	@Transactional
 	public List<ImageDTO> getAllImages(Long maskId) {
 		List<Image> imageList = maskMapper.getAllImages(maskId);
 		System.out.println(imageList);
@@ -67,8 +71,9 @@ public class MaskServiceImpl implements MaskService {
 	}
 	
 	@Override
-	public List<MaskDTO> getAllMask(String kf, String size, String shape) {
-		List<Mask> maskList = maskMapper.getAllMask(kf, size, shape);
+	@Transactional
+	public List<MaskDTO> getAllMask(String blockingIndex, String size, String shape) {
+		List<Mask> maskList = maskMapper.getAllMask(blockingIndex, size, shape);
 		List<MaskDTO> maskDTOList = maskList.stream()
 											.map(mask -> Mask.entityToDTO(mask))
 											.collect(Collectors.toList());
@@ -91,6 +96,7 @@ public class MaskServiceImpl implements MaskService {
 	}
 	
 	@Override
+	@Transactional
 	public List<MaskDTO> getSortedMasksPage(String col, String order, int page, int size) {
 		int limit = size;
 		int offset = (page - 1) * size;

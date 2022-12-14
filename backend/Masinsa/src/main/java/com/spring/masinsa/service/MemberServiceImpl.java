@@ -1,5 +1,7 @@
 package com.spring.masinsa.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ public class MemberServiceImpl implements MemberService {
 	MemberRepository memberRepo;
 	
 	@Override
+	@Transactional
 	public MemberDTO getMember(Long memberId) {
 		Member member = memberRepo.findMemberById(memberId);
 		MemberDTO memberDTO = Member.entityToDTO(member);
@@ -21,6 +24,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
+	@Transactional
 	public MemberDTO deleteMember(Long memberId) {
 		Member member = memberRepo.findMemberById(memberId);
 		if(member != null) {
@@ -33,6 +37,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	@Transactional
   public MemberDTO saveMember(MemberDTO memberDTO) {
 		//먼저 memberId로 조회해서 없으면 저장
 		Member m = memberRepo.findMemberById(memberDTO.getId());
