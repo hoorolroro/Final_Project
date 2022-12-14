@@ -99,11 +99,11 @@ public class MaskController {
 		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패 : 존재하지 않는 maskId", maskList);
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
-
+ 
 	//api that first filters and then sorts
 	//api that takes column name, column filter , size, page  and returns list of masks with pagination
 	//col, order, filterCol, filter are all optional
-	@ApiOperation(value = "9번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬")
+	@ApiOperation(value = "10번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬")
 	@GetMapping("/mask/filter/sort")
 	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String sortCol, 
 		@RequestParam(required = false) String order,
