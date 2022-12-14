@@ -28,7 +28,7 @@ function FilterMaskList({ maskList }) {
               <div key={mask.id}>
                 <MaskSummaryBox>
                   {/* 마스크썸네일 */}
-                  <MaskSummaryImg src={mask.thumnail}></MaskSummaryImg>
+                  <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg>
                   {/* 마스크내용 */}
                   <MaskSummaryContent>
                     <MaskSummaryTopDiv>

@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const Main = styled.section`
   width: auto;
   height: auto;
-  padding: 5px 13%;
+  padding: 5px 12%;
   margin: 8px;
   // border: 2px solid red;
 `;

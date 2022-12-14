@@ -7,45 +7,41 @@ export const getFilter = async ({
   maskShape,
   setMaskList,
 }) => {
+  console.log("getFilter", maskKF);
+  console.log("getFilter", maskSize);
+  console.log("getFilter", maskShape);
+
   if (maskKF != "") {
     if (maskSize != "") {
       if (maskShape != "") {
+        // KF, Size, Shape 모두 존재
         const response = await axios.get(
-          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&size=${maskSize}&shape=${maskShape}`
-        );
-        console.log(
-          "URL 확인",
           `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&size=${maskSize}&shape=${maskShape}`
         );
         setMaskList(response.data);
       } else {
+        //KF, Size 존재 (Shape 없음)
         const response = await axios.get(
-          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&size=${maskSize}`
-        );
-        console.log(
-          "URL 확인",
           `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&size=${maskSize}`
         );
         setMaskList(response.data);
       }
     } else {
       if (maskShape != "") {
+        // KF, Shape 존재 ( Size 없음 )
         const response = await axios.get(
-          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}`
-        );
-        console.log(
-          "URL 확인",
-          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}`
+          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&shape=${maskShape}`
         );
         setMaskList(response.data);
       } else {
+        // KF만 존재 ( Size, Shape 없음)
         const response = await axios.get(
-          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&shape=${maskShape}`
+          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}`
         );
         console.log(
-          "URL 확인",
-          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}&shape=${maskShape}`
+          `http://localhost:8080/mask/filter?blockingIndex=${maskKF}`
         );
+        setMaskList(response.data);
       }
     }
   }

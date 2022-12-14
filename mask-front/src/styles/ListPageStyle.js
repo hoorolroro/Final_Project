@@ -17,11 +17,11 @@ export const FilterMaskListSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 100%;
   height: auto;
   padding: 5px;
   margin: 5px;
-  border: 2px solid red;
+  // border: 2px solid red;
 `;
 
 /* Filter 부분 스타일 */

@@ -30,7 +30,7 @@ function ListPage() {
   // console.log("ListPage : ", blockingindex.slice(-2, blockingindex.length));
   useEffect(() => {
     setMaskKF(blockingindex.slice(-2, blockingindex.length));
-    // console.log(maskKF);
+    console.log(maskKF);
   });
 
   // console.log(maskShape);
