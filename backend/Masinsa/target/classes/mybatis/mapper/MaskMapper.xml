@@ -34,11 +34,24 @@
   <select id="getSortedMasks" resultMap="getAllMaskInfo">
     SELECT * FROM mask ORDER BY #{standard} ASC;
   </select>
-<!-- 
-	<select id="getSortedMasksLimit" resultMap="getAllMaskInfo">
-		SELECT * FROM mask ORDER BY ${col} ${order} LIMIT ${limit} OFFSET ${offset};
-	</select> -->
   
+	<!-- SELECT * FROM mask ORDER BY price desc limit 2 offset 0; -->
+	<select id="FilterSortMaskByPage" resultMap="getAllMaskInfo">
+		SELECT * FROM mask
+		<where>
+			<if test="filterCol != null or filter != null">
+				${filterCol} = #{filter}
+			</if>
+		</where>
+		<if test="sortCol != null and order != null">
+			ORDER BY ${sortCol} ${order}
+		</if>
+		<if test="limit != null and offset != null">
+			LIMIT #{limit} , #{offset}
+		</if>
+		;
+	</select>
+
   <resultMap id="getAllMaskInfo" type="com.spring.masinsa.entity.Mask">
   	<id column="mask_id" property="id" />
   	<result column="mask_name" property="name" />
