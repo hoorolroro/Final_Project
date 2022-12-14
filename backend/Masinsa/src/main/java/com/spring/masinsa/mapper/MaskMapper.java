@@ -24,7 +24,11 @@ public interface MaskMapper {
 	@Result(property = "thumbnail", column = "thumbnail_image_url")
 	@Result(property = "purchaseUrl", column = "purchase_url")
 	@Result(property = "click", column = "click_num")
-	@Result(property = "soldout", column = "soldout_status ")
+	@Result(property = "soldout", column = "soldout_status")
 	@Result(property = "avgScore", column = "avg_score")
 	List<Mask> getSortedMasksByPage(String col, String order, int limit, int offset);
+
+
+	List<Mask> FilterSortMaskByPage(String sortCol, String order, Integer offset, Integer limit, String filterCol, String filter);
+
 }

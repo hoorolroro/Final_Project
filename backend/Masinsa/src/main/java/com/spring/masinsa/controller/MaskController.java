@@ -3,9 +3,6 @@ package com.spring.masinsa.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -102,4 +99,25 @@ public class MaskController {
 		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패 : 존재하지 않는 maskId", maskList);
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
+
+	//api that first filters and then sorts
+	//api that takes column name, column filter , size, page  and returns list of masks with pagination
+	//col, order, filterCol, filter are all optional
+	@ApiOperation(value = "9번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬")
+	@GetMapping("/mask/filter/sort")
+	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String sortCol, 
+		@RequestParam(required = false) String order,
+		@RequestParam(required = false) Integer page, 
+		@RequestParam(required = false) Integer size, 
+		@RequestParam(required = false) String filterCol, 
+		@RequestParam(required = false) String filter) {
+		List<MaskDTO> maskList = maskService.FilterSortMaskByPage(sortCol, order, page, size, filterCol, filter);
+		if (maskList != null) {
+			Message msg = new Message(Status.OK, "마스크 리스트 조회 완료", maskList);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
+		  }
+		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패 : 존재하지 않는 maskId", maskList);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
+	}
+
 }
