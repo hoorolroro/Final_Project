@@ -18,7 +18,7 @@ public class MaskDTO {
 	private String name;
 	private String size;
 	private Long price;
-	private String kf;
+	private String blockingIndex;
 	private String shape;
 	private String option;
 	private String thumbnail;
@@ -33,7 +33,7 @@ public class MaskDTO {
 						 .name(maskDTO.getName())
 						 .size(maskDTO.getSize())
 						 .price(maskDTO.getPrice())
-						 .kf(maskDTO.getKf())
+						 .blockingIndex(maskDTO.getBlockingIndex())
 						 .shape(maskDTO.getShape())
 						 .option(maskDTO.getOption())
 						 .thumbnail(maskDTO.getThumbnail())

@@ -67,8 +67,8 @@ public class MaskServiceImpl implements MaskService {
 	}
 	
 	@Override
-	public List<MaskDTO> getAllMask(String kf, String size, String shape) {
-		List<Mask> maskList = maskMapper.getAllMask(kf, size, shape);
+	public List<MaskDTO> getAllMask(String blockingIndex, String size, String shape) {
+		List<Mask> maskList = maskMapper.getAllMask(blockingIndex, size, shape);
 		List<MaskDTO> maskDTOList = maskList.stream()
 											.map(mask -> Mask.entityToDTO(mask))
 											.collect(Collectors.toList());
