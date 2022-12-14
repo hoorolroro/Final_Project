@@ -14,6 +14,8 @@ public interface MaskService  {
 	public void updateClick(Long maskId);
 	public List<ImageDTO> getAllImages(Long maskId);
 	public List<MaskDTO> getAllMask(String kf, String size, String shape);
+	public List<MaskDTO> getSortedMasks(String standard);
+	public List<MaskDTO> getSortedMasksPage(String column, String order, int limit, int offset);
 	//public List<MaskDTO> getSortedMasks(String standard, Pageable pageable);
 	
 }

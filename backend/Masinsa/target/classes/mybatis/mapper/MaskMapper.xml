@@ -35,6 +35,10 @@
   <select id="getSortedMasks" resultMap="getAllMaskInfo">
     SELECT * FROM mask ORDER BY #{standard} ASC;
   </select>
+<!-- 
+	<select id="getSortedMasksLimit" resultMap="getAllMaskInfo">
+		SELECT * FROM mask ORDER BY ${col} ${order} LIMIT ${limit} OFFSET ${offset};
+	</select> -->
   
   <resultMap id="getAllMaskInfo" type="Mask">
   	<id column="mask_id" property="id" />

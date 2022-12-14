@@ -88,4 +88,17 @@ public class MaskController {
 		maskService.updateClick(maskId);
 	}
 	
+	//test
+	//api that takes column name, size, page  and returns list of masks with pagination
+	@GetMapping("/mask/sort")
+	public ResponseEntity<?> getMaskList(@RequestParam String col, @RequestParam String order,
+		@RequestParam int page, @RequestParam int size) {
+		List<MaskDTO> maskList = maskService.getSortedMasksPage(col, order, page, size);
+		if (maskList != null) {
+			Message msg = new Message(Status.OK, "마스크 리스트 조회 완료", maskList);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
+		  }
+		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패 : 존재하지 않는 maskId", maskList);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
+	}
 }
