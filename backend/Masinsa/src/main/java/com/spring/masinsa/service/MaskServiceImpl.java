@@ -122,13 +122,6 @@ public class MaskServiceImpl implements MaskService {
 		if (page != null && size != null) {
 			offset = (page - 1) * size;
 		}
-		//테스트용
-		// System.out.println(("sortCol : " + sortCol + ", order : " + order));
-		// System.out.println(("limit : " + limit + ", offset : " + offset));
-		// System.out.println(("filterCol1 : " + filterCol1 + ", filter1 : " + filter1));
-		// System.out.println(("filterCol2 : " + filterCol2 + ", filter2 : " + filter2));
-		// System.out.println(("filterCol3 : " + filterCol3 + ", filter3 : " + filter3));
-
 		List<Mask> maskList = maskMapper.FilterSortMaskByPage(sortCol, order, limit, offset, 
 		filterCol1, filter1, filterCol2, filter2, filterCol3, filter3);
 		System.out.println(maskList);
