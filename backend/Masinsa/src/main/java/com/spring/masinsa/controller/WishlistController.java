@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,8 +29,8 @@ public class WishlistController {
 	
 	@ApiOperation(value = "19번 - maskId&memberId를 통해 찜 등록")
 	@PostMapping("/wishlist")
-	public ResponseEntity<?> addWishList(@RequestParam Long maskId, @RequestParam Long memberId) {
-		WishListDTO wishListDTO = wishListService.addWishList(maskId, memberId);
+	public ResponseEntity<?> addWishList(@RequestBody WishListDTO ids) {
+		WishListDTO wishListDTO = wishListService.addWishList(ids);
 		if(wishListDTO != null) {
 			Message msg = new Message(Status.OK, "찜 등록 완료", wishListDTO);
 		    return new ResponseEntity<>(msg, HttpStatus.OK);
