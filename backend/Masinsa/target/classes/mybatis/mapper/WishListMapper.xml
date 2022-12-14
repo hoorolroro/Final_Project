@@ -4,11 +4,43 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.masinsa.mapper.WishListMapper">
-	<insert id="addWishList">
+	<insert id="addWishList" parameterType="com.spring.masinsa.dto.WishListDTO" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO wishlist (mask_id, member_id) VALUES (#{maskId}, #{memberId});
-		<selectKey resultType="Map" keyProperty="id" keyColumn="wishlist_id" order="AFTER">
-			SELECT LAST_INSERT_ID(); 
-		</selectKey>
 	</insert>
-
+	
+	<select id="getAllWishList" resultMap="getAllWishListInfo">
+		SELECT * FROM wishlist WHERE 1=1
+		<if test="memberId != null">
+			AND member_id = #{memberId}
+		</if>
+		<if test="limit != null and offset != null">
+			LIMIT #{limit} , #{offset}
+		</if>
+	</select>
+	
+	<resultMap id="getAllWishListInfo" type="WishList">
+		<id column="wishlist_id" property="id" />
+		<result column="deletion" property="deletion" />
+		<association property="mask" javaType="Mask" >
+			<id column="mask_id" property="id" />
+			<result column="mask_name" property="name" />
+			<result column="thumbnail_image_url" property="thumbnail" />
+			<result column="price" property="price" />
+			<result column="soldout_status" property="soldout" />
+		</association>
+		<association property="member" javaType="Member" > 
+			<id column="member_id" property="id" />
+			<result column="nickname" property="nickname" />
+		</association>
+	</resultMap>
+	
+	<select id="getMaskWish" resultType="Mask">
+		SELECT mask_id, mask_name, thumbnail_image_url, price, 
+		soldout_status FROM mask WHERE mask_id = #{maskId}
+	</select>
+	
+	<select id="getMemberWish" resultType="Member">
+		SELECT member_id, nickname FROM member WHERE member_id = #{memberId}
+	</select>
+	
 </mapper>

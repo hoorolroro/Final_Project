@@ -18,7 +18,6 @@
   	</collection>
  </resultMap>
  
- 
   <select id="getAllMask" resultMap="getAllMaskInfo">
     SELECT * FROM mask WHERE 1=1
    	<if test="blockingIndex != null">
@@ -35,12 +34,58 @@
   <select id="getSortedMasks" resultMap="getAllMaskInfo">
     SELECT * FROM mask ORDER BY #{standard} ASC;
   </select>
-<!-- 
-	<select id="getSortedMasksLimit" resultMap="getAllMaskInfo">
-		SELECT * FROM mask ORDER BY ${col} ${order} LIMIT ${limit} OFFSET ${offset};
-	</select> -->
   
-  <resultMap id="getAllMaskInfo" type="com.spring.masinsa.entity.Mask">
+	<!-- 예시 : SELECT * FROM mask 
+	WHERE size = "대형" AND shape = "새부리형" 
+	ORDER BY price desc limit 2 offset 0; -->
+	<select id="FilterSortMaskByPage" resultMap="getAllMaskInfo">
+		SELECT * FROM mask
+		<where>
+			<if test="filterCol1 != null and filter1 != null">
+				${filterCol1} = #{filter1}
+			</if>
+			<if test="filterCol2 != null and filter2 != null">
+				AND ${filterCol2} = #{filter2}
+			</if>
+			<if test="filterCol3 != null and filter3 != null">
+				AND ${filterCol3} = #{filter3}
+			</if>
+		</where>
+		<if test="sortCol != null and order != null">
+			ORDER BY ${sortCol} ${order}
+		</if>
+		<if test="limit != null">
+			LIMIT #{limit}
+			<if test="offset != null">
+				OFFSET #{offset}
+			</if>
+		</if>
+		;
+	</select>
+
+
+		<!-- SELECT * FROM mask
+		<where>
+			<if test="filterCol1 != null or filter1 != null">
+				${filterCol1} = #{filter1}
+			</if>
+			<if test="filterCol2 != null or filter2 != null">
+				AND ${filterCol2} = #{filter2}
+			</if>
+			<if test="filterCol3 != null or filter3 != null">
+				AND ${filterCol3} = #{filter3}
+			</if>
+		</where>
+		<if test="sortCol != null and order != null">
+			ORDER BY ${sortCol} ${order}
+		</if>
+		<if test="limit != null and offset != null">
+			LIMIT #{limit} , #{offset}
+		</if>
+		; -->
+
+  <!-- <resultMap id="getAllMaskInfo" type="Mask"> -->
+  <resultMap id="getAllMaskInfo" type="Mask">
   	<id column="mask_id" property="id" />
   	<result column="mask_name" property="name" />
   	<result column="size" property="size" />
