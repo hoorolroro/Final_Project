@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 function MoreBtn({ isCheck, setCheck }) {
-  const [UpdateToggle, setUpdateToggle] = useState(false);
-  const onUpdateToggle = () => {
-    setUpdateToggle(!UpdateToggle);
-  };
+  // const [UpdateToggle, setUpdateToggle] = useState(false);
+  // const onUpdateToggle = () => {
+  //   setUpdateToggle(!UpdateToggle);
+  // };
 
   return (
     <div>
@@ -15,8 +15,8 @@ function MoreBtn({ isCheck, setCheck }) {
         }}
         // onClick={() => console.log("btn")}
       >
-        {isCheck ? "더보기" : "더보기"}
-        {/* 더보기 버튼 */}
+        {/* {isCheck ? "더보기" : "더보기"} */}
+        상세설명 보기
       </button>
     </div>
   );
