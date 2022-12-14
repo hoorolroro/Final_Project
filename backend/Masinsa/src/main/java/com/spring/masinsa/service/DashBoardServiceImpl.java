@@ -2,6 +2,8 @@ package com.spring.masinsa.service;
 
 import java.time.LocalDateTime;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,7 @@ public class DashBoardServiceImpl implements DashBoardService {
 	DashBoardRepository DashBoardRepo;
 	
 	@Override
+	@Transactional
 	public DashBoardDTO getStatistics(LocalDateTime date) {
 		DashBoard dashBoard = DashBoardRepo.findDashBoardByDate(date);
 		DashBoardDTO dashBoardDTO = DashBoard.entityToDTO(dashBoard);

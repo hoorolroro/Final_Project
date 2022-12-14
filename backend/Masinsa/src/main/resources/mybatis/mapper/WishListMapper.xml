@@ -6,9 +6,6 @@
 <mapper namespace="com.spring.masinsa.mapper.WishListMapper">
 	<insert id="addWishList">
 		INSERT INTO wishlist (mask_id, member_id) VALUES (#{maskId}, #{memberId});
-		<selectKey resultType="Map" keyProperty="id" keyColumn="wishlist_id" order="AFTER">
-			SELECT LAST_INSERT_ID(); 
-		</selectKey>
 	</insert>
 
 </mapper>
