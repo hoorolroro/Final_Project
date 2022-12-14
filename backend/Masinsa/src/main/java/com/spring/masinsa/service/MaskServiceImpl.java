@@ -82,19 +82,19 @@ public class MaskServiceImpl implements MaskService {
 //	}
 	
 	
-//	public List<MaskDTO> getSortedMasks(String standard, Pageable pageable) {
-//		List<Mask> maskList = maskMapper.getSortedMasks(standard);
-//		List<MaskDTO> maskDTOList = maskList.stream()
-//											.map(mask -> Mask.entityToDTO(mask))
-//											.collect(Collectors.toList());
-//		return maskDTOList;
-//	}
+	public List<MaskDTO> getSortedMasks(String standard, Pageable pageable) {
+		List<Mask> maskList = maskMapper.getSortedMasks(standard);
+		List<MaskDTO> maskDTOList = maskList.stream()
+											.map(mask -> Mask.entityToDTO(mask))
+											.collect(Collectors.toList());
+		return maskDTOList;
+	}
 	
 	@Override
 	public List<MaskDTO> getSortedMasksPage(String col, String order, int page, int size) {
 		int limit = size;
 		int offset = (page - 1) * size;
-		System.out.println(("col : " + col + ", order : " + order + ", limit : " + limit + ", offset : " + offset));
+		// System.out.println(("col : " + col + ", order : " + order + ", limit : " + limit + ", offset : " + offset));
 		List<Mask> maskList = maskMapper.getSortedMasksByPage(col, order, limit, offset);
 		System.out.println(maskList);
 		List<MaskDTO> maskDTOList = maskList.stream()
@@ -102,4 +102,25 @@ public class MaskServiceImpl implements MaskService {
 											.collect(Collectors.toList());
 		return maskDTOList;
 	}
+
+	@Override //col, order, page, size, filterCol, filter
+	public List<MaskDTO> FilterSortMaskByPage(String sortCol, String order, Integer page, Integer size, String filterCol, String filter) {
+		Integer limit = null;
+		Integer offset = null;
+		//if page, size is not null, then set limit and offset
+		if (size != null) {
+			limit = size;
+		}
+		if (page != null && size != null) {
+			offset = (page - 1) * size;
+		}
+		System.out.println(("sortCol : " + sortCol + ", order : " + order + ", limit : " + limit + ", offset : " + offset + ", filterCol : " + filterCol + ", filter : " + filter));
+		List<Mask> maskList = maskMapper.FilterSortMaskByPage(sortCol, order, limit, offset, filterCol, filter);
+		System.out.println(maskList);
+		List<MaskDTO> maskDTOList = maskList.stream()
+											.map(mask -> Mask.entityToDTO(mask))
+											.collect(Collectors.toList());
+		return maskDTOList;
+	}
+
 }
