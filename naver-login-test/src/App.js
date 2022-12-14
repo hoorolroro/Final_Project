@@ -7,8 +7,8 @@ function App() {
   const { naver } = window;
 
   const naverLogin = new naver.LoginWithNaverId({
-    clientId: "UNY76CePTThz2d9AIPl4", // CLIENT_ID
-    callbackUrl: "http://localhost:3000", // CALLBACKURL
+    clientId: "zjw4Rh5ItdG6dKAS_2yB", // CLIENT_ID
+    callbackUrl: "http://localhost:3000/", // CALLBACKURL
     isPopup: true /* 팝업을 통한 로그인 여부, true 면 팝업 */,
     loginButton: {
       /* 로그인 버튼의 타입을 지정 */ color: "green",
@@ -38,7 +38,7 @@ function App() {
         setToken(naverLogin.user.id);
         // 자식창(팝업창)에서 부모창으로 접근
         window.onload = () => {
-          window.opener.location.href = "http://localhost:3000"; // 메인으로 돌아옴
+          window.opener.location.href = "http://localhost:3000/"; // 메인으로 돌아옴
           window.setTimeout(1000);
           window.self.close(); //팝업창 닫음
         };

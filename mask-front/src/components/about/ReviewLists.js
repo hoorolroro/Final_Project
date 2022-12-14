@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
   EachReviewSection,
@@ -6,6 +6,7 @@ import {
   ReviewCenter,
   ReviewBottom,
 } from "../../styles/AboutPageStyle";
+
 //
 function ReviewLists({ allReviews }) {
   console.log("ReviewLists : ", allReviews);
@@ -19,6 +20,7 @@ function ReviewLists({ allReviews }) {
               <EachReviewSection>
                 <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
                 <ReviewCenter>
+                  {/* <Review /> */}
                   {review.memberId ? (
                     <div>
                       <div>
