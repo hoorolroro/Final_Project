@@ -26,7 +26,7 @@ public class WishListServiceImpl implements WishListService {
 	@Transactional
 	public WishListDTO addWishList(WishListDTO ids) {
 		wishListMapper.addWishList(ids);
-		WishList wishList = wishListRepo.findWishListByMaskIdAndMemberId(ids.getMaskId(), ids.getMemberId());
+		WishList wishList = wishListRepo.findWishListById(ids.getId());
 		WishListDTO wishListDTO = WishList.entityToDTO(wishList);
 		return wishListDTO;
 		}
