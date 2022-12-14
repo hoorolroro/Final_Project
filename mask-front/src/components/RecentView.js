@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getRecentMask } from "../api/mask/getRecentMask";
-import { FixedRecentView, RecentViewImg } from "../styles/OtherStyles";
+import {
+  FixedRecentView,
+  RecentViewImg,
+  RecentViewImgDiv,
+} from "../styles/OtherStyles";
 
 function RecentView() {
-  let userWatched = localStorage.getItem("watchedMaskId");
+  // localStorage에 저장된 최근본상품(watchedMask) 가져오기
+  let userWatched = localStorage.getItem("watchedMask");
+  // console.log("userWatched (type) : ", typeof userWatched);
+
+  // JSON 자료형(String)으로 저장된 데이터를 Object로 변경
   userWatched = JSON.parse(userWatched);
-  console.log(userWatched);
 
-  const recentMaskIds = userWatched;
-  const [recentMasks, setRecentMasks] = useState([]);
-
-  useEffect(() => {
-    getRecentMask({ recentMaskIds, setRecentMasks });
-  }, []);
-
-  console.log(recentMasks);
+  console.log("userWatched - RecentView", userWatched);
+  // console.log("userWatched after JSON.parse (type) : ", typeof userWatched);
 
   return (
     <div>
@@ -27,16 +27,19 @@ function RecentView() {
             border: "1px solid #D9D9D9",
           }}
         ></hr>
-        {userWatched[0]}
-        {/* <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <RecentViewImg src="http://localhost:3000/%EB%8D%B4%ED%83%88%ED%98%95.png"></RecentViewImg>
-        </a>
-        <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <RecentViewImg src="http://localhost:3000/%EB%8D%B4%ED%83%88%ED%98%95.png"></RecentViewImg>
-        </a>
-        <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <RecentViewImg src="http://localhost:3000/%EB%8D%B4%ED%83%88%ED%98%95.png"></RecentViewImg>
-        </a> */}
+        {userWatched ? (
+          userWatched.map((recentMask) => (
+            <RecentViewImgDiv key={recentMask.id}>
+              <a
+                href={`http://localhost:3000/aboutMask/${recentMask.id}/Masinsa`}
+              >
+                <RecentViewImg src={recentMask.thumbnail} alt={recentMask.id} />
+              </a>
+            </RecentViewImgDiv>
+          ))
+        ) : (
+          <></>
+        )}
       </FixedRecentView>
     </div>
   );

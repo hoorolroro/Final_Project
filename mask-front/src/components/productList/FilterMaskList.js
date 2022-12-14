@@ -13,7 +13,13 @@ import {
 } from "../../styles/MaskListStyles";
 
 function FilterMaskList({ maskList }) {
-  console.log("FilterMaskLists : ", maskList);
+  // console.log("FilterMaskLists : ", maskList);
+
+  /* 클릭 수 증가 - sungmin 수정사항 */
+  // 상품상세페이지에 진입하면 click 수 증가 시킴!
+  // useEffect(() => {
+  //   putClick({ maskId });
+  // }, [maskId]);
 
   return (
     <div>
@@ -27,13 +33,21 @@ function FilterMaskList({ maskList }) {
                   {/* 마스크썸네일 */}
                   {mask.thumbnail ? (
                     <>
-                      <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg>
+                      <a
+                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                      >
+                        <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg>
+                      </a>
                     </>
                   ) : (
                     <>
-                      <MaskSummaryImg
-                        src={`${process.env.PUBLIC_URL}/NoImage.jpg`}
-                      ></MaskSummaryImg>
+                      <a
+                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                      >
+                        <MaskSummaryImg
+                          src={`${process.env.PUBLIC_URL}/NoImage.jpg`}
+                        ></MaskSummaryImg>
+                      </a>
                     </>
                   )}
                   {/* <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg> */}

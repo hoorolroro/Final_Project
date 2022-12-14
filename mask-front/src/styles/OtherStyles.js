@@ -74,13 +74,17 @@ export const FixedRecentView = styled.div`
   box-shadow: 2px 2px 5px #999;
 `;
 
-// 최근 본 상품 Img
-export const RecentViewImg = styled.img`
+export const RecentViewImgDiv = styled.div`
   width: 60px;
   height: 60px;
-  border: 2px solid #d9d9d9;
-  border-style: double double;
+  border: 1px solid #d9d9d9;
   border-radius: 5px;
-  margin-bottom: 3px;
-  background: #fff;
+  margin: 5px 0px;
+  // background: #fff;
+`;
+
+// 최근 본 상품 Img
+export const RecentViewImg = styled.img`
+  width: 100%;
+  height: 100%;
 `;

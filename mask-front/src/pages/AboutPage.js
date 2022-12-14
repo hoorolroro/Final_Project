@@ -11,6 +11,7 @@ import styled from "styled-components";
 import { CurrentFilterSection } from "../styles/OtherStyles";
 import { MaskAboutWrapper } from "../styles/AboutPageStyle";
 import { getImage } from "../api/getImage";
+import { RecentViewFunction } from "../components/RecentViewFunction";
 
 function AboutPage() {
   // 파라미터를 통한 maskId 전달
@@ -22,7 +23,7 @@ function AboutPage() {
 
   useEffect(() => {
     getMask({ maskId, setMask });
-  }, []);
+  }, [maskId]);
 
   // console.log("AboutPage - mask 불러오기 : ", mask);
 
@@ -31,41 +32,9 @@ function AboutPage() {
 
   useEffect(() => {
     getImage({ maskId, setImages });
-  }, []);
+  }, [maskId]);
 
   // console.log("AboutPage - Image 불러오기 : ", images);
-
-  /* 최근 본 상품 - sungmin */
-  useEffect(() => {
-    // 우선적으로, localStorage에 있는 데이터(최근본상품) 가져오기
-    let watchArr = localStorage.getItem("watchedMaskId");
-
-    // 저장된 데이터가 없으면 새로운 배열 형성
-    if (watchArr == null) {
-      watchArr = [];
-    } else {
-      // 만약, 저장된 데이터가 있으면 JSON -> object로 변경하여 저장
-      watchArr = JSON.parse(watchArr);
-    }
-
-    // 현재 aboutPage의 maskId를 watchArr배열에 저장
-    watchArr = watchArr.concat(maskId);
-    // console.log("watchArr", watchArr);
-
-    // 중복 값 제거 ( 같은 상품은 한개니까 ..)
-    watchArr = new Set(watchArr);
-
-    // set 자료형으로 바뀐 watchArr를 배열로 변경
-    watchArr = [...watchArr];
-
-    // 만약 최근 본 상품이 3개가 넘어가면 shift를 통해 앞에 값 삭제
-    if (watchArr.length > 3) {
-      watchArr.shift();
-    }
-
-    // localStorage에 watchArr(최근본상품) 데이터를 JSON 자료형으로 저장
-    localStorage.setItem("watchedMaskId", JSON.stringify(watchArr));
-  }, []);
 
   return (
     <div>
@@ -83,6 +52,8 @@ function AboutPage() {
           <MaskDetail images={images} />
           {/* 리뷰창 */}
           <Reviews maskId={mask.id} />
+          {/* 최근 본 상품 관련 메서드 실행  - sungmin 수정사항 */}
+          <RecentViewFunction mask={mask} />
         </MaskAboutWrapper>
       </Main>
     </div>
