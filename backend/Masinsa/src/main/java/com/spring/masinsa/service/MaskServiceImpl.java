@@ -86,7 +86,7 @@ public class MaskServiceImpl implements MaskService {
 	public List<MaskDTO> getSortedMasksPage(String col, String order, int page, int size) {
 		int limit = size;
 		int offset = (page - 1) * size;
-		// System.out.println(("col : " + col + ", order : " + order + ", limit : " + limit + ", offset : " + offset));
+		System.out.println(("col : " + col + ", order : " + order + ", limit : " + limit + ", offset : " + offset));
 		List<Mask> maskList = maskMapper.getSortedMasksByPage(col, order, limit, offset);
 		System.out.println(maskList);
 		List<MaskDTO> maskDTOList = maskList.stream()
