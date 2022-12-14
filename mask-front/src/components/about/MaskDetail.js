@@ -8,25 +8,28 @@ function MaskDetail({ images }) {
   const [isCheck, setCheck] = useState(false);
   return (
     <div>
-      <MaskDetailSection>
-        {images ? (
-          images.map((image) => (
-            <div key={image.id}>
-              {/* imageType이 detail 이면 출력 */}
-              {image.imageType === "detail" ? (
-                <>
-                  <img src={image.imageUrl}></img>
-                  <MoreBtn isCheck={isCheck} setCheck={setCheck} />
-                </>
-              ) : (
-                <></>
-              )}
-            </div>
-          ))
-        ) : (
-          <></>
-        )}
-      </MaskDetailSection>
+      <MoreBtn isCheck={isCheck} setCheck={setCheck} />
+      {isCheck && (
+        // image 기본 출력 크기를 고정해두고 싶음. 현재는 없던 이미지를 보여주는 정도의 버튼.
+        <MaskDetailSection>
+          {images ? (
+            images.map((image) => (
+              <div key={image.id}>
+                {/* imageType이 detail 이면 출력 */}
+                {image.imageType === "detail" ? (
+                  <>
+                    <img src={image.imageUrl}></img>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
+        </MaskDetailSection>
+      )}
     </div>
   );
 }
