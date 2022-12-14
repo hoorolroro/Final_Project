@@ -41,8 +41,9 @@ public class WishlistController {
 	
 	@ApiOperation(value = "20번 - memberId를 통해 찜 목록 전체 조회")
 	@GetMapping("/wishlist")
-	public ResponseEntity<List<WishListDTO>> getWishList(@RequestParam Long memberId) {
-		List<WishListDTO> wishListDTO = wishListService.getAllWishList(memberId);
+	public ResponseEntity<List<WishListDTO>> getWishList
+	(@RequestParam Long memberId, @RequestParam int page, @RequestParam int size) {
+		List<WishListDTO> wishListDTO = wishListService.getAllWishList(memberId, page, size);
 		return new ResponseEntity<List<WishListDTO>>(wishListDTO, HttpStatus.OK);
 	}
 	

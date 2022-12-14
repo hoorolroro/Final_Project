@@ -81,15 +81,14 @@ public class MaskServiceImpl implements MaskService {
 		return maskDTOList;
 	}
 	
-//	public Page<MaskDTO> getAllMask(Pageable pageable) {
-//		Page<Mask> maskList = maskRepo.findAll(pageable);
-//		Page<MaskDTO> maskDTOList = maskList.map(MaskDTO::from);
-//		return maskDTOList;
-//	}
-	
-	
-	public List<MaskDTO> getSortedMasks(String standard, Pageable pageable) {
-		List<Mask> maskList = maskMapper.getSortedMasks(standard);
+	@Override
+	@Transactional
+	public List<MaskDTO> getSortedMasksPage(String col, String order, int page, int size) {
+		int limit = size;
+		int offset = (page - 1) * size;
+		// System.out.println(("col : " + col + ", order : " + order + ", limit : " + limit + ", offset : " + offset));
+		List<Mask> maskList = maskMapper.getSortedMasksByPage(col, order, limit, offset);
+		System.out.println(maskList);
 		List<MaskDTO> maskDTOList = maskList.stream()
 											.map(mask -> Mask.entityToDTO(mask))
 											.collect(Collectors.toList());
