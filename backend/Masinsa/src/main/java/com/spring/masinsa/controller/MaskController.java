@@ -79,15 +79,14 @@ public class MaskController {
 	//test
 	//api that takes column name, size, page  and returns list of masks with pagination
 	@GetMapping("/mask/sort")
-	public ResponseEntity<List<MaskDTO>> getMaskList(@RequestParam String col, @RequestParam String order,
+	public ResponseEntity<?> getMaskList(@RequestParam String col, @RequestParam String order,
 		@RequestParam int page, @RequestParam int size) {
 		List<MaskDTO> maskList = maskService.getSortedMasksPage(col, order, page, size);
-		return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK);
+		if (maskList != null) {
+			Message msg = new Message(Status.OK, "마스크 리스트 조회 완료", maskList);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
+		  }
+		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패 : 존재하지 않는 maskId", maskList);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
-
-
-//column name for mask table : mask_id, mask_name, size, price, blocking_index, shape, option, thumbnail_image_url, purchase_url, click_num, soldout_status, avg_score, deletion, color, unit
-//SQL query for creating a new record : mask_id는 auto increment로 설정
-//INSERT INTO mask (mask_name, size, price, blocking_index, shape, option, thumbnail_image_url, purchase_url, click_num, soldout_status, avg_score, deletion, color, unit) VALUES ('test', 'test', 1000, 100, 'test', 'test', 'test', 'test', 0, 'test', 0, 'test', 'test', 'test');
-
 }
