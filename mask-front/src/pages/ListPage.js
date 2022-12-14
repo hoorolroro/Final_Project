@@ -58,7 +58,7 @@ function ListPage() {
         {/* 정렬변경 */}
         <SortChange2 />
         {/* 마스크 리스트공간 */}
-        {maskList ? (
+        {maskList.length >= 1 ? (
           <>
             <FilterMaskListSection>
               {/* 필터걸린 마스크 리스트 */}

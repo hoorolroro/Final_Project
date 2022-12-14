@@ -16,13 +16,11 @@ import { FilterMaskListSection } from "../../styles/ListPageStyle";
 function FilterMaskList({ maskList }) {
   console.log("FilterMaskLists : ", maskList);
 
-  const maskListLength = maskList.length;
-
   return (
     <div>
       {/* "/aboutMask/:maskId/Masinsa" */}
       <MaskListDiv>
-        {maskList != [] ? (
+        {maskList ? (
           maskList.map((mask) => {
             return (
               <div key={mask.id}>
