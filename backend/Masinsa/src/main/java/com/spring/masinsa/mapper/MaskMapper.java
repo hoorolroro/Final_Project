@@ -17,18 +17,19 @@ public interface MaskMapper {
 	List<Mask> getAllMask(String blockingIndex, String size, String shape);
 	List<Mask> getSortedMasks(String standard);
 
-	@Select("SELECT * FROM mask ORDER BY ${col} ${order} LIMIT ${limit} OFFSET ${offset}")
-	@Result(property = "id", column = "mask_id")
-	@Result(property = "name", column = "mask_name")
-	@Result(property = "kf", column = "blocking_index")
-	@Result(property = "thumbnail", column = "thumbnail_image_url")
-	@Result(property = "purchaseUrl", column = "purchase_url")
-	@Result(property = "click", column = "click_num")
-	@Result(property = "soldout", column = "soldout_status")
-	@Result(property = "avgScore", column = "avg_score")
-	List<Mask> getSortedMasksByPage(String col, String order, int limit, int offset);
+	// @Select("SELECT * FROM mask ORDER BY ${col} ${order} LIMIT ${limit} OFFSET ${offset}")
+	// @Result(property = "id", column = "mask_id")
+	// @Result(property = "name", column = "mask_name")
+	// @Result(property = "kf", column = "blocking_index")
+	// @Result(property = "thumbnail", column = "thumbnail_image_url")
+	// @Result(property = "purchaseUrl", column = "purchase_url")
+	// @Result(property = "click", column = "click_num")
+	// @Result(property = "soldout", column = "soldout_status")
+	// @Result(property = "avgScore", column = "avg_score")
+	// List<Mask> getSortedMasksByPage(String col, String order, int limit, int offset);
 
 
-	List<Mask> FilterSortMaskByPage(String sortCol, String order, Integer offset, Integer limit, String filterCol, String filter);
+	List<Mask> FilterSortMaskByPage(String sortCol, String order, Integer limit, Integer offset, 
+	String filterCol1, String filter1, String filterCol2, String filter2, String filterCol3, String filter3);
 
 }

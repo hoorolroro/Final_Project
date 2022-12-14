@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.spring.masinsa.dto.ImageDTO;
@@ -95,22 +96,23 @@ public class MaskServiceImpl implements MaskService {
 		return maskDTOList;
 	}
 	
-	@Override
-	@Transactional
-	public List<MaskDTO> getSortedMasksPage(String col, String order, int page, int size) {
-		int limit = size;
-		int offset = (page - 1) * size;
-		// System.out.println(("col : " + col + ", order : " + order + ", limit : " + limit + ", offset : " + offset));
-		List<Mask> maskList = maskMapper.getSortedMasksByPage(col, order, limit, offset);
-		System.out.println(maskList);
-		List<MaskDTO> maskDTOList = maskList.stream()
-											.map(mask -> Mask.entityToDTO(mask))
-											.collect(Collectors.toList());
-		return maskDTOList;
-	}
+	// @Override
+	// @Transactional
+	// public List<MaskDTO> getSortedMasksPage(String col, String order, int page, int size) {
+	// 	int limit = size;
+	// 	int offset = (page - 1) * size;
+	// 	// System.out.println(("col : " + col + ", order : " + order + ", limit : " + limit + ", offset : " + offset));
+	// 	List<Mask> maskList = maskMapper.getSortedMasksByPage(col, order, limit, offset);
+	// 	System.out.println(maskList);
+	// 	List<MaskDTO> maskDTOList = maskList.stream()
+	// 										.map(mask -> Mask.entityToDTO(mask))
+	// 										.collect(Collectors.toList());
+	// 	return maskDTOList;
+	// }
 
 	@Override //col, order, page, size, filterCol, filter
-	public List<MaskDTO> FilterSortMaskByPage(String sortCol, String order, Integer page, Integer size, String filterCol, String filter) {
+	public List<MaskDTO> FilterSortMaskByPage(String sortCol, String order, Integer page, Integer size, 
+	String filterCol1, String filter1, String filterCol2, String filter2, String filterCol3, String filter3) {
 		Integer limit = null;
 		Integer offset = null;
 		//if page, size is not null, then set limit and offset
@@ -120,13 +122,21 @@ public class MaskServiceImpl implements MaskService {
 		if (page != null && size != null) {
 			offset = (page - 1) * size;
 		}
-		System.out.println(("sortCol : " + sortCol + ", order : " + order + ", limit : " + limit + ", offset : " + offset + ", filterCol : " + filterCol + ", filter : " + filter));
-		List<Mask> maskList = maskMapper.FilterSortMaskByPage(sortCol, order, limit, offset, filterCol, filter);
+		//테스트용
+		// System.out.println(("sortCol : " + sortCol + ", order : " + order));
+		// System.out.println(("limit : " + limit + ", offset : " + offset));
+		// System.out.println(("filterCol1 : " + filterCol1 + ", filter1 : " + filter1));
+		// System.out.println(("filterCol2 : " + filterCol2 + ", filter2 : " + filter2));
+		// System.out.println(("filterCol3 : " + filterCol3 + ", filter3 : " + filter3));
+
+		List<Mask> maskList = maskMapper.FilterSortMaskByPage(sortCol, order, limit, offset, 
+		filterCol1, filter1, filterCol2, filter2, filterCol3, filter3);
 		System.out.println(maskList);
 		List<MaskDTO> maskDTOList = maskList.stream()
 											.map(mask -> Mask.entityToDTO(mask))
 											.collect(Collectors.toList());
 		return maskDTOList;
 	}
-
 }
+
+
