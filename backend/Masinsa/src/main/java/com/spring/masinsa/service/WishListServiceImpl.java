@@ -1,5 +1,6 @@
 package com.spring.masinsa.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,6 +44,24 @@ public class WishListServiceImpl implements WishListService {
 										  .map(wish -> WishList.entityToDTO(wish))
 										  .collect(Collectors.toList());
 		return wishListDTO;
+	}
+	
+	@Transactional
+	public List<HashMap> getAllWishList2(Long memberId, Long page, Long size) {
+		Long limit = null;
+		Long offset = null;
+		if (size != null) {
+			limit = size;
+		}
+		if (page != null && size != null) {
+			offset = (page - 1) * size;
+		}
+		List<HashMap> wishList = wishListMapper.getAllWishList2(memberId, limit, offset);
+		System.out.println(wishList);
+//		List<WishListDTO> wishListDTO = wishList.stream()
+//										  .map(wish -> WishList.entityToDTO(wish))
+//										  .collect(Collectors.toList());
+		return wishList;
 	}
 	
 	@Override

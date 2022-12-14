@@ -39,7 +39,7 @@ function App() {
           />
 
           {/* 상품상세페이지 : "http://localhost:3000/aboutMask/:maskId/Masinsa" */}
-          <Route path="/aboutMask/:maskId/Masinsa" element={<AboutPage />} />
+          <Route path="/aboutMask/:maskId/Masinsa/*" element={<AboutPage />} />
 
           {/* 마이페이지 : "http://localhost:3000/:memberId/MyPage/Masinsa" */}
           <Route path="/:memberId/MyPage/Masinsa" element={<MyPage />} />
