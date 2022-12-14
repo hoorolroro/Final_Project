@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: 100%;
   // 600px 이하로 줄어들지 않도록 설정
-  min-width: 500px;
+  min-width: 550px;
   // border: 2px solid blue;
 `;
 

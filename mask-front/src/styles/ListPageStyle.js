@@ -152,7 +152,7 @@ export const SortSection2 = styled.section`
   // border: 2px solid red;
 `;
 
-// 정렬기준 선택 버튼
+// 정렬기준 선택 버튼 ( 선택 x )
 export const SelectBox = styled.div`
   width: 80px;
   height: 23px;
@@ -169,5 +169,23 @@ export const SelectBox = styled.div`
   &:active {
     background: #05735f;
     color: #fff;
+  }
+`;
+
+// 정렬기준 버튼 ( 선택 o )
+export const SelectBox_active = styled.div`
+  width: 80px;
+  height: 23px;
+  padding-top: 3px;
+  margin: 0px 10px;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid #9a9a9a;
+  overflow: hidden;
+  cursor: pointer;
+  background: #05735f;
+  color: #fff;
+  &:hover {
+    color: yellow;
   }
 `;

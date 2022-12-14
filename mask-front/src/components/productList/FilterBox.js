@@ -12,7 +12,7 @@ import {
 } from "../../styles/ListPageStyle";
 import CurrentLocation from "./CurrentLocation";
 
-function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
+function FilterBox({ blockingindex, setMaskSize, maskShape, setMaskShape }) {
   // 형태 버튼 눌린 상태 확인
   const [shapeState, setShapeState] = useState("shape-no-active");
   // console.log(shapeState);
@@ -20,6 +20,8 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
   // 사이즈 버튼 눌린 상태 확인
   const [sizeState, setSizeState] = useState("size-no-active");
   // console.log(sizeState);
+
+  console.log(maskShape);
 
   return (
     <div>
@@ -71,6 +73,7 @@ function FilterBox({ blockingindex, setMaskSize, setMaskShape }) {
               setShapeState("새부리형");
             } else {
               setSizeState("size-no-active");
+              setMaskShape("새부리형");
               setMaskSize("");
             }
           }}

@@ -7,7 +7,7 @@ function App() {
   const { naver } = window;
 
   const naverLogin = new naver.LoginWithNaverId({
-    clientId: "zjw4Rh5ItdG6dKAS_2yB", // CLIENT_ID
+    clientId: "UNY76CePTThz2d9AIPl4", // CLIENT_ID
     callbackUrl: "http://localhost:3000/", // CALLBACKURL
     isPopup: true /* 팝업을 통한 로그인 여부, true 면 팝업 */,
     loginButton: {
