@@ -11,7 +11,6 @@ import {
   MaskSummaryTopDiv,
   MaskScore,
 } from "../../styles/MaskListStyles";
-import { FilterMaskListSection } from "../../styles/ListPageStyle";
 
 function FilterMaskList({ maskList }) {
   console.log("FilterMaskLists : ", maskList);
@@ -26,7 +25,18 @@ function FilterMaskList({ maskList }) {
               <div key={mask.id}>
                 <MaskSummaryBox>
                   {/* 마스크썸네일 */}
-                  <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg>
+                  {mask.thumbnail ? (
+                    <>
+                      <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg>
+                    </>
+                  ) : (
+                    <>
+                      <MaskSummaryImg
+                        src={`${process.env.PUBLIC_URL}/NoImage.jpg`}
+                      ></MaskSummaryImg>
+                    </>
+                  )}
+                  {/* <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg> */}
                   {/* 마스크내용 */}
                   <MaskSummaryContent>
                     <MaskSummaryTopDiv>

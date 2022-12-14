@@ -36,12 +36,51 @@ export const GoUpBtn = styled.button`
   right: 30px;
   width: 40px;
   padding: 10px;
-  background: #05735f;
-  color: white;
+  background: #e5ffe9;
+  color: #05735f;
   font-weight: 800;
   border: 0px;
   border-radius: 10%;
+  box-shadow: 2px 2px 5px #999;
   &:active {
-    background: #0ea654;
+    background: #b1f0e1;
   }
+`;
+
+// 최근 본 상품
+export const FixedRecentView = styled.div`
+  // 위치 설정
+  position: fixed;
+  top: 30%;
+  right: 30px;
+  z-index: 1;
+  // display
+  display: flex;
+  flex-direction: column;
+  justify-item: center;
+  align-items: center;
+  // 크기설정
+  width: 75px;
+  height: 240px;
+  padding: 10px;
+  background: #e5ffe9;
+  border: 0px;
+  border-radius: 6px;
+  color: #05735f;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 800;
+  // 그림자설정
+  box-shadow: 2px 2px 5px #999;
+`;
+
+// 최근 본 상품 Img
+export const RecentViewImg = styled.img`
+  width: 60px;
+  height: 60px;
+  border: 2px solid #d9d9d9;
+  border-style: double double;
+  border-radius: 5px;
+  margin-bottom: 3px;
+  background: #fff;
 `;

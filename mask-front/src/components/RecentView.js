@@ -1,39 +1,42 @@
 import React, { useEffect, useState } from "react";
-import styleed from "styled-components";
-
-const FixedRecentView = styleed.div`
-  position: fixed; 
-  width : 70px;
-  top: 40%; 
-  right: 30px;
-  z-index: 1;
-  padding: 10px; 
-  // background: #B1F0E1; 
-  border-radius: 6px;
-  // color: #fff;
-  border: 2px solid;
-  text-align: left;
-  font-size:13px;
-  // text-overflow: ellipsis;
-  // overflow: auto;
-`;
+import { useParams } from "react-router-dom";
+import { getRecentMask } from "../api/mask/getRecentMask";
+import { FixedRecentView, RecentViewImg } from "../styles/OtherStyles";
 
 function RecentView() {
-  const maskId = "마스크A";
+  let userWatched = localStorage.getItem("watchedMaskId");
+  userWatched = JSON.parse(userWatched);
+  console.log(userWatched);
+
+  const recentMaskIds = userWatched;
+  const [recentMasks, setRecentMasks] = useState([]);
+
+  useEffect(() => {
+    getRecentMask({ recentMaskIds, setRecentMasks });
+  }, []);
+
+  console.log(recentMasks);
+
   return (
     <div>
       <FixedRecentView>
         최근 본 상품
-        <hr></hr>
-        <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <li> 마스크A</li>
+        <hr
+          style={{
+            width: "100%",
+            border: "1px solid #D9D9D9",
+          }}
+        ></hr>
+        {userWatched[0]}
+        {/* <a href={`/aboutMask/${maskId}/Masinsa`}>
+          <RecentViewImg src="http://localhost:3000/%EB%8D%B4%ED%83%88%ED%98%95.png"></RecentViewImg>
         </a>
         <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <li> 마스크B</li>
+          <RecentViewImg src="http://localhost:3000/%EB%8D%B4%ED%83%88%ED%98%95.png"></RecentViewImg>
         </a>
         <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <li> 마스크C</li>
-        </a>
+          <RecentViewImg src="http://localhost:3000/%EB%8D%B4%ED%83%88%ED%98%95.png"></RecentViewImg>
+        </a> */}
       </FixedRecentView>
     </div>
   );
