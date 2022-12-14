@@ -5,7 +5,7 @@ import { MaskDetailSection } from "../../styles/AboutPageStyle";
 
 function MaskDetail({ images }) {
   // console.log("maskdetail : ", images);
-
+  const [isCheck, setCheck] = useState(false);
   return (
     <div>
       <MaskDetailSection>
@@ -16,7 +16,7 @@ function MaskDetail({ images }) {
               {image.imageType === "detail" ? (
                 <>
                   <img src={image.imageUrl}></img>
-                  <MoreBtn />
+                  <MoreBtn isCheck={isCheck} setCheck={setCheck} />
                 </>
               ) : (
                 <></>
