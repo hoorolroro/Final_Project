@@ -21,8 +21,8 @@
  
   <select id="getAllMask" resultMap="getAllMaskInfo">
     SELECT * FROM mask WHERE 1=1
-   	<if test="kf != null">
-   		AND blocking_index = #{kf}
+   	<if test="blockingIndex != null">
+   		AND blocking_index = #{blockingIndex}
    	</if>
    	<if test="size != null">
    		AND size = #{size}
@@ -40,12 +40,12 @@
 		SELECT * FROM mask ORDER BY ${col} ${order} LIMIT ${limit} OFFSET ${offset};
 	</select> -->
   
-  <resultMap id="getAllMaskInfo" type="Mask">
+  <resultMap id="getAllMaskInfo" type="com.spring.masinsa.entity.Mask">
   	<id column="mask_id" property="id" />
   	<result column="mask_name" property="name" />
   	<result column="size" property="size" />
   	<result column="price" property="price" />
-  	<result column="blocking_index" property="kf" />
+  	<result column="blocking_index" property="blockingIndex" />
   	<result column="shape" property="shape" />
   	<result column="thumbnail_image_url" property="thumbnail" />
   	<result column="purchase_url" property="purchaseUrl" />

@@ -14,7 +14,7 @@ import com.spring.masinsa.entity.Mask;
 @Mapper
 public interface MaskMapper {
 	List<Image> getAllImages(Long maskId);
-	List<Mask> getAllMask(String kf, String size, String shape);
+	List<Mask> getAllMask(String blockingIndex, String size, String shape);
 	List<Mask> getSortedMasks(String standard);
 
 	@Select("SELECT * FROM mask ORDER BY ${col} ${order} LIMIT ${limit} OFFSET ${offset}")
