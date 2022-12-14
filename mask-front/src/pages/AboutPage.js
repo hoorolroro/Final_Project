@@ -3,7 +3,7 @@ import MaskInfo from "../components/about/MaskInfo";
 import Analysis from "../components/about/Analysis";
 import MaskDetail from "../components/about/MaskDetail";
 import Reviews from "../components/about/Reviews";
-import { useParams } from "react-router-dom";
+import { Outlet, Route, Router, Routes, useParams } from "react-router-dom";
 import { getMask } from "../api/mask/getMask";
 import { Main } from "../styles/OtherStyles";
 import CurrentLocation from "../components/productList/CurrentLocation";
@@ -50,7 +50,7 @@ function AboutPage() {
           {/* 상세정보 */}
           <MaskDetail images={images} />
           {/* 리뷰창 */}
-          <Reviews maskId={mask.id} />
+          <Reviews id={Reviews} maskId={mask.id} />
         </MaskAboutWrapper>
       </Main>
     </div>

@@ -12,6 +12,8 @@ import {
   GoToReview,
   GoToReviewBtn,
 } from "../../styles/AboutPageStyle";
+import MaskInfo from "./MaskInfo";
+import ReviewBtn from "./ReviewBtn";
 import Reviews from "./Reviews";
 
 function Analysis({ maskId }) {
@@ -49,13 +51,7 @@ function Analysis({ maskId }) {
           <h5>상세리뷰 확인 혹은 다음에 다시 이용하시길 바랍니다.</h5>
         </div>
       )}
-      <Link to={Reviews}>
-        <GoToReview>
-          <GoToReviewBtn>
-            <i>여기를 누르면 착용자의 상세리뷰를 보러갈 수 있어요</i>
-          </GoToReviewBtn>
-        </GoToReview>
-      </Link>
+      <ReviewBtn />
     </div>
   );
 }
