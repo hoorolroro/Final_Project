@@ -21,7 +21,7 @@ function FilterBox({ blockingindex, setMaskSize, maskShape, setMaskShape }) {
   const [sizeState, setSizeState] = useState("size-no-active");
   // console.log(sizeState);
 
-  console.log(maskShape);
+  // console.log(maskShape);
 
   return (
     <div>

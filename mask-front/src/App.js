@@ -11,7 +11,7 @@ import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
 import { Main, Wrapper } from "./styles/OtherStyles";
 import HoverMenu from "./components/HoverMenu";
-import { useState } from "react";
+import { useState, useParams, useEffect } from "react";
 
 function App() {
   return (

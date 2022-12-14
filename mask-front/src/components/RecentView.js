@@ -1,39 +1,45 @@
 import React, { useEffect, useState } from "react";
-import styleed from "styled-components";
-
-const FixedRecentView = styleed.div`
-  position: fixed; 
-  width : 70px;
-  top: 40%; 
-  right: 30px;
-  z-index: 1;
-  padding: 10px; 
-  // background: #B1F0E1; 
-  border-radius: 6px;
-  // color: #fff;
-  border: 2px solid;
-  text-align: left;
-  font-size:13px;
-  // text-overflow: ellipsis;
-  // overflow: auto;
-`;
+import { useParams } from "react-router-dom";
+import {
+  FixedRecentView,
+  RecentViewImg,
+  RecentViewImgDiv,
+} from "../styles/OtherStyles";
 
 function RecentView() {
-  const maskId = "마스크A";
+  // localStorage에 저장된 최근본상품(watchedMask) 가져오기
+  let userWatched = localStorage.getItem("watchedMask");
+  // console.log("userWatched (type) : ", typeof userWatched);
+
+  // JSON 자료형(String)으로 저장된 데이터를 Object로 변경
+  userWatched = JSON.parse(userWatched);
+
+  console.log("userWatched - RecentView", userWatched);
+  // console.log("userWatched after JSON.parse (type) : ", typeof userWatched);
+
   return (
     <div>
       <FixedRecentView>
         최근 본 상품
-        <hr></hr>
-        <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <li> 마스크A</li>
-        </a>
-        <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <li> 마스크B</li>
-        </a>
-        <a href={`/aboutMask/${maskId}/Masinsa`}>
-          <li> 마스크C</li>
-        </a>
+        <hr
+          style={{
+            width: "100%",
+            border: "1px solid #D9D9D9",
+          }}
+        ></hr>
+        {userWatched ? (
+          userWatched.map((recentMask) => (
+            <RecentViewImgDiv key={recentMask.id}>
+              <a
+                href={`http://localhost:3000/aboutMask/${recentMask.id}/Masinsa`}
+              >
+                <RecentViewImg src={recentMask.thumbnail} alt={recentMask.id} />
+              </a>
+            </RecentViewImgDiv>
+          ))
+        ) : (
+          <></>
+        )}
       </FixedRecentView>
     </div>
   );

@@ -99,6 +99,7 @@ export const BockingIndexNav = styled.section`
   height: 40px;
   padding-top: 5px;
   // border: 2px solid yellow;
+  box-shadow: 3px 5px 3px #999;
 `;
 
 // 차단지수Btn
@@ -108,6 +109,7 @@ export const BlockingBtn = styled.button`
   font-size: 17px;
   margin-top: 1px;
   border: 1px solid #091f22;
+  border-style: none double;
   background: #2d2d2d;
   cursor: pointer;
   color: #fff;

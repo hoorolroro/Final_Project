@@ -18,6 +18,7 @@ function SearchBox() {
             placeholder="ex. 중형, 대형, 웰킵스, 새부리"
             autoFocus
           ></SearchInput>
+          {/* 버튼 누르면 값 전송 */}
           <SearchBtn>🔍</SearchBtn>
         </SearchFieldset>
       </form>

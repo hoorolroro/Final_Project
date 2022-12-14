@@ -4,8 +4,7 @@ import axios from "axios";
 
 export const getMask = async ({ maskId, setMask }) => {
   const response = await axios.get(
-    // `http://localhost:8080/mask?maskId=${maskId}`
-    "http://localhost:8080/mask?maskId=1"
+    `http://localhost:8080/mask?maskId=${maskId}`
   );
 
   // const response = await axios.get(
