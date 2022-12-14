@@ -18,7 +18,6 @@ function AboutPage() {
   // console.log("useParams", maskId);
 
   //  마스크요청
-
   const [mask, setMask] = useState([]);
 
   useEffect(() => {

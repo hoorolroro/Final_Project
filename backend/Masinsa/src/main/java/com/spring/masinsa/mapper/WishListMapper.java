@@ -8,5 +8,5 @@ import com.spring.masinsa.dto.WishListDTO;
 @Repository
 @Mapper
 public interface WishListMapper {
-	public void addWishList(Long maskId, Long memberId);
+	public void addWishList(WishListDTO ids);
 }
