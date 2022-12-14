@@ -6,6 +6,9 @@ import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.spring.masinsa.dto.WishListDTO;
@@ -33,9 +36,10 @@ public class WishListServiceImpl implements WishListService {
 	
 	@Override
 	@Transactional
-	public List<WishListDTO> getAllWishList(Long memberId) {
-		List<WishList> wishList = wishListRepo.findWishListByMemberId(memberId);
-		List<WishListDTO> wishListDTO = wishList.stream()
+	public List<WishListDTO> getAllWishList(Long memberId, int page, int size) {
+		Pageable pageable = PageRequest.of(page-1, size);
+		Page<WishList> wishList = wishListRepo.findWishListByMemberId(memberId, pageable);
+		List<WishListDTO> wishListDTO = wishList.getContent().stream()
 										  .map(wish -> WishList.entityToDTO(wish))
 										  .collect(Collectors.toList());
 		return wishListDTO;
