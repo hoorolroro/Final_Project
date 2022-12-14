@@ -45,8 +45,7 @@ public class Mask {
 	
 	private Long price;
 	
-	@Column(name = "blocking_index")
-	private String kf;
+	private String blockingIndex;
 	
 	private String shape;
 	
@@ -85,7 +84,7 @@ public class Mask {
 								 .name(mask.getName())
 								 .size(mask.getSize())
 								 .price(mask.getPrice())
-								 .kf(mask.getKf())
+								 .blockingIndex(mask.getBlockingIndex())
 								 .shape(mask.getShape())
 								 .option(mask.getOption())
 								 .thumbnail(mask.getThumbnail())
@@ -103,7 +102,7 @@ public class Mask {
 								 .name(mask.getName())
 								 .size(mask.getSize())
 								 .price(mask.getPrice())
-								 .kf(mask.getKf())
+								 .blockingIndex(mask.getBlockingIndex())
 								 .thumbnail(mask.getThumbnail())
 								 .avgScore(mask.getAvgScore())
 								 .build();

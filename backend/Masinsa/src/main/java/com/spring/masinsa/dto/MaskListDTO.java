@@ -14,7 +14,7 @@ public class MaskListDTO {
 	private String name;
 	private String size;
 	private Long price;
-	private String kf;
+	private String blockingIndex;
 	private String thumbnail;
 	private Float avgScore;
 	

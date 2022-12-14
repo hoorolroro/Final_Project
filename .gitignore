@@ -9,3 +9,4 @@ backend/Masinsa/target/generated-sources/com/spring/masinsa/entity/QMask.java
 backend/Masinsa/target/generated-sources/com/spring/masinsa/entity/QMember.java
 backend/Masinsa/target/generated-sources/com/spring/masinsa/entity/QReview.java
 backend/Masinsa/target/generated-sources/com/spring/masinsa/entity/QWishList.java
+backend/Masinsa/target/classes/META-INF/maven/com.masinsa/masinsa_project/pom.properties

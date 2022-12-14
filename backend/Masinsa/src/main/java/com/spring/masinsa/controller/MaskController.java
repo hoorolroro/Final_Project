@@ -38,10 +38,11 @@ public class MaskController {
 	 
 	@ApiOperation(value = "10번 - kf, size, shape를 이용하여 검색결과 조회 (필터링)")
 	@GetMapping("/mask/filter")
-	public ResponseEntity<List<MaskDTO>> getMaskByFilter(@RequestParam(required = false) String kf, 
+	public ResponseEntity<List<MaskDTO>> getMaskByFilter(@RequestParam(required = false) String blockingIndex, 
 									  @RequestParam(required = false) String size, 
-									  @RequestParam(required = false) String shape){
-		List<MaskDTO> maskList = maskService.getAllMask(kf, size, shape);
+									  @RequestParam(required = false, value="shape") String shape){
+		System.out.println(shape + "안나옴");
+		List<MaskDTO> maskList = maskService.getAllMask(blockingIndex, size, shape);
 		return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK); 
 	}
 	
@@ -88,4 +89,17 @@ public class MaskController {
 		maskService.updateClick(maskId);
 	}
 	
+	//test
+	//api that takes column name, size, page  and returns list of masks with pagination
+	@GetMapping("/mask/sort")
+	public ResponseEntity<?> getMaskList(@RequestParam String col, @RequestParam String order,
+		@RequestParam int page, @RequestParam int size) {
+		List<MaskDTO> maskList = maskService.getSortedMasksPage(col, order, page, size);
+		if (maskList != null) {
+			Message msg = new Message(Status.OK, "마스크 리스트 조회 완료", maskList);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
+		  }
+		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패 : 존재하지 않는 maskId", maskList);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
+	}
 }
