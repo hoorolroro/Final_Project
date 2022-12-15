@@ -13,7 +13,7 @@ import { MaskAboutWrapper } from "../styles/AboutPageStyle";
 import { getImage } from "../api/getImage";
 import { RecentViewFunction } from "../components/RecentViewFunction";
 
-function AboutPage() {
+function AboutPage({ reviewsId, reviewsRef }) {
   // 파라미터를 통한 maskId 전달
   const { maskId } = useParams();
   // console.log("useParams", maskId);
@@ -47,7 +47,11 @@ function AboutPage() {
           {/* 마스크 정보 */}
           <MaskInfo mask={mask} images={images} />
           {/* 리뷰통계 */}
-          <Analysis maskId={mask.id} />
+          <Analysis
+            maskId={mask.id}
+            // reviewsId={reviewsId}
+            // reviewsRef={reviewsRef}
+          />
           {/* 상세정보 */}
           <MaskDetail images={images} />
           {/* 리뷰창 */}
