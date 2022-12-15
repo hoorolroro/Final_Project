@@ -84,7 +84,15 @@
 		;
 	</select>
 
-
+	<select id="getTop3Mask" resultMap="getAllMaskInfo">
+	 	SELECT DISTINCT A.mask_id, A.mask_name, A.size, A.price, A.blocking_index, 
+	 	A.shape, A.mask_option, A.thumbnail_image_url, 
+		A.purchase_url, A.click_num, A.soldout_status, A.avg_score, A.deletion 
+		FROM masinsa.mask A INNER JOIN masinsa.review B ON A.mask_id = B.mask_id 
+		ORDER BY click_num DESC, avg_score DESC, 
+		(SELECT COUNT(A.mask_id) FROM  masinsa.mask A 
+		INNER JOIN masinsa.review B ON A.mask_id = B.mask_id) DESC;  
+	</select>
 
 
 		<!-- SELECT * FROM mask
