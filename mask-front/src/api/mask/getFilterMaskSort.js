@@ -64,7 +64,6 @@ export const getFilterMaskSort = async ({
       }
     }
   }
-
   // const requestParams = {
   //   sortCol: sortCol,
   //   order: sortOrder,

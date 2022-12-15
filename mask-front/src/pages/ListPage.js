@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import FilterBox from "../components/productList/FilterBox";
 import FilterMaskList from "../components/productList/FilterMaskList";
 import { Main } from "../styles/OtherStyles";
-import SortChange2 from "../components/SortChange2";
+import SortChange2 from "../components/productList/SortChange2";
 import { Pagination } from "@mui/material";
 import { FilterSection, FilterMaskListSection } from "../styles/ListPageStyle";
 import { useParams } from "react-router-dom";

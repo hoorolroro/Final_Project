@@ -1,8 +1,8 @@
 //정렬기준변경
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { SelectBox_active, SortSection2 } from "../styles/ListPageStyle";
-import { SelectBox } from "../styles/ListPageStyle";
+import { SelectBox_active, SortSection2 } from "../../styles/ListPageStyle";
+import { SelectBox } from "../../styles/ListPageStyle";
 
 function SortChange2({
   sortOrder,
