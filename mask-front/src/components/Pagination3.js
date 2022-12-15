@@ -3,7 +3,7 @@
 // index size : 5
 // 이전버튼(prevBtn), 다음버튼(nextBtn)
 
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const PageUl = styled.ul`
@@ -45,8 +45,10 @@ const PageSpan = styled.span`
   }
 `;
 
-const Pagination3 = ({ maskList, page, size, setPage }) => {
-  console.log(maskList);
+const Pagination3 = ({ maskList, size, page, setPage }) => {
+  // const [page, setPage] = useState();
+
+  console.log("maskList", maskList);
   // console.log(maskList.pageList);
   console.log(page);
   // 페이지 관련 정보는 과연 어디서 오는가...

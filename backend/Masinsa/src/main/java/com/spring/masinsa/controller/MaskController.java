@@ -68,6 +68,18 @@ public class MaskController {
 		maskService.updateClick(maskId);
 	}
 	
+	@ApiOperation(value = "9번 - maskId를 통해 해당 마스크 삭제 상태로 변경")
+	@PutMapping("/mask/delete")
+	public ResponseEntity<?> deleteMask(@RequestParam Long maskId) {
+		MaskDTO maskDTO = maskService.deleteMask(maskId);
+		if (maskDTO != null) {
+			Message msg = new Message(Status.OK, "마스크 삭제 완료", maskDTO);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
+		  }
+		  Message msg = new Message(Status.OK, "마스크 삭제 실패", maskDTO);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
+	} 
+	
 	//api that first filters and then sorts
 	//api that takes column name, column filter , size, page  and returns list of masks with pagination
 	//col, order, filterCol, filter are all optional
