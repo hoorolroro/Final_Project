@@ -50,7 +50,7 @@ public class MaskController {
 	// 	return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK); 
 	// }
 	
-	@ApiOperation(value = "13번 - maskId를 통해 해당 마스크의 모든 이미지 조회")
+	@ApiOperation(value = "14번 - maskId를 통해 해당 마스크의 모든 이미지 조회")
 	@GetMapping("/mask/image")
 	public ResponseEntity<List<ImageDTO>> getMaskDetailImages(@RequestParam Long maskId) {
 		List<ImageDTO> imageList = maskService.getAllImages(maskId);
@@ -90,7 +90,7 @@ public class MaskController {
 	//api that first filters and then sorts
 	//api that takes column name, column filter , size, page  and returns list of masks with pagination
 	//col, order, filterCol, filter are all optional
-	@ApiOperation(value = "10번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬. filterCol은 총 3개까지 가능")
+	@ApiOperation(value = "11번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬. filterCol은 총 3개까지 가능")
 	@GetMapping("/mask/filter/sort")
 	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String sortCol, 
 		@RequestParam(required = false) String order,
@@ -115,7 +115,7 @@ public class MaskController {
 
 	//api that searchs by keyword then sorts
 	//takes keyword, sortCol, order and returns list of masks
-	@ApiOperation(value = "11번 - keyword, sortCol, order를 통해 마스크 검색 및 정렬")
+	@ApiOperation(value = "13번 - keyword, sortCol, order를 통해 마스크 검색 및 정렬")
 	@GetMapping("/mask/search/sort")
 	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String keyword, 
 		@RequestParam(required = false) String sortCol, 
