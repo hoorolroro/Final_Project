@@ -4,5 +4,7 @@
 <configuration>
   <mappers>
     <mapper resource="MaskMapper.xml"/>
+    <mapper resource="WishListMapper.xml"/>
+    <mapper resource="ReviewMapper.xml"/>
   </mappers>
 </configuration>

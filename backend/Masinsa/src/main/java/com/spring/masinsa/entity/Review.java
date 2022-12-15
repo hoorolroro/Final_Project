@@ -43,8 +43,9 @@ public class Review {
 	@JoinColumn(name="member_id")
 	private Member member;
 	
-	private String score;
+	private Float score;
 	
+	@Column(name = "mask_option")
 	private String option;
 	
 	private String content;
@@ -56,6 +57,7 @@ public class Review {
 	public static ReviewDTO entityToDTO(Review review) {
 		ReviewDTO reviewDTO = ReviewDTO.builder()
 				.id(review.getId())
+				.maskId(review.getMask().getId())
 				//memberId가 null이 아니라면 builder에 memberId를 넣어준다.
 				.memberId(review.getMember() != null ? review.getMember().getId() : null)
 				//naverId가 null이 아니라면 builder에 naverId를 넣어준다.
@@ -67,4 +69,10 @@ public class Review {
 				.build();
 		return reviewDTO;
 	}
+	
+	public void updateMemberReview(Float score, String content) {
+		this.score = score;
+		this.content = content;
+	}
+
 }

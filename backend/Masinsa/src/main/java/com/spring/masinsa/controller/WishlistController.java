@@ -48,13 +48,13 @@ public class WishlistController {
 		return new ResponseEntity<List<WishListDTO>>(wishListDTO, HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "20번 - memberId를 통해 찜 목록 전체 조회(MyBatis.ver)")
-	@GetMapping("/wishlist2")
-	public ResponseEntity<List<HashMap>> getWishList2
-	(@RequestParam Long memberId, @RequestParam Long page, @RequestParam Long size) {
-		List<HashMap> wishListDTO = wishListService.getAllWishList2(memberId, page, size);
-		return new ResponseEntity<List<HashMap>>(wishListDTO, HttpStatus.OK);
-	}
+//	@ApiOperation(value = "20번 - memberId를 통해 찜 목록 전체 조회(MyBatis.ver)")
+//	@GetMapping("/wishlist2")
+//	public ResponseEntity<List<HashMap>> getWishList2
+//	(@RequestParam Long memberId, @RequestParam Long page, @RequestParam Long size) {
+//		List<HashMap> wishListDTO = wishListService.getAllWishList2(memberId, page, size);
+//		return new ResponseEntity<List<HashMap>>(wishListDTO, HttpStatus.OK);
+//	}
 	
 	
 	@ApiOperation(value = "21번 - wishlistId를 통해 찜 삭제")

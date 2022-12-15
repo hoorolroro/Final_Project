@@ -71,7 +71,7 @@ public class MaskController {
 	//api that first filters and then sorts
 	//api that takes column name, column filter , size, page  and returns list of masks with pagination
 	//col, order, filterCol, filter are all optional
-	@ApiOperation(value = "10번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬. filterCol은 총 3개까지 가능")
+	@ApiOperation(value = "11번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬. filterCol은 총 3개까지 가능")
 	@GetMapping("/mask/filter/sort")
 	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String sortCol, 
 		@RequestParam(required = false) String order,
