@@ -56,39 +56,29 @@ export const IntroLinkBox = styled.a`
 
 // TOP3마스크 띄워주는 Section\Introduce\Masinsa
 export const Top3MaskSection = styled.section`
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  justify-items: center;
   width: auto;
   height: 300px;
   // border: 2px solid red;
-  // padding: 2px;
+  padding-top: 10px;
 `;
 
-// 1등 마스크 (오른쪽)
-export const FirstMaskLinkBox = styled.a`
-  width: 30%;
-  float: left;
-  border-radius: 15px;
-  margin: 10px;
+// Top3 img 태그
+export const TopMaskImg = styled.img`
+  width: 95%;
+  height: 95%;
+  padding: 2px;
   border: 1px solid #9a9a9a;
+  border-radius: 15px;
 `;
 
-// 2등 마스크(중간)
-export const SecondMaskLinkBox = styled.a`
-  width: 30%;
-  margin: 10px;
-  border-radius: 15px;
+export const TopMaskInfo = styled.div`
+  padding: 2px;
   border: 1px solid #9a9a9a;
-`;
-
-// 3등 마스크(왼쪽)
-export const ThirdMaskLinkBox = styled.a`
-  width: 30%;
-  float: right;
-  margin: 10px;
   border-radius: 15px;
-  border: 1px solid #9a9a9a;
 `;
 
 /* 전체 */

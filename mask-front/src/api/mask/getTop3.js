@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
 
-export const getTop3 = async ({ setTop3 }) => {
-  const response = await axios.get("http://localhost:8080/masklist/top3");
+export const getTop3 = async ({ setTopMask }) => {
+  const response = await axios.get("http://localhost:8080/mask/top3");
 
-  setTop3(response.data);
+  // console.log(response.data);
+  setTopMask(response.data);
 };
