@@ -9,7 +9,7 @@ import {
 
 //
 function ReviewLists({ allReviews }) {
-  console.log("ReviewLists : ", allReviews);
+  // console.log("ReviewLists : ", allReviews);
 
   return (
     <div>

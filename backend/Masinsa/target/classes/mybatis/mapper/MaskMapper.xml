@@ -85,7 +85,7 @@
 		; -->
 
   <!-- <resultMap id="getAllMaskInfo" type="Mask"> -->
-  <resultMap id="getAllMaskInfo" type="com.spring.masinsa.entity.Mask">
+  <resultMap id="getAllMaskInfo" type="Mask">
   	<id column="mask_id" property="id" />
   	<result column="mask_name" property="name" />
   	<result column="size" property="size" />

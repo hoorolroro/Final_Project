@@ -43,7 +43,7 @@ public class Review {
 	@JoinColumn(name="member_id")
 	private Member member;
 	
-	private String score;
+	private Float score;
 	
 	private String option;
 	
@@ -67,4 +67,11 @@ public class Review {
 				.build();
 		return reviewDTO;
 	}
+	
+	public void updateMemberReview(Float score, String content) {
+		this.score = score;
+		this.content = content;
+	}
+	
+
 }
