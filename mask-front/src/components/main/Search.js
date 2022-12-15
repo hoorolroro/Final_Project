@@ -16,6 +16,8 @@ import {
   SearchMaskListSection,
 } from "../../styles/MainPageStyle";
 import { getMask } from "../../api/mask/getMask";
+import Pagination2 from "../Pagination2";
+import Pagination3 from "../Pagination3";
 
 function Search() {
   // 메인페이지 마스크리스트 조회
@@ -55,6 +57,7 @@ function Search() {
         <SearchMaskLists maskList={maskList} />
         {/* 페이지네이션 */}
         <Pagination />
+        {/* <Pagination3 /> */}
       </SearchMaskListSection>
     </div>
   );

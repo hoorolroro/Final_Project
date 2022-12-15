@@ -14,7 +14,7 @@ import {
 } from "../../styles/MaskListStyles";
 
 function SearchMaskLists({ maskList }) {
-  // console.log("SearchMaskLists : ", maskList);
+  console.log("SearchMaskLists : ", maskList);
 
   return (
     <div>
