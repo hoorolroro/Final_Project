@@ -122,4 +122,8 @@ public class Mask {
 		this.soldout = soldout; // @DynamicUpdate 적용으로 나머지 컬럼의 데이터는 보존되는 동시에 soldout만 변경이 가능
 	}
 	
+	public void deleteMask() {
+		this.deletion = Deletion.Y;
+	}
+	
 }

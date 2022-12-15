@@ -60,6 +60,14 @@ public class MaskServiceImpl implements MaskService {
 		maskRepo.save(mask);
 	}
 	
+	@Transactional
+	public MaskDTO deleteMask(Long maskId) {
+		Mask mask = maskRepo.findMaskById(maskId);
+		mask.deleteMask();
+		maskRepo.save(mask);
+		return Mask.entityToDTO(mask);
+	}
+	
 	@Override
 	@Transactional
 	public List<ImageDTO> getAllImages(Long maskId) {
