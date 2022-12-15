@@ -3,7 +3,7 @@ import { GoToReview, GoToReviewBtn } from "../../styles/AboutPageStyle";
 import Reviews from "./Reviews";
 
 function ReviewBtn() {
-  console.log("review");
+  // console.log("review");
 
   // 수직 스크롤 위치
   const [scrollY, setScrollY] = useState(0);
@@ -29,7 +29,7 @@ function ReviewBtn() {
   useEffect(() => {
     const watch = () => {
       window.addEventListener("scroll", reviewShow);
-      console.log("ScrollY is ", scrollY); // 스크롤 위치 콘솔로 확인 (위치 확인 후 삭제하기)
+      // console.log("ScrollY is ", scrollY); // 스크롤 위치 콘솔로 확인 (위치 확인 후 삭제하기)
     };
     watch();
     return () => {
