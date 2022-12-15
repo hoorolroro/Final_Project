@@ -23,8 +23,5 @@ export const getMainMask = async ({
       );
       setMaskList(response.data.result);
     }
-    // console.log("2");
-    const response = await axios.get(`http://localhost:8080/mask/filter/sort?`);
-    setMaskList(response.data.result);
   }
 };

@@ -41,7 +41,7 @@ function SearchBox({ keyword, setKeyWord }) {
           <SearchInput
             type="search"
             id="SearchBox"
-            placeholder="검색어를 띄어쓰기로 구분하여 입력 (ex.중형 kf94)"
+            placeholder="ex.중형, kf94, 마스크"
             autoFocus
             onChange={onChange}
             onKeyPress={onKeyPress}

@@ -14,7 +14,7 @@ import {
 } from "../../styles/MaskListStyles";
 import { putClick } from "../../api/mask/putClick";
 
-function SearchMaskLists({ maskList }) {
+function SearchMaskLists({ maskList, keyword }) {
   // console.log("SearchMaskLists : ", maskList);
 
   const [isClick, setIsClick] = useState(false);
@@ -33,6 +33,20 @@ function SearchMaskLists({ maskList }) {
     <>
       {maskList.length > 0 ? (
         <>
+          {keyword != "" ? (
+            <div
+              style={{
+                fontSize: "13px",
+                fontWeight: "800",
+                marginBottom: "5px",
+              }}
+            >
+              <span style={{ color: "red" }}>" {keyword} " </span>에 대한
+              MASINSA 검색결과 입니다.
+            </div>
+          ) : (
+            <></>
+          )}
           <MaskListDiv>
             {maskList.map((mask) => {
               return (
@@ -125,7 +139,10 @@ function SearchMaskLists({ maskList }) {
         </>
       ) : (
         <div style={{ marginTop: "10px" }}>
-          <h4>해당 상품에 대한 MASINSA 내 검색 결과가 없습니다.</h4>
+          <h4>
+            <span style={{ color: "red" }}>" {keyword} " </span> 에 대한 MASINSA
+            내 검색 결과가 없습니다.
+          </h4>
           <h6>검색어를 확인 후 다시 이용 부탁드립니다.</h6>
           <h6>만약 검색어가 없다면 도움을 드리기 어렵습니다.</h6>
           <h6 style={{ color: "#0ea654" }}>

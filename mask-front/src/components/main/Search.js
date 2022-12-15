@@ -66,7 +66,7 @@ function Search() {
       {/* 마스크리스트 부분*/}
       <SearchMaskListSection>
         {/* 마스크리스트 */}
-        <SearchMaskLists maskList={maskList} />
+        <SearchMaskLists maskList={maskList} keyword={keyword} />
       </SearchMaskListSection>
     </div>
   );
