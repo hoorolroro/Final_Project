@@ -1,5 +1,6 @@
 package com.spring.masinsa.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -117,6 +118,40 @@ public class MaskServiceImpl implements MaskService {
 		List<Mask> maskList = maskMapper.FilterSortMaskByPage(sortCol, order, limit, offset, 
 		filterCol1, filter1, filterCol2, filter2, filterCol3, filter3);
 		System.out.println(maskList);
+		List<MaskDTO> maskDTOList = maskList.stream()
+											.map(mask -> Mask.entityToDTO(mask))
+											.collect(Collectors.toList());
+		return maskDTOList;
+	}
+
+	@Override
+  public List<MaskDTO> SearchSortMask(String keyword, String sortCol, String order, Integer page, Integer size) {
+		Integer limit = null;
+		Integer offset = null;
+		if (size != null) {
+			limit = size;
+		}
+		if (page != null && size != null) {
+			offset = (page - 1) * size;
+		}
+
+		//먼저 keyword를 " "로 split해서 배열로 만든다. ex) keyword = "마스크 코로나  " -> ["마스크", "코로나", ""]
+		String[] keywords = keyword.split(" ");
+		//배열의 길이만큼 반복문을 돌면서, 각각의 keyword를 like로 검색해서 maskList를 만든다.
+		List<Mask> maskList = new ArrayList<Mask>();
+		for (String k : keywords) {
+			//check if keyword[i] is empty
+			if (!k.equals("")) {
+				List<Mask> maskListByKeyword = maskMapper.SearchSortMask(k, sortCol, order, limit, offset);
+				//maskList에 maskListByKeyword를 추가한다. 중복이 없도록 한다.
+				for (Mask mask : maskListByKeyword) {
+					// if mask is not null and maskList does not contain mask, then add mask to maskList
+					if (mask != null && !maskList.contains(mask)) {
+						maskList.add(mask);
+					}
+				}
+			}
+  }	
 		List<MaskDTO> maskDTOList = maskList.stream()
 											.map(mask -> Mask.entityToDTO(mask))
 											.collect(Collectors.toList());

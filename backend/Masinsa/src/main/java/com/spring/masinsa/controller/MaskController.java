@@ -33,15 +33,15 @@ public class MaskController {
 		return new ResponseEntity<MaskDTO>(maskDTO, HttpStatus.OK);
 	}
 	 
-	@ApiOperation(value = "10번 - kf, size, shape를 이용하여 검색결과 조회 (필터링)")
-	@GetMapping("/mask/filter")
-	public ResponseEntity<List<MaskDTO>> getMaskByFilter(@RequestParam(required = false) String blockingIndex, 
-									  @RequestParam(required = false) String size, 
-									  @RequestParam(required = false, value="shape") String shape){
-		System.out.println(shape + "안나옴");
-		List<MaskDTO> maskList = maskService.getAllMask(blockingIndex, size, shape);
-		return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK); 
-	}
+	// @ApiOperation(value = "10번 - kf, size, shape를 이용하여 검색결과 조회 (필터링)")
+	// @GetMapping("/mask/filter")
+	// public ResponseEntity<List<MaskDTO>> getMaskByFilter(@RequestParam(required = false) String blockingIndex, 
+	// 								  @RequestParam(required = false) String size, 
+	// 								  @RequestParam(required = false, value="shape") String shape){
+	// 	System.out.println(shape + "안나옴");
+	// 	List<MaskDTO> maskList = maskService.getAllMask(blockingIndex, size, shape);
+	// 	return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK); 
+	// }
 	
 	@ApiOperation(value = "13번 - maskId를 통해 해당 마스크의 모든 이미지 조회")
 	@GetMapping("/mask/image")
@@ -105,5 +105,25 @@ public class MaskController {
 		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패", maskList);
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
+
+	//api that searchs by keyword then sorts
+	//takes keyword, sortCol, order and returns list of masks
+	@ApiOperation(value = "11번 - keyword, sortCol, order를 통해 마스크 검색 및 정렬")
+	@GetMapping("/mask/search/sort")
+	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String keyword, 
+		@RequestParam(required = false) String sortCol, 
+		@RequestParam(required = false) String order,
+		@RequestParam(required = false) Integer page,
+		@RequestParam(required = false) Integer size) {
+
+		List<MaskDTO> maskList = maskService.SearchSortMask(keyword, sortCol, order, page, size);
+		if (maskList != null) {
+			Message msg = new Message(Status.OK, "마스크 리스트 조회 완료", maskList);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
+		  }
+		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패", maskList);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
+	}
+
 
 }
