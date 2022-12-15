@@ -91,7 +91,7 @@
 		FROM masinsa.mask A INNER JOIN masinsa.review B ON A.mask_id = B.mask_id 
 		ORDER BY click_num DESC, avg_score DESC, 
 		(SELECT COUNT(A.mask_id) FROM  masinsa.mask A 
-		INNER JOIN masinsa.review B ON A.mask_id = B.mask_id) DESC;  
+		INNER JOIN masinsa.review B ON A.mask_id = B.mask_id) DESC LIMIT 3 
 	</select>
 
 
@@ -123,6 +123,7 @@
   	<result column="price" property="price" />
   	<result column="blocking_index" property="blockingIndex" />
   	<result column="shape" property="shape" />
+  	<result column="mask_option" property="option" />
   	<result column="thumbnail_image_url" property="thumbnail" />
   	<result column="purchase_url" property="purchaseUrl" />
   	<result column="click_num" property="click" />
