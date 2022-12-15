@@ -22,7 +22,7 @@ public class DashboardController {
 //	@Autowired
 //	DashBoardServiceImpl DashBoardService;
 //	
-//	@ApiOperation(value = "23번 - date를 통해 접속 통계 조회")
+//	@ApiOperation(value = "25번 - date를 통해 접속 통계 조회")
 //	@GetMapping("/dashboard")
 //	public ResponseEntity<DashBoardDTO> getStatistics(@RequestParam LocalDateTime date) {
 //		DashBoardDTO dashBoardDTO = DashBoardService.getStatistics(date);

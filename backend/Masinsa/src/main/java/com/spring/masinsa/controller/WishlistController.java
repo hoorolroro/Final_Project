@@ -28,7 +28,7 @@ public class WishlistController {
 	@Autowired
 	WishListServiceImpl wishListService;
 	
-	@ApiOperation(value = "19번 - maskId&memberId를 통해 찜 등록")
+	@ApiOperation(value = "20번 - maskId&memberId를 통해 찜 등록")
 	@PostMapping("/wishlist")
 	public ResponseEntity<?> addWishList(@RequestBody WishListDTO ids) {
 		WishListDTO wishListDTO = wishListService.addWishList(ids);
@@ -40,7 +40,7 @@ public class WishlistController {
 		 return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "20번 - memberId를 통해 찜 목록 전체 조회(JPA.ver)")
+	@ApiOperation(value = "21번 - memberId를 통해 찜 목록 전체 조회(JPA.ver)")
 	@GetMapping("/wishlist")
 	public ResponseEntity<List<WishListDTO>> getWishList
 	(@RequestParam Long memberId, @RequestParam int page, @RequestParam int size) {
@@ -57,7 +57,7 @@ public class WishlistController {
 //	}
 	
 	
-	@ApiOperation(value = "21번 - wishlistId를 통해 찜 삭제")
+	@ApiOperation(value = "22번 - wishlistId를 통해 찜 삭제")
 	@PutMapping("/wishlist")
 	public ResponseEntity<?> deleteWishList(@RequestParam Long wishListId) {
 		WishListDTO wishListDTO = wishListService.deleteWishList(wishListId);
