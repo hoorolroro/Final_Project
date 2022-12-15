@@ -63,6 +63,29 @@
 		;
 	</select>
 
+	<!-- SearchSortMask 예시 :
+		SELECT * FROM mask
+		WHERE mask_name LIKE '%검색어%'
+		ORDER BY price desc limit 2 offset 0; -->
+	<select id="SearchSortMask" resultMap="getAllMaskInfo">
+		SELECT * FROM mask
+		<if test="searchWord != null">
+			WHERE mask_name LIKE '%${searchWord}%'
+		</if>
+		<if test="sortCol != null and order != null">
+			ORDER BY ${sortCol} ${order}
+		</if>
+		<if test="limit != null">
+			LIMIT #{limit}
+			<if test="offset != null">
+				OFFSET #{offset}
+			</if>
+		</if>
+		;
+	</select>
+
+
+
 
 		<!-- SELECT * FROM mask
 		<where>
