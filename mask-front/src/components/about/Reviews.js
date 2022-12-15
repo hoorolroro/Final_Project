@@ -1,5 +1,5 @@
 import { Pagination } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useId, useRef } from "react";
 import styled from "styled-components";
 import ReviewLists from "../about/ReviewLists";
 import { getReviews } from "../../api/review/getReviews";
@@ -16,6 +16,10 @@ import Pagination2 from "../Pagination2";
 
 function Reviews({ maskId }) {
   // getReview를 위한 파라미터 설정
+
+  // id 설정
+  // const reviewsId = useId();
+  // const reviewsRef = useRef(null);
 
   // 리뷰페이지 번호 : 처음 1 에서 버튼 누를때마다 변경됨
   const [page, setPage] = useState(1);
@@ -43,7 +47,10 @@ function Reviews({ maskId }) {
       <hr></hr>
       <i>상세리뷰</i>
       <hr></hr>
-      <ReviewSection>
+      <ReviewSection
+      // aria-describedby={reviewsId}
+      // reviewsRef={reviewsRef}
+      >
         {/* 버튼이 눌렸을때, 네이버리뷰면 reviewType (naver) 회원리뷰면 member */}
         <ReviewBtnSection>
           {/* review타입에 따른 버튼 색 활성화 */}

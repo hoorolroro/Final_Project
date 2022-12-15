@@ -16,7 +16,7 @@ import MaskInfo from "./MaskInfo";
 import ReviewBtn from "./ReviewBtn";
 import Reviews from "./Reviews";
 
-function Analysis({ maskId }) {
+function Analysis({ maskId, reviewsId, reviewsRef }) {
   const [analysisInfo, setAnalysisInfo] = useState([]);
   // 리뷰 요청
   useEffect(() => {
@@ -51,7 +51,10 @@ function Analysis({ maskId }) {
           <h5>상세리뷰 확인 혹은 다음에 다시 이용하시길 바랍니다.</h5>
         </div>
       )}
-      <ReviewBtn />
+      <ReviewBtn
+        // reviewsId={reviewsId}
+        reviewsRef={reviewsRef}
+      />
     </div>
   );
 }
