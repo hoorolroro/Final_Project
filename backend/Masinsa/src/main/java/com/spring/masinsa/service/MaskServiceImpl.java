@@ -34,6 +34,15 @@ public class MaskServiceImpl implements MaskService {
 		return maskDTO;
 	}
 	
+	@Transactional
+	public List<MaskDTO> getTop3Mask() {
+		List<Mask> top3 = maskMapper.getTop3Mask();
+		List<MaskDTO> top3DTO = top3.stream()
+										 .map(mask -> Mask.entityToDTO(mask))
+										 .collect(Collectors.toList());
+		return top3DTO;
+	}
+	
 	@Override
 	@Transactional
 	public MaskDTO updateSoldout(Long maskId, String soldout) {
