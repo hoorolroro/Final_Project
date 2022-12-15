@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import SearchBox from "./SearchBox";
 import SearchMaskLists from "./SearchMaskLists";
 // import Pagination from "../Pagination";
-import { Pagination } from "@mui/material";
+
 import SortChange from "./SortChange";
 
 import {
@@ -22,7 +22,7 @@ function Search() {
   // api 완성되면 수정할 필요가 있음 !!!!!!
 
   // // 키워드 설정
-  // const [keyword, setKeyWord] = useState(null);
+  const [keyword, setKeyWord] = useState("");
   // console.log("keyword : ", keyword);
 
   // 정렬변경을 위한 상수선언
@@ -31,26 +31,19 @@ function Search() {
 
   // console.log(sortCol, " : ", sortOrder);
 
-  // page 설정
-  const [page, setPage] = useState(1);
-  const [size, setSize] = useState(6);
-
   // 마스크 리스트
   const [maskList, setMaskList] = useState([]);
 
   // 처음 페이지 렌더링 시 마스크 요청 : filterMaskSort 이용 ( getMainMask 로 하나 더 만듦)
   useEffect(() => {
-    getMainMask({ page, size, sortCol, sortOrder, setMaskList, keyword });
+    getMainMask({ sortCol, sortOrder, setMaskList, keyword });
     // console.log(maskList);
-  }, [page, size, sortCol, sortOrder]);
-
-  // 키워드 설정
-  const [keyword, setKeyWord] = useState(null);
+  }, [sortCol, sortOrder]);
 
   // 검색 시 마스크 요청
   useEffect(() => {
-    getSearchMaskSort({ keyword, sortCol, sortOrder, page, size, setMaskList });
-  }, [page, size, sortCol, sortOrder, keyword]);
+    getSearchMaskSort({ keyword, sortCol, sortOrder, setMaskList });
+  }, [sortCol, sortOrder, keyword]);
 
   return (
     <div>
@@ -74,9 +67,6 @@ function Search() {
       <SearchMaskListSection>
         {/* 마스크리스트 */}
         <SearchMaskLists maskList={maskList} />
-        {/* 페이지네이션 */}
-        <Pagination />
-        {/* <Pagination3 /> */}
       </SearchMaskListSection>
     </div>
   );

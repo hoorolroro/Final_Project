@@ -7,13 +7,6 @@ import {
 } from "../../styles/MainPageStyle";
 
 function SearchBox({ keyword, setKeyWord }) {
-  // 엔터키 눌렸을 때도 keyword에 값 전달 되도록 onKeyPress 설정
-  const onKeyPress = (e) => {
-    if (e.key === "Enter") {
-      onAdd();
-    }
-  };
-
   // 키워드 설정
   // const [keyword, setKeyWord] = useState(null);
   // console.log("searchBox :", keyword);
@@ -28,6 +21,14 @@ function SearchBox({ keyword, setKeyWord }) {
 
   const onAdd = () => {
     setKeyWord(inputValue);
+  };
+
+  // 엔터키 눌렸을 때도 keyword에 값 전달 되도록 onKeyPress 설정
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      alert("죄송합니다. 검색 버튼 사용을 부탁드리겠습니다.");
+      // onAdd();
+    }
   };
 
   // console.log("searchBox -keyword :", keyword);

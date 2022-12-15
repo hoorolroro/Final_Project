@@ -12,11 +12,8 @@ function SortChange2({
   isChange,
   setIsChange,
 }) {
-  // 필터걸린 마스크 sortChange : 완성되면 api 넣기
-
-  // console.log("sortCol : ", sortCol, ", sortOrder : ", sortOrder);
-
   // console.log("sortChange - isChange : ", isChange);
+  // console.log("sortCol : ", sortCol, ", sortOrder : ", sortOrder);
 
   return (
     <div>
@@ -36,9 +33,9 @@ function SortChange2({
           ) : (
             <SelectBox
               onClick={() => {
-                setSortCol("price");
-                setSortOrder("asc");
-                setIsChange(false);
+                setSortCol("");
+                setSortOrder("");
+                // setIsChange(true);
               }}
             >
               낮은가격순
@@ -70,9 +67,9 @@ function SortChange2({
           ) : (
             <SelectBox
               onClick={() => {
-                setSortCol("avg_score");
-                setSortOrder("desc");
-                setIsChange(false);
+                setSortCol("");
+                setSortOrder("");
+                // setIsChange(false);
               }}
             >
               평점순
@@ -104,9 +101,9 @@ function SortChange2({
           ) : (
             <SelectBox
               onClick={() => {
-                setSortCol("click_num");
-                setSortOrder("desc");
-                setIsChange(false);
+                setSortCol("");
+                setSortOrder("");
+                // setIsChange(false);
               }}
             >
               클릭많은순
