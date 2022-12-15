@@ -25,7 +25,14 @@ public class MaskController {
 	
 	@Autowired
 	MaskServiceImpl maskService;
-
+	
+	@ApiOperation(value = "4번 - Top3 마스크 정보 조회 - 클릭수 > 평점 높은순 > 리뷰 많은 순")
+	@GetMapping("/mask/top3")
+	public ResponseEntity<List<MaskDTO>> getTop3Mask() {
+		List<MaskDTO> top3 = maskService.getTop3Mask();
+		return new ResponseEntity<List<MaskDTO>>(top3, HttpStatus.OK);
+	}
+	
 	@ApiOperation(value = "6번 - maskId를 통해 마스크 정보 조회")
 	@GetMapping("/mask")
 	public ResponseEntity<MaskDTO> getMask(@RequestParam Long maskId) {
@@ -83,7 +90,7 @@ public class MaskController {
 	//api that first filters and then sorts
 	//api that takes column name, column filter , size, page  and returns list of masks with pagination
 	//col, order, filterCol, filter are all optional
-	@ApiOperation(value = "11번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬. filterCol은 총 3개까지 가능")
+	@ApiOperation(value = "10번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬. filterCol은 총 3개까지 가능")
 	@GetMapping("/mask/filter/sort")
 	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String sortCol, 
 		@RequestParam(required = false) String order,

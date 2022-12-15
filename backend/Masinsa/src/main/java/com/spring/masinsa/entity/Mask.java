@@ -71,15 +71,12 @@ public class Mask {
 	private Deletion deletion;
 	
 	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
-	@JsonIgnore
 	private List<Image> images = new ArrayList<Image>();
 	
 	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
-	@JsonIgnore
 	private List<WishList> wishlist = new ArrayList<WishList>();
 	
 	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
-	@JsonIgnore
 	private List<Review> reviews = new ArrayList<Review>();
 	
 	// Entity -> DTO 변환
