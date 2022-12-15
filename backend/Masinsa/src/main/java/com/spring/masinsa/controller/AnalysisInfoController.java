@@ -27,7 +27,7 @@ public class AnalysisInfoController {
   @Autowired
   ReviewServiceImpl reviewService;
 
-  @ApiOperation(value = "21번 - maskId를 통해 해당 마스크의 분석정보를 가져온다.")
+  @ApiOperation(value = "22번 - maskId를 통해 해당 마스크의 분석정보를 가져온다.")
   @GetMapping("/analysisinfo")
   public ResponseEntity<?> getAnalysisInfo(@RequestParam Long maskId) {
   //먼저 해당 마스크의 리뷰갯수가 10000개 이상인지 확인
@@ -45,7 +45,7 @@ public class AnalysisInfoController {
 
   }
   
-  @ApiOperation(value = "22번 - maskId를 통해 해당 마스크의 분석정보를 삭제한다.")
+  @ApiOperation(value = "23번 - maskId를 통해 해당 마스크의 분석정보를 삭제한다.")
   @DeleteMapping("/analysisinfo")
   public ResponseEntity<?> deleteAnalysisInfo(@RequestParam Long maskId) {
   //해당 마스크의 분석정보를 삭제

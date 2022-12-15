@@ -71,6 +71,7 @@ export const MaskShapeImg = styled.img`
   padding: 2px;
   border: 0px;
   border-radius: 50px;
+  box-shadow: 2px 2px 3px #999;
 `;
 
 // 마스크 형태 내용 (ShapeBtn버튼 안에 글 : 선택안되어 있을 경우)

@@ -13,7 +13,7 @@ export const getReviews = async ({
     "http://localhost:8080/review?maskId=1&page=1&size=5&reviewType=naver"
   );
 
-  console.log(response.data.data);
+  // console.log(response.data.data);
   // return response.data;
   setAllReviews(response.data.data);
 };

@@ -11,7 +11,7 @@ import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
 import { Main, Wrapper } from "./styles/OtherStyles";
 import HoverMenu from "./components/HoverMenu";
-import { useState } from "react";
+import { useState, useParams, useEffect } from "react";
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
           />
 
           {/* 상품상세페이지 : "http://localhost:3000/aboutMask/:maskId/Masinsa" */}
-          <Route path="/aboutMask/:maskId/Masinsa" element={<AboutPage />} />
+          <Route path="/aboutMask/:maskId/Masinsa/*" element={<AboutPage />} />
 
           {/* 마이페이지 : "http://localhost:3000/:memberId/MyPage/Masinsa" */}
           <Route path="/:memberId/MyPage/Masinsa" element={<MyPage />} />

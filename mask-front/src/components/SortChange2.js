@@ -4,24 +4,32 @@ import styled from "styled-components";
 import { SelectBox_active, SortSection2 } from "../styles/ListPageStyle";
 import { SelectBox } from "../styles/ListPageStyle";
 
-function SortChange2() {
+function SortChange2({ sortOrder, sortCol, setSortCol, setSortOrder }) {
   // 필터걸린 마스크 sortChange : 완성되면 api 넣기
 
-  const [sortCol, setSortCol] = useState("mask_id");
-  const [sortOrder, setSortOrder] = useState("asc");
-
-  // console.log("sortCol", sortCol);
-  // console.log("sortOrder", sortOrder);
+  // console.log("sortCol : ", sortCol, ", sortOrder : ", sortOrder);
 
   return (
     <div>
       <SortSection2>
         {sortCol === "price" ? (
-          <SelectBox_active onClick={() => setSortCol("price")}>
+          <SelectBox_active
+            onClick={() => {
+              setSortCol("price");
+              setSortOrder("asc");
+            }}
+          >
             낮은가격순
           </SelectBox_active>
         ) : (
-          <SelectBox onClick={() => setSortCol("price")}>낮은가격순</SelectBox>
+          <SelectBox
+            onClick={() => {
+              setSortCol("price");
+              setSortOrder("asc");
+            }}
+          >
+            낮은가격순
+          </SelectBox>
         )}
         {sortCol === "avg_score" ? (
           <SelectBox_active

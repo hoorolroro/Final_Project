@@ -6,22 +6,21 @@ import styled from "styled-components";
 import { Main } from "../styles/OtherStyles";
 import SortChange2 from "../components/SortChange2";
 import { Pagination } from "@mui/material";
-import {
-  FilterSection,
-  FilterMaskListSection,
-  SortSection2,
-} from "../styles/ListPageStyle";
+import { FilterSection, FilterMaskListSection } from "../styles/ListPageStyle";
 import { useParams } from "react-router-dom";
-import { getFilter } from "../api/mask/getFilter";
+import { getFilterMaskSort } from "../api/mask/getFilterMaskSort";
 import Header from "../components/Header";
-import { MaskListDiv, MaskSummaryBox } from "../styles/MaskListStyles";
 
 function ListPage() {
-  // 리스트페이지 마스크리스트 조회
-
   const [maskKF, setMaskKF] = useState("");
   const [maskSize, setMaskSize] = useState("");
   const [maskShape, setMaskShape] = useState("");
+  const [sortCol, setSortCol] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
+  const page = 1; // currentPage
+  const size = 5; // Pagination Size
+
+  // 마스크리스트
   const [maskList, setMaskList] = useState([]);
 
   // kf 파라미터 설정
@@ -30,16 +29,31 @@ function ListPage() {
   // console.log("ListPage : ", blockingindex.slice(-2, blockingindex.length));
   useEffect(() => {
     setMaskKF(blockingindex.slice(-2, blockingindex.length));
-    console.log(maskKF);
+    // console.log(maskKF);
   });
-
-  // console.log(maskShape);
-  // console.log(maskSize);
 
   // 값이 바뀔때마다 axios 요청
   useEffect(() => {
-    getFilter({ maskKF, maskSize, maskShape, setMaskList });
-  }, [maskKF, maskSize, maskShape, FilterMaskList]);
+    getFilterMaskSort({
+      sortCol,
+      sortOrder,
+      page,
+      size,
+      maskKF,
+      maskSize,
+      maskShape,
+      setMaskList,
+    });
+  }, [
+    sortCol,
+    sortOrder,
+    page,
+    size,
+    maskKF,
+    maskSize,
+    maskShape,
+    FilterMaskList,
+  ]);
 
   // console.log("maskList : ", maskList);
 
@@ -56,7 +70,12 @@ function ListPage() {
           />
         </FilterSection>
         {/* 정렬변경 */}
-        <SortChange2 />
+        <SortChange2
+          sortCol={sortCol}
+          sortOrder={sortOrder}
+          setSortCol={setSortCol}
+          setSortOrder={setSortOrder}
+        />
         {/* 마스크 리스트공간 */}
         {maskList.length >= 1 ? (
           <>
