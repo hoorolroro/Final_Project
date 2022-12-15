@@ -21,8 +21,9 @@ function ListPage() {
   const [maskShape, setMaskShape] = useState("");
   const [sortCol, setSortCol] = useState("");
   const [sortOrder, setSortOrder] = useState("");
-  const page = 1; // currentPage
-  const size = 5; // Pagination Size
+  // const page = 1; // currentPage
+  // const size = 4; // Pagination Size
+  // const [page, setPage] = useState(1);
 
   // 마스크리스트
   const [maskList, setMaskList] = useState([]);
@@ -32,14 +33,12 @@ function ListPage() {
     getFilterMaskSort({
       sortCol,
       sortOrder,
-      page,
-      size,
       maskKF,
       maskSize,
       maskShape,
       setMaskList,
     });
-  }, [sortCol, sortOrder, page, size, maskKF, maskSize, maskShape]);
+  }, [sortCol, sortOrder, maskKF, maskSize, maskShape]);
 
   // console.log("maskList : ", maskList);
 
@@ -77,12 +76,12 @@ function ListPage() {
               <FilterMaskList maskList={maskList} />
               {/* 페이지네이션 */}
               {/* <Pagination></Pagination> */}
-              <Pagination3
+              {/* <Pagination3
                 maskList={maskList}
                 page={page}
                 size={size}
-                // onClick={() => console.log("page")}
-              />
+                setPage={setPage}
+              /> */}
             </FilterMaskListSection>
           </>
         ) : (
@@ -96,15 +95,11 @@ function ListPage() {
                 </h6>
                 <h6>도움을 드리지 못해 죄송합니다.</h6>
               </div>
-              {/* <Pagination></Pagination> */}
-              <Pagination3 maskList={maskList} />
             </FilterMaskListSection>
           </>
         )}
-        {/* 필터걸린 마스크 리스트
-          <FilterMaskList maskList={maskList} />
-          페이지네이션
-          <Pagination></Pagination> */}
+        {/* 필터걸린 마스크 리스트 */}
+        {/* <FilterMaskList maskList={maskList} /> */}
       </Main>
     </div>
   );

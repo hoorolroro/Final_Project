@@ -4,8 +4,6 @@ import axios from "axios";
 export const getFilterMaskSort = async ({
   sortCol,
   sortOrder,
-  page,
-  size,
   maskKF,
   maskSize,
   maskShape,
@@ -23,13 +21,13 @@ export const getFilterMaskSort = async ({
         if (sortCol != "") {
           // 모든 파라미터가 존재할경우
           const response = await axios.get(
-            `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&page=${page}&size=${size}&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}&filterCol3=size&filter3=${maskSize}`
+            `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&page=&size=&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}&filterCol3=size&filter3=${maskSize}`
           );
           setMaskList(response.data.result);
         } else {
           // 정렬은 존재하지 x 다른 거 모두 존재 (size, shape, KF)
           const response = await axios.get(
-            `http://localhost:8080/mask/filter/sort?page=${page}&size=${size}&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}&filterCol3=size&filter3=${maskSize}`
+            `http://localhost:8080/mask/filter/sort?page=&size=&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}&filterCol3=size&filter3=${maskSize}`
           );
           setMaskList(response.data.result);
         }
@@ -37,13 +35,13 @@ export const getFilterMaskSort = async ({
         if (sortCol != "") {
           // size 존재 x 정렬 o ( kf, shape)
           const response = await axios.get(
-            `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&page=${page}&size=${size}&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}`
+            `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&page=&size=&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}`
           );
           setMaskList(response.data.result);
         } else {
           // size 존재 x 정렬 x ( kf, shape)
           const response = await axios.get(
-            `http://localhost:8080/mask/filter/sort?page=${page}&size=${size}&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}`
+            `http://localhost:8080/mask/filter/sort?page=&size=&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}`
           );
           setMaskList(response.data.result);
         }
@@ -52,13 +50,13 @@ export const getFilterMaskSort = async ({
       if (sortCol != "") {
         // size, shape 존재 x 정렬 o ( kf )
         const response = await axios.get(
-          `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&page=${page}&size=${size}&filterCol1=blocking_index&filter1=${maskKF}`
+          `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&page=&size=&filterCol1=blocking_index&filter1=${maskKF}`
         );
         setMaskList(response.data.result);
       } else {
         // size, shape 존재 x 정렬 x ( kf )
         const response = await axios.get(
-          `http://localhost:8080/mask/filter/sort?page=${page}&size=${size}&filterCol1=blocking_index&filter1=${maskKF}`
+          `http://localhost:8080/mask/filter/sort?page=&size=&filterCol1=blocking_index&filter1=${maskKF}`
         );
         setMaskList(response.data.result);
       }
