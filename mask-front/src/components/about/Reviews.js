@@ -13,6 +13,7 @@ import {
   MasinsaReviewBtn_active,
 } from "../../styles/AboutPageStyle";
 import Pagination2 from "../Pagination2";
+import Pagination3 from "../Pagination3";
 
 function Reviews({ maskId }) {
   // getReview를 위한 파라미터 설정
@@ -47,10 +48,7 @@ function Reviews({ maskId }) {
       <hr></hr>
       <i>상세리뷰</i>
       <hr></hr>
-      <ReviewSection
-      // aria-describedby={reviewsId}
-      // reviewsRef={reviewsRef}
-      >
+      <ReviewSection>
         {/* 버튼이 눌렸을때, 네이버리뷰면 reviewType (naver) 회원리뷰면 member */}
         <ReviewBtnSection>
           {/* review타입에 따른 버튼 색 활성화 */}
@@ -82,10 +80,18 @@ function Reviews({ maskId }) {
             page={page}
             setPage={setPage}
             size={size}
+            setAllReviews={setAllReviews}
           />
         </ReviewContent>
-        <Pagination />
+        {/* <Pagination /> */}
         {/* <Pagination2 allReviews={allReviews} page={page} setPage={setPage} /> */}
+        <Pagination3
+          allReviews={allReviews}
+          // size={size}
+          page={page}
+          setPage={setPage}
+          setAllReviews={setAllReviews}
+        />
       </ReviewSection>
     </div>
   );

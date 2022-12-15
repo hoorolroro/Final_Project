@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { GoToReview, GoToReviewBtn } from "../../styles/AboutPageStyle";
 import Reviews from "./Reviews";
 
-
 function ReviewBtn() {
   // console.log("review");
-
 
   // 1. 기본 스크롤 카운터
 
@@ -44,7 +42,7 @@ function ReviewBtn() {
   const goScrollReview = () => {
     // 버튼 끝나면 MaskDetail 끝난 맨 아래 or Reviews 시작 좌표로 움직이고 싶은데?
     window.scrollTo({
-      top: 1000,
+      top: 900,
       //   top: review.y,
       behavior: "smooth",
     });
