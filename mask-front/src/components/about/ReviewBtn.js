@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { GoToReview, GoToReviewBtn } from "../../styles/AboutPageStyle";
 import Reviews from "./Reviews";
 
-function ReviewBtn({ reviewsId, reviewsRef }) {
-  console.log("review");
+
+function ReviewBtn() {
+  // console.log("review");
+
 
   // 1. 기본 스크롤 카운터
 
@@ -31,7 +33,7 @@ function ReviewBtn({ reviewsId, reviewsRef }) {
   useEffect(() => {
     const watch = () => {
       window.addEventListener("scroll", reviewShow);
-      console.log("ScrollY is ", scrollY); // 스크롤 위치 콘솔로 확인 (위치 확인 후 삭제하기)
+      // console.log("ScrollY is ", scrollY); // 스크롤 위치 콘솔로 확인 (위치 확인 후 삭제하기)
     };
     watch();
     return () => {

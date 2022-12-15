@@ -11,15 +11,22 @@ import {
   MaskSummaryTopDiv,
   MaskScore,
 } from "../../styles/MaskListStyles";
+import { putClick } from "../../api/mask/putClick";
 
 function FilterMaskList({ maskList }) {
   // console.log("FilterMaskLists : ", maskList);
 
-  /* 클릭 수 증가 - sungmin 수정사항 */
-  // 상품상세페이지에 진입하면 click 수 증가 시킴!
-  // useEffect(() => {
-  //   putClick({ maskId });
-  // }, [maskId]);
+  const [isClick, setIsClick] = useState(false);
+  const [clickMaskId, setClickMaskId] = useState();
+  // console.log(isClick);
+
+  /* 상품 클릭 수 증가  */
+  // 만약 isClick이 true가 되면 (해당 상품이 클릭되면) putClick 실행
+  useEffect(() => {
+    if (isClick === true) {
+      putClick({ clickMaskId });
+    }
+  });
 
   return (
     <div>
@@ -32,30 +39,40 @@ function FilterMaskList({ maskList }) {
                 <MaskSummaryBox>
                   {/* 마스크썸네일 */}
                   {mask.thumbnail ? (
-                    <>
-                      <a
-                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
-                      >
-                        <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg>
-                      </a>
-                    </>
+                    <a
+                      href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                      onClick={() => {
+                        setIsClick(true);
+                        setClickMaskId(mask.id);
+                      }}
+                    >
+                      {/* 등록된 썸네일이 있을 경우 : 썸네일 보여줌*/}
+                      <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg>
+                    </a>
                   ) : (
-                    <>
-                      <a
-                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
-                      >
-                        <MaskSummaryImg
-                          src={`${process.env.PUBLIC_URL}/NoImage.jpg`}
-                        ></MaskSummaryImg>
-                      </a>
-                    </>
+                    <a
+                      href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                      onClick={() => {
+                        setIsClick(true);
+                        setClickMaskId(mask.id);
+                      }}
+                    >
+                      {/* 등록된 썸네일이 없을 경우 : No Image 보여줌*/}
+                      <MaskSummaryImg
+                        src={`${process.env.PUBLIC_URL}/NoImage.jpg`}
+                      ></MaskSummaryImg>
+                    </a>
                   )}
-                  {/* <MaskSummaryImg src={mask.thumbnail}></MaskSummaryImg> */}
                   {/* 마스크내용 */}
                   <MaskSummaryContent>
                     <MaskSummaryTopDiv>
+                      {/* 이름 */}
                       <MaskSummaryTitleLinkBox
                         href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                        onClick={() => {
+                          setIsClick(true);
+                          setClickMaskId(mask.id);
+                        }}
                       >
                         {mask.name}
                       </MaskSummaryTitleLinkBox>
@@ -65,6 +82,10 @@ function FilterMaskList({ maskList }) {
                     {/* 가격 (링크) */}
                     <MaskSummaryPriceLinkBox
                       href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                      onClick={() => {
+                        setIsClick(true);
+                        setClickMaskId(mask.id);
+                      }}
                     >
                       {mask.price} 원
                     </MaskSummaryPriceLinkBox>
