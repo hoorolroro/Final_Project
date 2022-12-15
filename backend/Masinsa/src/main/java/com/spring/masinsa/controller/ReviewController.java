@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -95,12 +96,14 @@ public class ReviewController {
 	  return new ResponseEntity<>(msg, HttpStatus.OK);
   }
   
-  
-  
+  @ApiOperation(value = "18번 - 회원 리뷰 삭제")
+  @DeleteMapping("/member_review")
+  public ResponseEntity<?> deletMemberReview(@RequestParam Long memberId, @RequestParam Long maskId) {
+	  Boolean result = reviewService.deleteMemberReview(memberId, maskId);
+	  if(result) {
+			return new ResponseEntity<>("회원 리뷰 삭제 완료", HttpStatus.OK);
+		}
+		return new ResponseEntity<>("회원 리뷰 삭제 실패", HttpStatus.OK);
+	}
 
 }
-  
-  
-
-
-
