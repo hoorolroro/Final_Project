@@ -14,7 +14,7 @@ import {
 } from "../../styles/AboutPageStyle";
 import SlidePhoto from "./SlidePhoto";
 
-function MaskInfo({ mask, images }) {
+function MaskInfo({ mask }) {
   // console.log("maskinfo:", { mask });
   // console.log("maskInfo :", images);
 
