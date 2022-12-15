@@ -15,7 +15,7 @@ import {
 import SlidePhoto from "./SlidePhoto";
 
 function MaskInfo({ mask, images }) {
-  // console.log("maskinfo:", { mask });
+  console.log("maskinfo:", { mask });
   // console.log("maskInfo :", images);
 
   // mask 값들을 빼내서 사용하기

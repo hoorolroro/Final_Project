@@ -56,11 +56,18 @@ function FilterBox({
             // 사이즈, 형태 설정값 모두 지우기
             setMaskShape("");
             setMaskSize("");
-            setSizeState("size-no-active");
+            // setSizeState("size-no-active");
             setIsChange(true);
             // 사이즈 상태가 전체가 아니면, 눌렸을때 전체로 변경 !
-            if (shapeState != "전체") {
+            if (shapeState !== "전체") {
               setShapeState("전체");
+              if (sizeState !== "size-no-active") {
+                setSizeState("size-no-active");
+                setMaskSize("");
+              }
+            } else {
+              setSizeState("size-no-active");
+              setMaskSize("");
             }
           }}
         >

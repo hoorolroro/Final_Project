@@ -156,7 +156,7 @@ export const SearchFieldset = styled.fieldset`
   width: auto;
   height: 30px;
   align-items: center;
-  // align-content: center;
+  justify-content: space-around;
   border: 1px solid #9a9a9a;
   border-radius: 2px;
   padding: 1px;
@@ -164,19 +164,17 @@ export const SearchFieldset = styled.fieldset`
 
 //  검색어를 입력하는 검색창
 export const SearchInput = styled.input`
-  width: 85%;
+  width: 90%;
   // height: 30px;
   outline: 0;
   border: none;
 `;
 
 // 검색 버튼
-export const SearchBtn = styled.button`
-  position: left;
-  width: 15%;
-  height: 31px;
-  // background: #9a9a9a;
-  border: none;
+export const SearchBtn = styled.div`
+  width: 8%;
+  // border: 1px solid green;
+  padding-bottom: 3px;
   cursor: pointer;
   overflow: hidden;
 `;

@@ -32,7 +32,7 @@ function FilterMaskList({ maskList }) {
     <div>
       {/* "/aboutMask/:maskId/Masinsa" */}
       <MaskListDiv>
-        {maskList ? (
+        {maskList.length > 0 ? (
           maskList.map((mask) => {
             return (
               <div key={mask.id}>

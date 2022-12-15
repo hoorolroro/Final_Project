@@ -43,7 +43,7 @@ function TopThree() {
         <Top3Article>MASINSA'S BEST</Top3Article>
         <IntroLinkBox href="Introduce/Masinsa">
           {/* Do you want know about MASNSA? */}
-          About MASINSA
+          What is MASINSA?
         </IntroLinkBox>
       </Top3ArticleSection>
       <div>
