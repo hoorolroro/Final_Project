@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 /* 최근 본 상품 */
 
 export function RecentViewFunction({ mask }) {
+  // 최근 본 상품 : localStorage에 저장하면 영구적 ( 사용자 기억 )
+
   useEffect(() => {
     // 우선적으로, localStorage에 있는 데이터(최근본상품) 가져오기
     let watchArr = localStorage.getItem("watchedMask");

@@ -9,6 +9,7 @@ import {
 function RecentView() {
   // localStorage에 저장된 최근본상품(watchedMask) 가져오기
   let userWatched = localStorage.getItem("watchedMask");
+
   // console.log("userWatched (type) : ", typeof userWatched);
 
   // JSON 자료형(String)으로 저장된 데이터를 Object로 변경
