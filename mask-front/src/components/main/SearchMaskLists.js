@@ -15,7 +15,7 @@ import {
 import { putClick } from "../../api/mask/putClick";
 
 function SearchMaskLists({ maskList }) {
-  // console.log("SearchMaskLists : ", maskList);
+  console.log("SearchMaskLists : ", maskList);
 
   const [isClick, setIsClick] = useState(false);
   const [clickMaskId, setClickMaskId] = useState();

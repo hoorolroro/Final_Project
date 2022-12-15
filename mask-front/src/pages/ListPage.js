@@ -8,6 +8,7 @@ import { Pagination } from "@mui/material";
 import { FilterSection, FilterMaskListSection } from "../styles/ListPageStyle";
 import { useParams } from "react-router-dom";
 import { getFilterMaskSort } from "../api/mask/getFilterMaskSort";
+import Pagination3 from "../components/Pagination3";
 
 function ListPage() {
   // kf 파라미터 설정
@@ -75,7 +76,13 @@ function ListPage() {
               {/* 필터걸린 마스크 리스트 */}
               <FilterMaskList maskList={maskList} />
               {/* 페이지네이션 */}
-              <Pagination></Pagination>
+              {/* <Pagination></Pagination> */}
+              <Pagination3
+                maskList={maskList}
+                page={page}
+                size={size}
+                // onClick={() => console.log("page")}
+              />
             </FilterMaskListSection>
           </>
         ) : (
@@ -90,6 +97,7 @@ function ListPage() {
                 <h6>도움을 드리지 못해 죄송합니다.</h6>
               </div>
               {/* <Pagination></Pagination> */}
+              <Pagination3 maskList={maskList} />
             </FilterMaskListSection>
           </>
         )}

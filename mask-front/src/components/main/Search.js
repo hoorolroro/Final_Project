@@ -76,6 +76,7 @@ function Search() {
         <SearchMaskLists maskList={maskList} />
         {/* 페이지네이션 */}
         <Pagination />
+        {/* <Pagination3 /> */}
       </SearchMaskListSection>
     </div>
   );

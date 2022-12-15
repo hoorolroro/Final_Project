@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -46,23 +47,24 @@ public class WishListServiceImpl implements WishListService {
 		return wishListDTO;
 	}
 	
-	@Transactional
-	public List<HashMap> getAllWishList2(Long memberId, Long page, Long size) {
-		Long limit = null;
-		Long offset = null;
-		if (size != null) {
-			limit = size;
-		}
-		if (page != null && size != null) {
-			offset = (page - 1) * size;
-		}
-		List<HashMap> wishList = wishListMapper.getAllWishList2(memberId, limit, offset);
-		System.out.println(wishList);
-//		List<WishListDTO> wishListDTO = wishList.stream()
-//										  .map(wish -> WishList.entityToDTO(wish))
-//										  .collect(Collectors.toList());
-		return wishList;
-	}
+//	@Transactional // JSON으로 수정 필요
+//	public List<HashMap> getAllWishList2(Long memberId, Long page, Long size) {
+//		Long limit = null;
+//		Long offset = null;
+//		if (size != null) {
+//			limit = size;
+//		}
+//		if (page != null && size != null) {
+//			offset = (page - 1) * size;
+//		}
+//		List<HashMap> wishList = wishListMapper.getAllWishList2(memberId, limit, offset);
+//		JSONArray jsonArray = new JSONArray();
+//		for (HashMap hashMap : wishList) {
+//			jsonArray.add(getJson)
+//		}
+//		
+//		return wishList;
+//	}
 	
 	@Override
 	@Transactional

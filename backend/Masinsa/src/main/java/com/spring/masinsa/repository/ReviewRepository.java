@@ -17,5 +17,7 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
   public List<Review> findByMaskIdAndReviewType(Long maskId, ReviewType reviewType, Pageable pageable);
 // public List<Review> findByMaskId(Long maskId, Pageable pageable); //Slice : 페이징 처리를 위한 객체
 
+  public Review findReviewById(Long reviewId);
+  public Review findReviewByMemberIdAndMaskId(Long memberId, Long maskId);
   
 }

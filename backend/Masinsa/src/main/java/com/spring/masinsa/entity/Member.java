@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.spring.masinsa.dto.MemberDTO;
 
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString
+@ToString(exclude = {"wishlist"})
 @Builder
 public class Member {
 	
@@ -46,6 +47,7 @@ public class Member {
 	private Deletion deletion;
 	
 	@OneToMany(mappedBy = "member")
+	@JsonIgnore
 	private List<WishList> wishlist = new ArrayList<WishList>();
 
 	private String token;

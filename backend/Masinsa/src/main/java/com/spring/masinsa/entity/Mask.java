@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.DynamicUpdate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.spring.masinsa.dto.MaskDTO;
 import com.spring.masinsa.dto.MaskListDTO;
 
@@ -29,7 +30,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString
+@ToString(exclude = {"images", "wishlist", "reviews"})
 @Builder
 public class Mask {
 	
@@ -49,6 +50,7 @@ public class Mask {
 	
 	private String shape;
 	
+	@Column(name = "mask_option")
 	private String option;
 	
 	@Column(name = "thumbnail_image_url")
@@ -69,12 +71,15 @@ public class Mask {
 	private Deletion deletion;
 	
 	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Image> images = new ArrayList<Image>();
 	
 	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<WishList> wishlist = new ArrayList<WishList>();
 	
 	@OneToMany(mappedBy = "mask", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Review> reviews = new ArrayList<Review>();
 	
 	// Entity -> DTO 변환
