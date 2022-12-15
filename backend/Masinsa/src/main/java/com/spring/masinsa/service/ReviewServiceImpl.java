@@ -57,21 +57,21 @@ public class ReviewServiceImpl implements ReviewService {
     return reviewDTOList;
   }
   
+//  @Transactional
+//  public ReviewDTO addMemberReview2(ReviewDTO reviewDTO){
+//	  Review review = reviewRepository.findReviewById(reviewDTO.getId());
+//	  if(review != null) {
+//		  return null;
+//	  }
+//	  Review newReview = ReviewDTO.dtoToEntity(reviewDTO);
+//	  System.out.println(newReview);
+//	  reviewRepository.save(newReview);
+//	  return Review.entityToDTO(newReview);
+//  }
+  
   @Override
   @Transactional
   public ReviewDTO addMemberReview(ReviewDTO reviewDTO){
-	  Review review = reviewRepository.findReviewById(reviewDTO.getId());
-	  if(review != null) {
-		  return null;
-	  }
-	  Review newReview = ReviewDTO.dtoToEntity(reviewDTO);
-	  System.out.println(newReview);
-	  reviewRepository.save(newReview);
-	  return Review.entityToDTO(newReview);
-  }
-  
-  @Transactional
-  public ReviewDTO addMemberReview2(ReviewDTO reviewDTO){
 	  reviewMapper.addMemberReview(reviewDTO);
 	  Review review = reviewRepository.findReviewById(reviewDTO.getId());
 	  ReviewDTO result = Review.entityToDTO(review);
@@ -81,14 +81,24 @@ public class ReviewServiceImpl implements ReviewService {
   @Override
   @Transactional
   public ReviewDTO updateMemberReview(Long reviewId, Float score, String content) {
-	  Review review = reviewRepository.findReviewById(reviewId);
+	  reviewMapper.updateMemberReview(reviewId, score, content);
+	  Review review = reviewMapper.getMemberReview(reviewId);
+	  System.out.println(review);
 	  if(review != null) {
-		  review.updateMemberReview(score, content);
 		  reviewRepository.save(review);
 		  ReviewDTO reviewDTO = Review.entityToDTO(review);
 		  return reviewDTO;
 	  }
 	  return null;
   }
-    
+   
+  @Transactional
+  public Boolean deleteMemberReview(Long memberId, Long maskId) {
+	  Review review = reviewRepository.findReviewByMemberIdAndMaskId(memberId, maskId);
+	  if(review != null) {
+		  reviewRepository.delete(review);
+		  return true;
+		}
+		return false;
+  }
 }

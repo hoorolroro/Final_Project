@@ -14,5 +14,6 @@ public interface ReviewService {
 	public List<ReviewDTO> findByMaskIdAndReviewType(Long maskId, Pageable pageable, String reviewType);
 	public ReviewDTO updateMemberReview(Long reviewId, Float score, String content);
 	public ReviewDTO addMemberReview(ReviewDTO reviewDTO);
+	public Boolean deleteMemberReview(Long memberId, Long maskId);
 	
 }
