@@ -39,8 +39,8 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	@Transactional
     public MemberDTO saveMember(MemberDTO memberDTO) {
-		//먼저 memberId로 조회해서 없으면 저장
-		Member m = memberRepo.findMemberById(memberDTO.getId());
+		//먼저 token으로 조회해서 없으면 저장
+		Member m = memberRepo.findMemberByToken(memberDTO.getToken());
 		if(m != null) {
 			return null;
 			}
