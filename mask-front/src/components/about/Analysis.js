@@ -16,7 +16,8 @@ import MaskInfo from "./MaskInfo";
 import ReviewBtn from "./ReviewBtn";
 import Reviews from "./Reviews";
 
-function Analysis({ maskId, reviewsId, reviewsRef }) {
+// function Analysis({ maskId, reviewsId, reviewsRef }) {
+function Analysis({ maskId }) {
   const [analysisInfo, setAnalysisInfo] = useState([]);
   // 리뷰 요청
   useEffect(() => {
@@ -45,15 +46,26 @@ function Analysis({ maskId, reviewsId, reviewsRef }) {
           </AnalysisSection>
         </div>
       ) : (
-        <div>
-          <h5>죄송합니다 T_T ..</h5>
-          <h5>적당량의 리뷰가 존재하지 않아 통계정보를 불러올 수 없습니다.</h5>
-          <h5>상세리뷰 확인 혹은 다음에 다시 이용하시길 바랍니다.</h5>
+        <div
+          style={{
+            fontSize: "12px",
+            fontWeight: "700",
+            margin: "10px",
+            padding: "5px",
+          }}
+        >
+          <p>죄송합니다 T_T ..</p>
+          <p>적당량의 리뷰가 존재하지 않아 통계정보를 불러올 수 없습니다.</p>
+          <p>상세리뷰 확인 혹은 다음에 다시 이용하시길 바랍니다.</p>
+          <h6 style={{ color: "#0ea654" }}>
+            * 더욱 발전한 MASINSA가 될 수 있도록 노력하겠습니다. *
+          </h6>
+          <p>이용해주셔서 감사합니다.</p>
         </div>
       )}
       <ReviewBtn
-        // reviewsId={reviewsId}
-        reviewsRef={reviewsRef}
+      // reviewsId={reviewsId}
+      // reviewsRef={reviewsRef}
       />
     </div>
   );

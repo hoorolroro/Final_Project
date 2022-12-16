@@ -42,7 +42,7 @@ function ReviewBtn() {
   const goScrollReview = () => {
     // 버튼 끝나면 MaskDetail 끝난 맨 아래 or Reviews 시작 좌표로 움직이고 싶은데?
     window.scrollTo({
-      top: 900,
+      top: 11500,
       //   top: review.y,
       behavior: "smooth",
     });
