@@ -12,7 +12,7 @@ function MainPage() {
     getTop3({ setTopMask });
   }, []);
 
-  // console.log("topMask", topMask);
+  console.log("topMask", topMask);
 
   return (
     <div>
@@ -20,7 +20,8 @@ function MainPage() {
         {/* TOP3 */}
         {/* <Top3Section> */}
         {topMask ? (
-          // 만약 Best 값이 존재한다면 보여주기 ! 그게 아니라면 section 자체를 삭제 .. ALLMASK만 보여줌
+          // 만약 Best 값이 존재한다면 보여주기 !
+          // 그게 아니라면 section 자체를 삭제 .. ALLMASK만 보여줌
           <Top3Section>
             <TopThree topMask={topMask} />
           </Top3Section>

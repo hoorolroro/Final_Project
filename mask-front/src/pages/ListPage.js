@@ -22,7 +22,7 @@ function ListPage() {
   // 마스크리스트
   const [maskList, setMaskList] = useState([]);
 
-  // 값이 바뀔때마다 axios 요청
+  // 값이 바뀔때마다 axios로 마스크리스트 요청
   useEffect(() => {
     getFilterMaskSort({
       sortCol,

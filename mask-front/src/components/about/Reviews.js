@@ -49,16 +49,28 @@ function Reviews({ maskId }) {
           {/* review타입에 따른 버튼 색 활성화 */}
           {reviewType == "naver" ? (
             <>
-              <NaverReviewBtn_active onClick={() => setReviewType("naver")}>
+              <NaverReviewBtn_active
+                onClick={() => {
+                  setReviewType("naver");
+                }}
+              >
                 Naver Review
               </NaverReviewBtn_active>
-              <MasinsaReviewBtn onClick={() => setReviewType("member")}>
+              <MasinsaReviewBtn
+                onClick={() => {
+                  setReviewType("member");
+                }}
+              >
                 Member Review
               </MasinsaReviewBtn>
             </>
           ) : (
             <>
-              <NaverReviewBtn onClick={() => setReviewType("naver")}>
+              <NaverReviewBtn
+                onClick={() => {
+                  setReviewType("naver");
+                }}
+              >
                 Naver Review
               </NaverReviewBtn>
               <MasinsaReviewBtn_active onClick={() => setReviewType("member")}>
@@ -75,17 +87,22 @@ function Reviews({ maskId }) {
             setPage={setPage}
             size={size}
             setAllReviews={setAllReviews}
+            reviewType={reviewType}
           />
         </ReviewContent>
         {/* <Pagination /> */}
         {/* <Pagination2 allReviews={allReviews} page={page} setPage={setPage} /> */}
-        <Pagination3
-          allReviews={allReviews}
-          // size={size}
-          page={page}
-          setPage={setPage}
-          setAllReviews={setAllReviews}
-        />
+        {allReviews.length > 0 ? (
+          <Pagination3
+            allReviews={allReviews}
+            // size={size}
+            page={page}
+            setPage={setPage}
+            setAllReviews={setAllReviews}
+          />
+        ) : (
+          <></>
+        )}
       </ReviewSection>
     </div>
   );
