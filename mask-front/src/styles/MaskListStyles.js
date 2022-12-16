@@ -15,6 +15,8 @@ export const MaskListDiv = styled.div`
   height: auto;
   padding: 10px;
   // border: 2px solid red;
+  border: 1px solid #d9d9d9;
+  border-style: none none double;
 `;
 
 // 리스트의 각 마스크 요약정보 칸

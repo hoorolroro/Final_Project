@@ -12,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.spring.masinsa.dto.MemberDTO;
 
 import lombok.AllArgsConstructor;
@@ -40,14 +39,13 @@ public class Member {
 	
 	private String age_group;
 	
-	@Column(name = "birth_date")
+	@Column(name = "birth_year")
 	private String birth;
 	
 	@Enumerated(EnumType.STRING)
 	private Deletion deletion;
 	
 	@OneToMany(mappedBy = "member")
-	@JsonIgnore
 	private List<WishList> wishlist = new ArrayList<WishList>();
 
 	private String token;

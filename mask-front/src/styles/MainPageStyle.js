@@ -56,39 +56,29 @@ export const IntroLinkBox = styled.a`
 
 // TOP3마스크 띄워주는 Section\Introduce\Masinsa
 export const Top3MaskSection = styled.section`
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  justify-items: center;
   width: auto;
   height: 300px;
   // border: 2px solid red;
-  // padding: 2px;
+  padding-top: 10px;
 `;
 
-// 1등 마스크 (오른쪽)
-export const FirstMaskLinkBox = styled.a`
-  width: 30%;
-  float: left;
-  border-radius: 15px;
-  margin: 10px;
+// Top3 img 태그
+export const TopMaskImg = styled.img`
+  width: 95%;
+  height: 95%;
+  padding: 2px;
   border: 1px solid #9a9a9a;
+  border-radius: 15px;
 `;
 
-// 2등 마스크(중간)
-export const SecondMaskLinkBox = styled.a`
-  width: 30%;
-  margin: 10px;
-  border-radius: 15px;
+export const TopMaskInfo = styled.div`
+  padding: 2px;
   border: 1px solid #9a9a9a;
-`;
-
-// 3등 마스크(왼쪽)
-export const ThirdMaskLinkBox = styled.a`
-  width: 30%;
-  float: right;
-  margin: 10px;
   border-radius: 15px;
-  border: 1px solid #9a9a9a;
 `;
 
 /* 전체 */
@@ -156,7 +146,7 @@ export const SearchFieldset = styled.fieldset`
   width: auto;
   height: 30px;
   align-items: center;
-  // align-content: center;
+  justify-content: space-around;
   border: 1px solid #9a9a9a;
   border-radius: 2px;
   padding: 1px;
@@ -164,19 +154,17 @@ export const SearchFieldset = styled.fieldset`
 
 //  검색어를 입력하는 검색창
 export const SearchInput = styled.input`
-  width: 85%;
+  width: 90%;
   // height: 30px;
   outline: 0;
   border: none;
 `;
 
 // 검색 버튼
-export const SearchBtn = styled.button`
-  position: left;
-  width: 15%;
-  height: 31px;
-  // background: #9a9a9a;
-  border: none;
+export const SearchBtn = styled.div`
+  width: 8%;
+  // border: 1px solid green;
+  padding-bottom: 3px;
   cursor: pointer;
   overflow: hidden;
 `;

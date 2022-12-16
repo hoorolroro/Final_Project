@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { getReviews } from "../../api/review/getReviews";
 import {
   EachReviewSection,
   ReviewTop,
@@ -8,8 +9,20 @@ import {
 } from "../../styles/AboutPageStyle";
 
 //
-function ReviewLists({ allReviews }) {
+function ReviewLists({ allReviews, size, page, setPage, setAllReviews }) {
   // console.log("ReviewLists : ", allReviews);
+
+  // 페이지당 노출되는 maskList
+  const reviewsPerPage = [];
+  for (let i = size * (page - 1) + 1; i <= size * page; i++) {
+    reviewsPerPage.push(i);
+  }
+
+  console.log(reviewsPerPage);
+
+  useEffect(() => {
+    getReviews({ page, setAllReviews });
+  }, []);
 
   return (
     <div>

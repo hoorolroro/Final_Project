@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import Pagination from "../components/Pagination";
 import FilterBox from "../components/productList/FilterBox";
 import FilterMaskList from "../components/productList/FilterMaskList";
 import { Main } from "../styles/OtherStyles";
-import SortChange2 from "../components/SortChange2";
-import { Pagination } from "@mui/material";
+import SortChange2 from "../components/productList/SortChange2";
 import { FilterSection, FilterMaskListSection } from "../styles/ListPageStyle";
 import { useParams } from "react-router-dom";
 import { getFilterMaskSort } from "../api/mask/getFilterMaskSort";
-import Pagination3 from "../components/Pagination3";
 
 function ListPage() {
   // kf 파라미터 설정
@@ -21,8 +18,6 @@ function ListPage() {
   const [maskShape, setMaskShape] = useState("");
   const [sortCol, setSortCol] = useState("");
   const [sortOrder, setSortOrder] = useState("");
-  const page = 1; // currentPage
-  const size = 5; // Pagination Size
 
   // 마스크리스트
   const [maskList, setMaskList] = useState([]);
@@ -32,14 +27,12 @@ function ListPage() {
     getFilterMaskSort({
       sortCol,
       sortOrder,
-      page,
-      size,
       maskKF,
       maskSize,
       maskShape,
       setMaskList,
     });
-  }, [sortCol, sortOrder, page, size, maskKF, maskSize, maskShape]);
+  }, [sortCol, sortOrder, maskKF, maskSize, maskShape]);
 
   // console.log("maskList : ", maskList);
 
@@ -75,14 +68,25 @@ function ListPage() {
             <FilterMaskListSection>
               {/* 필터걸린 마스크 리스트 */}
               <FilterMaskList maskList={maskList} />
-              {/* 페이지네이션 */}
-              {/* <Pagination></Pagination> */}
-              <Pagination3
-                maskList={maskList}
-                page={page}
-                size={size}
-                // onClick={() => console.log("page")}
-              />
+              <div
+                style={{
+                  marginBottom: "10px",
+                  fontSize: "10px",
+                  fontWeight: "800",
+                  // border: "1px solid red",
+                  paddingBottom: "10px",
+                  paddingTop: "2px",
+                }}
+              >
+                <p>
+                  <span style={{ color: "#05735F" }}> MASINSA </span> 내 검색
+                  결과가 더 이상 존재하지 않습니다.
+                </p>
+                <h6 style={{ color: "#0ea654" }}>
+                  * 더 많은 마스크가 MASINSA에 모일 수 있도록 노력하겠습니다. *
+                </h6>
+                <p>방문해주셔서 감사합니다.</p>
+              </div>
             </FilterMaskListSection>
           </>
         ) : (
@@ -96,15 +100,9 @@ function ListPage() {
                 </h6>
                 <h6>도움을 드리지 못해 죄송합니다.</h6>
               </div>
-              {/* <Pagination></Pagination> */}
-              <Pagination3 maskList={maskList} />
             </FilterMaskListSection>
           </>
         )}
-        {/* 필터걸린 마스크 리스트
-          <FilterMaskList maskList={maskList} />
-          페이지네이션
-          <Pagination></Pagination> */}
       </Main>
     </div>
   );
