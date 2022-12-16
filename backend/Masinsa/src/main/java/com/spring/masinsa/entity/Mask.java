@@ -15,7 +15,6 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.DynamicUpdate;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.spring.masinsa.dto.MaskDTO;
 import com.spring.masinsa.dto.MaskListDTO;
 
