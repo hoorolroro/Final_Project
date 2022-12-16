@@ -13,16 +13,13 @@ function ReviewLists({ allReviews, size, page, setPage, setAllReviews }) {
   // console.log("ReviewLists : ", allReviews);
 
   // 페이지당 노출되는 maskList
-  const reviewsPerPage = [];
-  for (let i = size * (page - 1) + 1; i <= size * page; i++) {
-    reviewsPerPage.push(i);
-  }
+  // const reviewsPerPage = [];
+  // for (let i = size * (page - 1) + 1; i <= size * page; i++) {
+  //   reviewsPerPage.push(i);
+  // }
 
-  console.log(reviewsPerPage);
-
-  useEffect(() => {
-    getReviews({ page, setAllReviews });
-  }, []);
+  // console.log(reviewsPerPage);
+  console.log(allReviews);
 
   return (
     <div>
