@@ -11,10 +11,13 @@ import {
   ReviewContent,
   NaverReviewBtn_active,
   MasinsaReviewBtn_active,
+  ReviewTotal,
+  Totals,
 } from "../../styles/AboutPageStyle";
 import Pagination3 from "../Pagination3";
+import { getReviewCount } from "../../api/review/getReviewCount";
 
-function Reviews({ maskId }) {
+function Reviews({ maskId, mask }) {
   // getReview를 위한 파라미터 설정
 
   // 리뷰페이지 번호 : 처음 1 에서 버튼 누를때마다 변경됨
@@ -38,6 +41,19 @@ function Reviews({ maskId }) {
   // console.log("AboutPage(Reviews) - review 불러오기 : ", allReviews);
   // console.log(reviewType);
 
+  // 리뷰 있으면 띄워주고, 리뷰 없으면 alert 띄워주기
+
+  // console.log("mask: ", mask);
+
+  // 리뷰 갯수 가져오기
+  const [reviewCount, setReviewCount] = useState();
+
+  useEffect(() => {
+    getReviewCount({ maskId, reviewType, setReviewCount });
+  }, [maskId, reviewType]);
+
+  console.log(reviewCount);
+
   return (
     <div>
       <hr></hr>
@@ -45,6 +61,12 @@ function Reviews({ maskId }) {
       <hr></hr>
       <ReviewSection>
         {/* 버튼이 눌렸을때, 네이버리뷰면 reviewType (naver) 회원리뷰면 member */}
+        {/* 리뷰 총평 */}
+        {/* maskId별로 avg_score 가져오기 */}
+        <ReviewTotal>
+          <Totals>⭐ 네이버 별점: {mask.avgScore}</Totals>
+          <Totals>💬 리뷰 {reviewCount}개</Totals>
+        </ReviewTotal>
         <ReviewBtnSection>
           {/* review타입에 따른 버튼 색 활성화 */}
           {reviewType == "naver" ? (
@@ -73,7 +95,11 @@ function Reviews({ maskId }) {
               >
                 Naver Review
               </NaverReviewBtn>
-              <MasinsaReviewBtn_active onClick={() => setReviewType("member")}>
+              <MasinsaReviewBtn_active
+                onClick={() => {
+                  setReviewType("member");
+                }}
+              >
                 Member Review
               </MasinsaReviewBtn_active>
             </>
@@ -90,8 +116,6 @@ function Reviews({ maskId }) {
             reviewType={reviewType}
           />
         </ReviewContent>
-        {/* <Pagination /> */}
-        {/* <Pagination2 allReviews={allReviews} page={page} setPage={setPage} /> */}
         {allReviews.length > 0 ? (
           <Pagination3
             allReviews={allReviews}
