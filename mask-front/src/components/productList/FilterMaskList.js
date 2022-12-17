@@ -10,6 +10,7 @@ import {
   MaskSummaryTitleLinkBox,
   MaskSummaryTopDiv,
   MaskScore,
+  MaskBottom,
 } from "../../styles/MaskListStyles";
 import { putClick } from "../../api/mask/putClick";
 
@@ -65,20 +66,16 @@ function FilterMaskList({ maskList }) {
                   )}
                   {/* 마스크내용 */}
                   <MaskSummaryContent>
-                    <MaskSummaryTopDiv>
-                      {/* 이름 */}
-                      <MaskSummaryTitleLinkBox
-                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
-                        onClick={() => {
-                          setIsClick(true);
-                          setClickMaskId(mask.id);
-                        }}
-                      >
-                        {mask.name}
-                      </MaskSummaryTitleLinkBox>
-                      {/* 찜버튼 */}
-                      <WishBtn />
-                    </MaskSummaryTopDiv>
+                    {/* 이름 */}
+                    <MaskSummaryTitleLinkBox
+                      href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                      onClick={() => {
+                        setIsClick(true);
+                        setClickMaskId(mask.id);
+                      }}
+                    >
+                      {mask.name}
+                    </MaskSummaryTitleLinkBox>
                     {/* 가격 (링크) */}
                     <MaskSummaryPriceLinkBox
                       href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
@@ -92,10 +89,19 @@ function FilterMaskList({ maskList }) {
                     {/* 옵션 */}
                     <MaskSummaryOption>
                       <li>
+                        <i>{mask.blockingIndex}</i>
+                      </li>
+                      <li>
                         <i>Size : {mask.size} </i>
                       </li>
                     </MaskSummaryOption>
-                    <MaskScore>평점 : {mask.avgScore}⭐</MaskScore>
+                    <MaskBottom>
+                      <MaskScore>
+                        <div>평점 : {mask.avgScore}⭐</div>
+                      </MaskScore>
+                      {/* 찜버튼 */}
+                      <WishBtn />
+                    </MaskBottom>
                   </MaskSummaryContent>
                 </MaskSummaryBox>
               </div>
