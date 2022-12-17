@@ -38,6 +38,27 @@ function Reviews({ maskId }) {
   // console.log("AboutPage(Reviews) - review 불러오기 : ", allReviews);
   // console.log(reviewType);
 
+  // 리뷰 있으면 띄워주고, 리뷰 없으면 alert 띄워주기
+  // allReviews === [] ? (
+  //   alert("리뷰가 아직 없습니다.")
+  // )
+  // {
+  //   allReviews === [] ? (
+  //     <버튼
+  //       onClick={() => {
+  //         setReviewType("마신사");
+  //         alert("리뷰가 아직 없습니다. 많은 작성 부탁드립니다.");
+  //       }}
+  //     ></버튼>
+  //   ) : (
+  //     <버튼
+  //       onClick={() => {
+  //         setReviewType("마신사");
+  //       }}
+  //     ></버튼>
+  //   );
+  // }
+
   return (
     <div>
       <hr></hr>
@@ -73,7 +94,11 @@ function Reviews({ maskId }) {
               >
                 Naver Review
               </NaverReviewBtn>
-              <MasinsaReviewBtn_active onClick={() => setReviewType("member")}>
+              <MasinsaReviewBtn_active
+                onClick={() => {
+                  setReviewType("member");
+                }}
+              >
                 Member Review
               </MasinsaReviewBtn_active>
             </>
@@ -90,8 +115,6 @@ function Reviews({ maskId }) {
             reviewType={reviewType}
           />
         </ReviewContent>
-        {/* <Pagination /> */}
-        {/* <Pagination2 allReviews={allReviews} page={page} setPage={setPage} /> */}
         {allReviews.length > 0 ? (
           <Pagination3
             allReviews={allReviews}
