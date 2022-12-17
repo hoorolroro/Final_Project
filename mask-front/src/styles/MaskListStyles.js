@@ -23,7 +23,7 @@ export const MaskListDiv = styled.div`
 export const MaskSummaryBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 230px;
+  height: 240px;
   padding: 10px;
   margin: 0 5px 10px 5px;
   border: 1px solid #d9d9d9;
@@ -47,30 +47,19 @@ export const MaskSummaryContent = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 90%;
-  height: 80%;
+  height: 90%;
   padding: 5px;
+  margin-left: 10px;
   // border: 2px solid blue;
-`;
-
-// 마스크 타이틀 + wishBtn 부분
-export const MaskSummaryTopDiv = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-around;
-  width: auto;
-  margin-bottom: 15px;
-  padding-left: 10px;
-  // border: 2px solid red;
 `;
 
 // 마스크 Title 링크박스 (링크이동)
 export const MaskSummaryTitleLinkBox = styled.a`
-  width: 80%;
+  width: auto;
   font-weight: 700;
   text-align: left;
-  font-size: 16px;
-  margin-left: 1px;
+  font-size: 15px;
+  margin-bottom: 15px;
   // overflow: hidden;
   // border: 2px solid blue;
 `;
@@ -78,7 +67,7 @@ export const MaskSummaryTitleLinkBox = styled.a`
 // 마스크 가격부분 링크박스 (링크이동)
 export const MaskSummaryPriceLinkBox = styled.a`
   width: auto;
-  padding-left: 15px;
+  // padding-left: 15px;
   margin-bottom: 10px;
   font-weight: 700;
   text-align: left;
@@ -91,23 +80,30 @@ export const MaskSummaryPriceLinkBox = styled.a`
 // 마스크 옵션부분
 export const MaskSummaryOption = styled.div`
   width: auto;
-  padding-left: 15px;
+  // padding-left: 15px;
   margin-bottom: 15px;
   text-align: left;
   font-size: 12px;
   margin-top: 5px;
-  overflow: hidden;
+  // overflow: hidden;
   // border: 2px solid red;
 `;
 
 // 마스크 평점부분
 export const MaskScore = styled.div`
-  width: auto;
-  margin-top: 5px;
-  padding-left: 15px;
+  width: 80%;
+  margin-top: 3px;
   text-align: left;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   overflow: hidden;
   // border: 2px solid red;
+`;
+
+export const MaskBottom = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  // border: 1px solid red;
 `;

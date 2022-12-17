@@ -36,17 +36,13 @@ function Header() {
         </TopDiv>
         <BockingIndexNav>
           <a href="/MaskList/Masinsa/KF94">
-            {/* <BlockingLeft>KF94</BlockingLeft> */}
             <BlockingBtn>KF94</BlockingBtn>
-            {/* <BlockingBtn>KF94</BlockingBtn> */}
           </a>
           <a href="/MaskList/Masinsa/KF80">
-            {/* <BlockingCenter>KF80</BlockingCenter> */}
             <BlockingBtn>KF80</BlockingBtn>
           </a>
-          <a href="/MaskList/Masinsa/KF-AD">
-            {/* <BlockingRight>KF-AD</BlockingRight> */}
-            <BlockingBtn>KF-AD</BlockingBtn>
+          <a href="/MaskList/Masinsa/OTHER">
+            <BlockingBtn>OTHER</BlockingBtn>
           </a>
         </BockingIndexNav>
       </HeaderSection>
