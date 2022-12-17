@@ -237,6 +237,29 @@ export const ReviewSection = styled.section`
   // border: 2px solid red;
 `;
 
+// 리뷰 총평 Section
+export const ReviewTotal = styled.section`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  // margin: 5px;
+  border: 1px solid green;
+`;
+
+// 리뷰 총평 세부사항
+export const Totals = styled.section`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  // border: 2px solid green;
+`;
+
 // 리뷰버튼 Section
 export const ReviewBtnSection = styled.div`
   display: flex;
