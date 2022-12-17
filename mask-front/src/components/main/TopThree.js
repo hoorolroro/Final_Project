@@ -23,6 +23,7 @@ function TopThree({ topMask }) {
           What is MASINSA?
         </IntroLinkBox>
       </Top3ArticleSection>
+      <hr></hr>
       <div>
         {/* "/aboutMask/:maskId/Masinsa" */}
         <Top3MaskSection>
