@@ -137,13 +137,13 @@ function FilterBox({
             <MaskShapeName>입체</MaskShapeName>
           )}
         </ShapeBtn>
-        {/* 덴탈형 */}
+        {/* 평면형 */}
         <ShapeBtn
           onClick={() => {
-            setMaskShape("덴탈형");
+            setMaskShape("평면형");
             setIsChange(true);
-            if (shapeState !== "덴탈형") {
-              setShapeState("덴탈형");
+            if (shapeState !== "평면형") {
+              setShapeState("평면형");
               if (sizeState !== "size-no-active") {
                 setSizeState("size-no-active");
                 setMaskSize("");
@@ -157,10 +157,10 @@ function FilterBox({
           <MaskShapeImg
             src={`${process.env.PUBLIC_URL}/덴탈형.png`}
           ></MaskShapeImg>
-          {shapeState === "덴탈형" ? (
-            <MaskShapeName_active>덴탈</MaskShapeName_active>
+          {shapeState === "평면형" ? (
+            <MaskShapeName_active>평면</MaskShapeName_active>
           ) : (
-            <MaskShapeName>덴탈</MaskShapeName>
+            <MaskShapeName>평면</MaskShapeName>
           )}
         </ShapeBtn>
       </ShapeListsSection>

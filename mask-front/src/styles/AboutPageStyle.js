@@ -16,7 +16,7 @@ export const MaskInfoSection = styled.section`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: auto;
   height: 350px;
   padding: 5px;
@@ -26,10 +26,10 @@ export const MaskInfoSection = styled.section`
 
 // 마스크 썸네일 img
 export const MaskThumnailImg = styled.img`
-  width: 40%;
-  height: 90%;
+  width: 35%;
+  height: 95%;
   padding: 5px;
-  margin-right: 10px;
+  margin-right: 25px;
   border: 1px solid #d9d9d9;
 `;
 
@@ -39,10 +39,10 @@ export const MaskInfoContent = styled.div`
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
-  width: 45%;
+  width: 40%;
   height: 80%;
   padding: 10px;
-  margin-left: 10px;
+  margin-left: 25px;
   overflow: hidden;
   // border: 2px solid blue;
 `;
@@ -52,7 +52,7 @@ export const MaskInfoTopSection = styled.div`
   display: flex;
   flex-wrap: nowrap;
   width: auto;
-  height: 25%;
+  height: 20%;
   // padding: 8px;
   margin-bottom: 5px;
   overflow: hidden;
@@ -95,7 +95,7 @@ export const MaskInfoOption = styled.div`
 
 // 마스크 구매링크 Section
 export const MaskBuyLink = styled.div`
-  width: auto;
+  width: 80%;
   height: 13%;
   padding: 10px 5px 0px;
   overflow: hidden;

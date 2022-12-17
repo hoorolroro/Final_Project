@@ -25,7 +25,7 @@ function Analysis({ maskId }) {
   }, []);
 
   // console.log(maskId);
-  // console.log("analysisInfo", analysisInfo);
+  console.log("analysisInfo", analysisInfo);
 
   return (
     <div>

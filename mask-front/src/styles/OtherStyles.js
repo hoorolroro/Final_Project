@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 // 전체화면
 export const Wrapper = styled.div`
-  width: 100%;
+  width: auto;
   // 600px 이하로 줄어들지 않도록 설정
-  min-width: 550px;
+  min-width: 1300px;
   // border: 2px solid blue;
 `;
 
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 export const Main = styled.section`
   width: auto;
   height: auto;
-  padding: 5px 12%;
+  padding: 5px 200px;
   margin: 8px;
   // border: 2px solid red;
 `;
@@ -74,6 +74,7 @@ export const FixedRecentView = styled.div`
   box-shadow: 2px 2px 5px #999;
 `;
 
+// 최근 본 상품 div
 export const RecentViewImgDiv = styled.div`
   width: 60px;
   height: 60px;

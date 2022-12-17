@@ -6,7 +6,7 @@ import styled from "styled-components";
 // TOP3 부분
 export const Top3Section = styled.section`
   width: auto;
-  height: 340px;
+  height: 400px;
   padding: 5px;
   margin: 5px;
   // border: 2px solid blue;
@@ -20,6 +20,7 @@ export const Top3ArticleSection = styled.section`
   width: auto;
   height: 30px;
   padding: 2px;
+  margin-bottom: 5px;
   overflow: hidden;
   // border: 2px solid green;
 `;
@@ -58,19 +59,20 @@ export const IntroLinkBox = styled.a`
 export const Top3MaskSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 20px;
+  column-gap: 5px;
   justify-items: center;
+  align-items: center;
   width: auto;
-  height: 300px;
+  height: 350px;
+  padding-top: 5px;
   // border: 2px solid red;
-  padding-top: 10px;
+  // padding-top: 10px;
 `;
 
 // Top3 img 태그
 export const TopMaskImg = styled.img`
-  width: 95%;
-  height: 95%;
-  padding: 2px;
+  width: 330px;
+  height: 330px;
   border: 1px solid #9a9a9a;
   border-radius: 15px;
 `;
