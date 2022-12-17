@@ -7,13 +7,6 @@ export const getMask = async ({ maskId, setMask }) => {
     `http://localhost:8080/mask?maskId=${maskId}`
   );
 
-  // const response = await axios.get(
-  // `https://jsonplaceholder.typicode.com/posts/${userId}`,
-  // {
-  // userId: { userId },
-  // }
-  // );
-
   // console.log("getMask : ", response.data);
   setMask(response.data);
   // return response.data;

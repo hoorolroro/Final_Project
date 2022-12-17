@@ -1,5 +1,5 @@
 import { Pagination } from "@mui/material";
-import React, { useState, useEffect, useId, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ReviewLists from "../about/ReviewLists";
 import { getReviews } from "../../api/review/getReviews";
@@ -12,15 +12,10 @@ import {
   NaverReviewBtn_active,
   MasinsaReviewBtn_active,
 } from "../../styles/AboutPageStyle";
-import Pagination2 from "../Pagination2";
 import Pagination3 from "../Pagination3";
 
 function Reviews({ maskId }) {
   // getReview를 위한 파라미터 설정
-
-  // id 설정
-  // const reviewsId = useId();
-  // const reviewsRef = useRef(null);
 
   // 리뷰페이지 번호 : 처음 1 에서 버튼 누를때마다 변경됨
   const [page, setPage] = useState(1);
@@ -38,7 +33,7 @@ function Reviews({ maskId }) {
   // 리뷰 요청
   useEffect(() => {
     getReviews({ maskId, page, size, reviewType, setAllReviews });
-  }, []);
+  }, [page, reviewType]);
 
   // console.log("AboutPage(Reviews) - review 불러오기 : ", allReviews);
   // console.log(reviewType);
@@ -54,16 +49,28 @@ function Reviews({ maskId }) {
           {/* review타입에 따른 버튼 색 활성화 */}
           {reviewType == "naver" ? (
             <>
-              <NaverReviewBtn_active onClick={() => setReviewType("naver")}>
+              <NaverReviewBtn_active
+                onClick={() => {
+                  setReviewType("naver");
+                }}
+              >
                 Naver Review
               </NaverReviewBtn_active>
-              <MasinsaReviewBtn onClick={() => setReviewType("member")}>
+              <MasinsaReviewBtn
+                onClick={() => {
+                  setReviewType("member");
+                }}
+              >
                 Member Review
               </MasinsaReviewBtn>
             </>
           ) : (
             <>
-              <NaverReviewBtn onClick={() => setReviewType("naver")}>
+              <NaverReviewBtn
+                onClick={() => {
+                  setReviewType("naver");
+                }}
+              >
                 Naver Review
               </NaverReviewBtn>
               <MasinsaReviewBtn_active onClick={() => setReviewType("member")}>
@@ -76,22 +83,26 @@ function Reviews({ maskId }) {
         <ReviewContent>
           <ReviewLists
             allReviews={allReviews}
-            // currentPage={currentPage}
             page={page}
             setPage={setPage}
             size={size}
             setAllReviews={setAllReviews}
+            reviewType={reviewType}
           />
         </ReviewContent>
         {/* <Pagination /> */}
         {/* <Pagination2 allReviews={allReviews} page={page} setPage={setPage} /> */}
-        <Pagination3
-          allReviews={allReviews}
-          // size={size}
-          page={page}
-          setPage={setPage}
-          setAllReviews={setAllReviews}
-        />
+        {allReviews.length > 0 ? (
+          <Pagination3
+            allReviews={allReviews}
+            // size={size}
+            page={page}
+            setPage={setPage}
+            setAllReviews={setAllReviews}
+          />
+        ) : (
+          <></>
+        )}
       </ReviewSection>
     </div>
   );

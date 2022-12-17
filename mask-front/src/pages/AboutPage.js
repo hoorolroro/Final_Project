@@ -47,11 +47,7 @@ function AboutPage({}) {
           {/* 마스크 정보 */}
           <MaskInfo maskId={maskId} mask={mask} />
           {/* 리뷰통계 */}
-          <Analysis
-            maskId={maskId}
-            // reviewsId={reviewsId}
-            // reviewsRef={reviewsRef}
-          />
+          <Analysis maskId={maskId} />
           {/* 상세정보 */}
           <MaskDetail images={images} />
           {/* 리뷰창 */}
