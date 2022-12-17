@@ -15,7 +15,7 @@ function CurrentLocation({ mask }) {
       {mask ? (
         // about Page 에서는 mask에서 값가져오기
         <div>
-          홈 → KF{mask.blockingIndex} → {mask.shape}
+          홈 → {mask.blockingIndex} → {mask.shape}
         </div>
       ) : (
         // list Page 에서는 파라미터( blockingindex ) 가져오기
