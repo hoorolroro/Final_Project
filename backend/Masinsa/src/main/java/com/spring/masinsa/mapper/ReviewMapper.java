@@ -13,3 +13,4 @@ public interface ReviewMapper {
 	public void updateMemberReview(Long reviewId, Float score, String content);
 	public Review getMemberReview(Long reviewId);
 } 
+
