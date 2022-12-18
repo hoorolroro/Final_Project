@@ -9,14 +9,9 @@ import {
   BreatheAnalysis,
   DeliveryAnalysis,
   FitAnalysis,
-  GoToReview,
-  GoToReviewBtn,
 } from "../../styles/AboutPageStyle";
-import MaskInfo from "./MaskInfo";
 import ReviewBtn from "./ReviewBtn";
-import Reviews from "./Reviews";
 
-// function Analysis({ maskId, reviewsId, reviewsRef }) {
 function Analysis({ maskId }) {
   const [analysisInfo, setAnalysisInfo] = useState([]);
   // 리뷰 요청
@@ -25,7 +20,13 @@ function Analysis({ maskId }) {
   }, []);
 
   // console.log(maskId);
-  console.log("analysisInfo", analysisInfo);
+  // console.log("analysisInfo", analysisInfo);
+
+  // console.log("사이즈", analysisInfo.relativeSize);
+  // console.log("착용감", analysisInfo.fit);
+  // console.log("호흡", analysisInfo.breathAbility);
+  // console.log("배송", analysisInfo.delivery);
+  // console.log("마신사평점", analysisInfo.score);
 
   return (
     <div>
@@ -63,10 +64,7 @@ function Analysis({ maskId }) {
           <p>이용해주셔서 감사합니다.</p>
         </div>
       )}
-      <ReviewBtn
-      // reviewsId={reviewsId}
-      // reviewsRef={reviewsRef}
-      />
+      <ReviewBtn />
     </div>
   );
 }

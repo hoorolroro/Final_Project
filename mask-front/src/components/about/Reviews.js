@@ -52,7 +52,7 @@ function Reviews({ maskId, mask }) {
     getReviewCount({ maskId, reviewType, setReviewCount });
   }, [maskId, reviewType]);
 
-  console.log(reviewCount);
+  // console.log("reviewCount", reviewCount);
 
   return (
     <div>
