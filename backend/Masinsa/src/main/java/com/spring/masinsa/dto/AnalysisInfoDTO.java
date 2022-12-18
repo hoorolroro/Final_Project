@@ -19,6 +19,7 @@ public class AnalysisInfoDTO {
 	private String fit;
 	private String breathAbility;
 	private String delivery;
+	private int score;
 	
 	// DTO -> Entity 변환
 	public static AnalysisInfo dtoToEntity(AnalysisInfoDTO analysisInfoDTO) {
@@ -27,6 +28,7 @@ public class AnalysisInfoDTO {
 												.fit(analysisInfoDTO.getFit())
 												.breathAbility(analysisInfoDTO.getBreathAbility())
 												.delivery(analysisInfoDTO.getDelivery())
+												.score(analysisInfoDTO.getScore())
 												.build();
 		return analysisInfo;
 	}
