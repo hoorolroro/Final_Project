@@ -51,7 +51,7 @@ function AboutPage({}) {
           {/* 상세정보 */}
           <MaskDetail images={images} />
           {/* 리뷰창 */}
-          <Reviews maskId={maskId} />
+          <Reviews mask={mask} maskId={maskId} />
           {/* 최근 본 상품 관련 메서드 실행  - sungmin 수정사항 */}
           <RecentViewFunction mask={mask} />
         </MaskAboutWrapper>
