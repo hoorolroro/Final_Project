@@ -8,14 +8,14 @@ function CurrentLocation({ mask }) {
   // console.log("CurrentLocation : ", { blockingindex });
 
   // about Page
-  // console.log("CurrentLocation : ", { mask });
+  console.log("CurrentLocation : ", { mask });
 
   return (
     <div>
       {mask ? (
         // about Page 에서는 mask에서 값가져오기
         <div>
-          홈 → KF{mask.kf} → {mask.shape}
+          홈 → {mask.blockingIndex} → {mask.shape}
         </div>
       ) : (
         // list Page 에서는 파라미터( blockingindex ) 가져오기

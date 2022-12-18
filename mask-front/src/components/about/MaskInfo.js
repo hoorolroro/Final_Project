@@ -13,6 +13,7 @@ import {
   BuyLinkBox,
 } from "../../styles/AboutPageStyle";
 import SlidePhoto from "./SlidePhoto";
+import { makeStyles } from "@mui/material";
 
 function MaskInfo({ mask }) {
   // console.log("maskinfo:", { mask });
@@ -32,6 +33,7 @@ function MaskInfo({ mask }) {
           </MaskInfoTopSection>
           <MaskInfoPrice>{mask.price} 원</MaskInfoPrice>
           <MaskInfoOption>
+            <li>{mask.blockingIndex}</li>
             <li>Size : {mask.size}</li>
             <li>Option : {mask.option}</li>
           </MaskInfoOption>

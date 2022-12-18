@@ -135,7 +135,7 @@ function IntroducePage() {
         {/* 상품목록연결링크 div */}
         <div>
           <GoListBtnDiv>
-            <GoListLinkBox href="http://localhost:3000/MaskList/Masinsa/:blockingindex">
+            <GoListLinkBox href="http://localhost:3000/MaskList/Masinsa/KF94">
               Going to see Mask
             </GoListLinkBox>
           </GoListBtnDiv>

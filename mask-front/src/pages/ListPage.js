@@ -10,9 +10,20 @@ import { getFilterMaskSort } from "../api/mask/getFilterMaskSort";
 function ListPage() {
   // kf 파라미터 설정
   const { blockingindex } = useParams();
-  // KF94 면 94 slice / KF-AD면 AD
-  // console.log("ListPage : ", blockingindex.slice(-2, blockingindex.length));
-  const maskKF = blockingindex.slice(-2, blockingindex.length);
+  const [maskKF, setMaskKF] = useState();
+
+  useEffect(() => {
+    if (blockingindex == "OTHER") {
+      // AD 랑 덴탈
+      setMaskKF("기타");
+    } else {
+      // KF94 면 94, KF80이면 80 slice
+      const kf = blockingindex.slice(-2, blockingindex.length);
+      setMaskKF(kf);
+    }
+  }, []);
+
+  // console.log(maskKF);
 
   const [maskSize, setMaskSize] = useState("");
   const [maskShape, setMaskShape] = useState("");

@@ -10,8 +10,8 @@ export const getFilterMaskSort = async ({
   setMaskList,
 }) => {
   console.log("getFilter", maskKF);
-  console.log("getFilter - size", maskSize);
-  console.log("getFilter - shape", maskShape);
+  // console.log("getFilter - size", maskSize);
+  // console.log("getFilter - shape", maskShape);
   // console.log(sortCol);
   // http://localhost:8080/mask/filter/sort?sortCol=avg_score&order=desc&page=1&size=2&filterCol1=shape&filter1=입체형
 
