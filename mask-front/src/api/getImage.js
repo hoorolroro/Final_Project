@@ -7,6 +7,6 @@ export const getImage = async ({ maskId, setImages }) => {
     // "http://localhost:8080/mask/image?maskId=1"
   );
 
-  console.log(response.data);
+  // console.log(response.data);
   setImages(response.data);
 };
