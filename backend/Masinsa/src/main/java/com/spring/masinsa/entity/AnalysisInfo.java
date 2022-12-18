@@ -33,6 +33,8 @@ public class AnalysisInfo {
 	private String relatvieSize;
 	
 	private String fit;
+
+	private int score;
 	
 	@Column(name = "breath_ability")
 	private String breathAbility;
@@ -50,6 +52,7 @@ public class AnalysisInfo {
 				.fit(analysisInfo.getFit())
 				.breathAbility(analysisInfo.getBreathAbility())
 				.delivery(analysisInfo.getDelivery())
+				.score(analysisInfo.getScore())
 				.build();
 	}
 }
