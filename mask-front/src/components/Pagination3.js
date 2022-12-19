@@ -9,7 +9,7 @@ import { getReviews } from "../api/review/getReviews";
 import { PageUl, PageLi, PageSpan } from "../styles/PaginationStyle";
 
 const Pagination3 = ({ page, setPage }) => {
-  console.log(page);
+  // console.log(page);
 
   // 한번에 나오는 pageList
   const pageListOnce = [];
@@ -22,7 +22,7 @@ const Pagination3 = ({ page, setPage }) => {
   }
   // }
 
-  console.log("pageListOnce", pageListOnce);
+  // console.log("pageListOnce", pageListOnce);
 
   return (
     <div>

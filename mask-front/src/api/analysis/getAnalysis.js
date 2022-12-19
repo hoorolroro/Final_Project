@@ -5,22 +5,16 @@ import axios from "axios";
 export const getAnalysis = async ({
   maskId,
   setAnalysisInfo,
-  setAnalysisSize,
   setAnalysisFit,
   setAnalysisBreathe,
   setAnalysisDelivery,
   setAnalysisScore,
+  analysisSize,
 }) => {
-  // fetch를 이용하여 분석정보 풀어주기
-  // 프로미스 객체 ! json으로 변환 후, result 부분에서 꺼내옥;
-  const response = fetch(`http://localhost:8080/analysisinfo?maskId=${maskId}`)
-    .then((response) => response.json())
-    .then((analysis) => setAnalysisInfo(analysis.result))
-    .then((data) => {
-      setAnalysisSize(JSON.parse(data.relativeSize));
-      setAnalysisFit(JSON.parse(data.fit));
-      setAnalysisBreathe(JSON.parse(data.breatheAbility));
-      setAnalysisDelivery(JSON.parse(data.delivery));
-      setAnalysisScore(JSON.parse(data.score));
-    });
+  const response = await axios.get(
+    `http://localhost:8080/analysisinfo?maskId=${maskId}`
+  );
+
+  console.log("get", response.data.result);
+  setAnalysisInfo(response.data.result);
 };

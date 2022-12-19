@@ -44,6 +44,8 @@ function AboutPage({}) {
     getAnalysis({ maskId, setAnalysisInfo });
   }, [maskId]);
 
+  console.log(analysisinfo);
+
   return (
     <div>
       <Main>
@@ -54,8 +56,7 @@ function AboutPage({}) {
           </CurrentFilterSection>
           {/* 마스크 정보 */}
           <MaskInfo maskId={maskId} mask={mask} />
-          {/* 리뷰통계 */}
-          <Analysis maskId={maskId} />
+          <Analysis analysisinfo={analysisinfo} />
           {/* 상세정보 */}
           <MaskDetail images={images} />
           {/* 리뷰창 */}

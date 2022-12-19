@@ -11,47 +11,13 @@ import {
   FitAnalysis,
 } from "../../styles/AboutPageStyle";
 import ReviewBtn from "./ReviewBtn";
+import "chart.js/auto";
+import { PieChart } from "react-minimal-pie-chart";
+import { Line } from "react-chartjs-2";
+import { Chart } from "react-chartjs-2";
 
-function Analysis({ maskId }) {
-  const [analysisInfo, setAnalysisInfo] = useState([]);
-
-  const [analysisSize, setAnalysisSize] = useState([]);
-  const [analysisFit, setAnalysisFit] = useState([]);
-  const [analysisBreathe, setAnalysisBreathe] = useState([]);
-  const [analysisDelivery, setAnalysisDelivery] = useState([]);
-  const [analysisScore, setAnalysisScore] = useState([]);
-
-  // 리뷰 요청
-  useEffect(() => {
-    getAnalysis({
-      maskId,
-      setAnalysisInfo,
-      setAnalysisSize,
-      setAnalysisFit,
-      setAnalysisBreathe,
-      setAnalysisDelivery,
-      setAnalysisScore,
-    });
-  }, []);
-
-  // console.log(maskId);
-  console.log("analysisInfo", analysisInfo);
-
-  useEffect(() => {
-    if (analysisInfo) {
-      setAnalysisSize(JSON.parse(analysisInfo.relativeSize));
-      setAnalysisFit(JSON.parse(analysisInfo.fit));
-      setAnalysisBreathe(JSON.parse(analysisInfo.breatheAbility));
-      setAnalysisDelivery(JSON.parse(analysisInfo.delivery));
-      // setAnalysisScore(JSON.parse(analysisInfo.score));
-    }
-  }, []);
-
-  // console.log(analysisInfo.relativeSize);
-  // console.log("착용감", analysisInfo.fit);
-  // console.log("호흡", analysisInfo.breathAbility);
-  // console.log("배송", analysisInfo.delivery);
-  // console.log("마신사평점", analysisInfo.score);
+function Analysis({ analysisinfo }) {
+  console.log("Analysis : ", analysisinfo);
 
   return (
     <div>
@@ -60,10 +26,33 @@ function Analysis({ maskId }) {
       <hr></hr>
       {/* 마스크통계 */}
       {/* 마스크 리뷰가 10,000개이상이면 통계출력 => 10,000개 이상이 아나리면 analysisInfo가 undefined  */}
-      {analysisInfo != undefined ? (
+      {analysisinfo ? (
         <div>
           <AnalysisSection>
-            <SizeAnalysis>사이즈통계</SizeAnalysis>
+            <SizeAnalysis>
+              <PieChart
+                data={[
+                  {
+                    value: 85,
+                    color: "#5CEC7C",
+                    name: "name1",
+                  },
+                ]}
+                reveal={83} // 퍼센트치수
+                lineWidth={18} // 도넛두께
+                background="#f3f3f3"
+                startAngle={-180} //시작점
+                lengthAngle={180} // 끝각도
+                rounded
+                animate
+                label={({ dataEntry }) => dataEntry.value + "%"} // 라벨 % 붙임
+                labelStyle={{
+                  fontSize: "20px",
+                  fill: "#0ea654",
+                }}
+                labelPosition={10}
+              />
+            </SizeAnalysis>
             <OtherAnalysis>
               <DeliveryAnalysis>배송</DeliveryAnalysis>
               <BreatheAnalysis>호흡</BreatheAnalysis>

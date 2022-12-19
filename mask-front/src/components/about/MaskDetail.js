@@ -4,7 +4,7 @@ import MoreBtn from "./MoreBtn";
 import { MaskDetailSection } from "../../styles/AboutPageStyle";
 
 function MaskDetail({ images }) {
-  console.log("maskdetail : ", images);
+  // console.log("maskdetail : ", images);
   const [isCheck, setCheck] = useState(false);
   // console.log(isCheck);
 
