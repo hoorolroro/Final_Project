@@ -13,9 +13,13 @@ import {
   MasinsaReviewBtn_active,
   ReviewTotal,
   Totals,
+  ReviewHead,
+  Head,
+  Heads,
 } from "../../styles/AboutPageStyle";
 import Pagination3 from "../Pagination3";
 import { getReviewCount } from "../../api/review/getReviewCount";
+import ReviewWrite from "./ReviewWrite";
 
 function Reviews({ maskId, mask, analysisinfo }) {
   // getReview를 위한 파라미터 설정
@@ -54,13 +58,15 @@ function Reviews({ maskId, mask, analysisinfo }) {
 
   // console.log("reviewCount", reviewCount);
 
-  // 분석정보 가져오기
+  // 리뷰 입력창 가져오기
+  const [isCheck, setCheck] = useState();
 
   return (
     <div>
-      <hr></hr>
-      <i>상세리뷰</i>
-      <hr></hr>
+      <ReviewHead>
+        <i>상세리뷰</i>
+      </ReviewHead>
+      {/* <ReviewWrite maskId={maskId} /> */}
       <ReviewSection>
         {/* 버튼이 눌렸을때, 네이버리뷰면 reviewType (naver) 회원리뷰면 member */}
 
@@ -105,19 +111,22 @@ function Reviews({ maskId, mask, analysisinfo }) {
 
         {/* 리뷰 총평 */}
         {/* maskId별로 avg_score 가져오기 */}
-        <ReviewTotal>
-          {reviewType == "naver" ? (
-            <>
+        {reviewType == "naver" ? (
+          <>
+            <ReviewTotal>
               <Totals>⭐ 네이버 별점: {mask.avgScore}</Totals>
               <Totals>💬 리뷰 {reviewCount}개</Totals>
-            </>
-          ) : (
-            <>
+            </ReviewTotal>
+          </>
+        ) : (
+          <>
+            <ReviewTotal>
               <Totals>⭐ MASINSA 점수: {analysisinfo.score}</Totals>
               <Totals>💬 리뷰 {reviewCount}개</Totals>
-            </>
-          )}
-        </ReviewTotal>
+            </ReviewTotal>
+            <ReviewWrite maskId={maskId} />
+          </>
+        )}
 
         {/* 리뷰 내용 */}
         <ReviewContent>

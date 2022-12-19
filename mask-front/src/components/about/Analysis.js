@@ -27,6 +27,7 @@ function Analysis({ maskId }) {
   // console.log("호흡", analysisInfo.breathAbility);
   // console.log("배송", analysisInfo.delivery);
   // console.log("마신사평점", analysisInfo.score);
+  console.log("info: ", analysisInfo);
 
   return (
     <div>

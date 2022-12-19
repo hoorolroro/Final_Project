@@ -223,6 +223,45 @@ export const MaskDetailSection = styled.section`
 
 /* 리뷰 부분 */
 
+// "상세리뷰" 타이틀 & 리뷰쓰기 버튼 Section
+export const ReviewHead = styled.section`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  margin: 10px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+`;
+
+// "상세리뷰" & 리뷰쓰기 버튼 구분용
+export const Heads = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  // border: 2px solid green;
+`;
+
+// 리뷰 입력창 토탈
+export const ReviewBox = styled.section`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+// 리뷰 작성창
+export const ReviewInput = styled.input`
+  width: 60%;
+  height: 150px;
+`;
+
 // 리뷰 Section
 export const ReviewSection = styled.section`
   display: flex;
