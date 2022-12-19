@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.spring.masinsa.dto.MemberDTO;
+import com.spring.masinsa.dto.MemberLoginDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -63,6 +64,14 @@ public class Member {
 										.token(member.getToken())
 										.build();
 		return memberDTO;
+	}
+	
+	public static MemberLoginDTO entityToLoginDTO(Member member) {
+		MemberLoginDTO memberLoginDTO = MemberLoginDTO.builder()
+													  .id(member.getId())
+													  .nickname(member.getNickname())
+													  .build();
+		return memberLoginDTO;
 	}
 	
 	public void deleteMember() {

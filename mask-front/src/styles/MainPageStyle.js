@@ -71,16 +71,26 @@ export const Top3MaskSection = styled.section`
 
 // Top3 img 태그
 export const TopMaskImg = styled.img`
-  width: 330px;
-  height: 330px;
+  // padding-top: 10px;
+  width: 340px;
+  height: 340px;
   border: 1px solid #9a9a9a;
   border-radius: 15px;
 `;
 
+// Top3 hover 시 보여주는 div
 export const TopMaskInfo = styled.div`
-  padding: 2px;
-  border: 1px solid #9a9a9a;
+  display: flex;
+  flex: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 340px;
+  height: 340px;
   border-radius: 15px;
+  background: #2d2d2d;
+  opacity: 80%;
+  color: #fff;
+  text-align: left;
 `;
 
 /* 전체 */
