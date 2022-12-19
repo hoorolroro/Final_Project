@@ -18,6 +18,7 @@ public interface MaskMapper {
 
 	public List<Mask> FilterSortMaskByPage(String sortCol, String order, Integer limit, Integer offset, 
 	String filterCol1, String filter1, String filterCol2, String filter2, String filterCol3, String filter3);
-  List<Mask> SearchSortMask(String searchWord, String sortCol, String order, Integer limit, Integer offset);
+  List<Mask> SearchSortMask(String searchWord1, String searchWord2, String searchWord3, String sortCol, String order, Integer limit, Integer offset);
+	
 
 }

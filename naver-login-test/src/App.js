@@ -6,11 +6,10 @@ import React, { useEffect, useState } from "react";
 function App() {
   // 윈도우 객체에 있는 네이버에 로그인 함수를 이용하여 토큰 값을 바로 전달
   const { naver } = window;
-
   const naverLogin = new naver.LoginWithNaverId({
     clientId: "ckARsfTeqhLi8LFaHR1c", // CLIENT_ID
     callbackUrl: "http://localhost:3000", // CALLBACKURL
-    isPopup: true /* 팝업을 통한 로그인 여부, true 면 팝업 */,
+    isPopup: false /* 팝업을 통한 로그인 여부, true 면 팝업 */,
     loginButton: {
       /* 로그인 버튼의 타입을 지정 */ color: "green",
       type: 3,
@@ -35,26 +34,56 @@ function App() {
       if (status) {
         // 로그인하면 사용자 정보 setuser
         setUser({ ...naverLogin.user });
-        // 로그인하면 토큰 setToken
-        setToken(naverLogin.user.id);
+        const loginOAuth = axios.get(`https://nid.naver.com/oauth2.0/authorize?response_type=code
+    &client_id=${naverLogin.clientId}&redirect_url=
+    ${naverLogin.callbackUrl}&state=test`);
+
+    const access_token = window.location.href.split('=')[1].split("&")[0];
+    console.log(access_token);
+    setToken(access_token);
+
+
+
         // 자식창(팝업창)에서 부모창으로 접근
-        window.onload = () => {
-          window.opener.location.href = "http://localhost:3000"; // 메인으로 돌아옴
-          window.setTimeout(1000);
-          window.self.close(); //팝업창 닫음
-        };
+        // window.onload = () => {
+        //   console.log(window.location);
+        //   window.setTimeout(1000);
+        //   window.self.close(); //팝업창 닫음
+        // };
       }
     });
   };
 
+  // useEffect(() => {
+    
+  // },[]);
+
+  // console.log(x);
+  
+  // const loginOAuth = async () => {
+  //   return await axios.post(`http://localhost:8080/member/new-member`),;
+  // }
+  // console.log(loginOAuth);
+  
   useEffect(() => {
     naverLogin.init();
-    console.log("init!");
+    console.log("");
     getUser();
   }, []);
 
-  console.log(user);
-  console.log(token);
+  // console.log(user);
+  // console.log(token);
+
+  const [userData, setUserData] = useState([])
+
+  useEffect(() => {
+    if (token != undefined) {
+      axios.post(`http://localhost:8080/member/new-member`, {"token" : token}
+      )
+            .then((response) => setUserData(response.data))
+  }},[token]);
+
+  console.log(userData)
 
   const naverLogout = () => {
     localStorage.removeItem("com.naver.nid.access_token");

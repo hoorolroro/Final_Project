@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { getAnalysis } from "../../api/analysis/getAnalysis";
 import {
-  SizeAnalysis,
+  ScoreAnalysis,
   OtherAnalysis,
   AnalysisSection,
   BreatheAnalysis,
@@ -11,61 +11,187 @@ import {
   FitAnalysis,
 } from "../../styles/AboutPageStyle";
 import ReviewBtn from "./ReviewBtn";
+import "chart.js/auto";
+import { PieChart } from "react-minimal-pie-chart";
+import { Bar, Line } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import { Chart } from "chart.js";
 
-function Analysis({ maskId }) {
-  const [analysisInfo, setAnalysisInfo] = useState([]);
-  // 리뷰 요청
-  useEffect(() => {
-    getAnalysis({ maskId, setAnalysisInfo });
-  }, []);
+Chart.register(ChartDataLabels);
 
-  // console.log(maskId);
-  // console.log("analysisInfo", analysisInfo);
+function Analysis({ analysisinfo }) {
+  console.log("Analysis : ", analysisinfo);
 
-  // console.log("사이즈", analysisInfo.relativeSize);
-  // console.log("착용감", analysisInfo.fit);
-  // console.log("호흡", analysisInfo.breathAbility);
-  // console.log("배송", analysisInfo.delivery);
-  // console.log("마신사평점", analysisInfo.score);
-  console.log("info: ", analysisInfo);
+  // 사이즈
+  const analysisSize = JSON.parse(analysisinfo.relativeSize);
+  // 착용감
+  const analysisFit = JSON.parse(analysisinfo.fit);
+  // 호흡
+  const analysisBreathe = JSON.parse(analysisinfo.breathAbility);
+  // 배송
+  const analysisDelivery = JSON.parse(analysisinfo.delivery);
+  // 점수
+  const analysisScore = analysisinfo.score;
+
+  // 사이즈통계
+  const sizeData = {
+    labels: ["크다", "알맞다", "작다"],
+    datasets: [
+      {
+        data: [analysisSize.large, analysisSize.fitted, analysisSize.small], // 데이터 값
+        backgroundColor: ["#05735F", "orange", "#0ea654"], //배경색
+      },
+    ],
+  };
+
+  // 착용감통계
+  const fitData = {
+    labels: ["만족", "불만족"],
+    datasets: [
+      {
+        data: [analysisFit.pos, analysisFit.neg], // 데이터 값
+        backgroundColor: ["orange", "#05735F"], //배경색
+      },
+    ],
+  };
+
+  // 배송통계
+  const deliveryData = {
+    labels: ["빠르다", "느리다"],
+    datasets: [
+      {
+        data: [analysisDelivery.pos, analysisDelivery.neg], // 데이터 값
+        backgroundColor: ["orange", "#05735F"], //배경색
+      },
+    ],
+  };
+
+  // 호흡통계
+  const breatheData = {
+    labels: ["편하다", "불편하다"],
+    datasets: [
+      {
+        data: [analysisBreathe.pos, analysisBreathe.neg], // 데이터 값
+        backgroundColor: ["orange", "#05735F"], //배경색
+      },
+    ],
+  };
+
+  // 옵션 : 통일
+  const options = {
+    indexAxis: "y", // 세로
+    responsive: true,
+    plugins: {
+      legend: false,
+      // title: {
+      //   display: true,
+      //   // text: "Size Analysis",
+      // },
+      datalabels: {
+        color: "#2D2D2D",
+        formatter: (value) => {
+          return value + "%"; // 데이터 레이블 퍼센트 붙여주기
+        },
+        font: {
+          weight: "bold",
+          size: "12",
+        },
+        anchor: "end",
+      },
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: {
+          callback: function (value) {
+            return value + "%";
+          }, // end callback
+        }, // end ticks
+      }, //end xAxis
+      y: {
+        stacked: true,
+      }, //end yAxis
+    }, // end scales
+  };
 
   return (
     <div>
-      <hr></hr>
-      <i>Analysis for this Mask</i>
-      <hr></hr>
       {/* 마스크통계 */}
       {/* 마스크 리뷰가 10,000개이상이면 통계출력 => 10,000개 이상이 아나리면 analysisInfo가 undefined  */}
-      {analysisInfo != undefined ? (
+      {analysisinfo ? (
         <div>
+          <i>Analysis for this Mask</i>
+          <hr></hr>
           <AnalysisSection>
-            <SizeAnalysis>사이즈통계</SizeAnalysis>
-            <OtherAnalysis>
-              <DeliveryAnalysis>배송</DeliveryAnalysis>
-              <BreatheAnalysis>호흡</BreatheAnalysis>
-              <FitAnalysis>착용감</FitAnalysis>
-            </OtherAnalysis>
+            <ScoreAnalysis>
+              <div
+                style={{
+                  width: "100%",
+                  fontSize: "40px",
+                  fontWeight: "800",
+                  border: "2px solid #0ea654",
+                  borderStyle: "dashed",
+                  borderRadius: "10px",
+                  padding: "40px 5px",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "25px",
+                    margin: "5px",
+                  }}
+                >
+                  MASINSA
+                </p>
+                <p
+                  style={{
+                    fontSize: "25px",
+                    margin: "5px",
+                  }}
+                >
+                  SCORE
+                </p>
+                <p style={{ margin: "10px" }}>
+                  <span style={{ color: "#05735F" }}>{analysisScore}</span>
+                  <span style={{ fontSize: "15px" }}> 점 </span>
+                </p>
+              </div>
+            </ScoreAnalysis>
+            <div
+              style={{
+                width: "80%",
+                height: "90%",
+                // border: "1px solid red",
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+              }}
+            >
+              <div
+                style={{ width: "280px", height: "150px", margin: "0 auto" }}
+              >
+                <Bar data={sizeData} options={options}></Bar>
+              </div>
+              <div
+                style={{ width: "280px", height: "150px", margin: "0 auto" }}
+              >
+                <Bar data={fitData} options={options}></Bar>
+              </div>
+              <div
+                style={{ width: "280px", height: "150px", margin: "0 auto" }}
+              >
+                <Bar data={deliveryData} options={options}></Bar>
+              </div>
+              <div
+                style={{ width: "280px", height: "150px", margin: "0 auto" }}
+              >
+                <Bar data={breatheData} options={options}></Bar>
+              </div>
+            </div>
           </AnalysisSection>
         </div>
       ) : (
-        <div
-          style={{
-            fontSize: "12px",
-            fontWeight: "700",
-            margin: "10px",
-            padding: "5px",
-          }}
-        >
-          <p>죄송합니다 T_T ..</p>
-          <p>적당량의 리뷰가 존재하지 않아 통계정보를 불러올 수 없습니다.</p>
-          <p>상세리뷰 확인 혹은 다음에 다시 이용하시길 바랍니다.</p>
-          <h6 style={{ color: "#0ea654" }}>
-            * 더욱 발전한 MASINSA가 될 수 있도록 노력하겠습니다. *
-          </h6>
-          <p>이용해주셔서 감사합니다.</p>
-        </div>
+        <>하이</>
       )}
-      <ReviewBtn />
     </div>
   );
 }
