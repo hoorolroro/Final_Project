@@ -5,8 +5,8 @@
 
 <mapper namespace="com.spring.masinsa.mapper.ReviewMapper">
 	<insert id="addMemberReview" parameterType="com.spring.masinsa.dto.ReviewDTO" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO review (mask_id, member_id, score, content, review_type) 
-		VALUES (${maskId}, ${memberId}, ${score}, ${content}, ${reviewType});
+		INSERT INTO review (mask_id, member_id, score, content, review_type, option) 
+		VALUES (${maskId}, ${memberId}, ${score}, '${content}', '${reviewType}', '${option}');
 	</insert>
 	
 	<update id="updateMemberReview">
