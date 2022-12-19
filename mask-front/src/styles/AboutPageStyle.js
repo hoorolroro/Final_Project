@@ -249,18 +249,24 @@ export const Heads = styled.div`
 
 // 리뷰 입력창 토탈
 export const ReviewBox = styled.section`
-  display: flex;
+  // display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 10px;
 `;
 
 // 리뷰 작성창
 export const ReviewInput = styled.input`
-  width: 60%;
+  // autofocus;
+  width: 800px;
   height: 150px;
+  margin: 10px;
 `;
+
+// 리뷰 제출버튼
+export const ReviewChangeBtn = styled.button``;
 
 // 리뷰 Section
 export const ReviewSection = styled.section`

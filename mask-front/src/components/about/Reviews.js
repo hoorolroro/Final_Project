@@ -58,8 +58,8 @@ function Reviews({ maskId, mask, analysisinfo }) {
 
   // console.log("reviewCount", reviewCount);
 
-  // 리뷰 입력창 가져오기
-  const [isCheck, setCheck] = useState();
+  // 멤버정보 가져오기
+  const [memberId, setMember] = useState();
 
   return (
     <div>
@@ -121,10 +121,14 @@ function Reviews({ maskId, mask, analysisinfo }) {
         ) : (
           <>
             <ReviewTotal>
-              <Totals>⭐ MASINSA 점수: {analysisinfo.score}</Totals>
+              {/* <Totals>⭐ MASINSA 점수: {analysisinfo.score}</Totals> */}
               <Totals>💬 리뷰 {reviewCount}개</Totals>
             </ReviewTotal>
-            <ReviewWrite maskId={maskId} />
+            <ReviewWrite
+              maskId={maskId}
+              memberId={memberId}
+              setMember={setMember}
+            />
           </>
         )}
 
