@@ -130,18 +130,18 @@ export const AnalysisSection = styled.section`
   align-items: center;
   justify-content: space-around;
   width: auto;
-  height: 260px;
-  padding: 5px;
-  margin: 5px;
+  height: 300px;
+  // padding: 5px;
+  margin-bottom: 15px;
   // border: 2px solid red;
 `;
 
-// 사이즈 통계 div
-export const SizeAnalysis = styled.div`
-  width: 35%;
-  height: 90%;
-  padding: 5px;
-  border: 1px solid blue;
+// 점수 통계 div
+export const ScoreAnalysis = styled.div`
+  width: 20%;
+  height: 80%;
+  // border: 1px solid blue;
+  padding-top: 15px;
 `;
 
 // 나머지 통계부분 div ( 배송, 호흡, 착용감 )

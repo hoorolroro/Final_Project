@@ -23,7 +23,7 @@ export const MaskListDiv = styled.div`
 export const MaskSummaryBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 230px;
+  height: 220px;
   padding: 10px;
   margin: 0 5px 10px 5px;
   border: 1px solid #d9d9d9;
