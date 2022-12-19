@@ -6,7 +6,7 @@ import styled from "styled-components";
 // TOP3 부분
 export const Top3Section = styled.section`
   width: auto;
-  height: 400px;
+  height: 380px;
   padding: 5px;
   margin: 5px;
   // border: 2px solid blue;
@@ -62,8 +62,8 @@ export const Top3MaskSection = styled.section`
   column-gap: 5px;
   justify-items: center;
   align-items: center;
-  width: auto;
-  height: 350px;
+  width: 100%;
+  height: 330px;
   padding-top: 5px;
   // border: 2px solid red;
   // padding-top: 10px;
@@ -71,9 +71,7 @@ export const Top3MaskSection = styled.section`
 
 // Top3 img 태그
 export const TopMaskImg = styled.img`
-  // padding-top: 10px;
-  width: 340px;
-  height: 340px;
+  width: 95%;
   border: 1px solid #9a9a9a;
   border-radius: 15px;
 `;

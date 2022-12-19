@@ -12,6 +12,10 @@ import Header from "./components/Header";
 import { Main, Wrapper } from "./styles/OtherStyles";
 import HoverMenu from "./components/HoverMenu";
 import { useState, useParams, useEffect } from "react";
+import ChartTestPage, { PieChartTest } from "./pages/ChartTestPage";
+import Chart from "./pages/ChartTestPage";
+import LineChart from "./pages/ChartTestPage";
+import BarChart from "./pages/ChartTestPage";
 
 function App() {
   return (
@@ -49,6 +53,9 @@ function App() {
 
           {/* 대시보드페이지 : "http://localhost:3000/DashBoard/Masinsa" */}
           <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />
+
+          {/* 임시 ! 차트test페이지 : "http://localhost:3000/ChartTest/Masinsa" */}
+          <Route path="/ChartTest/Masinsa" element={<Chart />} />
         </Routes>
         <RecentView />
         <UpBtn />

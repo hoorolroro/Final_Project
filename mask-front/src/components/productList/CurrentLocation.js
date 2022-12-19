@@ -8,7 +8,7 @@ function CurrentLocation({ mask }) {
   // console.log("CurrentLocation : ", { blockingindex });
 
   // about Page
-  console.log("CurrentLocation : ", { mask });
+  // console.log("CurrentLocation : ", { mask });
 
   return (
     <div>

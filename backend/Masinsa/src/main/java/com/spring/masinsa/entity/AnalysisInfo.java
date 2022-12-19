@@ -29,8 +29,9 @@ public class AnalysisInfo {
 	@Column(name = "analysis_id")
 	private Long id;
 	
+
 	@Column(name = "relative_size")
-	private String relatvieSize;
+	private String relativeSize;
 	
 	private String fit;
 
@@ -48,7 +49,8 @@ public class AnalysisInfo {
 	public static AnalysisInfoDTO entityToDTO (AnalysisInfo analysisInfo) {
 		return AnalysisInfoDTO.builder()
 				.id(analysisInfo.getId())
-				.relatvieSize(analysisInfo.getRelatvieSize())
+				.maskId(analysisInfo.getMask().getId())
+				.relativeSize(analysisInfo.getRelativeSize())
 				.fit(analysisInfo.getFit())
 				.breathAbility(analysisInfo.getBreathAbility())
 				.delivery(analysisInfo.getDelivery())
@@ -56,3 +58,5 @@ public class AnalysisInfo {
 				.build();
 	}
 }
+
+

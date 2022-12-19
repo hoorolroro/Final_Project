@@ -3,12 +3,10 @@ import axios from "axios";
 
 //http://localhost:8080/analysis_info?maskId=1
 export const getAnalysis = async ({ maskId, setAnalysisInfo }) => {
-  const response = axios.get(
-    `http://localhost:8080/analysis_info?maskId=${maskId}`
-    // "http://localhost:8080/analysisinfo?maskId=1"
+  const response = await axios.get(
+    `http://localhost:8080/analysisinfo?maskId=${maskId}`
   );
 
-  // console.log(response.data);
-
-  setAnalysisInfo(response.data);
+  // console.log("get", response.data.result);
+  setAnalysisInfo(response.data.result);
 };

@@ -26,7 +26,7 @@ function ReviewLists({
   // }
 
   // console.log(reviewsPerPage);
-  console.log("allReviews", allReviews);
+  // console.log("allReviews", allReviews);
   // console.log(reviewType);
 
   return (

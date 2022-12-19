@@ -130,18 +130,18 @@ export const AnalysisSection = styled.section`
   align-items: center;
   justify-content: space-around;
   width: auto;
-  height: 260px;
-  padding: 5px;
-  margin: 5px;
+  height: 300px;
+  // padding: 5px;
+  margin-bottom: 15px;
   // border: 2px solid red;
 `;
 
-// 사이즈 통계 div
-export const SizeAnalysis = styled.div`
-  width: 35%;
-  height: 90%;
-  padding: 5px;
-  border: 1px solid blue;
+// 점수 통계 div
+export const ScoreAnalysis = styled.div`
+  width: 20%;
+  height: 80%;
+  // border: 1px solid blue;
+  padding-top: 15px;
 `;
 
 // 나머지 통계부분 div ( 배송, 호흡, 착용감 )
@@ -223,6 +223,51 @@ export const MaskDetailSection = styled.section`
 
 /* 리뷰 부분 */
 
+// "상세리뷰" 타이틀 & 리뷰쓰기 버튼 Section
+export const ReviewHead = styled.section`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  margin: 10px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+`;
+
+// "상세리뷰" & 리뷰쓰기 버튼 구분용
+export const Heads = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  // border: 2px solid green;
+`;
+
+// 리뷰 입력창 토탈
+export const ReviewBox = styled.section`
+  // display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+`;
+
+// 리뷰 작성창
+export const ReviewInput = styled.input`
+  // autofocus;
+  width: 800px;
+  height: 150px;
+  margin: 10px;
+`;
+
+// 리뷰 제출버튼
+export const ReviewChangeBtn = styled.button``;
+
 // 리뷰 Section
 export const ReviewSection = styled.section`
   display: flex;
@@ -245,7 +290,7 @@ export const ReviewTotal = styled.section`
   align-items: center;
   width: 100%;
   height: 45px;
-  // margin: 5px;
+  margin: 10px;
   border: 1px solid green;
 `;
 
