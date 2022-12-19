@@ -4,7 +4,7 @@ import MoreBtn from "./MoreBtn";
 import { MaskDetailSection } from "../../styles/AboutPageStyle";
 
 function MaskDetail({ images }) {
-  console.log("maskdetail : ", images);
+  // console.log("maskdetail : ", images);
   const [isCheck, setCheck] = useState(false);
   // console.log(isCheck);
 
@@ -20,7 +20,7 @@ function MaskDetail({ images }) {
               {/* imageType이 detail 이면 출력 */}
               {image.imageType === "detail" ? (
                 <>
-                  <img src={image.imageUrl}></img>
+                  <img style={{ width: "500px" }} src={image.imageUrl}></img>
                 </>
               ) : (
                 <></>

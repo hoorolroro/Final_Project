@@ -12,6 +12,8 @@ import { CurrentFilterSection } from "../styles/OtherStyles";
 import { MaskAboutWrapper } from "../styles/AboutPageStyle";
 import { getImage } from "../api/getImage";
 import { RecentViewFunction } from "../components/RecentViewFunction";
+import { getAnalysis } from "../api/analysis/getAnalysis";
+import ReviewBtn from "../components/about/ReviewBtn";
 
 function AboutPage({}) {
   // 파라미터를 통한 maskId 전달
@@ -36,6 +38,15 @@ function AboutPage({}) {
 
   // console.log("AboutPage - Image 불러오기 : ", images);
 
+  // 마스크 분석정보 요청
+  const [analysisinfo, setAnalysisInfo] = useState(null);
+
+  useEffect(() => {
+    getAnalysis({ maskId, setAnalysisInfo });
+  }, [maskId]);
+
+  // console.log(analysisinfo);
+
   return (
     <div>
       <Main>
@@ -46,12 +57,16 @@ function AboutPage({}) {
           </CurrentFilterSection>
           {/* 마스크 정보 */}
           <MaskInfo maskId={maskId} mask={mask} />
-          {/* 리뷰통계 */}
-          <Analysis maskId={maskId} />
+          {/* 분석정보 */}
+          <hr></hr>
+          {analysisinfo ? <Analysis analysisinfo={analysisinfo} /> : <></>}
+          {/* 리뷰보러가기 버튼 */}
+          <ReviewBtn />
+          {/* <Analysis analysisinfo={analysisinfo} /> */}
           {/* 상세정보 */}
           <MaskDetail images={images} />
           {/* 리뷰창 */}
-          <Reviews mask={mask} maskId={maskId} />
+          <Reviews mask={mask} maskId={maskId} analysisinfo={analysisinfo} />
           {/* 최근 본 상품 관련 메서드 실행  - sungmin 수정사항 */}
           <RecentViewFunction mask={mask} />
         </MaskAboutWrapper>

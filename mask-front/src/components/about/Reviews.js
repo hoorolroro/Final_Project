@@ -13,11 +13,15 @@ import {
   MasinsaReviewBtn_active,
   ReviewTotal,
   Totals,
+  ReviewHead,
+  Head,
+  Heads,
 } from "../../styles/AboutPageStyle";
 import Pagination3 from "../Pagination3";
 import { getReviewCount } from "../../api/review/getReviewCount";
+import ReviewWrite from "./ReviewWrite";
 
-function Reviews({ maskId, mask }) {
+function Reviews({ maskId, mask, analysisinfo }) {
   // getReview를 위한 파라미터 설정
 
   // 리뷰페이지 번호 : 처음 1 에서 버튼 누를때마다 변경됨
@@ -52,21 +56,20 @@ function Reviews({ maskId, mask }) {
     getReviewCount({ maskId, reviewType, setReviewCount });
   }, [maskId, reviewType]);
 
-  console.log(reviewCount);
+  // console.log("reviewCount", reviewCount);
+
+  // 멤버정보 가져오기
+  const [memberId, setMember] = useState();
 
   return (
     <div>
-      <hr></hr>
-      <i>상세리뷰</i>
-      <hr></hr>
+      <ReviewHead>
+        <i>상세리뷰</i>
+      </ReviewHead>
+      {/* <ReviewWrite maskId={maskId} /> */}
       <ReviewSection>
         {/* 버튼이 눌렸을때, 네이버리뷰면 reviewType (naver) 회원리뷰면 member */}
-        {/* 리뷰 총평 */}
-        {/* maskId별로 avg_score 가져오기 */}
-        <ReviewTotal>
-          <Totals>⭐ 네이버 별점: {mask.avgScore}</Totals>
-          <Totals>💬 리뷰 {reviewCount}개</Totals>
-        </ReviewTotal>
+
         <ReviewBtnSection>
           {/* review타입에 따른 버튼 색 활성화 */}
           {reviewType == "naver" ? (
@@ -105,6 +108,30 @@ function Reviews({ maskId, mask }) {
             </>
           )}
         </ReviewBtnSection>
+
+        {/* 리뷰 총평 */}
+        {/* maskId별로 avg_score 가져오기 */}
+        {reviewType == "naver" ? (
+          <>
+            <ReviewTotal>
+              <Totals>⭐ 네이버 별점: {mask.avgScore}</Totals>
+              <Totals>💬 리뷰 {reviewCount}개</Totals>
+            </ReviewTotal>
+          </>
+        ) : (
+          <>
+            <ReviewTotal>
+              {/* <Totals>⭐ MASINSA 점수: {analysisinfo.score}</Totals> */}
+              <Totals>💬 리뷰 {reviewCount}개</Totals>
+            </ReviewTotal>
+            <ReviewWrite
+              maskId={maskId}
+              memberId={memberId}
+              setMember={setMember}
+            />
+          </>
+        )}
+
         {/* 리뷰 내용 */}
         <ReviewContent>
           <ReviewLists
