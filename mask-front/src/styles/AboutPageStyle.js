@@ -245,7 +245,7 @@ export const ReviewTotal = styled.section`
   align-items: center;
   width: 100%;
   height: 45px;
-  // margin: 5px;
+  margin: 10px;
   border: 1px solid green;
 `;
 

@@ -17,7 +17,7 @@ import {
 import Pagination3 from "../Pagination3";
 import { getReviewCount } from "../../api/review/getReviewCount";
 
-function Reviews({ maskId, mask }) {
+function Reviews({ maskId, mask, analysisinfo }) {
   // getReview를 위한 파라미터 설정
 
   // 리뷰페이지 번호 : 처음 1 에서 버튼 누를때마다 변경됨
@@ -54,6 +54,8 @@ function Reviews({ maskId, mask }) {
 
   // console.log("reviewCount", reviewCount);
 
+  // 분석정보 가져오기
+
   return (
     <div>
       <hr></hr>
@@ -61,12 +63,7 @@ function Reviews({ maskId, mask }) {
       <hr></hr>
       <ReviewSection>
         {/* 버튼이 눌렸을때, 네이버리뷰면 reviewType (naver) 회원리뷰면 member */}
-        {/* 리뷰 총평 */}
-        {/* maskId별로 avg_score 가져오기 */}
-        <ReviewTotal>
-          <Totals>⭐ 네이버 별점: {mask.avgScore}</Totals>
-          <Totals>💬 리뷰 {reviewCount}개</Totals>
-        </ReviewTotal>
+
         <ReviewBtnSection>
           {/* review타입에 따른 버튼 색 활성화 */}
           {reviewType == "naver" ? (
@@ -105,6 +102,23 @@ function Reviews({ maskId, mask }) {
             </>
           )}
         </ReviewBtnSection>
+
+        {/* 리뷰 총평 */}
+        {/* maskId별로 avg_score 가져오기 */}
+        <ReviewTotal>
+          {reviewType == "naver" ? (
+            <>
+              <Totals>⭐ 네이버 별점: {mask.avgScore}</Totals>
+              <Totals>💬 리뷰 {reviewCount}개</Totals>
+            </>
+          ) : (
+            <>
+              <Totals>⭐ MASINSA 점수: {analysisinfo.score}</Totals>
+              <Totals>💬 리뷰 {reviewCount}개</Totals>
+            </>
+          )}
+        </ReviewTotal>
+
         {/* 리뷰 내용 */}
         <ReviewContent>
           <ReviewLists
