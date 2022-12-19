@@ -14,15 +14,40 @@ import ReviewBtn from "./ReviewBtn";
 
 function Analysis({ maskId }) {
   const [analysisInfo, setAnalysisInfo] = useState([]);
+
+  const [analysisSize, setAnalysisSize] = useState([]);
+  const [analysisFit, setAnalysisFit] = useState([]);
+  const [analysisBreathe, setAnalysisBreathe] = useState([]);
+  const [analysisDelivery, setAnalysisDelivery] = useState([]);
+  const [analysisScore, setAnalysisScore] = useState([]);
+
   // 리뷰 요청
   useEffect(() => {
-    getAnalysis({ maskId, setAnalysisInfo });
+    getAnalysis({
+      maskId,
+      setAnalysisInfo,
+      setAnalysisSize,
+      setAnalysisFit,
+      setAnalysisBreathe,
+      setAnalysisDelivery,
+      setAnalysisScore,
+    });
   }, []);
 
   // console.log(maskId);
-  // console.log("analysisInfo", analysisInfo);
+  console.log("analysisInfo", analysisInfo);
 
-  // console.log("사이즈", analysisInfo.relativeSize);
+  useEffect(() => {
+    if (analysisInfo) {
+      setAnalysisSize(JSON.parse(analysisInfo.relativeSize));
+      setAnalysisFit(JSON.parse(analysisInfo.fit));
+      setAnalysisBreathe(JSON.parse(analysisInfo.breatheAbility));
+      setAnalysisDelivery(JSON.parse(analysisInfo.delivery));
+      // setAnalysisScore(JSON.parse(analysisInfo.score));
+    }
+  }, []);
+
+  // console.log(analysisInfo.relativeSize);
   // console.log("착용감", analysisInfo.fit);
   // console.log("호흡", analysisInfo.breathAbility);
   // console.log("배송", analysisInfo.delivery);

@@ -20,7 +20,7 @@ function MaskDetail({ images }) {
               {/* imageType이 detail 이면 출력 */}
               {image.imageType === "detail" ? (
                 <>
-                  <img src={image.imageUrl}></img>
+                  <img style={{ width: "500px" }} src={image.imageUrl}></img>
                 </>
               ) : (
                 <></>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { withTheme } from "styled-components";
 
 /* 최근 본 상품 */
 
@@ -55,6 +56,9 @@ export function RecentViewFunction({ mask }) {
     if (watchArr.length > 3) {
       watchArr.shift();
     }
+
+    // 가장 최근의 상품의 제일 위로
+    watchArr = watchArr.reverse();
 
     // console.log("mask", mask);
     // console.log("watchArr", watchArr);
