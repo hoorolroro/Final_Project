@@ -28,7 +28,7 @@ function ReviewWrite({ maskId, memberId, setMemberReview }) {
 
   // 멤버
   //   회원 가입 없이 온전히 기능 테스트 하기 어려움
-  console.log(memberId);
+  console.log("memberId: ", memberId);
 
   useEffect(() => {
     postMemberReview({ memberId, maskId, content, setMemberReview });

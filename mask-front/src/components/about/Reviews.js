@@ -20,6 +20,7 @@ import {
 import Pagination3 from "../Pagination3";
 import { getReviewCount } from "../../api/review/getReviewCount";
 import ReviewWrite from "./ReviewWrite";
+import { getMember } from "../../api/member/getMember";
 
 function Reviews({ maskId, mask, analysisinfo }) {
   // getReview를 위한 파라미터 설정
@@ -60,6 +61,10 @@ function Reviews({ maskId, mask, analysisinfo }) {
 
   // 멤버정보 가져오기
   const [memberId, setMember] = useState();
+
+  useEffect(() => {
+    getMember({ memberId });
+  }, []);
 
   return (
     <div>
