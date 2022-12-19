@@ -66,9 +66,18 @@
 		WHERE mask_name LIKE '%검색어%'
 		ORDER BY price desc limit 2 offset 0; -->
 	<select id="SearchSortMask" resultMap="getAllMaskInfo">
-		SELECT * FROM mask
-		<if test="searchWord != null">
-			WHERE mask_name LIKE '%${searchWord}%'
+		SELECT DISTINCT * FROM mask
+		<!-- if searchWord1, searchWord2, searchWord3 is not null, select distinct by all three -->
+		<if test="searchWord1 != null and searchWord2 != null and searchWord3 != null">
+			WHERE mask_name LIKE '%${searchWord1}%' OR mask_name LIKE '%${searchWord2}%' OR mask_name LIKE '%${searchWord3}%'
+		</if>
+		<!-- if searchWord1, searchWord2 is not null, select distinct by searchWord1, searchWord2 -->
+		<if test="searchWord1 != null and searchWord2 != null and searchWord3 == null">
+			WHERE mask_name LIKE '%${searchWord1}%' OR mask_name LIKE '%${searchWord2}%'
+		</if>
+		<!-- if searchWord1 is not null, select by searchWord1 -->
+		<if test="searchWord1 != null and searchWord2 == null and searchWord3 == null">
+			WHERE mask_name LIKE '%${searchWord1}%'
 		</if>
 		<if test="sortCol != null and order != null">
 			ORDER BY ${sortCol} ${order}
@@ -81,6 +90,7 @@
 		</if>
 		;
 	</select>
+	
 
 	<select id="getTop3Mask" resultMap="getAllMaskInfo">
 	 	SELECT DISTINCT A.mask_id, A.mask_name, A.size, A.price, A.blocking_index, 

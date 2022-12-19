@@ -148,24 +148,32 @@ public class MaskServiceImpl implements MaskService {
 		String[] keywords = keyword.split(" ");
 		//배열의 길이만큼 반복문을 돌면서, 각각의 keyword를 like로 검색해서 maskList를 만든다.
 		List<Mask> maskList = new ArrayList<Mask>();
-		for (String k : keywords) {
-			//check if keyword[i] is empty
-			if (!k.equals("")) {
-				List<Mask> maskListByKeyword = maskMapper.SearchSortMask(k, sortCol, order, limit, offset);
-				//maskList에 maskListByKeyword를 추가한다. 중복이 없도록 한다.
-				for (Mask mask : maskListByKeyword) {
-					// if mask is not null and maskList does not contain mask, then add mask to maskList
-					if (mask != null && !maskList.contains(mask)) {
-						maskList.add(mask);
-					}
-				}
-			}
-  }	
+		// keywords의 size만큼 maskMapper.SearchSortMask에 keyword를 넣어서 maskList를 만든다.
+		if (keywords.length == 1) {
+			maskList = maskMapper.SearchSortMask(keywords[0], null, null, sortCol, order, limit, offset);
+		} else if (keywords.length == 2) {
+			maskList = maskMapper.SearchSortMask(keywords[0], null, null, sortCol, order, limit, offset);
+		} else {
+			maskList = maskMapper.SearchSortMask(keywords[0], keywords[1], keywords[2], sortCol, order, limit, offset);
+		} 
 		List<MaskDTO> maskDTOList = maskList.stream()
 											.map(mask -> Mask.entityToDTO(mask))
 											.collect(Collectors.toList());
 		return maskDTOList;
+
+
+		// for (String k : keywords) {
+		// 	//check if keyword[i] is empty
+		// 	if (!k.equals("")) {
+		// 		List<Mask> maskListByKeyword = maskMapper.SearchSortMask(k, sortCol, order, limit, offset);
+		// 		//maskList에 maskListByKeyword를 추가한다. 중복이 없도록 한다.
+		// 		for (Mask mask : maskListByKeyword) {
+		// 			// if mask is not null and maskList does not contain mask, then add mask to maskList
+		// 			if (mask != null && !maskList.contains(mask)) {
+		// 				maskList.add(mask);
+		// 			}
+				}
 	}
-}
+
 
 
