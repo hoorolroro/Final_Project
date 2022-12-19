@@ -19,6 +19,7 @@ public class MemberDTO {
 	private String sex;
 	private String age_group;
 	private String birth;
+	
 	@Builder.Default // 기본값을 N으로 설정
 	private Deletion deletion = Deletion.N;
 	private String token;
