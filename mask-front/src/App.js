@@ -55,7 +55,7 @@ function App() {
           <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />
 
           {/* 임시 ! 차트test페이지 : "http://localhost:3000/ChartTest/Masinsa" */}
-          <Route path="/ChartTest/Masinsa" element={<PieChartTest />} />
+          <Route path="/ChartTest/Masinsa" element={<Chart />} />
         </Routes>
         <RecentView />
         <UpBtn />
