@@ -15,7 +15,7 @@ public class AnalysisInfoDTO {
 	
 	private Long id;
 	private Long maskId;
-	private String relatvieSize;
+	private String relativeSize;
 	private String fit;
 	private String breathAbility;
 	private String delivery;
@@ -24,7 +24,7 @@ public class AnalysisInfoDTO {
 	// DTO -> Entity 변환
 	public static AnalysisInfo dtoToEntity(AnalysisInfoDTO analysisInfoDTO) {
 		AnalysisInfo analysisInfo = AnalysisInfo.builder()
-												.relatvieSize(analysisInfoDTO.getRelatvieSize())
+												.relativeSize(analysisInfoDTO.getRelativeSize())
 												.fit(analysisInfoDTO.getFit())
 												.breathAbility(analysisInfoDTO.getBreathAbility())
 												.delivery(analysisInfoDTO.getDelivery())
