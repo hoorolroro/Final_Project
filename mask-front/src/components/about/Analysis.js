@@ -83,10 +83,10 @@ function Analysis({ analysisinfo }) {
     responsive: true,
     plugins: {
       legend: false,
-      // title: {
-      //   display: true,
-      //   // text: "Size Analysis",
-      // },
+      title: {
+        display: true,
+        // text: "Size Analysis",
+      },
       datalabels: {
         color: "#2D2D2D",
         formatter: (value) => {

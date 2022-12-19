@@ -9,13 +9,9 @@ import { Route, Routes } from "react-router-dom";
 import RecentView from "./components/RecentView";
 import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
-import { Main, Wrapper } from "./styles/OtherStyles";
-import HoverMenu from "./components/HoverMenu";
-import { useState, useParams, useEffect } from "react";
-import ChartTestPage, { PieChartTest } from "./pages/ChartTestPage";
-import Chart from "./pages/ChartTestPage";
-import LineChart from "./pages/ChartTestPage";
-import BarChart from "./pages/ChartTestPage";
+import { Wrapper } from "./styles/OtherStyles";
+// import { useState, useParams, useEffect } from "react";
+// import Chart from "./pages/ChartTestPage";
 
 function App() {
   return (
@@ -55,7 +51,7 @@ function App() {
           <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />
 
           {/* 임시 ! 차트test페이지 : "http://localhost:3000/ChartTest/Masinsa" */}
-          <Route path="/ChartTest/Masinsa" element={<Chart />} />
+          {/* <Route path="/ChartTest/Masinsa" element={<Chart />} /> */}
         </Routes>
         <RecentView />
         <UpBtn />

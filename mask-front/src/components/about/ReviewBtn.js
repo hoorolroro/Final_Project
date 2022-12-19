@@ -42,7 +42,7 @@ function ReviewBtn() {
   const goScrollReview = () => {
     // -sungmin- 이런식으로라도 표현해주는 게 best인것 같아요 ㅜ
     // 이건 그냥 전체 페이지 길이에서 0.95 만큼 가도록  했습니다
-    const new_height = document.body.scrollHeight * 0.92;
+    const new_height = document.body.scrollHeight * 0.8;
     // 버튼 끝나면 MaskDetail 끝난 맨 아래 or Reviews 시작 좌표로 움직이고 싶은데?
     window.scrollTo({
       top: new_height,
