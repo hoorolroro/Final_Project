@@ -14,8 +14,9 @@ import { getImage } from "../api/getImage";
 import { RecentViewFunction } from "../components/RecentViewFunction";
 import { getAnalysis } from "../api/analysis/getAnalysis";
 import ReviewBtn from "../components/about/ReviewBtn";
+import { getMember } from "../api/member/getMember";
 
-function AboutPage({}) {
+function AboutPage() {
   // 파라미터를 통한 maskId 전달
   const { maskId } = useParams();
   // console.log("useParams", maskId);
@@ -47,6 +48,18 @@ function AboutPage({}) {
 
   // console.log(analysisinfo);
 
+  // 멤버 요청
+  // 멤버정보 가져오기
+  const [memberId, setMemberId] = useState(2);
+  const [member, setMember] = useState([]);
+
+  useEffect(() => {
+    getMember({ memberId, setMember });
+  }, []);
+
+  console.log("memberId: ", memberId);
+  console.log("member: ", member);
+
   return (
     <div>
       <Main>
@@ -66,7 +79,12 @@ function AboutPage({}) {
           {/* 상세정보 */}
           <MaskDetail images={images} />
           {/* 리뷰창 */}
-          <Reviews mask={mask} maskId={maskId} analysisinfo={analysisinfo} />
+          <Reviews
+            mask={mask}
+            maskId={maskId}
+            analysisinfo={analysisinfo}
+            memberId={memberId}
+          />
           {/* 최근 본 상품 관련 메서드 실행  - sungmin 수정사항 */}
           <RecentViewFunction mask={mask} />
         </MaskAboutWrapper>
