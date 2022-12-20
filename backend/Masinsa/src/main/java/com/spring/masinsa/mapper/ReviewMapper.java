@@ -9,7 +9,7 @@ import com.spring.masinsa.entity.Review;
 @Repository
 @Mapper
 public interface ReviewMapper {
-	public void addMemberReview(ReviewDTO reviewDTO);
+	public Boolean addMemberReview(ReviewDTO reviewDTO);
 	public void updateMemberReview(Long reviewId, Float score, String content);
 	public Review getMemberReview(Long reviewId);
 } 
