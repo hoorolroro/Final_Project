@@ -26,6 +26,8 @@ function ReviewWrite({ maskId, memberId, reviewType }) {
       content,
       reviewType,
     });
+    alert("등록 완료되었습니다.");
+    window.location.reload();
   };
 
   // 멤버: 회원 가입 없이 온전히 기능 테스트 하기 어려움
@@ -33,14 +35,24 @@ function ReviewWrite({ maskId, memberId, reviewType }) {
 
   return (
     <div>
-      <button
-        onClick={() => {
-          setCheck((e) => !e);
-          //   console.log("리뷰쓰기");
-        }}
-      >
-        ⬇ 리뷰 작성하기
-      </button>
+      {memberId > 0 ? (
+        <button
+          onClick={() => {
+            setCheck((e) => !e);
+            //   console.log("리뷰쓰기");
+          }}
+        >
+          ⬇ 리뷰 작성하기
+        </button>
+      ) : (
+        <button
+          onClick={() => {
+            alert("로그인을 해주시기 바랍니다.");
+          }}
+        >
+          ⬇ 리뷰 작성하기
+        </button>
+      )}
 
       {isCheck && (
         <>
