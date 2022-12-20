@@ -57,16 +57,14 @@ public class WishlistController {
 //	}
 	
 	
-	@ApiOperation(value = "22번 - wishlistId를 통해 찜 삭제")
+	@ApiOperation(value = "22번 - wishlistId를 통해 찜 삭제/복원")
 	@PutMapping("/wishlist")
-	public ResponseEntity<?> deleteWishList(@RequestParam Long memberId, @RequestParam Long maskId) {
-		WishListDTO wishListDTO = wishListService.deleteWishList(memberId, maskId);
-		if(wishListDTO != null) {
-			Message msg = new Message(Status.OK, "찜 삭제 완료", wishListDTO);
+	public ResponseEntity<?> setUpWishList(@RequestParam Long memberId, @RequestParam Long maskId) {
+		Message msg = wishListService.setUpWishList(memberId, maskId);
+		if(msg != null) {
 			return new ResponseEntity<>(msg, HttpStatus.OK);
 		}
-		Message msg = new Message(Status.OK, "찜 삭제 실패", wishListDTO);
-		return new ResponseEntity<>(msg, HttpStatus.OK);
+		return new ResponseEntity<>(new Message(Status.OK, "해당하는 찜 상품이 존재하지 않습니다.", null), HttpStatus.OK);
 	}
 	
 }

@@ -64,4 +64,8 @@ public class WishList {
 		this.deletion = Deletion.Y;
 	}
 	
+	public void restoreWishList() {
+		this.deletion = Deletion.N;
+	}
+	
 }
