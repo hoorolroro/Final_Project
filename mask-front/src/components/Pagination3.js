@@ -55,9 +55,13 @@ const Pagination3 = ({ page, size, setPage, allReviews, reviewCount }) => {
           ) : (
             <></>
           )}
-          {page + 1 ? (
-            // 다음버튼
-            <PageLi onClick={() => setPage(page + 1)}>▶</PageLi>
+          {page + 1 < parseInt(reviewCount / size) + 1 ? (
+            page + 1 ? (
+              // 다음버튼
+              <PageLi onClick={() => setPage(page + 1)}>▶</PageLi>
+            ) : (
+              <></>
+            )
           ) : (
             <></>
           )}
