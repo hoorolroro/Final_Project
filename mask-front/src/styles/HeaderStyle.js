@@ -44,49 +44,61 @@ export const LogoImg = styled.img`
 export const TopBtnDiv = styled.div`
   float: right;
   width: 160px;
-  height: 100%;
-  padding-top: 50px;
-  padding-right: 30px;
+  height: 85%;
+  padding: 8px 15px;
   // border: 1px solid skyblue;
 `;
 
 // 마이페이지Btn
 export const MyPageBtnStyle = styled.button`
-  width: 130px;
+  width: 150px;
   height: 30px;
-  font-size: 13px;
-  border: 0px solid #fff;
+  font-weight: 500;
+  border: 1px solid white;
   border-radius: 3px;
-  margin: 5px;
-  background: #091f22;
+  border-style: dashed;
+  background: none;
   cursor: pointer;
-  color: #fff;
-  &:hover {
-    color: #5cec7c;
-  }
+  color: white;
   &:active {
-    color: #5cec7c;
     text-decoration: underline;
+    box-shadow: 1px 1px 2px white;
   }
+  margin-bottom: 10px;
 `;
 
-// 네이버Btn
-export const LoginBtnStyle = styled.button`
-  width: 130px;
+// naver 로그인 Btn
+export const NaverLoginBtn = styled.button`
+  width: 150px;
   height: 30px;
-  font-size: 13px;
-  border: 0px solid #fff;
-  border-radius: 3px;
-  margin: 5px;
   background: #12de1a;
-  cursor: pointer;
-  color: #fff;
-  &:hover {
-    color: yellow;
-  }
+  border: 0px;
+  border-radius: 3px;
+  box-shadow: 0px 1px 3px #0ea654;
+  font-weight: 800;
+  color: white;
   &:active {
-    color: yellow;
+    box-shadow: none;
     text-decoration: underline;
+  }
+  cursor: pointer;
+  margin-top: 40px;
+`;
+
+// 로그아웃 Btn
+export const LogoutBtn = styled.button`
+  width: 150px;
+  height: 30px;
+  font-weight: 500;
+  border: 1px solid white;
+  border-radius: 3px;
+  border-style: dashed;
+  background: none;
+  cursor: pointer;
+  color: white;
+  &:active {
+    text-decoration: underline;
+    box-shadow: 1px 1px 2px white;
   }
 `;
 

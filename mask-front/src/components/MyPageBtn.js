@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MyPageBtnStyle } from "../styles/HeaderStyle";
+import LoginBtn from "./LoginBtn";
 
 function MyPageBtn({ userInfo }) {
   const [isClick, setIsClick] = useState(false);
@@ -16,7 +17,7 @@ function MyPageBtn({ userInfo }) {
   return (
     <div>
       <Link to="/:memberId/MyPage/Masinsa">
-        <MyPageBtnStyle>I'm {userInfo.nickname} 😃</MyPageBtnStyle>
+        <MyPageBtnStyle>My Page</MyPageBtnStyle>
       </Link>
     </div>
   );

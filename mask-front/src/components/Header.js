@@ -11,12 +11,26 @@ import {
   BockingIndexNav,
   BlockingBtn,
   TopBlank,
+  LogoutBtn,
 } from "../styles/HeaderStyle";
 
 function Header({ user, setUser, setStatus }) {
   // 로그인 후, 로컬 스토리지에 저장된 userInfo
   // 로그인에 넘겨주는 user랑 같아서 userInfo로 명명
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  console.log(userInfo);
+
+  // 로그아웃
+  // 로그아웃 시, localStorage에 저장된 유저의 token 정보들을 삭제 및 user정보 초기화
+  const naverLogout = () => {
+    // token 삭제
+    localStorage.removeItem("com.naver.nid.access_token");
+    localStorage.removeItem("com.naver.nid.oauth.state_token");
+    //user정보 삭제
+    localStorage.removeItem("userInfo");
+    // reload : 새로고침
+    window.location.reload();
+  };
 
   return (
     <div>
@@ -33,11 +47,14 @@ function Header({ user, setUser, setStatus }) {
           <TopBlank></TopBlank>
           <TopBtnDiv>
             {/* 로그인 상태라면 */}
-            {userInfo ? (
-              // 마이페이지버튼
-              <MyPageBtn userInfo={userInfo} />
+            {userInfo != null ? (
+              // 로그인 o : 마이페이지버튼 + 로그아웃버튼
+              <>
+                <MyPageBtn userInfo={userInfo} />
+                <LogoutBtn onClick={naverLogout}>Logout</LogoutBtn>
+              </>
             ) : (
-              // 로그인 아니면 N로그인버튼
+              // 로그인 x : 네이버로그인
               <LoginBtn setUser={setUser} setStatus={setStatus} user={user} />
             )}
           </TopBtnDiv>

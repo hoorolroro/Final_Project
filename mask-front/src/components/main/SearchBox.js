@@ -27,8 +27,9 @@ function SearchBox({ keyword, setKeyWord }) {
   const onKeyPress = (e) => {
     if (e.key === "Enter") {
       alert("죄송합니다. 검색 버튼 사용을 부탁드리겠습니다.");
-      e.returnValue = false;
       // onAdd();
+      e.preventDefault();
+      e.returnValue = keyword;
     }
   };
 
