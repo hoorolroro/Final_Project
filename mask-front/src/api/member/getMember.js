@@ -3,8 +3,8 @@ import React from "react";
 
 export const getMember = async ({ memberId, setMember }) => {
   const response = await axios.get(
-    // `http://localhost:8080/member?memberId=${memberId}`
-    "http://localhost:8080/member?memberId=2"
+    `http://localhost:8080/member?memberId=${memberId}`
+    // "http://localhost:8080/member?memberId=2"
   );
-  setMember(response.data.result);
+  setMember(response.data);
 };

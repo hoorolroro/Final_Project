@@ -31,6 +31,7 @@ function ReviewLists({
 
   return (
     <div>
+      {/* {reviewType == "naver"} */}
       {allReviews.length > 0 ? (
         allReviews.map((review) => {
           return (

@@ -20,8 +20,9 @@ import {
 import Pagination3 from "../Pagination3";
 import { getReviewCount } from "../../api/review/getReviewCount";
 import ReviewWrite from "./ReviewWrite";
+import { getMember } from "../../api/member/getMember";
 
-function Reviews({ maskId, mask, analysisinfo }) {
+function Reviews({ maskId, mask, analysisinfo, memberId }) {
   // getReview를 위한 파라미터 설정
 
   // 리뷰페이지 번호 : 처음 1 에서 버튼 누를때마다 변경됨
@@ -59,7 +60,14 @@ function Reviews({ maskId, mask, analysisinfo }) {
   // console.log("reviewCount", reviewCount);
 
   // 멤버정보 가져오기
-  const [memberId, setMember] = useState();
+  // const [memberId, setMember] = useState();
+
+  // useEffect(() => {
+  //   getMember({ memberId });
+  // }, [memberId]);
+
+  console.log("memberId: ", memberId);
+  console.log("maskId: ", maskId);
 
   return (
     <div>
@@ -127,7 +135,7 @@ function Reviews({ maskId, mask, analysisinfo }) {
             <ReviewWrite
               maskId={maskId}
               memberId={memberId}
-              setMember={setMember}
+              reviewType={reviewType}
             />
           </>
         )}
