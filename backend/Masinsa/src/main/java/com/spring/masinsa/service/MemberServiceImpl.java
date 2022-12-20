@@ -53,7 +53,7 @@ public class MemberServiceImpl implements MemberService {
         Member newMember = MemberDTO.dtoToEntity(memberDTO);
 		memberRepo.save(newMember);
 		MemberLoginDTO newMemberLoginDTO = Member.entityToLoginDTO(newMember);
-		Message msg = new Message(Status.OK, "회원가입 성공", newMemberLoginDTO);
+		Message msg = new Message(Status.OK, "회원가입에 성공하였습니다.", newMemberLoginDTO);
 		return msg;
   }
 }
