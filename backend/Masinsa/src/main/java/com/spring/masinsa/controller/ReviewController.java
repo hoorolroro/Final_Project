@@ -79,7 +79,7 @@ public class ReviewController {
 			Message msg = new Message(Status.OK, "회원 리뷰 등록 완료", result);
 			return new ResponseEntity<>(msg, HttpStatus.OK);
 		}
-		Message msg = new Message(Status.OK, "회원 리뷰 등록 실패", result);
+		Message msg = new Message(Status.OK, "이미 리뷰를 작성한 상품이라 리뷰 등록에 실패했습니다.", result);
 		return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
   

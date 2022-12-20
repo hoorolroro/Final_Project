@@ -5,7 +5,8 @@
 
 <mapper namespace="com.spring.masinsa.mapper.WishListMapper">
 	<insert id="addWishList" parameterType="com.spring.masinsa.dto.WishListDTO" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO wishlist (mask_id, member_id) VALUES (${maskId}, ${memberId});
+		INSERT INTO wishlist (mask_id, member_id) SELECT ${maskId}, ${memberId} FROM DUAL
+		WHERE NOT EXISTS (SELECT wishlist_id FROM wishlist WHERE mask_id=${maskId} AND member_id=${memberId})
 	</insert>
 	
 	<select id="getAllWishList2" resultType="hashmap"> <!-- WishList말고 hashmap 적용했더니 성공 -->
