@@ -15,7 +15,8 @@ import {
 } from "../../styles/MaskListStyles";
 import { putClick } from "../../api/mask/putClick";
 
-function SearchMaskLists({ maskList, keyword, user }) {
+function SearchMaskLists({ maskList, keyword, userInfo }) {
+  // console.log(userInfo);
   // console.log("SearchMaskLists : ", maskList);
 
   const [isClick, setIsClick] = useState(false);
@@ -113,7 +114,7 @@ function SearchMaskLists({ maskList, keyword, user }) {
                       <MaskBottom>
                         <MaskScore>평점 : {mask.avgScore}⭐</MaskScore>
                         {/* 찜버튼 */}
-                        <WishBtn maskId={mask.id} user={user} />
+                        <WishBtn maskId={mask.id} userInfo={userInfo} />
                       </MaskBottom>
                     </MaskSummaryContent>
                   </MaskSummaryBox>

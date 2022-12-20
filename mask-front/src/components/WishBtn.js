@@ -9,12 +9,12 @@ import { pink } from "@mui/material/colors";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 function WishBtn({ maskId, userInfo }) {
-  const [memberId, setMemberId] = React.useState();
-  // console.log(memberId);
-  // console.log(maskId);
+  // console.log("userInfo", userInfo);
+
+  const [memberId, setMemberId] = useState("");
 
   // 찜버튼 클릭확인
-  const [isClick, setIsClick] = React.useState(false);
+  const [isClick, setIsClick] = useState(false);
   // console.log("isClick", isClick);
 
   const LoginWarn = () => {
@@ -24,12 +24,13 @@ function WishBtn({ maskId, userInfo }) {
   useEffect(() => {
     if (userInfo) {
       setMemberId(userInfo.id);
+      // console.log("확인");
     }
-  });
+  }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isClick) {
-      if (memberId != undefined) {
+      if (memberId != "") {
         // 찜버튼 클릭 확인
         // console.log("isClick - true", isClick);
         // // 찜버튼 클릭된 마스크 id

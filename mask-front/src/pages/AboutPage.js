@@ -21,7 +21,7 @@ function AboutPage() {
   const user = JSON.parse(localStorage.getItem("userInfo"));
 
   // if (user) {
-  console.log(user);
+  // console.log(user);
   // console.log("닉네임: ", user.nickname);
   // }
 
