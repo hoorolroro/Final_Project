@@ -6,16 +6,21 @@ export const postMemberReview = async ({
   maskId,
   content,
   reviewType,
-  setMemberReview,
+  // setMemberReview,
 }) => {
+  console.log("memberId: ", memberId);
+  console.log("maskId: ", maskId);
+  console.log("content: ", content);
+  console.log("reviewType: ", reviewType);
+
   const response = await axios.post("http://localhost:8080/member_review", {
-    memberId: { memberId },
+    memberId: memberId,
     // memberId: 2,
-    maskId: { maskId },
-    content: { content },
-    reviewType: { reviewType },
+    maskId: maskId,
+    content: content,
+    reviewType: reviewType,
   });
 
   console.log("리뷰제출");
-  setMemberReview(response.data.result);
+  // setMemberReview(response.data.result);
 };
