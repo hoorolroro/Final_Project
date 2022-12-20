@@ -45,7 +45,7 @@ export const TopBtnDiv = styled.div`
   float: right;
   width: 160px;
   height: 100%;
-  padding-top: 5px;
+  padding-top: 50px;
   padding-right: 30px;
   // border: 1px solid skyblue;
 `;

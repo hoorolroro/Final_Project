@@ -66,8 +66,8 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
   //   getMember({ memberId });
   // }, [memberId]);
 
-  console.log("memberId: ", memberId);
-  console.log("maskId: ", maskId);
+  // console.log("memberId: ", memberId);
+  // console.log("maskId: ", maskId);
 
   return (
     <div>

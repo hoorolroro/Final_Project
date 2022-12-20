@@ -13,7 +13,11 @@ import {
   TopBlank,
 } from "../styles/HeaderStyle";
 
-function Header() {
+function Header({ user, setUser, setStatus }) {
+  // 로그인 후, 로컬 스토리지에 저장된 userInfo
+  // 로그인에 넘겨주는 user랑 같아서 userInfo로 명명
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
   return (
     <div>
       <HeaderSection>
@@ -28,10 +32,14 @@ function Header() {
           </a>
           <TopBlank></TopBlank>
           <TopBtnDiv>
-            {/* 마이페이지버튼 */}
-            <MyPageBtn />
-            {/* 네이버로그인버튼 */}
-            <LoginBtn />
+            {/* 로그인 상태라면 */}
+            {userInfo ? (
+              // 마이페이지버튼
+              <MyPageBtn userInfo={userInfo} />
+            ) : (
+              // 로그인 아니면 N로그인버튼
+              <LoginBtn setUser={setUser} setStatus={setStatus} user={user} />
+            )}
           </TopBtnDiv>
         </TopDiv>
         <BockingIndexNav>

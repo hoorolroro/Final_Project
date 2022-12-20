@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 
-export const postWishlist = async ({ memberId, maskId }) => {
+export const postWishlist = async (memberId, maskId) => {
+  console.log(memberId);
   const response = axios
     .post(`http://localhost:8080/wishlist`, {
       memberId: memberId,

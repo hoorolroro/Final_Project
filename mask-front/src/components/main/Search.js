@@ -18,10 +18,8 @@ import { getMainMask } from "../../api/mask/getMainMask";
 import { getSearchMaskSort } from "../../api/mask/getSearchMaskSort";
 
 // 메인페이지 마스크리스트 조회
-function Search() {
-  // api 완성되면 수정할 필요가 있음 !!!!!!
-
-  // // 키워드 설정
+function Search({ user }) {
+  // 키워드 설정
   const [keyword, setKeyWord] = useState("");
   // console.log("keyword : ", keyword);
 
@@ -45,6 +43,8 @@ function Search() {
     getSearchMaskSort({ keyword, sortCol, sortOrder, setMaskList });
   }, [sortCol, sortOrder, keyword]);
 
+  // console.log("user-search", user);
+
   return (
     <div>
       <hr></hr>
@@ -66,7 +66,7 @@ function Search() {
       {/* 마스크리스트 부분*/}
       <SearchMaskListSection>
         {/* 마스크리스트 */}
-        <SearchMaskLists maskList={maskList} keyword={keyword} />
+        <SearchMaskLists maskList={maskList} keyword={keyword} user={user} />
       </SearchMaskListSection>
     </div>
   );

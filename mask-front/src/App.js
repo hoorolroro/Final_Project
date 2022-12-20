@@ -10,11 +10,22 @@ import RecentView from "./components/RecentView";
 import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
 import { Wrapper } from "./styles/OtherStyles";
-import LoginPage from "./pages/LoginPage";
-// import { useState, useParams, useEffect } from "react";
-// import Chart from "./pages/ChartTestPage";
+import { useState } from "react";
 
 function App() {
+  // user 정보
+  const [user, setUser] = useState();
+
+  // 로그인 status
+  const [status, setStatus] = useState(false);
+
+  console.log("유저정보", user);
+
+  // 페이지 이동시에도 유저정보를 받을 수 있도록 !
+  if (user) {
+    localStorage.setItem("userInfo", JSON.stringify(user));
+  }
+
   return (
     <div className="App">
       {/* mui 사용을 위한 코드 */}
@@ -28,12 +39,18 @@ function App() {
       />
       {/* 헤더부분 */}
       <Wrapper>
-        <Header />
+        <Header
+          user={user}
+          setUser={setUser}
+          setStatus={setStatus}
+          status={status}
+        />
         <Routes>
           {/* 메인페이지 :  "http://localhost:3000/" */}
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<MainPage user={user} />} />
 
           {/* 상품리스트페이지 : "http://localhost:3000/MaskList/Masinsa/:blockingindex" */}
+
           <Route
             path="MaskList/Masinsa/:blockingindex"
             element={<ListPage />}
@@ -50,11 +67,6 @@ function App() {
 
           {/* 대시보드페이지 : "http://localhost:3000/DashBoard/Masinsa" */}
           <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />
-
-          {/* 임시 ! 차트test페이지 : "http://localhost:3000/ChartTest/Masinsa" */}
-          {/* <Route path="/ChartTest/Masinsa" element={<Chart />} /> */}
-
-          <Route path="/Login" element={<LoginPage />} />
         </Routes>
         <RecentView />
         <UpBtn />
