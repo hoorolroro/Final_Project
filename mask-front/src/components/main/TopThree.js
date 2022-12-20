@@ -79,19 +79,7 @@ function TopThree({ topMask }) {
                         ).style.opacity = "0%")
                       }
                     ></TopMaskImg>
-                    {/* <div
-                      style={{
-                        position: "absolute",
-                        // border: "1px solid red",
-                        top: 5,
-                        left: 15,
-                        fontSize: "20px",
-                        fontWeight: "700",
-                        // color: "white",
-                      }}
-                    >
-                      {top.id}
-                    </div> */}
+
                     {/* TOP3 상품 Hover 시 상품정보 표기 */}
                     <div
                       id={`${top.id}info`}

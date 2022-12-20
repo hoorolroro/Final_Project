@@ -18,7 +18,7 @@ function Header({ user, setUser, setStatus }) {
   // 로그인 후, 로컬 스토리지에 저장된 userInfo
   // 로그인에 넘겨주는 user랑 같아서 userInfo로 명명
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  console.log(userInfo);
+  // console.log(userInfo);
 
   // 로그아웃
   // 로그아웃 시, localStorage에 저장된 유저의 token 정보들을 삭제 및 user정보 초기화

@@ -19,7 +19,7 @@ function App() {
   // 로그인 status
   const [status, setStatus] = useState(false);
 
-  console.log("유저정보", user);
+  // console.log("유저정보", user);
 
   // 페이지 이동시에도 유저정보를 받을 수 있도록 !
   if (user) {
