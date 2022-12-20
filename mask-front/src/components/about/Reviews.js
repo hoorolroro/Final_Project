@@ -85,6 +85,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
               <NaverReviewBtn_active
                 onClick={() => {
                   setReviewType("naver");
+                  setPage(1);
                 }}
               >
                 Naver Review
@@ -92,6 +93,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
               <MasinsaReviewBtn
                 onClick={() => {
                   setReviewType("member");
+                  setPage(1);
                 }}
               >
                 Member Review
@@ -102,6 +104,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
               <NaverReviewBtn
                 onClick={() => {
                   setReviewType("naver");
+                  setPage(1);
                 }}
               >
                 Naver Review
@@ -109,6 +112,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
               <MasinsaReviewBtn_active
                 onClick={() => {
                   setReviewType("member");
+                  setPage(1);
                 }}
               >
                 Member Review
@@ -151,17 +155,14 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
             reviewType={reviewType}
           />
         </ReviewContent>
-        {allReviews.length > 0 ? (
-          <Pagination3
-            allReviews={allReviews}
-            // size={size}
-            page={page}
-            setPage={setPage}
-            setAllReviews={setAllReviews}
-          />
-        ) : (
-          <></>
-        )}
+        <Pagination3
+          allReviews={allReviews}
+          size={size}
+          page={page}
+          setPage={setPage}
+          setAllReviews={setAllReviews}
+          reviewCount={reviewCount}
+        />
       </ReviewSection>
     </div>
   );

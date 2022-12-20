@@ -24,35 +24,33 @@ function ReviewLists({
   return (
     <div>
       {/* {reviewType == "naver"} */}
+      {/* 버튼 누를 때마다 allReviews 다시 나와야함 */}
       {allReviews.length > 0 ? (
         allReviews.map((review) => {
           return (
             <div key={review.id}>
               <EachReviewSection>
                 {reviewType == "naver" ? (
-                  <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
-                ) : (
-                  <></>
-                )}
-                <ReviewCenter>
-                  {/* <Review /> */}
-                  {review.memberId ? (
-                    <div>
+                  <>
+                    <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
+                    <ReviewCenter>
                       <div>
-                        id : {review.memberId}
-                        {/* 리뷰: {review} */}
-                        {/* 닉네임: {review.memberNickname} */}
+                        <div>id : {review.naverId}</div>
+                        <div>옵션명 : {review.option}</div>
                       </div>
-                      {/* <div>옵션명 : {review.option}</div> */}
-                    </div>
-                  ) : (
-                    <div>
-                      <div>id : {review.naverId}</div>
-                      <div>옵션명 : {review.option}</div>
-                    </div>
-                  )}
-                </ReviewCenter>
-                <ReviewBottom>{review.content}</ReviewBottom>
+                    </ReviewCenter>
+                    <ReviewBottom>{review.content}</ReviewBottom>
+                  </>
+                ) : (
+                  <>
+                    <ReviewCenter>
+                      <div>
+                        <div>닉네임: {review.nickname}</div>
+                      </div>
+                    </ReviewCenter>
+                    <ReviewBottom>{review.content}</ReviewBottom>
+                  </>
+                )}
               </EachReviewSection>
             </div>
           );
