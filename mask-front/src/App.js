@@ -10,6 +10,7 @@ import RecentView from "./components/RecentView";
 import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
 import { Wrapper } from "./styles/OtherStyles";
+import LoginPage from "./pages/LoginPage";
 // import { useState, useParams, useEffect } from "react";
 // import Chart from "./pages/ChartTestPage";
 
@@ -52,6 +53,8 @@ function App() {
 
           {/* 임시 ! 차트test페이지 : "http://localhost:3000/ChartTest/Masinsa" */}
           {/* <Route path="/ChartTest/Masinsa" element={<Chart />} /> */}
+
+          <Route path="/Login" element={<LoginPage />} />
         </Routes>
         <RecentView />
         <UpBtn />

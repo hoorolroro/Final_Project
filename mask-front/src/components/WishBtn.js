@@ -13,7 +13,7 @@ function WishBtn({ maskId, memberId }) {
   // console.log(maskId);
 
   const [isClick, setIsClick] = React.useState(false);
-  console.log("isClick", isClick);
+  // console.log("isClick", isClick);
 
   React.useEffect(() => {
     if (isClick) {

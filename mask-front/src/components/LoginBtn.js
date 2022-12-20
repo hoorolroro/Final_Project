@@ -7,7 +7,7 @@ function LoginBtn() {
   return (
     <div>
       {/* 링크 변경하기 ! */}
-      <a href="">
+      <a href="http://localhost:3000/Login">
         <LoginBtnStyle>N 네이버로그인</LoginBtnStyle>
       </a>
     </div>

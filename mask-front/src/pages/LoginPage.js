@@ -1,14 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-function App() {
+function LoginPage() {
   // 윈도우 객체에 있는 네이버에 로그인 함수를 이용하여 토큰 값을 바로 전달
   const { naver } = window;
   const naverLogin = new naver.LoginWithNaverId({
-    clientId: "UNY76CePTThz2d9AIPl4", // CLIENT_ID
-    callbackUrl: "http://localhost:3000", // CALLBACKURL
+    clientId: "nVtdkXtRReFK7Wbi274O", // CLIENT_ID
+    callbackUrl: "http://localhost:3000/Login", // CALLBACKURL
     isPopup: false /* 팝업을 통한 로그인 여부, true 면 팝업 */,
     loginButton: {
       /* 로그인 버튼의 타입을 지정 */ color: "green",
@@ -48,7 +46,6 @@ function App() {
         }
       });
     };
-
     getUser();
   }, []);
 
@@ -66,13 +63,17 @@ function App() {
 
   const naverLogout = () => {
     localStorage.removeItem("com.naver.nid.access_token");
+    localStorage.removeItem("com.naver.nid.oauth.state_token");
     window.location.reload();
+    setUser(null);
   };
+
+  console.log(user);
 
   return (
     <div className="App">
       <div>
-        {user ? (
+        {user != null ? (
           <div>
             <h2>네이버 로그인 성공!</h2>
             {/* 토큰 */}
@@ -103,4 +104,4 @@ function App() {
   );
 }
 
-export default App;
+export default LoginPage;
