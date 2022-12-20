@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.spring.masinsa.dto.WishListDTO;
+import com.spring.masinsa.entity.Deletion;
 import com.spring.masinsa.entity.WishList;
 import com.spring.masinsa.mapper.WishListMapper;
 import com.spring.masinsa.repository.WishListRepository;
@@ -43,7 +44,7 @@ public class WishListServiceImpl implements WishListService {
 	@Transactional
 	public List<WishListDTO> getAllWishList(Long memberId, int page, int size) {
 		Pageable pageable = PageRequest.of(page-1, size);
-		Page<WishList> wishList = wishListRepo.findWishListByMemberId(memberId, pageable);
+		Page<WishList> wishList = wishListRepo.findWishListByMemberIdAndDeletion(memberId, pageable, Deletion.N);
 		List<WishListDTO> wishListDTO = wishList.getContent().stream()
 										  .map(wish -> WishList.entityToDTO(wish))
 										  .collect(Collectors.toList());
