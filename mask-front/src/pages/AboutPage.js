@@ -20,6 +20,11 @@ function AboutPage() {
   // 로그인시, 로컬에 저장되는 userInfo 가져와서 user
   const user = JSON.parse(localStorage.getItem("userInfo"));
 
+  // if (user) {
+  console.log(user);
+  // console.log("닉네임: ", user.nickname);
+  // }
+
   // 파라미터를 통한 maskId 전달
   const { maskId } = useParams();
   // console.log("useParams", maskId);
@@ -53,12 +58,12 @@ function AboutPage() {
 
   // 멤버 요청
   // 멤버정보 가져오기
-  const [memberId, setMemberId] = useState(2);
-  const [member, setMember] = useState([]);
+  // const [memberId, setMemberId] = useState(2);
+  // const [member, setMember] = useState([]);
 
-  useEffect(() => {
-    getMember({ memberId, setMember });
-  }, []);
+  // useEffect(() => {
+  //   getMember({ memberId, setMember });
+  // }, []);
 
   // console.log("memberId: ", memberId);
   // console.log("member: ", member);
@@ -82,12 +87,18 @@ function AboutPage() {
           {/* 상세정보 */}
           <MaskDetail images={images} />
           {/* 리뷰창 */}
-          <Reviews
-            mask={mask}
-            maskId={maskId}
-            analysisinfo={analysisinfo}
-            memberId={memberId}
-          />
+          {/* user 있으면 있는 Reviews, 없으면 없는 Reviews */}
+          {user == null ? (
+            <Reviews mask={mask} maskId={maskId} analysisinfo={analysisinfo} />
+          ) : (
+            <Reviews
+              mask={mask}
+              maskId={maskId}
+              analysisinfo={analysisinfo}
+              memberId={user.id}
+            />
+          )}
+
           {/* 최근 본 상품 관련 메서드 실행  - sungmin 수정사항 */}
           <RecentViewFunction mask={mask} />
         </MaskAboutWrapper>
