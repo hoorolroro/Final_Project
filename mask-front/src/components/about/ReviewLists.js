@@ -19,42 +19,38 @@ function ReviewLists({
 }) {
   // console.log("ReviewLists : ", allReviews);
 
-  // 페이지당 노출되는 maskList
-  // const reviewsPerPage = [];
-  // for (let i = size * (page - 1) + 1; i <= size * page; i++) {
-  //   reviewsPerPage.push(i);
-  // }
-
-  // console.log(reviewsPerPage);
-  // console.log("allReviews", allReviews);
-  // console.log(reviewType);
+  console.log(allReviews);
 
   return (
     <div>
       {/* {reviewType == "naver"} */}
+      {/* 버튼 누를 때마다 allReviews 다시 나와야함 */}
       {allReviews.length > 0 ? (
         allReviews.map((review) => {
           return (
             <div key={review.id}>
               <EachReviewSection>
-                <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
-                <ReviewCenter>
-                  {/* <Review /> */}
-                  {review.memberId ? (
-                    <div>
+                {reviewType == "naver" ? (
+                  <>
+                    <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
+                    <ReviewCenter>
                       <div>
-                        id : {review.memberId} / {review.memberNickname}
+                        <div>id : {review.naverId}</div>
+                        <div>옵션명 : {review.option}</div>
                       </div>
-                      <div>옵션명 : {review.option}</div>
-                    </div>
-                  ) : (
-                    <div>
-                      <div>id : {review.naverId}</div>
-                      <div>옵션명 : {review.option}</div>
-                    </div>
-                  )}
-                </ReviewCenter>
-                <ReviewBottom>{review.content}</ReviewBottom>
+                    </ReviewCenter>
+                    <ReviewBottom>{review.content}</ReviewBottom>
+                  </>
+                ) : (
+                  <>
+                    <ReviewCenter>
+                      <div>
+                        <div>닉네임: {review.nickname}</div>
+                      </div>
+                    </ReviewCenter>
+                    <ReviewBottom>{review.content}</ReviewBottom>
+                  </>
+                )}
               </EachReviewSection>
             </div>
           );

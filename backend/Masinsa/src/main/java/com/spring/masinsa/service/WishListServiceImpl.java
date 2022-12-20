@@ -68,8 +68,8 @@ public class WishListServiceImpl implements WishListService {
 	
 	@Override
 	@Transactional
-	public WishListDTO deleteWishList(Long wishListId) {
-		WishList wishList = wishListRepo.findWishListById(wishListId);
+	public WishListDTO deleteWishList(Long memberId, Long maskId) {
+		WishList wishList = wishListRepo.findWishListByMemberIdAndMaskId(memberId, maskId);
 		if(wishList != null) {
 			wishList.deleteWishList();
 			wishListRepo.save(wishList);
