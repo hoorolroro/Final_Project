@@ -28,31 +28,7 @@ function App() {
   // 토큰
   const [token, setToken] = useState();
 
-  const getUser = async () => {
-    await naverLogin.getLoginStatus((status) => {
-      console.log(`사용자 로그인 확인 ?: ${status}`);
-      if (status) {
-        // 로그인하면 사용자 정보 setuser
-        setUser({ ...naverLogin.user });
-        const loginOAuth = axios.get(`https://nid.naver.com/oauth2.0/authorize?response_type=code
-    &client_id=${naverLogin.clientId}&redirect_url=
-    ${naverLogin.callbackUrl}&state=test`);
-
-    const access_token = window.location.href.split('=')[1].split("&")[0];
-    console.log(access_token);
-    setToken(access_token);
-
-
-
-        // 자식창(팝업창)에서 부모창으로 접근
-        // window.onload = () => {
-        //   console.log(window.location);
-        //   window.setTimeout(1000);
-        //   window.self.close(); //팝업창 닫음
-        // };
-      }
-    });
-  };
+ 
 
   // useEffect(() => {
     
@@ -68,6 +44,32 @@ function App() {
   useEffect(() => {
     naverLogin.init();
     console.log("");
+    const getUser = async () => {
+      await naverLogin.getLoginStatus((status) => {
+        console.log(`사용자 로그인 확인 ?: ${status}`);
+        if (status) {
+          // 로그인하면 사용자 정보 setuser
+          setUser({ ...naverLogin.user });
+          axios.get(`/oauth2.0/authorize?response_type=code
+          &client_id=${naverLogin.clientId}&redirect_url=
+          ${naverLogin.callbackUrl}&state=test`);
+  
+          const access_token = window.location.href.split('=')[1].split("&")[0];
+          console.log(access_token);
+          setToken(access_token);
+  
+  
+  
+          // 자식창(팝업창)에서 부모창으로 접근
+          // window.onload = () => {
+          //   console.log(window.location);
+          //   window.setTimeout(1000);
+          //   window.self.close(); //팝업창 닫음
+          // };
+        }
+      });
+    };
+
     getUser();
   }, []);
 
