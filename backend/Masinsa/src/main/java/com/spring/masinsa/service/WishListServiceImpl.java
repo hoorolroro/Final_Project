@@ -1,12 +1,10 @@
 package com.spring.masinsa.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,6 +16,8 @@ import com.spring.masinsa.entity.Deletion;
 import com.spring.masinsa.entity.WishList;
 import com.spring.masinsa.mapper.WishListMapper;
 import com.spring.masinsa.repository.WishListRepository;
+import com.spring.masinsa.response.Message;
+import com.spring.masinsa.response.Status;
 
 @Service
 public class WishListServiceImpl implements WishListService {
@@ -72,15 +72,22 @@ public class WishListServiceImpl implements WishListService {
 	
 	@Override
 	@Transactional
-	public WishListDTO deleteWishList(Long memberId, Long maskId) {
+	public Message setUpWishList(Long memberId, Long maskId) {
 		WishList wishList = wishListRepo.findWishListByMemberIdAndMaskId(memberId, maskId);
 		if(wishList != null) {
-			wishList.deleteWishList();
-			wishListRepo.save(wishList);
-			WishListDTO wishListDTO = WishList.entityToDTO(wishList);
-			return wishListDTO;
+			if(wishList.getDeletion() == Deletion.N) {
+				wishList.deleteWishList();
+				wishListRepo.save(wishList);
+				WishListDTO wishListDTO = WishList.entityToDTO(wishList);
+				return new Message(Status.OK, "찜 삭제 완료", wishListDTO);
+			}
+			else if(wishList.getDeletion() == Deletion.Y) {
+				wishList.restoreWishList();
+				wishListRepo.save(wishList);
+				WishListDTO wishListDTO = WishList.entityToDTO(wishList);
+				return new Message(Status.OK, "찜 복원 완료", wishListDTO);
+			}
 		}
 		return null;
 	}
-	
 }
