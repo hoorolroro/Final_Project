@@ -12,7 +12,7 @@ import com.spring.masinsa.entity.WishList;
 @Repository
 @Mapper
 public interface WishListMapper {
-	public void addWishList(WishListDTO ids);
+	public Boolean addWishList(WishListDTO ids);
 	public List<WishList> getAllWishList(Long memberId, Long limit, Long offset);
 	public List<HashMap> getAllWishList2(Long memberId, Long limit, Long offset);
 }

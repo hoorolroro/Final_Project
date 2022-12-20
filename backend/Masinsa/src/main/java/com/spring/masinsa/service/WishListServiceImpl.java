@@ -30,10 +30,13 @@ public class WishListServiceImpl implements WishListService {
 	@Override
 	@Transactional
 	public WishListDTO addWishList(WishListDTO ids) {
-		wishListMapper.addWishList(ids);
-		WishList wishList = wishListRepo.findWishListById(ids.getId());
-		WishListDTO wishListDTO = WishList.entityToDTO(wishList);
-		return wishListDTO;
+		Boolean insertResult = wishListMapper.addWishList(ids);
+		if (insertResult) {
+			WishList wishList = wishListRepo.findWishListById(ids.getId());
+			WishListDTO wishListDTO = WishList.entityToDTO(wishList);
+			return wishListDTO;
+		}
+			return null;
 		}
 	
 	@Override

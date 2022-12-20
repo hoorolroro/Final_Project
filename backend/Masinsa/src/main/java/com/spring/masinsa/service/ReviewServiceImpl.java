@@ -72,10 +72,13 @@ public class ReviewServiceImpl implements ReviewService {
   @Override
   @Transactional
   public ReviewDTO addMemberReview(ReviewDTO reviewDTO){
-	  reviewMapper.addMemberReview(reviewDTO);
-	  Review review = reviewRepository.findReviewById(reviewDTO.getId());
-	  ReviewDTO result = Review.entityToDTO(review);
-	  return result;
+	  Boolean insertResult = reviewMapper.addMemberReview(reviewDTO);
+	  if (insertResult) {
+		  Review review = reviewRepository.findReviewById(reviewDTO.getId());
+		  ReviewDTO reviewDTO2 = Review.entityToDTO(review);
+		  return reviewDTO2;
+	  }
+	  	  return null;
   }
   
   @Override

@@ -36,7 +36,7 @@ public class WishlistController {
 			Message msg = new Message(Status.OK, "찜 등록 완료", wishListDTO);
 		    return new ResponseEntity<>(msg, HttpStatus.OK);
 		}
-		 Message msg = new Message(Status.OK, "찜 등록 실패", wishListDTO);
+		 Message msg = new Message(Status.OK, "이미 찜 되어있는 마스크입니다.", wishListDTO);
 		 return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 	
