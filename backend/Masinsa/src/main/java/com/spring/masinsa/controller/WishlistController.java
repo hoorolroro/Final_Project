@@ -33,7 +33,7 @@ public class WishlistController {
 	public ResponseEntity<?> addWishList(@RequestBody WishListDTO ids) {
 		WishListDTO wishListDTO = wishListService.addWishList(ids);
 		if(wishListDTO != null) {
-			Message msg = new Message(Status.OK, "찜 등록 완료", wishListDTO);
+			Message msg = new Message(Status.OK, "찜 등록이 정상적으로 완료되었습니다.", wishListDTO);
 		    return new ResponseEntity<>(msg, HttpStatus.OK);
 		}
 		 Message msg = new Message(Status.OK, "이미 찜 되어있는 마스크입니다.", wishListDTO);

@@ -62,10 +62,10 @@ public class MaskController {
 	public ResponseEntity<?> updateSoldout(@RequestParam Long maskId, @RequestParam String soldout) {
 		MaskDTO maskDTO = maskService.updateSoldout(maskId, soldout);
 		if (maskDTO != null) {
-			Message msg = new Message(Status.OK, "마스크 품절여부 수정 완료", maskDTO);
+			Message msg = new Message(Status.OK, "마스크 품절여부가 정상적으로 수정되었습니다.", maskDTO);
 		    return new ResponseEntity<>(msg, HttpStatus.OK);
 		  }
-		  Message msg = new Message(Status.OK, "마스크 품절여부 수정 실패", maskDTO);
+		  Message msg = new Message(Status.OK, "마스크 품절여부 수정에 실패하였습니다.", maskDTO);
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 		  } 
 	
@@ -80,10 +80,10 @@ public class MaskController {
 	public ResponseEntity<?> deleteMask(@RequestParam Long maskId) {
 		MaskDTO maskDTO = maskService.deleteMask(maskId);
 		if (maskDTO != null) {
-			Message msg = new Message(Status.OK, "마스크 삭제 완료", maskDTO);
+			Message msg = new Message(Status.OK, "마스크 정보 삭제가 정상적으로 완료되었습니다.", maskDTO);
 		    return new ResponseEntity<>(msg, HttpStatus.OK);
 		  }
-		  Message msg = new Message(Status.OK, "마스크 삭제 실패", maskDTO);
+		  Message msg = new Message(Status.OK, "마스크 삭제에 실패하였습니다.", maskDTO);
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	} 
 	
@@ -106,10 +106,10 @@ public class MaskController {
 		List<MaskDTO> maskList = maskService.FilterSortMaskByPage(sortCol, order, page, size, filterCol1, filter1
 			, filterCol2, filter2, filterCol3, filter3);
 		if (maskList != null) {
-			Message msg = new Message(Status.OK, "마스크 리스트 조회 완료", maskList);
+			Message msg = new Message(Status.OK, "마스크 리스트 조회가 정상적으로 실행되었습니다.", maskList);
 		    return new ResponseEntity<>(msg, HttpStatus.OK);
 		  }
-		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패", maskList);
+		  Message msg = new Message(Status.OK, "마스크 리스트 조회에 실패하였습니다.", maskList);
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 
@@ -125,10 +125,10 @@ public class MaskController {
 
 		List<MaskDTO> maskList = maskService.SearchSortMask(keyword, sortCol, order, page, size);
 		if (maskList != null) {
-			Message msg = new Message(Status.OK, "마스크 리스트 조회 완료", maskList);
+			Message msg = new Message(Status.OK, "키워드 검색을 통한 마스크 리스트 조회가 정상적으로 실행되었습니다.", maskList);
 		    return new ResponseEntity<>(msg, HttpStatus.OK);
 		  }
-		  Message msg = new Message(Status.OK, "마스크 리스트 조회 실패", maskList);
+		  Message msg = new Message(Status.OK, "키워드 검색을 통한 마스크 리스트 조회에 실패하였습니다.", maskList);
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 

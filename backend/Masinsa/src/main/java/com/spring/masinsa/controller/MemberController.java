@@ -125,10 +125,10 @@ public class MemberController {
 	public ResponseEntity<?> deleteMember(@RequestParam Long memberId) {
 		MemberDTO memberDTO = memberService.deleteMember(memberId);
 		if (memberDTO != null) {
-			Message msg = new Message(Status.OK, "회원 탈퇴 완료", memberDTO);
+			Message msg = new Message(Status.OK, "회원 탈퇴가 정상적으로 처리되었습니다.", memberDTO);
 			return new ResponseEntity<>(msg, HttpStatus.OK);
 		}
-		Message msg = new Message(Status.OK, "회원 탈퇴 실패", memberDTO);
+		Message msg = new Message(Status.OK, "회원 탈퇴에 실패하였습니다.", memberDTO);
 		return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 

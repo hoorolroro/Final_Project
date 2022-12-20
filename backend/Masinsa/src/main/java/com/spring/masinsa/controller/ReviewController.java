@@ -76,7 +76,7 @@ public class ReviewController {
   public ResponseEntity<?> addMemberReview(@RequestBody ReviewDTO reviewDTO){
 	  ReviewDTO result = reviewService.addMemberReview(reviewDTO);
 	  if(result != null) {
-			Message msg = new Message(Status.OK, "회원 리뷰 등록 완료", result);
+			Message msg = new Message(Status.OK, "회원 리뷰가 정상적으로 등록되었습니다.", result);
 			return new ResponseEntity<>(msg, HttpStatus.OK);
 		}
 		Message msg = new Message(Status.OK, "이미 리뷰를 작성한 상품이라 리뷰 등록에 실패했습니다.", result);
@@ -89,10 +89,10 @@ public class ReviewController {
 		  @RequestParam Float score, @RequestParam String content){
 	  ReviewDTO reviewDTO = reviewService.updateMemberReview(reviewId, score, content);
 	  if(reviewDTO != null) {
-		  Message msg = new Message(Status.OK, "회원 리뷰 수정 완료", reviewDTO);
+		  Message msg = new Message(Status.OK, "회원 리뷰가 수정되었습니다.", reviewDTO);
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	  }
-	  Message msg = new Message(Status.OK, "회원 리뷰 수정 실패", reviewDTO);
+	  Message msg = new Message(Status.OK, "회원 리뷰 수정에 실패하였습니다.", reviewDTO);
 	  return new ResponseEntity<>(msg, HttpStatus.OK);
   }
   
@@ -101,9 +101,9 @@ public class ReviewController {
   public ResponseEntity<?> deletMemberReview(@RequestParam Long memberId, @RequestParam Long maskId) {
 	  Boolean result = reviewService.deleteMemberReview(memberId, maskId);
 	  if(result) {
-			return new ResponseEntity<>("회원 리뷰 삭제 완료", HttpStatus.OK);
+			return new ResponseEntity<>("회원 리뷰를 삭제하였습니다.", HttpStatus.OK);
 		}
-		return new ResponseEntity<>("회원 리뷰 삭제 실패", HttpStatus.OK);
+		return new ResponseEntity<>("회원 리뷰 삭제에 실패하였습니다.", HttpStatus.OK);
 	}
 
 }
