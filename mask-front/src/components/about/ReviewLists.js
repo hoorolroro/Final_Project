@@ -19,18 +19,6 @@ function ReviewLists({
 }) {
   // console.log("ReviewLists : ", allReviews);
 
-  // 페이지당 노출되는 maskList
-  // const reviewsPerPage = [];
-  // for (let i = size * (page - 1) + 1; i <= size * page; i++) {
-  //   reviewsPerPage.push(i);
-  // }
-
-  // console.log(reviewsPerPage);
-  // console.log("allReviews", allReviews);
-  // console.log(reviewType);
-
-  // console.log(review);
-
   console.log(allReviews);
 
   return (
