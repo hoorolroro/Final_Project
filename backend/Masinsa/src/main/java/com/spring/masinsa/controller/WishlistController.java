@@ -59,8 +59,8 @@ public class WishlistController {
 	
 	@ApiOperation(value = "22번 - wishlistId를 통해 찜 삭제")
 	@PutMapping("/wishlist")
-	public ResponseEntity<?> deleteWishList(@RequestParam Long wishListId) {
-		WishListDTO wishListDTO = wishListService.deleteWishList(wishListId);
+	public ResponseEntity<?> deleteWishList(@RequestParam Long memberId, @RequestParam Long maskId) {
+		WishListDTO wishListDTO = wishListService.deleteWishList(memberId, maskId);
 		if(wishListDTO != null) {
 			Message msg = new Message(Status.OK, "찜 삭제 완료", wishListDTO);
 			return new ResponseEntity<>(msg, HttpStatus.OK);
