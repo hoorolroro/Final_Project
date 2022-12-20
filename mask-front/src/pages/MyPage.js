@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { deleteWishlist } from "../api/wishlist/deleteWishlist";
 import { getWishlist } from "../api/wishlist/getWishlist";
 import LoginBtn from "../components/LoginBtn";
 import MyWishLists from "../components/personal/MyWishLists";

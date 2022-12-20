@@ -19,7 +19,7 @@ function ReviewWrite({ maskId, memberId, reviewType }) {
     // console.log(inputValue);
   };
 
-  const onPost = () => {
+  const onPost = (e) => {
     postMemberReview({
       memberId,
       maskId,

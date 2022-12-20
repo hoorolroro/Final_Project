@@ -20,6 +20,7 @@ function MyWishLists({ wishList, memberId }) {
     if (isClickDelete) {
       console.log("얍");
       deleteWishlist(memberId, maskId);
+      window.location.reload();
     }
   }, [maskId]);
 

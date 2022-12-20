@@ -9,7 +9,7 @@ export const getFilterMaskSort = async ({
   maskShape,
   setMaskList,
 }) => {
-  console.log("getFilter", maskKF);
+  // console.log("getFilter", maskKF);
   // console.log("getFilter - size", maskSize);
   // console.log("getFilter - shape", maskShape);
   // console.log(sortCol);
@@ -23,14 +23,14 @@ export const getFilterMaskSort = async ({
           const response = await axios.get(
             `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}&filterCol3=size&filter3=${maskSize}`
           );
-          console.log("filter1");
+          // console.log("filter1");
           setMaskList(response.data.result);
         } else {
           // 정렬은 존재하지 x 다른 거 모두 존재 (size, shape, KF)
           const response = await axios.get(
             `http://localhost:8080/mask/filter/sort?filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}&filterCol3=size&filter3=${maskSize}`
           );
-          console.log("filter2");
+          // console.log("filter2");
           setMaskList(response.data.result);
         }
       } else {
@@ -39,14 +39,14 @@ export const getFilterMaskSort = async ({
           const response = await axios.get(
             `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}`
           );
-          console.log("filter3");
+          // console.log("filter3");
           setMaskList(response.data.result);
         } else {
           // size 존재 x 정렬 x ( kf, shape)
           const response = await axios.get(
             `http://localhost:8080/mask/filter/sort?filterCol1=blocking_index&filter1=${maskKF}&filterCol2=shape&filter2=${maskShape}`
           );
-          console.log("filter4");
+          // console.log("filter4");
           setMaskList(response.data.result);
         }
       }
@@ -57,14 +57,14 @@ export const getFilterMaskSort = async ({
           const response = await axios.get(
             `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&filterCol1=blocking_index&filter1=${maskKF}&filterCol2=size&filter2=${maskSize}`
           );
-          console.log("filter5");
+          // console.log("filter5");
           setMaskList(response.data.result);
         } else {
           //  shape 존재 x size o 정렬 x
           const response = await axios.get(
             `http://localhost:8080/mask/filter/sort?filterCol1=blocking_index&filter1=${maskKF}&filterCol2=size&filter2=${maskSize}`
           );
-          console.log("filter6");
+          // console.log("filter6");
           setMaskList(response.data.result);
         }
       } else {
@@ -73,14 +73,14 @@ export const getFilterMaskSort = async ({
           const response = await axios.get(
             `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}&filterCol1=blocking_index&filter1=${maskKF}`
           );
-          console.log("filter7");
+          // console.log("filter7");
           setMaskList(response.data.result);
         } else {
           // shape, size x 정렬 x
           const response = await axios.get(
             `http://localhost:8080/mask/filter/sort?filterCol1=blocking_index&filter1=${maskKF}`
           );
-          console.log("filter8");
+          // console.log("filter8");
           setMaskList(response.data.result);
         }
       }

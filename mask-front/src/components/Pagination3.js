@@ -19,9 +19,9 @@ const Pagination3 = ({ page, size, setPage, allReviews, reviewCount }) => {
     }
   }
 
-  console.log("총 페이지 수: ", parseInt(reviewCount / size) + 1);
+  // console.log("총 페이지 수: ", parseInt(reviewCount / size) + 1);
   // console.log("pageList: ", pageList);
-  console.log("pageListOnce: ", pageListOnce);
+  // console.log("pageListOnce: ", pageListOnce);
   // console.log("pageListOnce", pageListOnce);
 
   return (

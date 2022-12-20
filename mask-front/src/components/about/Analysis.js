@@ -87,7 +87,7 @@ function Analysis({ analysisinfo }) {
           </AnalysisSection>
         </div>
       ) : (
-        <>하이</>
+        <></>
       )}
     </div>
   );

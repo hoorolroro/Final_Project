@@ -19,7 +19,7 @@ function ReviewLists({
 }) {
   // console.log("ReviewLists : ", allReviews);
 
-  console.log(allReviews);
+  // console.log(allReviews);
 
   return (
     <div>

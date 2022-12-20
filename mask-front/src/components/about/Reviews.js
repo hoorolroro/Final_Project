@@ -136,6 +136,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
               {/* <Totals>⭐ MASINSA 점수: {analysisinfo.score}</Totals> */}
               <Totals>💬 리뷰 {reviewCount}개</Totals>
             </ReviewTotal>
+            {/* 리뷰작성 */}
             <ReviewWrite
               maskId={maskId}
               memberId={memberId}
@@ -146,6 +147,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
 
         {/* 리뷰 내용 */}
         <ReviewContent>
+          {/* 리뷰들 */}
           <ReviewLists
             allReviews={allReviews}
             page={page}
@@ -155,6 +157,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
             reviewType={reviewType}
           />
         </ReviewContent>
+        {/* 페이지네이션 */}
         <Pagination3
           allReviews={allReviews}
           size={size}
