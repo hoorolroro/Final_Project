@@ -29,6 +29,10 @@ function ReviewLists({
   // console.log("allReviews", allReviews);
   // console.log(reviewType);
 
+  // console.log(review);
+
+  console.log(allReviews);
+
   return (
     <div>
       {/* {reviewType == "naver"} */}
@@ -37,15 +41,21 @@ function ReviewLists({
           return (
             <div key={review.id}>
               <EachReviewSection>
-                <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
+                {reviewType == "naver" ? (
+                  <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
+                ) : (
+                  <></>
+                )}
                 <ReviewCenter>
                   {/* <Review /> */}
                   {review.memberId ? (
                     <div>
                       <div>
-                        id : {review.memberId} / {review.memberNickname}
+                        id : {review.memberId}
+                        {/* 리뷰: {review} */}
+                        {/* 닉네임: {review.memberNickname} */}
                       </div>
-                      <div>옵션명 : {review.option}</div>
+                      {/* <div>옵션명 : {review.option}</div> */}
                     </div>
                   ) : (
                     <div>
