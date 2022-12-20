@@ -62,7 +62,7 @@ public class Review {
 				.memberId(review.getMember() != null ? review.getMember().getId() : null)
 				//naverId가 null이 아니라면 builder에 naverId를 넣어준다.
 				.naverId(review.getNaverId() != null ? review.getNaverId() : null)
-				.nickname(review.getMember().getNickname())
+				.nickname(review.getMember() != null ? review.getMember().getNickname() : null)
 				.score(review.getScore())
 				.option(review.getOption())
 				.content(review.getContent())
