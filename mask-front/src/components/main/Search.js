@@ -38,7 +38,7 @@ function Search() {
   useEffect(() => {
     getMainMask({ sortCol, sortOrder, setMaskList, keyword });
     // console.log(maskList);
-  }, [sortCol, sortOrder]);
+  }, [sortCol, sortOrder, keyword]);
 
   // 검색 시 마스크 요청
   useEffect(() => {

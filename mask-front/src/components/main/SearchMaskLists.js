@@ -113,7 +113,7 @@ function SearchMaskLists({ maskList, keyword }) {
                       <MaskBottom>
                         <MaskScore>평점 : {mask.avgScore}⭐</MaskScore>
                         {/* 찜버튼 */}
-                        <WishBtn />
+                        <WishBtn maskId={mask.id} />
                       </MaskBottom>
                     </MaskSummaryContent>
                   </MaskSummaryBox>

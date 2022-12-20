@@ -100,7 +100,7 @@ function FilterMaskList({ maskList }) {
                         <div>평점 : {mask.avgScore}⭐</div>
                       </MaskScore>
                       {/* 찜버튼 */}
-                      <WishBtn />
+                      <WishBtn maskId={mask.id} />
                     </MaskBottom>
                   </MaskSummaryContent>
                 </MaskSummaryBox>

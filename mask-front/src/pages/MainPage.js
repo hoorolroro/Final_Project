@@ -12,7 +12,7 @@ function MainPage() {
     getTop3({ setTopMask });
   }, []);
 
-  console.log("topMask", topMask);
+  // console.log("topMask", topMask);
 
   return (
     <div>
