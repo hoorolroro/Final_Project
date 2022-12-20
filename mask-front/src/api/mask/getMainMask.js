@@ -12,15 +12,35 @@ export const getMainMask = async ({
   if (keyword === "") {
     if (sortOrder != "") {
       // console.log("1");
-      const response = await axios.get(
-        `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}`
-      );
+      const response = await axios
+        .get(
+          `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}`
+        )
+        .catch(function (error) {
+          if (error.response) {
+            console.log(error.response.status);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
       setMaskList(response.data.result);
     } else {
       // console.log("2");
-      const response = await axios.get(
-        `http://localhost:8080/mask/filter/sort?`
-      );
+      const response = await axios
+        .get(`http://localhost:8080/mask/filter/sort?`)
+        .catch(function (error) {
+          if (error.response) {
+            console.log(error.response.status);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
       setMaskList(response.data.result);
     }
   }

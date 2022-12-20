@@ -27,6 +27,7 @@ function SearchBox({ keyword, setKeyWord }) {
   const onKeyPress = (e) => {
     if (e.key === "Enter") {
       alert("죄송합니다. 검색 버튼 사용을 부탁드리겠습니다.");
+      e.returnValue = false;
       // onAdd();
     }
   };
@@ -41,7 +42,7 @@ function SearchBox({ keyword, setKeyWord }) {
           <SearchInput
             type="search"
             id="SearchBox"
-            placeholder="ex.중형, kf94, 마스크"
+            placeholder="ex.중형, 마스크, KF94"
             autoFocus
             onChange={onChange}
             onKeyPress={onKeyPress}

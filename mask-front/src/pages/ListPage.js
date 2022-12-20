@@ -8,6 +8,12 @@ import { useParams } from "react-router-dom";
 import { getFilterMaskSort } from "../api/mask/getFilterMaskSort";
 
 function ListPage() {
+  // 전달안됨
+  // console.log(user);
+
+  // 로그인시, 로컬에 저장되는 userInfo
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
   // kf 파라미터 설정
   const { blockingindex } = useParams();
   const [maskKF, setMaskKF] = useState();
@@ -51,6 +57,8 @@ function ListPage() {
   const [isChange, setIsChange] = useState(false);
   // console.log(isChange);
 
+  // console.log(userInfo);
+
   return (
     <div>
       <Main>
@@ -78,7 +86,7 @@ function ListPage() {
           <>
             <FilterMaskListSection>
               {/* 필터걸린 마스크 리스트 */}
-              <FilterMaskList maskList={maskList} />
+              <FilterMaskList maskList={maskList} userInfo={userInfo} />
               <div
                 style={{
                   marginBottom: "10px",

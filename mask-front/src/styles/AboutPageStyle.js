@@ -47,33 +47,27 @@ export const MaskInfoContent = styled.div`
   // border: 2px solid blue;
 `;
 
-// 마스크 (타이틀 + wish) Section
-export const MaskInfoTopSection = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
+// 마스크 title
+export const MaskTitle = styled.div`
   width: auto;
   height: 20%;
   // padding: 8px;
   margin-bottom: 5px;
   overflow: hidden;
-  // border: 2px solid blue;
-`;
-
-// 마스크 Title
-export const MaskTitle = styled.div`
-  width: 80%;
-  // padding: 5px;
   text-align: left;
   font-size: 18px;
   font-weight: 800;
   // border: 2px solid blue;
 `;
 
-// 마스크 가격
-export const MaskInfoPrice = styled.div`
-  width: auto;
-  height: 10%;
-  padding: 5px;
+// 마스크 가격 + wishBtn
+export const MaskInfoMain = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  width: 90%;
+  height: 13%;
+  padding: 5px 0px;
   margin-bottom: 5px;
   text-align: left;
   font-size: 20px;
@@ -82,20 +76,27 @@ export const MaskInfoPrice = styled.div`
   // border: 2px solid blue;
 `;
 
+// 마스크 가격
+export const MaskPrice = styled.div`
+  width: 80%;
+  // border: 2px solid red;
+  padding-top: 8px;
+`;
+
 // 마스크 옵션
-export const MaskInfoOption = styled.div`
-  width: auto;
-  height: 15%;
+export const MaskOption = styled.div`
+  width: 95%;
+  height: 28%;
   text-align: left;
   padding: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   overflow: hidden;
   // border: 2px solid blue;
 `;
 
 // 마스크 구매링크 Section
 export const MaskBuyLink = styled.div`
-  width: 80%;
+  width: 85%;
   height: 13%;
   padding: 10px 5px 0px;
   overflow: hidden;

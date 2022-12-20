@@ -11,7 +11,7 @@ export const MaskListDiv = styled.div`
   column-gap: 30px;
   justify-items: stretch;
   width: auto;
-  min-width: 95%;
+  min-width: 100%;
   height: auto;
   padding: 10px;
   // border: 2px solid red;
@@ -23,7 +23,7 @@ export const MaskListDiv = styled.div`
 export const MaskSummaryBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 220px;
+  height: 215px;
   padding: 10px;
   margin: 0 5px 10px 5px;
   border: 1px solid #d9d9d9;

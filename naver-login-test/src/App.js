@@ -7,8 +7,8 @@ function App() {
   // 윈도우 객체에 있는 네이버에 로그인 함수를 이용하여 토큰 값을 바로 전달
   const { naver } = window;
   const naverLogin = new naver.LoginWithNaverId({
-    clientId: "zjw4Rh5ItdG6dKAS_2yB", // CLIENT_ID
-    callbackUrl: "http://localhost:3000/", // CALLBACKURL
+    clientId: "UNY76CePTThz2d9AIPl4", // CLIENT_ID
+    callbackUrl: "http://localhost:3000", // CALLBACKURL
     isPopup: false /* 팝업을 통한 로그인 여부, true 면 팝업 */,
     loginButton: {
       /* 로그인 버튼의 타입을 지정 */ color: "green",
@@ -20,24 +20,12 @@ function App() {
   // useEffect로 안하고 onclick하면 로그인배너아이콘 안뜸
   useEffect(() => {
     naverLogin.init();
-    console.log("init!");
   }, []);
 
   // user 정보
   const [user, setUser] = useState();
   // 토큰
   const [token, setToken] = useState();
-
-  // useEffect(() => {
-
-  // },[]);
-
-  // console.log(x);
-
-  // const loginOAuth = async () => {
-  //   return await axios.post(`http://localhost:8080/member/new-member`),;
-  // }
-  // console.log(loginOAuth);
 
   useEffect(() => {
     naverLogin.init();
@@ -52,25 +40,17 @@ function App() {
           &client_id=${naverLogin.clientId}&redirect_url=
           ${naverLogin.callbackUrl}&state=test`);
 
+          // alert(window.location);
+
           const access_token = window.location.href.split("=")[1].split("&")[0];
           console.log(access_token);
           setToken(access_token);
-
-          // 자식창(팝업창)에서 부모창으로 접근
-          // window.onload = () => {
-          //   console.log(window.location);
-          //   window.setTimeout(1000);
-          //   window.self.close(); //팝업창 닫음
-          // };
         }
       });
     };
 
     getUser();
   }, []);
-
-  // console.log(user);
-  // console.log(token);
 
   const [userData, setUserData] = useState([]);
 

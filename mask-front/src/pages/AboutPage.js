@@ -3,7 +3,7 @@ import MaskInfo from "../components/about/MaskInfo";
 import Analysis from "../components/about/Analysis";
 import MaskDetail from "../components/about/MaskDetail";
 import Reviews from "../components/about/Reviews";
-import { Outlet, Route, Router, Routes, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getMask } from "../api/mask/getMask";
 import { Main } from "../styles/OtherStyles";
 import CurrentLocation from "../components/productList/CurrentLocation";
@@ -17,6 +17,9 @@ import ReviewBtn from "../components/about/ReviewBtn";
 import { getMember } from "../api/member/getMember";
 
 function AboutPage() {
+  // 로그인시, 로컬에 저장되는 userInfo 가져와서 user
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+
   // 파라미터를 통한 maskId 전달
   const { maskId } = useParams();
   // console.log("useParams", maskId);
@@ -57,8 +60,8 @@ function AboutPage() {
     getMember({ memberId, setMember });
   }, []);
 
-  console.log("memberId: ", memberId);
-  console.log("member: ", member);
+  // console.log("memberId: ", memberId);
+  // console.log("member: ", member);
 
   return (
     <div>

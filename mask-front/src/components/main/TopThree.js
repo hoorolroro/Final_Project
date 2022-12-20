@@ -11,17 +11,28 @@ import {
 } from "../../styles/MainPageStyle";
 import { TopMaskImg } from "../../styles/MainPageStyle";
 import MaskInfo from "../about/MaskInfo";
+import { putClick } from "../../api/mask/putClick";
 
 function TopThree({ topMask }) {
   // console.log("topMask - TopThree", topMask);
 
-  const [isHover, setIsHover] = useState(0);
+  /* TOP3 상품 클릭 수 증가  */
+  const [isClick, setIsClick] = useState(false);
+  const [clickMaskId, setClickMaskId] = useState();
+  // console.log(isClick);
+
+  // 만약 isClick이 true가 되면 (해당 상품이 클릭되면) putClick 실행
+  useEffect(() => {
+    if (isClick === true) {
+      putClick({ clickMaskId });
+    }
+  });
 
   return (
     <div>
       <Top3ArticleSection>
         <Top3BlankSection></Top3BlankSection>
-        <Top3Article>MASINSA'S BEST</Top3Article>
+        <Top3Article>MASINSA AWARDS</Top3Article>
         <IntroLinkBox href="Introduce/Masinsa">
           {/* Do you want know about MASNSA? */}
           What is MASINSA?
@@ -36,10 +47,116 @@ function TopThree({ topMask }) {
               <div key={top.id}>
                 <a
                   href={`/aboutMask/${top.id}/Masinsa`}
-                  style={{ textDecoration: "none" }}
+                  style={{
+                    textDecoration: "none",
+                  }}
+                  onClick={() => {
+                    setIsClick(true);
+                    setClickMaskId(top.id);
+                  }}
                 >
-                  {/* 마우스 오버 x 면 마스크 이미지 */}
-                  <TopMaskImg src={top.thumbnail} alt={top.name} />
+                  {/* 마우스 오버 x 면 마스크 info */}
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      // border: "1px solid green",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {/* 마우스 오버 전, thumbnail */}
+                    <TopMaskImg
+                      src={top.thumbnail}
+                      onMouseOver={() =>
+                        (document.getElementById(
+                          `${top.id}info`
+                        ).style.opacity = "85%")
+                      }
+                      onMouseOut={() =>
+                        (document.getElementById(
+                          `${top.id}info`
+                        ).style.opacity = "0%")
+                      }
+                    ></TopMaskImg>
+                    {/* <div
+                      style={{
+                        position: "absolute",
+                        // border: "1px solid red",
+                        top: 5,
+                        left: 15,
+                        fontSize: "20px",
+                        fontWeight: "700",
+                        // color: "white",
+                      }}
+                    >
+                      {top.id}
+                    </div> */}
+                    {/* TOP3 상품 Hover 시 상품정보 표기 */}
+                    <div
+                      id={`${top.id}info`}
+                      style={{
+                        position: "absolute",
+                        width: "95.5%",
+                        height: "34%",
+                        top: "66%",
+                        left: "2.4%",
+                        bottom: 0,
+                        right: 0,
+                        background: "black",
+                        borderRadius: "0px 0px 15px 15px",
+                        opacity: "0%",
+                        textAlign: "left",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: "white",
+                          padding: "10px 20px",
+                          fontWeight: "600",
+                        }}
+                      >
+                        {/* 마스크이름 */}
+                        <p
+                          style={{
+                            fontSize: "13px",
+                            margin: "1px",
+                          }}
+                        >
+                          {top.name}
+                        </p>
+                        {/* 가격 */}
+                        <p
+                          style={{
+                            fontSize: "13px",
+                            margin: "0px",
+                            color: "#FF7D04",
+                          }}
+                        >
+                          ▪ {top.price} 원
+                        </p>
+                        {/* 사이즈 */}
+                        <p
+                          style={{
+                            fontSize: "13px",
+                            margin: "0px",
+                          }}
+                        >
+                          ▪ size : {top.size}
+                        </p>
+                        {/* 평점 */}
+                        <p
+                          style={{
+                            fontSize: "13px",
+                            margin: "0px",
+                          }}
+                        >
+                          ▪ score : ⭐ {top.avgScore}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </a>
               </div>
             ))

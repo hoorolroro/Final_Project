@@ -5,14 +5,16 @@ import { Main } from "../styles/OtherStyles";
 import { Top3Section, SearchSection } from "../styles/MainPageStyle";
 import { getTop3 } from "../api/mask/getTop3";
 
-function MainPage() {
+function MainPage({ user }) {
+  // console.log(user);
+
   const [topMask, setTopMask] = useState([]);
 
   useEffect(() => {
     getTop3({ setTopMask });
   }, []);
 
-  console.log("topMask", topMask);
+  // console.log("topMask", topMask);
 
   return (
     <div>
@@ -30,7 +32,7 @@ function MainPage() {
         )}
         {/* 키워드검색결과 MakList 띄워주는 부분 */}
         <SearchSection>
-          <Search />
+          <Search user={user} />
         </SearchSection>
       </Main>
     </div>

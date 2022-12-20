@@ -74,9 +74,13 @@ export const TopMaskImg = styled.img`
   width: 95%;
   border: 1px solid #9a9a9a;
   border-radius: 15px;
+  position: "absolute";
+  top: 0;
+  lefth: 0;
+  bottom: 10;
+  right: 0;
 `;
 
-// Top3 hover 시 보여주는 div
 export const TopMaskInfo = styled.div`
   display: flex;
   flex: nowrap;

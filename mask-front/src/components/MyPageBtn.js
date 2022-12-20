@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MyPageBtnStyle } from "../styles/HeaderStyle";
 
-function MyPageBtn() {
-  // 추후 수정하기
-
+function MyPageBtn({ userInfo }) {
   const [isClick, setIsClick] = useState(false);
 
   if (isClick === true) {
@@ -13,12 +11,12 @@ function MyPageBtn() {
     setIsClick(!isClick);
   }
 
+  console.log(userInfo);
+
   return (
     <div>
       <Link to="/:memberId/MyPage/Masinsa">
-        <MyPageBtnStyle onClick={() => setIsClick(true)}>
-          Go MyPage
-        </MyPageBtnStyle>
+        <MyPageBtnStyle>I'm {userInfo.nickname} 😃</MyPageBtnStyle>
       </Link>
     </div>
   );
