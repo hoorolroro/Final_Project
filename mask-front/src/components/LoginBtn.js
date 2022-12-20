@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LoginBtnStyle } from "../styles/HeaderStyle";
+import { LoginBtnStyle, NaverLoginBtn } from "../styles/HeaderStyle";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -92,24 +92,22 @@ function LoginBtn({ setUser, setStatus, user }) {
 
   return (
     <div>
-      <div>
-        {user ? (
-          <div>
-            <button onClick={naverLogout}>로그아웃</button>
-          </div>
-        ) : (
-          // 네이버 로그인 버튼
-          <div>
-            {/* 아이콘이 표시 될 div태그에 id='naverIdLogin' 을 꼭 추가 */}
-            <div
-              ref={naverRef}
-              id="naverIdLogin"
-              // style={{ display: "none" }}
-            ></div>
-            {/* <button onClick={handleClick}>N 네이버로그인</button> */}
-          </div>
-        )}
-      </div>
+      {user ? (
+        <></>
+      ) : (
+        // 네이버 로그인 버튼
+        <div>
+          {/* 아이콘이 표시 될 div태그에 id='naverIdLogin' 을 꼭 추가 */}
+          {/* 원래 제공해주는 버튼은 안보이게 하고 */}
+          <div
+            ref={naverRef}
+            id="naverIdLogin"
+            style={{ display: "none" }}
+          ></div>
+          {/* 새로 스타일해서 로그인 버튼 만들기 */}
+          <NaverLoginBtn onClick={handleClick}>N 네이버 로그인</NaverLoginBtn>
+        </div>
+      )}
     </div>
   );
 }
