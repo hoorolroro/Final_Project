@@ -15,9 +15,8 @@ import {
 } from "../../styles/MaskListStyles";
 import { putClick } from "../../api/mask/putClick";
 
-function SearchMaskLists({ maskList, keyword }) {
-  const userInfo = localStorage.getItem("userInfo");
-
+function SearchMaskLists({ maskList, keyword, userInfo }) {
+  // console.log(userInfo);
   // console.log("SearchMaskLists : ", maskList);
 
   const [isClick, setIsClick] = useState(false);

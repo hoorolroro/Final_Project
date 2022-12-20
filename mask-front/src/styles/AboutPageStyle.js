@@ -18,7 +18,7 @@ export const MaskInfoSection = styled.section`
   align-items: center;
   justify-content: center;
   width: auto;
-  height: 350px;
+  height: 340px;
   padding: 5px;
   margin: 5px;
   // border: 2px solid red;
@@ -26,7 +26,7 @@ export const MaskInfoSection = styled.section`
 
 // 마스크 썸네일 img
 export const MaskThumnailImg = styled.img`
-  width: 35%;
+  width: 37%;
   height: 95%;
   padding: 5px;
   margin-right: 25px;

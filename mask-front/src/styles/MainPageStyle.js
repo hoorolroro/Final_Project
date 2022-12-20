@@ -81,6 +81,7 @@ export const TopMaskImg = styled.img`
   right: 0;
 `;
 
+// Top 마스크 정보 div
 export const TopMaskInfo = styled.div`
   display: flex;
   flex: nowrap;
@@ -192,7 +193,7 @@ export const SearchMaskListSection = styled.section`
   justify-content: center;
   width: auto;
   height: auto;
-  padding: 2px;
+  // padding: 2px;
   margin: 2px;
   // border: 2px solid red;
 `;

@@ -6,6 +6,10 @@ import { Top3Section, SearchSection } from "../styles/MainPageStyle";
 import { getTop3 } from "../api/mask/getTop3";
 
 function MainPage() {
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+  // console.log(userInfo);
+
   const [topMask, setTopMask] = useState([]);
 
   useEffect(() => {
@@ -30,7 +34,7 @@ function MainPage() {
         )}
         {/* 키워드검색결과 MakList 띄워주는 부분 */}
         <SearchSection>
-          <Search />
+          <Search userInfo={userInfo} />
         </SearchSection>
       </Main>
     </div>
