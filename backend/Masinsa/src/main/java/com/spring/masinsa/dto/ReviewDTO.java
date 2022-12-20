@@ -18,6 +18,7 @@ public class ReviewDTO {
 	
 	private Long id;
 	private Long memberId;
+	private String nickname;
 	private String naverId;
 	private Long maskId;
 	private Float score;
