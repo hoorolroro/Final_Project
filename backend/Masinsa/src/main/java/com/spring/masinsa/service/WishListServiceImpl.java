@@ -79,13 +79,13 @@ public class WishListServiceImpl implements WishListService {
 				wishList.deleteWishList();
 				wishListRepo.save(wishList);
 				WishListDTO wishListDTO = WishList.entityToDTO(wishList);
-				return new Message(Status.OK, "찜 삭제 완료", wishListDTO);
+				return new Message(Status.OK, "찜 삭제가 정상적으로 처리되었습니다.", wishListDTO);
 			}
 			else if(wishList.getDeletion() == Deletion.Y) {
 				wishList.restoreWishList();
 				wishListRepo.save(wishList);
 				WishListDTO wishListDTO = WishList.entityToDTO(wishList);
-				return new Message(Status.OK, "찜 복원 완료", wishListDTO);
+				return new Message(Status.OK, "찜 복원이 정상적으로 처리되었습니다.", wishListDTO);
 			}
 		}
 		return null;
