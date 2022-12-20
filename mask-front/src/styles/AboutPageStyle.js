@@ -262,7 +262,7 @@ export const ReviewBox = styled.section`
 export const ReviewInput = styled.input`
   // autofocus;
   width: 800px;
-  height: 150px;
+  height: 200px;
   margin: 10px;
 `;
 
