@@ -14,7 +14,8 @@ export const getMainMask = async ({
       // console.log("1");
       const response = await axios
         .get(
-          `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}`
+          // `http://localhost:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}`
+          `http://34.64.239.97:8080/mask/filter/sort?sortCol=${sortCol}&order=${sortOrder}`
         )
         .catch(function (error) {
           if (error.response) {
@@ -30,7 +31,8 @@ export const getMainMask = async ({
     } else {
       // console.log("2");
       const response = await axios
-        .get(`http://localhost:8080/mask/filter/sort?`)
+        // .get(`http://localhost:8080/mask/filter/sort?`)
+        .get(`http://34.64.239.97:8080/mask/filter/sort?`)
         .catch(function (error) {
           if (error.response) {
             console.log(error.response.status);
