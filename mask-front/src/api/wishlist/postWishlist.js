@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-export const postWishlist = async (memberId, maskId) => {
+export const postWishlist = async (memberId, maskId, isWish, setIsWish) => {
   // console.log(memberId);
   const response = axios
     // .post(`http://localhost:8080/wishlist`, {
@@ -21,7 +21,11 @@ export const postWishlist = async (memberId, maskId) => {
         console.log("Error", error.message);
       }
       // console.log(error.config);
-    });
+    })
+    .then((response) => response.data.result)
+    .then((data) => setIsWish(data));
 
-  // console.log(memberId);
+  // console.log(isWish);
+
+  return response;
 };

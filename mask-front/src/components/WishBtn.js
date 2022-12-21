@@ -5,6 +5,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import { pink } from "@mui/material/colors";
+import { putWishlist } from "../api/wishlist/putWishlist";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -16,6 +17,9 @@ function WishBtn({ maskId, userInfo }) {
   // 찜버튼 클릭확인
   const [isClick, setIsClick] = useState(false);
   // console.log("isClick", isClick);
+
+  // 찜여부 확인 ( 이미 찜했던 거 deletion : Y 인 경우)
+  const [isWish, setIsWish] = useState("N");
 
   const LoginWarn = () => {
     alert("로그인이 필요한 서비스 입니다. 로그인 후, 이용부탁드립니다.");
@@ -39,10 +43,18 @@ function WishBtn({ maskId, userInfo }) {
         // console.log("memberId", memberId);
 
         // 찜post
-        postWishlist(memberId, maskId);
+        postWishlist(memberId, maskId, isWish, setIsWish);
       }
     }
   }, [isClick]);
+
+  useEffect(() => {
+    if (memberId != "") {
+      if (isWish == null) {
+        putWishlist(memberId, maskId);
+      }
+    }
+  }, [isWish]);
 
   return (
     <div

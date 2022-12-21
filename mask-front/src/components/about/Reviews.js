@@ -21,6 +21,7 @@ import Pagination3 from "../Pagination3";
 import { getReviewCount } from "../../api/review/getReviewCount";
 import ReviewWrite from "./ReviewWrite";
 import { getMember } from "../../api/member/getMember";
+import LoginBtn from "../LoginBtn";
 
 function Reviews({ maskId, mask, analysisinfo, memberId }) {
   // getReview를 위한 파라미터 설정
@@ -103,7 +104,9 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
                 <MasinsaReviewBtn
                   onClick={() => {
                     // setReviewType("member");
-                    alert("회원만 보실 수 있습니다.");
+                    alert(
+                      "죄송합니다. MASINSA의 회원이 되시면 이용하실 수 있습니다."
+                    );
                   }}
                 >
                   Member Review

@@ -19,6 +19,8 @@ function MaskInfo({ mask }) {
   // console.log("maskinfo:", { mask });
   // console.log("maskInfo :", images);
 
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
   // mask 값들을 빼내서 사용하기
   return (
     <div>
@@ -33,7 +35,7 @@ function MaskInfo({ mask }) {
               {/* 가격 */}
               <MaskPrice>{mask.price} 원</MaskPrice>
               {/* 찜버튼 */}
-              <WishBtn maskId={mask.id} />
+              <WishBtn maskId={mask.id} userInfo={userInfo} />
             </MaskInfoMain>
             {/* 옵션 */}
             <MaskOption>

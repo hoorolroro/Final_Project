@@ -40,7 +40,7 @@ export const MaskInfoContent = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 40%;
-  height: 80%;
+  height: 87%;
   padding: 10px;
   margin-left: 25px;
   overflow: hidden;
@@ -97,7 +97,7 @@ export const MaskOption = styled.div`
 // 마스크 구매링크 Section
 export const MaskBuyLink = styled.div`
   width: 85%;
-  height: 13%;
+  height: 12%;
   padding: 10px 5px 0px;
   overflow: hidden;
   background: #2d2d2d;
