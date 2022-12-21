@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-export const postWishlist = async (memberId, maskId) => {
-  console.log(memberId);
+export const postWishlist = async (memberId, maskId, isWish, setIsWish) => {
+  // console.log(memberId);
   const response = axios
-    .post(`http://localhost:8080/wishlist`, {
+    // .post(`http://localhost:8080/wishlist`, {
+    .post(`http://34.64.239.97:8080/wishlist`, {
       memberId: memberId,
       maskId: maskId,
     })
@@ -20,7 +21,11 @@ export const postWishlist = async (memberId, maskId) => {
         console.log("Error", error.message);
       }
       // console.log(error.config);
-    });
+    })
+    .then((response) => response.data.result)
+    .then((data) => setIsWish(data));
 
-  // console.log(memberId);
+  // console.log(isWish);
+
+  return response;
 };

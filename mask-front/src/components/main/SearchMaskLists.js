@@ -15,7 +15,8 @@ import {
 } from "../../styles/MaskListStyles";
 import { putClick } from "../../api/mask/putClick";
 
-function SearchMaskLists({ maskList, keyword, user }) {
+function SearchMaskLists({ maskList, keyword, userInfo }) {
+  // console.log(userInfo);
   // console.log("SearchMaskLists : ", maskList);
 
   const [isClick, setIsClick] = useState(false);
@@ -56,7 +57,7 @@ function SearchMaskLists({ maskList, keyword, user }) {
                     {/* 마스크썸네일 */}
                     {mask.thumbnail ? (
                       <a
-                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                        href={`http://34.64.79.156:3000/aboutMask/${mask.id}/Masinsa`}
                         onClick={() => {
                           setIsClick(true);
                           setClickMaskId(mask.id);
@@ -67,7 +68,7 @@ function SearchMaskLists({ maskList, keyword, user }) {
                       </a>
                     ) : (
                       <a
-                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                        href={`http://34.64.79.156:3000/aboutMask/${mask.id}/Masinsa`}
                         onClick={() => {
                           setIsClick(true);
                           setClickMaskId(mask.id);
@@ -83,7 +84,7 @@ function SearchMaskLists({ maskList, keyword, user }) {
                     <MaskSummaryContent>
                       {/* 이름 */}
                       <MaskSummaryTitleLinkBox
-                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                        href={`http://34.64.79.156:3000/aboutMask/${mask.id}/Masinsa`}
                         onClick={() => {
                           setIsClick(true);
                           setClickMaskId(mask.id);
@@ -93,7 +94,7 @@ function SearchMaskLists({ maskList, keyword, user }) {
                       </MaskSummaryTitleLinkBox>
                       {/* 가격 (링크) */}
                       <MaskSummaryPriceLinkBox
-                        href={`http://localhost:3000/aboutMask/${mask.id}/Masinsa`}
+                        href={`http://34.64.79.156:3000/aboutMask/${mask.id}/Masinsa`}
                         onClick={() => {
                           setIsClick(true);
                           setClickMaskId(mask.id);
@@ -113,7 +114,7 @@ function SearchMaskLists({ maskList, keyword, user }) {
                       <MaskBottom>
                         <MaskScore>평점 : {mask.avgScore}⭐</MaskScore>
                         {/* 찜버튼 */}
-                        <WishBtn maskId={mask.id} user={user} />
+                        <WishBtn maskId={mask.id} userInfo={userInfo} />
                       </MaskBottom>
                     </MaskSummaryContent>
                   </MaskSummaryBox>

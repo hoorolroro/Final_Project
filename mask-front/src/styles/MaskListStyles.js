@@ -8,8 +8,8 @@ export const MaskListDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   row-gap: 20px;
-  column-gap: 30px;
-  justify-items: stretch;
+  column-gap: 20px;
+  // justify-items: stretch;
   width: auto;
   min-width: 100%;
   height: auto;
@@ -23,7 +23,7 @@ export const MaskListDiv = styled.div`
 export const MaskSummaryBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 215px;
+  height: 205px;
   padding: 10px;
   margin: 0 5px 10px 5px;
   border: 1px solid #d9d9d9;
@@ -100,6 +100,7 @@ export const MaskScore = styled.div`
   // border: 2px solid red;
 `;
 
+// 평점 + wishbtn
 export const MaskBottom = styled.div`
   display: flex;
   flex-wrap: nowrap;

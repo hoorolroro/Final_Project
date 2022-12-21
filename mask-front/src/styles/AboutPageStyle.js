@@ -18,7 +18,7 @@ export const MaskInfoSection = styled.section`
   align-items: center;
   justify-content: center;
   width: auto;
-  height: 350px;
+  height: 340px;
   padding: 5px;
   margin: 5px;
   // border: 2px solid red;
@@ -26,7 +26,7 @@ export const MaskInfoSection = styled.section`
 
 // 마스크 썸네일 img
 export const MaskThumnailImg = styled.img`
-  width: 35%;
+  width: 37%;
   height: 95%;
   padding: 5px;
   margin-right: 25px;
@@ -40,7 +40,7 @@ export const MaskInfoContent = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 40%;
-  height: 80%;
+  height: 87%;
   padding: 10px;
   margin-left: 25px;
   overflow: hidden;
@@ -97,7 +97,7 @@ export const MaskOption = styled.div`
 // 마스크 구매링크 Section
 export const MaskBuyLink = styled.div`
   width: 85%;
-  height: 13%;
+  height: 12%;
   padding: 10px 5px 0px;
   overflow: hidden;
   background: #2d2d2d;
@@ -261,9 +261,10 @@ export const ReviewBox = styled.section`
 // 리뷰 작성창
 export const ReviewInput = styled.input`
   // autofocus;
-  width: 800px;
-  height: 200px;
+  width: 900px;
+  height: 120px;
   margin: 10px;
+  box-shadow: 1px 1px 1px #D9D9D9;
 `;
 
 // 리뷰 제출버튼

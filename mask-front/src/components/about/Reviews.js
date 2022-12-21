@@ -21,6 +21,7 @@ import Pagination3 from "../Pagination3";
 import { getReviewCount } from "../../api/review/getReviewCount";
 import ReviewWrite from "./ReviewWrite";
 import { getMember } from "../../api/member/getMember";
+import LoginBtn from "../LoginBtn";
 
 function Reviews({ maskId, mask, analysisinfo, memberId }) {
   // getReview를 위한 파라미터 설정
@@ -90,14 +91,27 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
               >
                 Naver Review
               </NaverReviewBtn_active>
-              <MasinsaReviewBtn
-                onClick={() => {
-                  setReviewType("member");
-                  setPage(1);
-                }}
-              >
-                Member Review
-              </MasinsaReviewBtn>
+              {memberId > 0 ? (
+                <MasinsaReviewBtn
+                  onClick={() => {
+                    setReviewType("member");
+                    setPage(1);
+                  }}
+                >
+                  Member Review
+                </MasinsaReviewBtn>
+              ) : (
+                <MasinsaReviewBtn
+                  onClick={() => {
+                    // setReviewType("member");
+                    alert(
+                      "죄송합니다. MASINSA의 회원이 되시면 이용하실 수 있습니다."
+                    );
+                  }}
+                >
+                  Member Review
+                </MasinsaReviewBtn>
+              )}
             </>
           ) : (
             <>
@@ -136,6 +150,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
               {/* <Totals>⭐ MASINSA 점수: {analysisinfo.score}</Totals> */}
               <Totals>💬 리뷰 {reviewCount}개</Totals>
             </ReviewTotal>
+            {/* 리뷰작성 */}
             <ReviewWrite
               maskId={maskId}
               memberId={memberId}
@@ -146,6 +161,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
 
         {/* 리뷰 내용 */}
         <ReviewContent>
+          {/* 리뷰들 */}
           <ReviewLists
             allReviews={allReviews}
             page={page}
@@ -155,6 +171,7 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
             reviewType={reviewType}
           />
         </ReviewContent>
+        {/* 페이지네이션 */}
         <Pagination3
           allReviews={allReviews}
           size={size}

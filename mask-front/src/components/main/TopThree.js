@@ -79,30 +79,16 @@ function TopThree({ topMask }) {
                         ).style.opacity = "0%")
                       }
                     ></TopMaskImg>
-                    {/* <div
-                      style={{
-                        position: "absolute",
-                        // border: "1px solid red",
-                        top: 5,
-                        left: 15,
-                        fontSize: "20px",
-                        fontWeight: "700",
-                        // color: "white",
-                      }}
-                    >
-                      {top.id}
-                    </div> */}
+
                     {/* TOP3 상품 Hover 시 상품정보 표기 */}
                     <div
                       id={`${top.id}info`}
                       style={{
                         position: "absolute",
                         width: "95.5%",
-                        height: "34%",
-                        top: "66%",
+                        height: "35%",
+                        bottom: "-1%",
                         left: "2.4%",
-                        bottom: 0,
-                        right: 0,
                         background: "black",
                         borderRadius: "0px 0px 15px 15px",
                         opacity: "0%",
@@ -113,7 +99,7 @@ function TopThree({ topMask }) {
                       <div
                         style={{
                           color: "white",
-                          padding: "10px 20px",
+                          padding: "8px 20px",
                           fontWeight: "600",
                         }}
                       >
