@@ -46,7 +46,7 @@ function RecentView() {
           userWatched.map((recentMask) => (
             <RecentViewImgDiv key={recentMask.id}>
               <a
-                href={`http://localhost:3000/aboutMask/${recentMask.id}/Masinsa`}
+                href={`http://34.64.79.156:3000/aboutMask/${recentMask.id}/Masinsa`}
                 onClick={() => {
                   setIsClick(true);
                   setClickMaskId(recentMask.id);

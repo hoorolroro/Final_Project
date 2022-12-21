@@ -46,7 +46,7 @@ function MyWishLists({ wishList, memberId }) {
               }}
             >
               <a
-                href={`http://localhost:3000/aboutMask/${wish.maskId}/Masinsa`}
+                href={`http://34.64.79.156:3000/aboutMask/${wish.maskId}/Masinsa`}
               >
                 {/* wish 마스크 이미지 */}
                 <div
