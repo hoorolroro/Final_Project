@@ -4,7 +4,8 @@ import axios from "axios";
 //http://localhost:8080/analysis_info?maskId=1
 export const getAnalysis = async ({ maskId, setAnalysisInfo }) => {
   const response = await axios
-    .get(`http://localhost:8080/analysisinfo?maskId=${maskId}`)
+    // .get(`http://localhost:8080/analysisinfo?maskId=${maskId}`)
+    .get(`http://34.64.239.97:8080/analysisinfo?maskId=${maskId}`)
     .catch(function (error) {
       if (error.response) {
         console.log(error.response.status);
