@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 export const putWishlist = async (memberId, maskId) => {
-  console.log(memberId, maskId);
+  // console.log(memberId, maskId);
   const response = axios.put(
     `http://localhost:8080/wishlist?memberId=${memberId}&maskId=${maskId}`
   );

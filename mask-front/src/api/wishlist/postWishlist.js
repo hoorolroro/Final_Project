@@ -24,7 +24,7 @@ export const postWishlist = async (memberId, maskId, isWish, setIsWish) => {
     .then((response) => response.data.result)
     .then((data) => setIsWish(data));
 
-  console.log(isWish);
+  // console.log(isWish);
 
   return response;
 };
