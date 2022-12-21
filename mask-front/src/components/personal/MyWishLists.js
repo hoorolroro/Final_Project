@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { deleteWishlist } from "../../api/wishlist/deleteWishlist";
-import WishBtn from "../WishBtn";
+import { putWishlist } from "../../api/wishlist/putWishlist";
 
 function MyWishLists({ wishList, memberId }) {
   // console.log(wishList);
 
-  const [isClickDelete, setIsClickDelete] = useState(false);
+  const [isClickSetUup, setIsClickSetUp] = useState(false);
   const [maskId, setMaskId] = useState(0);
 
-  const deleteWish = (maskId) => {
-    setIsClickDelete(true);
+  const setUpWish = (maskId) => {
+    setIsClickSetUp(true);
     setMaskId(maskId);
     console.log(maskId);
   };
@@ -17,9 +16,9 @@ function MyWishLists({ wishList, memberId }) {
   console.log(memberId);
 
   useEffect(() => {
-    if (isClickDelete) {
+    if (isClickSetUup) {
       console.log("얍");
-      deleteWishlist(memberId, maskId);
+      putWishlist(memberId, maskId);
       window.location.reload();
     }
   }, [maskId]);
@@ -122,7 +121,7 @@ function MyWishLists({ wishList, memberId }) {
                   zIndex: "1",
                 }}
                 onClick={() => {
-                  deleteWish(wish.maskId);
+                  setUpWish(wish.maskId);
                 }}
                 onMouseOver={() => {
                   document.getElementById(
