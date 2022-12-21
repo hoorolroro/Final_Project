@@ -11,6 +11,7 @@ import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
 import { Wrapper } from "./styles/OtherStyles";
 import { useState } from "react";
+import GoLoginPage from "./pages/GoLoginPage";
 
 function App() {
   // user 정보
@@ -67,6 +68,9 @@ function App() {
 
           {/* 대시보드페이지 : "http://localhost:3000/DashBoard/Masinsa" */}
           <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />
+
+          {/* 로그인 페이지 : "http://localhosat:3000/Login/Masinsa" */}
+          <Route path="/Login/Masinsa" element={<GoLoginPage />} />
         </Routes>
         <RecentView />
         <UpBtn />

@@ -14,13 +14,13 @@ function UpBtn() {
     // 해당 window의 scroll 위치로 scrollY 설정
     setScrollY(window.pageYOffset);
 
-    // 안해줘도 될듯(사이즈가 별로 길지 않아요)
-    if (scrollY > 100) {
-      // 스크롤 위치가 100 이상으로 되면 위로스크롤 버튼 보임
-      setBtnStatus(true);
-    } else {
-      setBtnStatus(false);
-    }
+    // // 안해줘도 될듯(사이즈가 별로 길지 않아요)
+    // if (scrollY > 100) {
+    //   // 스크롤 위치가 100 이상으로 되면 위로스크롤 버튼 보임
+    //   setBtnStatus(true);
+    // } else {
+    //   setBtnStatus(false);
+    // }
   };
 
   // console.log(btnStatus);
