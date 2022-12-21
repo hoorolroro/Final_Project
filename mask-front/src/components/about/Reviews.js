@@ -90,14 +90,25 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
               >
                 Naver Review
               </NaverReviewBtn_active>
-              <MasinsaReviewBtn
-                onClick={() => {
-                  setReviewType("member");
-                  setPage(1);
-                }}
-              >
-                Member Review
-              </MasinsaReviewBtn>
+              {memberId > 0 ? (
+                <MasinsaReviewBtn
+                  onClick={() => {
+                    setReviewType("member");
+                    setPage(1);
+                  }}
+                >
+                  Member Review
+                </MasinsaReviewBtn>
+              ) : (
+                <MasinsaReviewBtn
+                  onClick={() => {
+                    // setReviewType("member");
+                    alert("회원만 보실 수 있습니다.");
+                  }}
+                >
+                  Member Review
+                </MasinsaReviewBtn>
+              )}
             </>
           ) : (
             <>
