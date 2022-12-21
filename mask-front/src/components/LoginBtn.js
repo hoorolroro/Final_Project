@@ -7,9 +7,11 @@ function LoginBtn({ setUser, setStatus, user }) {
   // 윈도우 객체에 있는 네이버에 로그인 함수를 이용하여 토큰 값을 바로 전달
   const { naver } = window;
   const naverLogin = new naver.LoginWithNaverId({
+
     clientId: "nVtdkXtRReFK7Wbi274O", // CLIENT_ID
     callbackUrl: "http://34.64.79.156:3000/", // CALLBACKURL
     // callbackUrl: "http://34.64.79.156:3000/",
+
     isPopup: false /* 팝업을 통한 로그인 여부, true 면 팝업 */,
     loginButton: {
       /* 로그인 버튼의 타입을 지정 */ color: "green",
