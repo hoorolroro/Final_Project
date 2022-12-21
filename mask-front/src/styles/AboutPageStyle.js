@@ -261,9 +261,10 @@ export const ReviewBox = styled.section`
 // 리뷰 작성창
 export const ReviewInput = styled.input`
   // autofocus;
-  width: 800px;
-  height: 200px;
+  width: 900px;
+  height: 120px;
   margin: 10px;
+  box-shadow: 1px 1px 1px #D9D9D9;
 `;
 
 // 리뷰 제출버튼

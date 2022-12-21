@@ -16,7 +16,7 @@ function MoreBtn({ isCheck, setCheck }) {
         // onClick={() => console.log("btn")}
       >
         {/* {isCheck ? "더보기" : "더보기"} */}
-        상세설명 보기
+        상세설명 보러가기
       </button>
     </div>
   );
