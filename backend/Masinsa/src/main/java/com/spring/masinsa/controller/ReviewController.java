@@ -72,7 +72,7 @@ public class ReviewController {
   }
   
   @ApiOperation(value = "17번 - 회원 리뷰 등록")
-  @PostMapping("/member_review")
+  @PostMapping("/member-review")
   public ResponseEntity<?> addMemberReview(@RequestBody ReviewDTO reviewDTO){
 	  ReviewDTO result = reviewService.addMemberReview(reviewDTO);
 	  if(result != null) {
@@ -84,7 +84,7 @@ public class ReviewController {
 	}
   
   @ApiOperation(value = "18번 - 회원 리뷰 수정")
-  @PutMapping("/member_review")
+  @PutMapping("/member-review")
   public ResponseEntity<?> updateMemberReview(@RequestParam Long reviewId, 
 		  @RequestParam Float score, @RequestParam String content){
 	  ReviewDTO reviewDTO = reviewService.updateMemberReview(reviewId, score, content);
@@ -97,7 +97,7 @@ public class ReviewController {
   }
   
   @ApiOperation(value = "19번 - 회원 리뷰 삭제")
-  @DeleteMapping("/member_review")
+  @DeleteMapping("/member-review")
   public ResponseEntity<?> deletMemberReview(@RequestParam Long memberId, @RequestParam Long maskId) {
 	  Boolean result = reviewService.deleteMemberReview(memberId, maskId);
 	  if(result) {
