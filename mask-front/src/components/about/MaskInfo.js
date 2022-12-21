@@ -29,19 +29,50 @@ function MaskInfo({ mask }) {
           {/* 썸네일사진 */}
           <MaskThumnailImg src={mask.thumbnail}></MaskThumnailImg>
           <MaskInfoContent>
-            {/* 이름 */}
-            <MaskTitle>{mask.name}</MaskTitle>
-            <MaskInfoMain>
-              {/* 가격 */}
-              <MaskPrice>{mask.price} 원</MaskPrice>
+            <div style={{ display: "flex" }}>
+              {/* 이름 */}
+              <MaskTitle>{mask.name}</MaskTitle>
               {/* 찜버튼 */}
               <WishBtn maskId={mask.id} userInfo={userInfo} />
+            </div>
+            <MaskInfoMain>
+              {/* 가격 */}
+              <MaskPrice>
+                <span
+                  style={{
+                    fontSize: "15px",
+                    color: "#000",
+                    marginRight: "10px",
+                  }}
+                >
+                  판매가격 :
+                </span>
+                {mask.price} <span style={{ fontSize: "13px" }}>원</span>
+              </MaskPrice>
             </MaskInfoMain>
             {/* 옵션 */}
             <MaskOption>
-              <li>{mask.blockingIndex}</li>
-              <li>Size : {mask.size}</li>
-              <li>Option : {mask.option}</li>
+              <li
+                style={{
+                  marginBottom: "5px",
+                }}
+              >
+                {mask.blockingIndex}
+              </li>
+              <li
+                style={{
+                  marginBottom: "5px",
+                }}
+              >
+                Size : {mask.size}
+              </li>
+              <li
+                style={{
+                  marginBottom: "5px",
+                }}
+              >
+                Option : {mask.option}
+              </li>
             </MaskOption>
             {/* 구매링크버튼 */}
             <MaskBuyLink>

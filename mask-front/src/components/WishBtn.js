@@ -59,8 +59,9 @@ function WishBtn({ maskId, userInfo }) {
   return (
     <div
       style={{
-        width: "auto",
-        height: "auto",
+        width: "15%",
+        height: "25px",
+        margin: "0px auto",
       }}
     >
       {userInfo ? (
@@ -89,8 +90,9 @@ function WishBtn({ maskId, userInfo }) {
       ) : (
         <Checkbox
           style={{
-            width: "auto",
+            width: "100%",
             height: "95%",
+            margin: "0px auto",
           }}
           {...label}
           // 체크 전 하트모양

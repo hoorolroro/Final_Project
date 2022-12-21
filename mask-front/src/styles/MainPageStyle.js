@@ -5,14 +5,14 @@ import styled from "styled-components";
 
 // TOP3 부분
 export const Top3Section = styled.section`
-  width: auto;
-  height: 380px;
+  width: 950px;
+  height: 365px;
   padding: 5px;
-  margin: 5px;
+  margin: 5px auto;
   // border: 2px solid blue;
 `;
 
-// MASINSA'S BEST 부분 section
+// MASINSA AWARDS 부분 section
 export const Top3ArticleSection = styled.section`
   display: flex;
   flex-wrap: nowrap;
@@ -27,13 +27,13 @@ export const Top3ArticleSection = styled.section`
 
 // 공백
 export const Top3BlankSection = styled.div`
-  width: 30%;
+  width: 300px;
   // border: 2px solid blue;
 `;
 
 // MASINSA'S BEST
 export const Top3Article = styled.div`
-  width: 35%;
+  width: 300px;
   font-weight: 800;
   font-size: 20px;
   // border: 2px solid blue;
@@ -41,7 +41,7 @@ export const Top3Article = styled.div`
 
 // 마신사 기준이동 LinkBox
 export const IntroLinkBox = styled.a`
-  width: 30%;
+  width: 300px;
   float: right;
   font-size: 13px;
   text-align: right;
@@ -62,8 +62,8 @@ export const Top3MaskSection = styled.section`
   column-gap: 5px;
   justify-items: center;
   align-items: center;
-  width: 100%;
-  height: 330px;
+  width: 950px;
+  height: 320px;
   padding-top: 5px;
   // border: 2px solid red;
   // padding-top: 10px;
@@ -71,7 +71,7 @@ export const Top3MaskSection = styled.section`
 
 // Top3 img 태그
 export const TopMaskImg = styled.img`
-  width: 95%;
+  width: 295px;
   border: 1px solid #9a9a9a;
   border-radius: 15px;
   position: "absolute";
@@ -101,10 +101,10 @@ export const TopMaskInfo = styled.div`
 
 // Search 부분
 export const SearchSection = styled.section`
-  width: 100%;
+  width: 950px;
   height: 900px;
   padding: 5px;
-  margin: 5px;
+  margin: 5px auto;
   // border: 2px solid blue;
 `;
 
@@ -134,20 +134,20 @@ export const SearchBoxSection = styled.section`
 
 // SearchBox 왼쪽 공백
 export const SearchLeftBlank = styled.div`
-  width: 30%;
+  width: 270px;
   // border: 1px solid blue;
 `;
 
 // 검색창이 들어가는 div ( fieldset(input + btn) )
 export const SearchCenter = styled.div`
   padding: 5px;
-  width: 40%;
+  width: 400px;
   // border: 1px solid blue;
 `;
 
 // 정렬기준 변경 section
 export const SortSection = styled.section`
-  width: 30%;
+  width: 270px;
   float: right;
   margin: 2px;
   padding-top: 20px;

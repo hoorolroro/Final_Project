@@ -8,7 +8,7 @@ export const HeaderSection = styled.section`
   flex: nowrap;
   width: auto;
   height: 130px;
-  // margin: 5px;
+  margin: 0px auto;
   background: #05735f;
   // border: 1px solid red;
 `;
@@ -69,12 +69,12 @@ export const MyPageBtnStyle = styled.button`
 
 // naver 로그인 Btn
 export const NaverLoginBtn = styled.button`
-  width: 150px;
-  height: 30px;
+  width: 250px;
+  height: 40px;
   background: #12de1a;
   border: 0px;
   border-radius: 3px;
-  box-shadow: 0px 1px 3px #0ea654;
+  box-shadow: 0px 1px 2px #0ea654;
   font-weight: 800;
   color: white;
   &:active {
@@ -96,6 +96,24 @@ export const LogoutBtn = styled.button`
   background: none;
   cursor: pointer;
   color: white;
+  &:active {
+    text-decoration: underline;
+    box-shadow: 1px 1px 2px white;
+  }
+`;
+
+// 로그인 Btn
+export const LoginBtn = styled.button`
+  width: 150px;
+  height: 30px;
+  font-weight: 500;
+  border: 1px solid white;
+  border-radius: 3px;
+  border-style: dashed;
+  background: none;
+  cursor: pointer;
+  color: white;
+  // margin-top: 40px;
   &:active {
     text-decoration: underline;
     box-shadow: 1px 1px 2px white;

@@ -10,7 +10,8 @@ import RecentView from "./components/RecentView";
 import UpBtn from "./components/UpBtn";
 import Header from "./components/Header";
 import { Wrapper } from "./styles/OtherStyles";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   // user 정보
@@ -19,12 +20,12 @@ function App() {
   // 로그인 status
   const [status, setStatus] = useState(false);
 
-  // console.log("유저정보", user);
-
   // 페이지 이동시에도 유저정보를 받을 수 있도록 !
   if (user) {
     localStorage.setItem("userInfo", JSON.stringify(user));
   }
+
+  // console.log("유저정보", user);
 
   return (
     <div className="App">
@@ -48,7 +49,7 @@ function App() {
         <Routes>
           {/* 메인페이지 :  "http://localhost:3000/" */}
           {/* http://34.64.79.156:3000/ */}
-          <Route path="/" element={<MainPage user={user} />} />
+          <Route path="/" element={<MainPage />} />
 
           {/* 상품리스트페이지 : "http://localhost:3000/MaskList/Masinsa/:blockingindex" */}
           {/* http://34.64.79.156:3000/MaskList/Masinsa/:blockingindex */}
@@ -68,6 +69,15 @@ function App() {
           {/* 마신사소개페이지 : "http://localhost:3000/Introduce/Masinsa" */}
           {/* http://34.64.79.156:3000/Introduce/Masinsa */}
           <Route path="/Introduce/Masinsa" element={<IntroducePage />} />
+
+          {/* 로그인페이지 : "http://localhost:3000/Login/Masinsa" */}
+          {/* http://34.64.79.156:3000/Login/Masinsa */}
+          <Route
+            path="/Login/Masinsa"
+            element={
+              <LoginPage setUser={setUser} setStatus={setStatus} user={user} />
+            }
+          />
 
           {/* 대시보드페이지 : "http://localhost:3000/DashBoard/Masinsa" */}
           <Route path="/DashBoard/Masinsa" element={<DashBoardPage />} />

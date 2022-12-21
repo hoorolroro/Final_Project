@@ -41,7 +41,7 @@ function FilterMaskList({ maskList, userInfo }) {
                   {/* 마스크썸네일 */}
                   {mask.thumbnail ? (
                     <a
-                      href={`http://34.64.79.156:3000/aboutMask/${mask.id}/Masinsa`}
+                      href={`/aboutMask/${mask.id}/Masinsa`}
                       onClick={() => {
                         setIsClick(true);
                         setClickMaskId(mask.id);
@@ -52,7 +52,7 @@ function FilterMaskList({ maskList, userInfo }) {
                     </a>
                   ) : (
                     <a
-                      href={`http://34.64.79.156:3000/aboutMask/${mask.id}/Masinsa`}
+                      href={`/aboutMask/${mask.id}/Masinsa`}
                       onClick={() => {
                         setIsClick(true);
                         setClickMaskId(mask.id);
@@ -68,7 +68,7 @@ function FilterMaskList({ maskList, userInfo }) {
                   <MaskSummaryContent>
                     {/* 이름 */}
                     <MaskSummaryTitleLinkBox
-                      href={`http://34.64.79.156:3000/aboutMask/${mask.id}/Masinsa`}
+                      href={`/aboutMask/${mask.id}/Masinsa`}
                       onClick={() => {
                         setIsClick(true);
                         setClickMaskId(mask.id);
@@ -78,7 +78,7 @@ function FilterMaskList({ maskList, userInfo }) {
                     </MaskSummaryTitleLinkBox>
                     {/* 가격 (링크) */}
                     <MaskSummaryPriceLinkBox
-                      href={`http://34.64.79.156:3000/aboutMask/${mask.id}/Masinsa`}
+                      href={`/aboutMask/${mask.id}/Masinsa`}
                       onClick={() => {
                         setIsClick(true);
                         setClickMaskId(mask.id);

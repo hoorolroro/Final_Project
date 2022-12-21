@@ -5,8 +5,9 @@ import styled from "styled-components";
 
 // 필터들이 있는 Section
 export const FilterSection = styled.section`
-  width: auto;
+  width: 950px;
   height: 230px;
+  margin: 0px auto;
   // border: 2px solid red;
 `;
 
@@ -17,10 +18,10 @@ export const FilterMaskListSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 950px;
   height: auto;
   padding: 5px;
-  margin: 5px;
+  margin: 5px auto;
   // border: 2px solid red;
 `;
 
@@ -44,7 +45,7 @@ export const ShapeBtn = styled.button`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 20%;
+  width: 200px;
   font-size: 15px;
   font-weight: 800;
   background: none;
@@ -107,7 +108,7 @@ export const SizeListsSection = styled.div`
 
 // 마스크 사이즈 Btn (선택 x)
 export const SizeBtn = styled.button`
-  width: 20%;
+  width: 170px;
   padding: 10px;
   background: none;
   border: 0px;
@@ -126,7 +127,7 @@ export const SizeBtn = styled.button`
 
 // 마스크 사이즈 Btn (선택 o)
 export const SizeBtn_active = styled.button`
-  width: 20%;
+  width: 170px;
   padding: 10px;
   background: none;
   border: 0px;

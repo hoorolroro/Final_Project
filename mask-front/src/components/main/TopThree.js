@@ -59,7 +59,7 @@ function TopThree({ topMask }) {
                   <div
                     style={{
                       position: "relative",
-                      width: "100%",
+                      width: "auto",
                       // border: "1px solid green",
                       alignItems: "center",
                       justifyContent: "center",
@@ -85,10 +85,10 @@ function TopThree({ topMask }) {
                       id={`${top.id}info`}
                       style={{
                         position: "absolute",
-                        width: "95.5%",
+                        width: "100%",
                         height: "35%",
-                        bottom: "-1%",
-                        left: "2.4%",
+                        bottom: "0%",
+                        left: "0%",
                         background: "black",
                         borderRadius: "0px 0px 15px 15px",
                         opacity: "0%",
@@ -99,7 +99,7 @@ function TopThree({ topMask }) {
                       <div
                         style={{
                           color: "white",
-                          padding: "8px 20px",
+                          padding: "5px 10px",
                           fontWeight: "600",
                         }}
                       >
@@ -107,7 +107,7 @@ function TopThree({ topMask }) {
                         <p
                           style={{
                             fontSize: "13px",
-                            margin: "1px",
+                            margin: "5px",
                           }}
                         >
                           {top.name}
@@ -116,7 +116,7 @@ function TopThree({ topMask }) {
                         <p
                           style={{
                             fontSize: "13px",
-                            margin: "0px",
+                            margin: "1px",
                             color: "#FF7D04",
                           }}
                         >
@@ -126,7 +126,7 @@ function TopThree({ topMask }) {
                         <p
                           style={{
                             fontSize: "13px",
-                            margin: "0px",
+                            margin: "1px",
                           }}
                         >
                           ▪ size : {top.size}

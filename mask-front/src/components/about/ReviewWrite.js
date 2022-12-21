@@ -52,7 +52,8 @@ function ReviewWrite({ maskId, memberId, reviewType }) {
               //   console.log("리뷰쓰기");
             }}
             style={{
-              // width: "300px",
+              width: "150px",
+              height: "30px",
               background: "none",
               border: "1px solid #D9D9D9",
               textAlignfloat: "right",
@@ -60,6 +61,7 @@ function ReviewWrite({ maskId, memberId, reviewType }) {
               boxShadow: "0px 1px 2px #D9D9D9",
               cursor: "pointer",
               borderRadius: "3px",
+              marginRight: "50px",
             }}
             onMouseOver={() =>
               (document.getElementById("writeReviewBtn").style.boxShadow =
@@ -74,13 +76,7 @@ function ReviewWrite({ maskId, memberId, reviewType }) {
           </button>
         </div>
       ) : (
-        <button
-          onClick={() => {
-            alert("죄송합니다. MASINSA 로그인 후, 이용가능 한 서비스입니다.");
-          }}
-        >
-          ⬇ 리뷰 작성
-        </button>
+        <></>
       )}
 
       {isCheck && (
@@ -91,9 +87,9 @@ function ReviewWrite({ maskId, memberId, reviewType }) {
               onChange={onChange}
               autoFocus
               style={{
-                border: "1px solid green",
+                border: "1px solid #9A9A9A",
                 borderRadius: "5px",
-                textAlign: "top",
+                textAlign: "left",
               }}
             />
             <div>

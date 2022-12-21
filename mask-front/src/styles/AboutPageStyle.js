@@ -3,9 +3,10 @@ import styled from "styled-components";
 
 // 마스크상세페이지 Wrapper
 export const MaskAboutWrapper = styled.section`
-  width: auto;
+  width: 900px;
   height: auto;
   padding: 5px;
+  margin: 0px auto;
   // border: 2px solid blue;
 `;
 
@@ -16,20 +17,19 @@ export const MaskInfoSection = styled.section`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: auto;
-  height: 340px;
-  padding: 5px;
-  margin: 5px;
+  height: 350px;
+  padding: 10px;
+  margin: 5px auto 15px;
   // border: 2px solid red;
 `;
 
 // 마스크 썸네일 img
 export const MaskThumnailImg = styled.img`
-  width: 37%;
-  height: 95%;
-  padding: 5px;
-  margin-right: 25px;
+  width: 340px;
+  height: 340px;
+  padding: 10px;
   border: 1px solid #d9d9d9;
 `;
 
@@ -39,18 +39,16 @@ export const MaskInfoContent = styled.div`
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
-  width: 40%;
-  height: 87%;
-  padding: 10px;
-  margin-left: 25px;
+  width: 330px;
+  height: 320px;
   overflow: hidden;
   // border: 2px solid blue;
 `;
 
 // 마스크 title
 export const MaskTitle = styled.div`
-  width: auto;
-  height: 20%;
+  width: 80%;
+  height: 50px;
   // padding: 8px;
   margin-bottom: 5px;
   overflow: hidden;
@@ -60,17 +58,13 @@ export const MaskTitle = styled.div`
   // border: 2px solid blue;
 `;
 
-// 마스크 가격 + wishBtn
+// 마스크 가격 부분div
 export const MaskInfoMain = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  width: 90%;
-  height: 13%;
+  width: 80%;
+  height: 40px;
   padding: 5px 0px;
-  margin-bottom: 5px;
   text-align: left;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   color: #ff7d04;
   // border: 2px solid blue;
@@ -85,18 +79,19 @@ export const MaskPrice = styled.div`
 
 // 마스크 옵션
 export const MaskOption = styled.div`
-  width: 95%;
-  height: 28%;
+  width: 80%;
+  height: 60px;
   text-align: left;
   padding: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   overflow: hidden;
   // border: 2px solid blue;
+  font-size: 13px;
 `;
 
 // 마스크 구매링크 Section
 export const MaskBuyLink = styled.div`
-  width: 85%;
+  width: 93%;
   height: 12%;
   padding: 10px 5px 0px;
   overflow: hidden;
@@ -105,7 +100,7 @@ export const MaskBuyLink = styled.div`
   border: 0px;
 `;
 
-// 구매버튼LinkBpx
+// 구매버튼LinkBox
 export const BuyLinkBox = styled.a`
   outline: none;
   text-decoration: none;
@@ -131,53 +126,19 @@ export const AnalysisSection = styled.section`
   align-items: center;
   justify-content: space-around;
   width: auto;
-  height: 300px;
+  height: 320px;
   // padding: 5px;
-  margin-bottom: 15px;
+  margin: 0px auto 15px;
   // border: 2px solid red;
 `;
 
 // 점수 통계 div
 export const ScoreAnalysis = styled.div`
-  width: 20%;
-  height: 80%;
+  width: 200px;
+  height: 250px;
+  margin: 10px auto;
   // border: 1px solid blue;
-  padding-top: 15px;
-`;
-
-// 나머지 통계부분 div ( 배송, 호흡, 착용감 )
-export const OtherAnalysis = styled.div`
-  width: 55%;
-  height: 90%;
-  padding: 5px;
-  border: 1px solid blue;
-`;
-
-// 배송통계
-export const DeliveryAnalysis = styled.div`
-  width: auto;
-  height: 25%;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid blue;
-`;
-
-// 호흡통계
-export const BreatheAnalysis = styled.div`
-  width: auto;
-  height: 25%;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid blue;
-`;
-
-// 착용감통계
-export const FitAnalysis = styled.div`
-  width: auto;
-  height: 25%;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid blue;
+  padding-top: 25px;
 `;
 
 // 리뷰보러가기 버튼 부분
@@ -230,22 +191,11 @@ export const ReviewHead = styled.section`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: auto;
   height: 45px;
   margin: 10px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-`;
-
-// "상세리뷰" & 리뷰쓰기 버튼 구분용
-export const Heads = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 45px;
-  // border: 2px solid green;
+  border-top: 1px solid #9a9a9a;
+  border-bottom: 1px solid #9a9a9a;
 `;
 
 // 리뷰 입력창 토탈
@@ -254,17 +204,16 @@ export const ReviewBox = styled.section`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: auto;
   margin: 10px;
+  // border: 2px solid red;
 `;
 
 // 리뷰 작성창
 export const ReviewInput = styled.input`
-  // autofocus;
-  width: 900px;
+  width: 830px;
   height: 120px;
   margin: 10px;
-  box-shadow: 1px 1px 1px #D9D9D9;
 `;
 
 // 리뷰 제출버튼
@@ -277,10 +226,10 @@ export const ReviewSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 95%;
   height: auto;
   padding: 5px;
-  margin: 5px;
+  margin: 5px auto;
   // border: 2px solid red;
 `;
 
@@ -290,10 +239,15 @@ export const ReviewTotal = styled.section`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 830px;
   height: 45px;
-  margin: 10px;
-  border: 1px solid green;
+  margin: 15px auto 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  box-shadow: 2px 1px 3px #d9d9d9;
+  background: #f5f5f5;
+  font-size: 13px;
+  font-weight: 700;
 `;
 
 // 리뷰 총평 세부사항
@@ -313,20 +267,20 @@ export const ReviewBtnSection = styled.div`
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: auto;
   height: 35px;
-  // margin: 5px;
+  margin: 0px 0px 5px;
   // border: 2px solid blue;
 `;
 
-// 네이버리뷰버튼 ( Naver)
+// 네이버리뷰버튼 ( 선택 x)
 export const NaverReviewBtn = styled.button`
   width: 250px;
-  height: 90%;
+  height: 30px;
   margin: 5px;
   overflow: hidden;
   background: none;
-  border: 2px solid grey;
+  border: 2px solid #9a9a9a;
   border-style: none none double;
   cursor: pointer;
   &:hover {
@@ -341,7 +295,7 @@ export const NaverReviewBtn = styled.button`
 // 네이버리뷰 선택o
 export const NaverReviewBtn_active = styled.button`
   width: 250px;
-  height: 90%;
+  height: 30px;
   margin: 5px;
   overflow: hidden;
   background: none;
@@ -358,11 +312,11 @@ export const NaverReviewBtn_active = styled.button`
 // 마신사리뷰버튼 (선택x)
 export const MasinsaReviewBtn = styled.button`
   width: 250px;
-  height: 90%;
+  height: 30px;
   margin: 5px;
   overflow: hidden;
   background: none;
-  border: 2px solid grey;
+  border: 2px solid #9a9a9a;
   border-style: none none double;
   cursor: pointer;
   &:hover {
@@ -377,7 +331,7 @@ export const MasinsaReviewBtn = styled.button`
 // 마신사리뷰 선택o
 export const MasinsaReviewBtn_active = styled.button`
   width: 250px;
-  height: 90%;
+  height: 30px;
   margin: 5px;
   overflow: hidden;
   background: none;
@@ -393,7 +347,7 @@ export const MasinsaReviewBtn_active = styled.button`
 
 // 리뷰내용 Section
 export const ReviewContent = styled.section`
-  width: 95%;
+  width: 98%;
   height: auto;
   padding: 5px;
   margin: 5px;
@@ -410,8 +364,8 @@ export const EachReviewSection = styled.div`
   align-item: center;
   width: auto;
   height: auto;
-  margin-bottom: 10px;
-  padding: 1px;
+  margin-bottom: 15px;
+  padding: 0px 0px 10px;
   border: 1px solid #9a9a9a;
   border-style: none none double;
 `;
@@ -421,9 +375,9 @@ export const ReviewTop = styled.div`
   width: auto;
   height: 20%;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: left;
-  margin: 5px;
+  margin: 5px 3px;
   padding: 1px;
   // border: 1px solid red;
 `;
@@ -443,8 +397,7 @@ export const ReviewCenter = styled.div`
 export const ReviewBottom = styled.div`
   width: auto;
   height: 50%;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
   text-align: left;
   margin: 5px;
   // border: 1px solid red;
