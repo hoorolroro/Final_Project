@@ -77,11 +77,11 @@ function ReviewBtn() {
 
   return (
     <div>
-      <GoToReview
-        className={btnStatus ? "upBtn-active" : "upBtn-no-active"}
-        onClick={goScrollReview}
-      >
-        <GoToReviewBtn>
+      <GoToReview>
+        <GoToReviewBtn
+          className={btnStatus ? "upBtn-active" : "upBtn-no-active"}
+          onClick={goScrollReview}
+        >
           <i>여기를 누르면 착용자의 상세리뷰를 보러갈 수 있어요</i>
         </GoToReviewBtn>
       </GoToReview>

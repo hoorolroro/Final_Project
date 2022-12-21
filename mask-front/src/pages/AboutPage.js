@@ -14,7 +14,6 @@ import { getImage } from "../api/getImage";
 import { RecentViewFunction } from "../components/RecentViewFunction";
 import { getAnalysis } from "../api/analysis/getAnalysis";
 import ReviewBtn from "../components/about/ReviewBtn";
-import { getMember } from "../api/member/getMember";
 
 function AboutPage() {
   // 로그인시, 로컬에 저장되는 userInfo 가져와서 user
@@ -89,14 +88,9 @@ function AboutPage() {
           {/* 리뷰창 */}
           {/* user 있으면 있는 Reviews, 없으면 없는 Reviews */}
           {user == null ? (
-            <Reviews mask={mask} maskId={maskId} analysisinfo={analysisinfo} />
+            <Reviews mask={mask} maskId={maskId} />
           ) : (
-            <Reviews
-              mask={mask}
-              maskId={maskId}
-              analysisinfo={analysisinfo}
-              memberId={user.id}
-            />
+            <Reviews mask={mask} maskId={maskId} memberId={user.id} />
           )}
 
           {/* 최근 본 상품 관련 메서드 실행  - sungmin 수정사항 */}

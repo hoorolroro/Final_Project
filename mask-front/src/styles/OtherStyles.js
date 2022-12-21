@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   width: auto;
   // 600px 이하로 줄어들지 않도록 설정
-  min-width: 1300px;
+  min-width: 1400px;
   // border: 2px solid blue;
 `;
 
@@ -13,8 +13,7 @@ export const Wrapper = styled.div`
 export const Main = styled.section`
   width: auto;
   height: auto;
-  padding: 5px 280px;
-  margin: 8px;
+  margin: 8px auto;
   // border: 2px solid red;
 `;
 
@@ -23,6 +22,7 @@ export const CurrentFilterSection = styled.div`
   width: auto;
   height: 20px;
   padding-left: 5px;
+  margin-bottom: 15px;
   text-align: left;
   font-size: 13px;
   color: #868b8b;
@@ -61,7 +61,7 @@ export const FixedRecentView = styled.div`
   align-items: center;
   // 크기설정
   width: 75px;
-  height: 240px;
+  height: 250px;
   padding: 10px;
   background: #e5ffe9;
   border: 0px;

@@ -4,6 +4,7 @@ import Search from "../components/main/Search";
 import { Main } from "../styles/OtherStyles";
 import { Top3Section, SearchSection } from "../styles/MainPageStyle";
 import { getTop3 } from "../api/mask/getTop3";
+import { getWishlist } from "../api/wishlist/getWishlist";
 
 function MainPage() {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));

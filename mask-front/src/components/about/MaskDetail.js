@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import MoreBtn from "./MoreBtn";
 import { MaskDetailSection } from "../../styles/AboutPageStyle";
 
 function MaskDetail({ images }) {
@@ -20,7 +19,7 @@ function MaskDetail({ images }) {
               {/* imageType이 detail 이면 출력 */}
               {image.imageType === "detail" ? (
                 <>
-                  <img style={{ width: "500px" }} src={image.imageUrl}></img>
+                  <img style={{ width: "600px" }} src={image.imageUrl}></img>
                 </>
               ) : (
                 <></>

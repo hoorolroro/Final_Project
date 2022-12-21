@@ -1,6 +1,5 @@
 // 맨 위: 마신사 로고, 마이페이지 버튼, 네이버 로그인 버튼, 차단지수 카테고리
 import React, { useState, useEffect } from "react";
-import LoginBtn from "./LoginBtn";
 import MyPageBtn from "./MyPageBtn";
 import styled from "styled-components";
 import {
@@ -12,7 +11,9 @@ import {
   BlockingBtn,
   TopBlank,
   LogoutBtn,
+  LoginBtn,
 } from "../styles/HeaderStyle";
+import NaverLogin from "./login/NaverLogin";
 
 function Header({ user, setUser, setStatus }) {
   // 로그인 후, 로컬 스토리지에 저장된 userInfo
@@ -47,15 +48,21 @@ function Header({ user, setUser, setStatus }) {
           <TopBlank></TopBlank>
           <TopBtnDiv>
             {/* 로그인 상태라면 */}
-            {userInfo != null ? (
+            {userInfo ? (
               // 로그인 o : 마이페이지버튼 + 로그아웃버튼
               <>
                 <MyPageBtn userInfo={userInfo} />
-                <LogoutBtn onClick={naverLogout}>Logout</LogoutBtn>
+                <LogoutBtn onClick={naverLogout}>LOGOUT</LogoutBtn>
               </>
             ) : (
               // 로그인 x : 네이버로그인
-              <LoginBtn setUser={setUser} setStatus={setStatus} user={user} />
+              // <NaverLogin setUser={setUser} setStatus={setStatus} user={user} />
+              <>
+                <MyPageBtn userInfo={userInfo} />
+                <a href="/Login/MASINSA">
+                  <LoginBtn>LOGIN</LoginBtn>
+                </a>
+              </>
             )}
           </TopBtnDiv>
         </TopDiv>

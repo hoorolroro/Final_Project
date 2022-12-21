@@ -9,14 +9,7 @@ import {
 } from "../../styles/AboutPageStyle";
 
 //
-function ReviewLists({
-  allReviews,
-  size,
-  page,
-  setPage,
-  setAllReviews,
-  reviewType,
-}) {
+function ReviewLists({ allReviews, reviewType }) {
   // console.log("ReviewLists : ", allReviews);
 
   // console.log(allReviews);
@@ -32,10 +25,12 @@ function ReviewLists({
               <EachReviewSection>
                 {reviewType == "naver" ? (
                   <>
-                    <ReviewTop>⭐ 평점 : {review.score}</ReviewTop>
+                    <ReviewTop>별점 : {review.score} ⭐</ReviewTop>
                     <ReviewCenter>
-                      <div>
-                        <div>id : {review.naverId}</div>
+                      <div style={{ fontSize: "10px", color: "#9A9A9A" }}>
+                        <div style={{ marginBottom: "5px" }}>
+                          id : {review.naverId}
+                        </div>
                         <div>옵션명 : {review.option}</div>
                       </div>
                     </ReviewCenter>

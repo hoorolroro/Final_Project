@@ -9,7 +9,6 @@ export const MaskListDiv = styled.div`
   grid-template-columns: 1fr 1fr;
   row-gap: 20px;
   column-gap: 20px;
-  // justify-items: stretch;
   width: auto;
   min-width: 100%;
   height: auto;
@@ -23,7 +22,8 @@ export const MaskListDiv = styled.div`
 export const MaskSummaryBox = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 205px;
+  width: 430px;
+  height: 203px;
   padding: 10px;
   margin: 0 5px 10px 5px;
   border: 1px solid #d9d9d9;
@@ -33,9 +33,9 @@ export const MaskSummaryBox = styled.div`
 
 // 리스트에서 각 마스크 이미지
 export const MaskSummaryImg = styled.img`
-  width: 80%;
-  height: 90%;
-  // margin-right: 10px;
+  width: 180px;
+  height: 180px;
+  margin: auto;
   padding: 10px;
   border: 1px solid #d9d9d9;
 `;
@@ -46,10 +46,10 @@ export const MaskSummaryContent = styled.div`
   flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
-  height: 90%;
+  width: 210px;
+  height: 180px;
   padding: 5px;
-  margin-left: 10px;
+  margin: auto 13px auto;
   // border: 2px solid blue;
 `;
 

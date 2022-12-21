@@ -17,7 +17,6 @@ function MyWishLists({ wishList, memberId }) {
 
   useEffect(() => {
     if (isClickSetUup) {
-      // console.log("얍");
       putWishlist(memberId, maskId);
       window.location.reload();
     }
@@ -29,7 +28,7 @@ function MyWishLists({ wishList, memberId }) {
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr 1fr",
-          rowGap: "20px",
+          rowGap: "30px",
           columnGap: "10px",
         }}
       >
@@ -45,15 +44,13 @@ function MyWishLists({ wishList, memberId }) {
                 // border: "1px solid red",
               }}
             >
-              <a
-                href={`http://34.64.79.156:3000/aboutMask/${wish.maskId}/Masinsa`}
-              >
+              <a href={`/aboutMask/${wish.maskId}/Masinsa`}>
                 {/* wish 마스크 이미지 */}
                 <div
                   style={{
                     position: "relative",
-                    height: "230px",
-                    width: "240px",
+                    height: "240px",
+                    width: "250px",
                     backgroundImage: `url(${wish.thumbnail})`,
                     backgroundSize: "cover",
                     border: "1px solid #9A9A9A",
@@ -64,9 +61,10 @@ function MyWishLists({ wishList, memberId }) {
                   <div
                     style={{
                       position: "absolute",
-                      width: "101%",
-                      height: "35%",
+                      width: "252px",
+                      height: "75px",
                       background: "#2D2D2D",
+                      left: "-0.5%",
                       bottom: "-1%",
                       border: "0px",
                       borderRadius: "0px 0px 15px 15px",
@@ -112,8 +110,8 @@ function MyWishLists({ wishList, memberId }) {
                   border: "0px",
                   borderRadius: "5px",
                   background: "#F5F5F5",
-                  top: "3%",
-                  right: "3%",
+                  top: "4%",
+                  right: "0%",
                   fontSize: "15px",
                   cursor: "pointer",
                   boxShadow: "1px 2px 3px #9A9A9A",

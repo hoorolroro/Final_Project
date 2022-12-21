@@ -4,9 +4,8 @@
 // 이전버튼(prevBtn), 다음버튼(nextBtn)
 
 import React, { useState } from "react";
-import styled from "styled-components";
-import { getReviews } from "../api/review/getReviews";
-import { PageUl, PageLi, PageSpan } from "../styles/PaginationStyle";
+
+import { PageUl, PageLi, PageSpan } from "../../styles/PaginationStyle";
 
 const Pagination3 = ({ page, size, setPage, allReviews, reviewCount }) => {
   // console.log(page);

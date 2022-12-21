@@ -1,6 +1,4 @@
-import { Pagination } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import ReviewLists from "../about/ReviewLists";
 import { getReviews } from "../../api/review/getReviews";
 import {
@@ -14,16 +12,12 @@ import {
   ReviewTotal,
   Totals,
   ReviewHead,
-  Head,
-  Heads,
 } from "../../styles/AboutPageStyle";
-import Pagination3 from "../Pagination3";
+import Pagination3 from "./Pagination3";
 import { getReviewCount } from "../../api/review/getReviewCount";
 import ReviewWrite from "./ReviewWrite";
-import { getMember } from "../../api/member/getMember";
-import LoginBtn from "../LoginBtn";
 
-function Reviews({ maskId, mask, analysisinfo, memberId }) {
+function Reviews({ maskId, mask, memberId }) {
   // getReview를 위한 파라미터 설정
 
   // 리뷰페이지 번호 : 처음 1 에서 버튼 누를때마다 변경됨
@@ -72,9 +66,9 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
 
   return (
     <div>
-      <ReviewHead>
-        <i>상세리뷰</i>
-      </ReviewHead>
+      <hr></hr>
+      <i>상세리뷰</i>
+      <hr></hr>
       {/* <ReviewWrite maskId={maskId} /> */}
       <ReviewSection>
         {/* 버튼이 눌렸을때, 네이버리뷰면 reviewType (naver) 회원리뷰면 member */}
@@ -101,16 +95,18 @@ function Reviews({ maskId, mask, analysisinfo, memberId }) {
                   Member Review
                 </MasinsaReviewBtn>
               ) : (
-                <MasinsaReviewBtn
-                  onClick={() => {
-                    // setReviewType("member");
-                    alert(
-                      "죄송합니다. MASINSA의 회원이 되시면 이용하실 수 있습니다."
-                    );
-                  }}
-                >
-                  Member Review
-                </MasinsaReviewBtn>
+                <a href="/Login/MASINSA">
+                  <MasinsaReviewBtn
+                    onClick={() => {
+                      // setReviewType("member");
+                      alert(
+                        "로그인이 필요한 서비스 입니다. 로그인 후, 이용부탁드립니다."
+                      );
+                    }}
+                  >
+                    Member Review
+                  </MasinsaReviewBtn>
+                </a>
               )}
             </>
           ) : (

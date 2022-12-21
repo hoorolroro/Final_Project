@@ -1,9 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+export const MyPageWrapper = styled.section`
+  width: 950px;
+  margin: 0px auto;
+  // border: 1px solid red;
+`;
+
 // 찜목록 section
 export const MyPageBox = styled.div`
-  height: 350px;
+  width: 900px;
+  height: 370px;
   border-radius: 15px;
   border: 2px solid #05735f;
   border-style: dashed;
@@ -14,7 +21,7 @@ export const MyPageBox = styled.div`
 // 찜목록이름 (MyWishList)
 export const MyPageArticle = styled.div`
   position: absolute;
-  width: 96.5%;
+  width: 870px;
   height: 13%;
   border-radius: 15px 15px 0px 0px;
   // border: 1px solid red;
@@ -34,9 +41,9 @@ export const MyWishMasks = styled.div`
   position: absolute;
   // border: "1px solid red",
   top: 23%;
-  left: 3%;
-  right: 3%;
+  left: 2%;
+  right: 2%;
   height: 70%;
-  width: 94%;
-  overflow-x: scroll;
+  width: 870px;
+  overflow: auto;
 `;
