@@ -17,7 +17,7 @@ function MyWishLists({ wishList, memberId }) {
 
   useEffect(() => {
     if (isClickSetUup) {
-      console.log("얍");
+      // console.log("얍");
       putWishlist(memberId, maskId);
       window.location.reload();
     }
