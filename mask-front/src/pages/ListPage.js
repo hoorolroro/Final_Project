@@ -12,8 +12,8 @@ function ListPage({ user }) {
   // console.log(user);
 
   // 로그인시, 로컬에 저장되는 userInfo
-  // const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  const userInfo = localStorage.getItem("userInfo");
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  // const userInfo = localStorage.getItem("userInfo");
 
   // kf 파라미터 설정
   const { blockingindex } = useParams();
