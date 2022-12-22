@@ -26,14 +26,14 @@ public class MaskController {
 	@Autowired
 	MaskServiceImpl maskService;
 	
-	@ApiOperation(value = "4번 - Top3 마스크 정보 조회 - 클릭수 > 평점 높은순 > 리뷰 많은 순")
+	@ApiOperation(value = "4번 - Top3 마스크 정보 조회")
 	@GetMapping("/mask/top3")
 	public ResponseEntity<List<MaskDTO>> getTop3Mask() {
 		List<MaskDTO> top3 = maskService.getTop3Mask();
 		return new ResponseEntity<List<MaskDTO>>(top3, HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "6번 - maskId를 통해 마스크 정보 조회")
+	@ApiOperation(value = "6번 - 마스크 정보 조회")
 	@GetMapping("/mask")
 	public ResponseEntity<MaskDTO> getMask(@RequestParam Long maskId) {
 		MaskDTO maskDTO = maskService.getMask(maskId);
@@ -50,14 +50,14 @@ public class MaskController {
 	// 	return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK); 
 	// }
 	
-	@ApiOperation(value = "14번 - maskId를 통해 해당 마스크의 모든 이미지 조회")
+	@ApiOperation(value = "14번 - 마스크 이미지 조회")
 	@GetMapping("/mask/image")
 	public ResponseEntity<List<ImageDTO>> getMaskDetailImages(@RequestParam Long maskId) {
 		List<ImageDTO> imageList = maskService.getAllImages(maskId);
 		return new ResponseEntity<List<ImageDTO>>(imageList, HttpStatus.OK);
 	}
 		
-	@ApiOperation(value = "7번 - maskId와 soldout을 통해 마스크 품절 여부 수정")
+	@ApiOperation(value = "7번 - 마스크 품절 여부 수정")
 	@PutMapping("/mask/soldout")
 	public ResponseEntity<?> updateSoldout(@RequestParam Long maskId, @RequestParam String soldout) {
 		MaskDTO maskDTO = maskService.updateSoldout(maskId, soldout);
@@ -69,13 +69,13 @@ public class MaskController {
 		  return new ResponseEntity<>(msg, HttpStatus.OK);
 		  } 
 	
-	@ApiOperation(value = "8번 - maskId를 통해 해당 마스크의 클릭수 1 추가")
+	@ApiOperation(value = "8번 - 마스크의 클릭수 1 추가")
 	@PutMapping("/mask/click")
 	public void updateClick(@RequestParam Long maskId) {
 		maskService.updateClick(maskId);
 	}
 	
-	@ApiOperation(value = "9번 - maskId를 통해 해당 마스크 삭제 상태로 변경")
+	@ApiOperation(value = "9번 - 마스크 삭제")
 	@PutMapping("/mask/delete")
 	public ResponseEntity<?> deleteMask(@RequestParam Long maskId) {
 		MaskDTO maskDTO = maskService.deleteMask(maskId);
@@ -90,7 +90,7 @@ public class MaskController {
 	//api that first filters and then sorts
 	//api that takes column name, column filter , size, page  and returns list of masks with pagination
 	//col, order, filterCol, filter are all optional
-	@ApiOperation(value = "11번 - sortCol, order, filterCol, filter를 통해 마스크 필터링 및 정렬. filterCol은 총 3개까지 가능")
+	@ApiOperation(value = "11번 - 마스크 필터링 및 정렬")
 	@GetMapping("/mask/filter/sort")
 	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String sortCol, 
 		@RequestParam(required = false) String order,
@@ -115,7 +115,7 @@ public class MaskController {
 
 	//api that searchs by keyword then sorts
 	//takes keyword, sortCol, order and returns list of masks
-	@ApiOperation(value = "13번 - keyword, sortCol, order를 통해 마스크 검색 및 정렬")
+	@ApiOperation(value = "13번 - 마스크 검색 및 정렬")
 	@GetMapping("/mask/search/sort")
 	public ResponseEntity<?> getMaskList(@RequestParam(required = false) String keyword, 
 		@RequestParam(required = false) String sortCol, 

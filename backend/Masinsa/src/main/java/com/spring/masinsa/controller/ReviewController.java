@@ -31,7 +31,7 @@ public class ReviewController {
   @Autowired 
   ReviewServiceImpl reviewService;
   
-  @ApiOperation(value = "15번 - maskId, reviewType에 해당하는 리뷰를 반환한다. (페이징 처리)")
+  @ApiOperation(value = "15번 - 마스크 리뷰 조회")
   @GetMapping("/review")
   public ResponseEntity<?> findByMaskIdAndReviewType(@RequestParam Long maskId,
       @PageableDefault(size = 10, page = 1) Pageable pageable, 
@@ -51,7 +51,7 @@ public class ReviewController {
   }
   
   //AnalysisInfoController.java에서 분석정보를 만들기 위해 리뷰갯수를 확인하는 메소드
-  @ApiOperation(value = "16번 - maskId, reviewType에 해당하는 리뷰 갯수를 반환한다.")
+  @ApiOperation(value = "16번 - 마스크 리뷰 개수 조회")
   @GetMapping("/review/count")
   public ResponseEntity<?> countByMaskIdAndReviewType(@RequestParam Long maskId, @RequestParam String reviewType) {
     Message message = new Message();
