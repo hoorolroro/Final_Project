@@ -8,7 +8,7 @@ function NaverLogin({ setUser, setStatus, user }) {
   // 윈도우 객체에 있는 네이버에 로그인 함수를 이용하여 토큰 값을 바로 전달
   const { naver } = window;
   const naverLogin = new naver.LoginWithNaverId({
-    clientId: "nVtdkXtRReFK7Wbi274O", // CLIENT_ID
+    clientId: "UNY76CePTThz2d9AIPl4", // CLIENT_ID
     // callbackUrl: "http://localhost:3000/Login/MASINSA", // CALLBACKURL
     callbackUrl: "http://34.64.79.156:3000/Login/MASINSA",
     isPopup: false /* 팝업을 통한 로그인 여부, true 면 팝업 */,
