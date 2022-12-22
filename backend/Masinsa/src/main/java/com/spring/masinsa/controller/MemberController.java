@@ -38,7 +38,7 @@ public class MemberController {
 	@Autowired
 	MemberServiceImpl memberService;
 	
-	@ApiOperation(value = "1번 - 로그인 시 기존 회원인지 판별한 후 신규 회원인 경우 DB에 데이터 저장 ")
+	@ApiOperation(value = "1번 - 로그인&회원가입 ")
 	@PostMapping("/member/new-member")
 	public ResponseEntity<?> checkMember(@RequestBody JSONObject acessToken) throws ParseException {
 		String token = (String) acessToken.get("token");
@@ -120,7 +120,7 @@ public class MemberController {
         }
     }
 	
-	@ApiOperation(value = "2번 - memberId를 통해 회원 탈퇴")
+	@ApiOperation(value = "2번 - 회원 탈퇴")
 	@PutMapping("/member/delete")
 	public ResponseEntity<?> deleteMember(@RequestParam Long memberId) {
 		MemberDTO memberDTO = memberService.deleteMember(memberId);
@@ -132,7 +132,7 @@ public class MemberController {
 		return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 
-	@ApiOperation(value = "3번 - memberId를 통해 회원 정보 조회")
+	@ApiOperation(value = "3번 - 회원 정보 조회")
 	@GetMapping("/member")
 	public ResponseEntity<MemberDTO> getMask(@RequestParam Long memberId) {
 		MemberDTO memberDTO = memberService.getMember(memberId); 
