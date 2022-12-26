@@ -28,33 +28,38 @@ public class MaskController {
 	
 	@ApiOperation(value = "4번 - Top3 마스크 정보 조회")
 	@GetMapping("/mask/top3")
-	public ResponseEntity<List<MaskDTO>> getTop3Mask() {
+	public ResponseEntity<?> getTop3Mask() {
 		List<MaskDTO> top3 = maskService.getTop3Mask();
-		return new ResponseEntity<List<MaskDTO>>(top3, HttpStatus.OK);
+		if (top3 != null) {
+			Message msg = new Message(Status.OK, "Top3 마스크 정보 조회가 정상적으로 실행되었습니다.", top3);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
+		  }
+		  Message msg = new Message(Status.OK, "Top3 마스크 정보 조회에 실패하였습니다.", top3);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "6번 - 마스크 정보 조회")
 	@GetMapping("/mask")
-	public ResponseEntity<MaskDTO> getMask(@RequestParam Long maskId) {
+	public ResponseEntity<?> getMask(@RequestParam Long maskId) {
 		MaskDTO maskDTO = maskService.getMask(maskId);
-		return new ResponseEntity<MaskDTO>(maskDTO, HttpStatus.OK);
+		if (maskDTO != null) {
+			Message msg = new Message(Status.OK, "마스크 정보 조회가 정상적으로 실행되었습니다.", maskDTO);
+		    return new ResponseEntity<>(msg, HttpStatus.OK);
+		  }
+		  Message msg = new Message(Status.OK, "마스크 정보 조회에 실패하였습니다.", maskDTO);
+		  return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
-	 
-	// @ApiOperation(value = "10번 - kf, size, shape를 이용하여 검색결과 조회 (필터링)")
-	// @GetMapping("/mask/filter")
-	// public ResponseEntity<List<MaskDTO>> getMaskByFilter(@RequestParam(required = false) String blockingIndex, 
-	// 								  @RequestParam(required = false) String size, 
-	// 								  @RequestParam(required = false, value="shape") String shape){
-	// 	System.out.println(shape + "안나옴");
-	// 	List<MaskDTO> maskList = maskService.getAllMask(blockingIndex, size, shape);
-	// 	return new ResponseEntity<List<MaskDTO>>(maskList, HttpStatus.OK); 
-	// }
 	
 	@ApiOperation(value = "14번 - 마스크 이미지 조회")
 	@GetMapping("/mask/image")
-	public ResponseEntity<List<ImageDTO>> getMaskDetailImages(@RequestParam Long maskId) {
+	public ResponseEntity<?> getMaskDetailImages(@RequestParam Long maskId) {
 		List<ImageDTO> imageList = maskService.getAllImages(maskId);
-		return new ResponseEntity<List<ImageDTO>>(imageList, HttpStatus.OK);
+		if (imageList != null) {
+			Message msg = new Message(Status.OK, "마스크 이미지 조회가 정상적으로 실행되었습니다.", imageList);
+			return new ResponseEntity<>(msg, HttpStatus.OK);
+		}
+		Message msg = new Message(Status.OK, "마스크 이미지 조회에 실패하였습니다.", imageList);
+		return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 		
 	@ApiOperation(value = "7번 - 마스크 품절 여부 수정")

@@ -134,9 +134,14 @@ public class MemberController {
 
 	@ApiOperation(value = "3번 - 회원 정보 조회")
 	@GetMapping("/member")
-	public ResponseEntity<MemberDTO> getMask(@RequestParam Long memberId) {
+	public ResponseEntity<?> getMask(@RequestParam Long memberId) {
 		MemberDTO memberDTO = memberService.getMember(memberId); 
-		return new ResponseEntity<MemberDTO>(memberDTO, HttpStatus.OK);
+		if (memberDTO != null) {
+			Message msg = new Message(Status.OK, "회원 정보 조회가 정상적으로 실행되었습니다.", memberDTO);
+			return new ResponseEntity<>(msg, HttpStatus.OK);
+		}
+		Message msg = new Message(Status.OK, "회원 정보 조회에 실패하였습니다.", memberDTO);
+		return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 	
 	

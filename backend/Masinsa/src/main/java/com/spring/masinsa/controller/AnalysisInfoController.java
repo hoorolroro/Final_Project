@@ -30,18 +30,6 @@ public class AnalysisInfoController {
   @ApiOperation(value = "23번 - 마스크 분석 정보 조회")
   @GetMapping("/analysisinfo")
   public ResponseEntity<?> getAnalysisInfo(@RequestParam Long maskId) {
-  //먼저 해당 마스크의 리뷰갯수가 10000개 이상인지 확인
-  // int reviewCount = reviewService.countByMaskIdAndReviewType(maskId, "naver");
-  // if(reviewCount < 10000) {
-  //   Message message = new Message(Status.OK, "해당 마스크의 리뷰가 10000개 이상이 아닙니다.", null);
-  //   return new ResponseEntity<>(message, HttpStatus.OK);
-  // } 
-    //해당 마스크의 리뷰가 10000개 이상이면 분석정보를 만들어서 리턴
-  // else {
-  //   AnalysisInfoDTO analysisInfo = analysisInfoService.getAnalysisInfo(maskId);
-  //   Message message = new Message(Status.OK, "해당 마스크의 분석정보를 가져왔습니다.", analysisInfo);
-  //   return new ResponseEntity<>(message, HttpStatus.OK);
-  // }
     AnalysisInfoDTO analysisInfo = analysisInfoService.getAnalysisInfo(maskId);
     if (analysisInfo == null) {
       Message message = new Message(Status.OK, "해당 마스크의 분석정보가 없습니다.", null);
@@ -49,7 +37,6 @@ public class AnalysisInfoController {
     }
     Message message = new Message(Status.OK, "해당 마스크의 분석정보를 가져왔습니다.", analysisInfo);
     return new ResponseEntity<>(message, HttpStatus.OK);
-
   }
   
   @ApiOperation(value = "24번 - 마스크의 분석 정보 삭제")
