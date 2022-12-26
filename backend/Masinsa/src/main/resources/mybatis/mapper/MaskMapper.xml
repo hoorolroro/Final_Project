@@ -102,27 +102,6 @@
 		INNER JOIN masinsa.review B ON A.mask_id = B.mask_id) DESC LIMIT 3 
 	</select>
 
-
-		<!-- SELECT * FROM mask
-		<where>
-			<if test="filterCol1 != null or filter1 != null">
-				${filterCol1} = #{filter1}
-			</if>
-			<if test="filterCol2 != null or filter2 != null">
-				AND ${filterCol2} = #{filter2}
-			</if>
-			<if test="filterCol3 != null or filter3 != null">
-				AND ${filterCol3} = #{filter3}
-			</if>
-		</where>
-		<if test="sortCol != null and order != null">
-			ORDER BY ${sortCol} ${order}
-		</if>
-		<if test="limit != null and offset != null">
-			LIMIT #{limit} , #{offset}
-		</if>
-		; -->
-
   <!-- <resultMap id="getAllMaskInfo" type="Mask"> -->
   <resultMap id="getAllMaskInfo" type="Mask">
   	<id column="mask_id" property="id" />
@@ -140,3 +119,17 @@
   </resultMap>
   	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
