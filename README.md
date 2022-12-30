@@ -1,4 +1,5 @@
 # 마신사 프로젝트
+<img width="840" alt="마신사" src="https://user-images.githubusercontent.com/109947297/210025408-26e6c4e1-eebc-4c6a-92f3-56ad147e9939.png">
 
 ### [프로젝트 기획 배경]
 - 마스크 사이즈에 대한 표준 규격이 존재하지 않음
